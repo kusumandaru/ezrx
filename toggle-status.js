@@ -7,7 +7,6 @@ $(document).ready(function(){
             $.getJSON("status.json", function(json) {
                 alert('js and css : '+json.active);
             })
-
         });
     });
 
