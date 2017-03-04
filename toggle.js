@@ -1,15 +1,10 @@
 $(function() {
-    var $css =$('link[rel~="js-ezrx.css"]'), toggle = false;
+    var $css =$('link[rel~="js-ezrx.css"]');
 
     $.getJSON("ezrx-config.json", function(json) {
         console.log('js and css : '+json.active); // this will show the info it in firebug console
         activate(json.active, $css);
     })
-
-    $('button').click(function() {
-        activate(toggle, $css);
-        toggle = !toggle;
-    });
 });
 
 function activate(toggle, $css) {
