@@ -10,7 +10,8 @@
 </head>
 <body>
 <div class="login"></div>
+<div id="login-form-wrap">login</div>
 </body>
 <script src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
-<script src="https://ndaru.click/ezrx/toggle.js"></script>
+<script src="toggle.js"></script>
 </html>

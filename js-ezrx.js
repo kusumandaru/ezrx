@@ -1,3 +1,5 @@
+var urlSite = "https://ndaru.click/ezrx/";
+
 (function($) {
 
     var url, pagetitle;
@@ -97,11 +99,11 @@
     function transform_loginpage() {
         var newlayout = $("<div class='jg-box-login'>")
             .append($("<div class='jg-box-login-inner'>")
-                .append($("<img src='https://ndaru.click/ezrx/images/ezrx.png' class='jg-login-logo' />"))
+                .append($("<img src="+urlSite+"images/ezrx.png class='jg-login-logo' />"))
                 .append($("<span class='jg-login-welcome'>Welcome</span>"))
             )
             .append($("<div class='jg-box-login-bottom'>")
-                .append($("<img src='https://ndaru.click/ezrx/images/zuellig.png' class='jg-login-logo' />"))
+                .append($("<img src="+urlSite+"images/zuellig.png class='jg-login-logo' />"))
             )
 
             .prependTo('body');
