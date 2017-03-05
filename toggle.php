@@ -34,7 +34,7 @@ function enable() {
 }
 
 function save($status){
-    $file = 'status.json';
+    $file = 'https://ndaru.click/ezrx/status.json';
 
     // Open the file to get existing content
     $current = file_get_contents($file);

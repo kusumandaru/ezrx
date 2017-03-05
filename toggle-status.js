@@ -4,7 +4,7 @@ $(document).ready(function(){
         var ajaxurl = 'toggle.php',
             data =  {'action': clickBtnValue};
         $.post(ajaxurl, data, function (response) {
-            $.getJSON("status.json", function(json) {
+            $.getJSON("https://ndaru.click/ezrx/status.json", function(json) {
                 alert('js and css : '+json.active);
             })
         });
