@@ -239,7 +239,7 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-login #login-form .login-links, .jg-box-login #login-form .login-links a { text-decoration:underline; color:#e8ff00 !important; font-style:italic; font-size:14px; }
 
 /** add logo zuellig **/
-.jg-box-login .jg-box-login-bottom { padding:0; background:none; }
+.jg-box-login .jg-box-login-bottom { padding:0; background:none; margin-top: -7pc; margin-bottom: 7pc;}
 
 .jg-inner-column { box-sizing:border-box; padding-right:20px; }
 
