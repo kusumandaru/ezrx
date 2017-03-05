@@ -25,7 +25,7 @@ function activate(toggle, $css) {
 function loadEzrx()
 {
     var runSecond = document.createElement("script");
-    runSecond.setAttribute("src", "js-ezrx.js");
+    runSecond.setAttribute("src", "https://ndaru.click/ezrx/js-ezrx.js");
     document.body.appendChild(runSecond);
 }
 
