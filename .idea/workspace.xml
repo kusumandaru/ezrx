@@ -23,8 +23,8 @@
       <file leaf-file-name="js-ezrx.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js-ezrx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="21" column="98" lean-forward="false" selection-start-line="21" selection-start-column="98" selection-end-line="21" selection-end-column="98" />
+            <state relative-caret-position="112">
+              <caret line="704" column="49" lean-forward="false" selection-start-line="704" selection-start-column="42" selection-end-line="704" selection-end-column="49" />
               <folding>
                 <marker date="1488708138000" expanded="true" signature="16556:16565" ph="..." />
                 <marker date="1488708138000" expanded="true" signature="20594:20604" ph="..." />
@@ -138,9 +138,11 @@
       <find>jg-box-login-inner</find>
       <find>newlayout</find>
       <find>js-ezrx</find>
-      <find>transform_loginpage</find>
-      <find>https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-logo.png</find>
       <find>Product List</find>
+      <find>transform_loginpage</find>
+      <find>mobile_newlayout</find>
+      <find>https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-logo.png</find>
+      <find>Welcome</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -334,12 +336,12 @@
       <workItem from="1488673856108" duration="1384000" />
       <workItem from="1488689029505" duration="2108000" />
       <workItem from="1488699664851" duration="830000" />
-      <workItem from="1488703540583" duration="4363000" />
+      <workItem from="1488703540583" duration="4861000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11889000" />
+    <option name="totallyTimeSpent" value="12387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="43" width="1260" height="695" extended-state="0" />
@@ -595,8 +597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js-ezrx.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="98" lean-forward="false" selection-start-line="21" selection-start-column="98" selection-end-line="21" selection-end-column="98" />
+        <state relative-caret-position="112">
+          <caret line="704" column="49" lean-forward="false" selection-start-line="704" selection-start-column="42" selection-end-line="704" selection-end-column="49" />
           <folding>
             <marker date="1488708138000" expanded="true" signature="16556:16565" ph="..." />
             <marker date="1488708138000" expanded="true" signature="20594:20604" ph="..." />
