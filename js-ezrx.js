@@ -517,7 +517,7 @@
         $('#btn-cart-addtoorder').bind('click', function(e) {
             e.preventDefault();
 
-            $('#add_to_order')[0].click();
+            $('#add_to_cart')[0].click();
         });
 
         $('#btn-cart-startover').bind('click', function(e) {
