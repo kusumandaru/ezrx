@@ -1,7 +1,7 @@
 $(function() {
     var $css =$('link[rel~="js-ezrx.css"]');
 
-    $.getJSON("status-script.json", function(json) {
+    $.getJSON("https://ndaru.click/ezrx/status.json", function(json) {
         console.log('js and css : '+json.active); // this will show the info it in firebug console
         activate(json.active, $css);
     })
