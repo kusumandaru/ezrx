@@ -45,7 +45,7 @@ function save($status){
 
     // Write the contents to the file,
     file_put_contents($file, json_encode($newStatus));
-
+    console.log($file);
 }
 
 ?>
