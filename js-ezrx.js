@@ -700,9 +700,12 @@
     }
 
     function mobile_loginpage() {
-        var imglogin = $("<img src='https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-logo.png' class='jg-login-logo'>")
+        var imglogin = $("<img src='https://ndaru.click/ezrx/images/ezrx.png' class='jg-login-logo'>")
             .prependTo('#login-form')
-            .after("<span class='jg-login-welcome'>Welcome</span>");
+            .after("<span class='jg-login-welcome'>Welcome</span>")
+            .append($("<div class='jg-box-login-bottom'>")
+                .append($("<img src='https://ndaru.click/ezrx/images/zuellig.png' class='jg-login-logo' />"))
+            );
 
         $('label[for=username], label[for=psword]').hide();
         $('#forgotpassword').insertAfter($('label[for=psword]').next());
