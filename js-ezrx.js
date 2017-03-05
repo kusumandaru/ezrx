@@ -19,7 +19,7 @@
 
     function desktop_newlayout() {
         /* UI */
-        if ($('.-out').length == 1 || $('#login').length == 1 || pagetitle == 'login') {
+        if ($('.-out').length == 1 || $('#login').length == 1) {
             transform_loginpage();
         }
         else {
