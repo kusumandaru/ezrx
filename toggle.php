@@ -51,6 +51,6 @@ function save($status){
 ?>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="https://ndaru.click/ezrx/toggle-status.js"></script>
 </html>

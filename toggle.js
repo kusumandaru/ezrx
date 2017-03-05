@@ -1,9 +1,13 @@
 $(function() {
     var $css =$('link[rel~="https://ndaru.click/ezrx/js-ezrx.css"]');
 
-    $.getJSON("https://ndaru.click/ezrx/status.json", function(json) {
-        console.log('js and css : '+json.active); // this will show the info it in firebug console
-        activate(json.active, $css);
+    $.ajax({
+        url: 'https://ndaru.click/ezrx/status.json',
+        dataType:'JSON',
+        success:function(json) {
+            console.log('js and css : ' + json.active); // this will show the info it in firebug console
+            activate(json.active, $css);
+        }
     })
 });
 
@@ -21,7 +25,7 @@ function activate(toggle, $css) {
 function loadEzrx()
 {
     var runSecond = document.createElement("script");
-    runSecond.setAttribute("src", "https://ndaru.click/ezrx/js-ezrx.js");
+    runSecond.setAttribute("src", "js-ezrx.js");
     document.body.appendChild(runSecond);
 }
 
