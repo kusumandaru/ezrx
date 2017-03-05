@@ -10,7 +10,7 @@ $(document).ready(function(){
                 url: urlSite+'status.json',
                 dataType:'JSON',
                 success:function(json) {
-                    alert('js and css : ' + json.active);
+                    alert('js and css : ' +urlSite+' : '+ json.active);
                 }
             })
         });
