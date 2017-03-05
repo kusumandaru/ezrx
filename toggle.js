@@ -1,5 +1,5 @@
 $(function() {
-    var $css =$('link[rel~="js-ezrx.css"]');
+    var $css =$('link[rel~="https://ndaru.click/ezrx/js-ezrx.css"]');
 
     $.getJSON("https://ndaru.click/ezrx/status.json", function(json) {
         console.log('js and css : '+json.active); // this will show the info it in firebug console
@@ -21,7 +21,7 @@ function activate(toggle, $css) {
 function loadEzrx()
 {
     var runSecond = document.createElement("script");
-    runSecond.setAttribute("src", "js-ezrx.js");
+    runSecond.setAttribute("src", "https://ndaru.click/ezrx/js-ezrx.js");
     document.body.appendChild(runSecond);
 }
 
