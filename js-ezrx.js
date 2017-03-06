@@ -494,6 +494,10 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('.attribute-label[for=principalCode]').parent().css('marginTop', '5px');
         $('.attribute-label[for=showPrincipalFavorites]').parent().css('marginTop', '5px');
 
+        //button on top and bottom table
+        $(".jg-box-toolbar").css("min-width", "500px");
+        $("#materialArrayset").before( $(".jg-box-toolbar") ); //for top
+        $(".jg-box-toolbar").clone().after( $("#materialArrayset") ); //for bottom
         // collapsible boxes
         /* var newrow = $("<div class='row row-1 clearfix'>").appendTo('#grid-36397039');
          $('#grid-36561838').closest('.column').appendTo(newrow).removeClass('column-1 column');
