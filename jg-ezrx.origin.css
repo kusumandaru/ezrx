@@ -1,0 +1,303 @@
+body { -webkit-text-size-adjust:none; }
+a.jg-linkbtn { display:block; cursor:pointer; }
+.jg-txt-search { width:250px; height:34px; border:0; color:white; font-size:14px; padding-left:40px; box-sizing:border-box; font-weight:100; background:#005760 url("https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-icon-loupe.png") 12px 50% no-repeat;; border-radius:20px; }
+.jg-btn { padding:7px 20px; border:0; border-radius:30px; font-size:14px; background:#0C727A; color:#fff; cursor:pointer; }
+.jg-btn + .jg-btn { margin-left:10px; }
+.jg-textheader { margin-top:5px; }
+.jg-buttonheader { margin-top:8px; }
+.jg-btn-transparent { background-color:transparent; color:#0c727A; padding:10px 35px 10px 0; color:#0C727A; background-position:right 50%; background-repeat:no-repeat; background-size:30px; }
+.jg-btn-icononly { width:16px; height:16px; padding:0; margin:0; background-size:16px; }
+.jg-btn-icononly.addrow { background-image:url('https://zuelligpharmatest1.bigmachines.com/img/config/add.png'); }
+tfoot .jg-btn { margin:10px; }
+
+.jg-btn-icon { padding:10px 20px 10px 45px; background-repeat:no-repeat; background-position:8px 48%; }
+.jg-btn-icon.cart-update { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-icon-cart-update.png'); }
+.jg-btn-icon.cart-startover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-icon-cart-startover.png'); }
+.jg-btn-icon.cart-addtoorder { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-icon-cart-addtoorder.png'); }
+.jg-btn-icon.cart-cancelshopping { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-icon-cart-cancelshopping.png'); }
+.jg-btn-icon.cart-save { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-icon-cart-save.png'); }
+
+#jg-overlay { position:fixed; top:0; right:0; bottom:0; left:0; z-index:99999; background:white; }
+
+.jg-box-mainlayout { position:relative; }
+.jg-box-mainlayout, .jg-box-mainlayout .tab-strip .tab-text, .jg-box-mainlayout .error-text
+{ font-family:Arial, Helvetica, sans-serif; }
+.jg-box-maincontent .button-text, .jg-box-maincontent .button-text:link, .jg-box-maincontent .button-text:visited { font-size:14px; font-weight:normal; }
+.jg-box-mainlayout .text-wrapper-inner, .jg-box-mainlayout .form-item select { background:#fff; }
+.jg-box-mainlayout .panel { border:0; margin-top:20px; }
+.jg-box-mainlayout .panel .panel-body, .jg-box-mainlayout .panel .panel-body .field { font-size:14px; color:#404040; }
+.jg-box-mainlayout .tab-content { padding:0; border:0; }
+.jg-box-mainlayout .column-layout + .column-layout { margin-top:10px; }
+.jg-box-mainlayout form[name="bmDocForm"] .form-item { padding:0 20px; }
+.jg-box-mainlayout .qs_header label,
+.jg-box-mainlayout #attr_wrapper_1_billToAddress_html_t label,
+.jg-box-mainlayout #attr_wrapper_1_soldToAddress_html_t label,
+.jg-box-mainlayout #attr_wrapper_1_payerTo_html_t label,
+.jg-box-mainlayout #attr_wrapper_1_shipToAddress_html_t label { background:#007077; padding:7px 15px; box-sizing:border-box; }
+.jg-box-mainlayout .qs_header span,
+.jg-box-mainlayout #attr_wrapper_1_billToAddress_html_t label,
+.jg-box-mainlayout #attr_wrapper_1_soldToAddress_html_t label,
+.jg-box-mainlayout #attr_wrapper_1_payerTo_html_t label,
+.jg-box-mainlayout #attr_wrapper_1_shipToAddress_html_t label { font-size:18px; }
+.jg-box-mainlayout .column-layout .column { box-sizing:border-box; }
+.jg-box-mainlayout .panel .panel-tc,
+.jg-box-mainlayout .panel .panel-tl,
+.jg-box-mainlayout .panel .panel-tr,
+.jg-box-mainlayout .panel .panel-mr,
+.jg-box-mainlayout .panel .panel-ml { background:#afc008; }
+.jg-box-mainlayout .panel .panel-tl { border:0; padding:7px 15px; }
+.jg-box-mainlayout .panel .panel-tr { padding-right:0; }
+.jg-box-mainlayout .panel .panel-body { border:0; background:none; }
+.jg-box-mainlayout .text-wrapper-inner { padding:0; }
+.jg-box-mainlayout .text-wrapper-inner input { box-sizing:border-box; }
+.jg-box-mainlayout .panel.collapsible span.panel-heading { background:none; padding-left:0; }
+.jg-box-mainlayout .panel.collapsible .panel-tc { background:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-panel-arrow-down.png') 100% 50% no-repeat; }
+.jg-box-mainlayout #document-form { background:none; border:0; }
+.jg-box-mainlayout .inlinevalue { float:left; padding-left:0 !important; margin-left:10px; }
+.jg-box-mainlayout .form-element ul { margin:0; padding:2px 0; }
+.jg-box-mainlayout .panel .panel-bc, .jg-box-mainlayout .panel .panel-bl, .jg-box-mainlayout .panel .panel-br { background:none; }
+.jg-box-mainlayout table { border:0 !important; background:#edeac7; }
+.jg-box-mainlayout td.button-middle { margin:0; background:#007078; }
+.jg-box-mainlayout .button-text, .jg-box-mainlayout .button-text:link, .jg-box-mainlayout .button-text:visited { color:#fff; }
+.jg-box-mainlayout .view-label, .jg-box-mainlayout .form-label, .jg-box-mainlayout .form-item label { color:#404040; }
+.jg-box-mainlayout .column.label-left .blocklabel { display:block; float:none; padding:0; margin-bottom:5px; }
+.jg-box-mainlayout .view-label, .jg-box-mainlayout .form-label, .jg-box-mainlayout .form-item label { font-size:14px; font-weight:bold; }
+.jg-box-mainlayout #attr_wrapper_1_visualWorkflow { margin:0; padding:0; }
+.jg-box-mainlayout #attr_wrapper_1_visualWorkflow .form-label { display:none; float:none; width:auto; margin:0 0 20px; }
+.jg-box-mainlayout #field_wrapper_1_visualWorkflow { margin:50px 20px; text-align:center; }
+.jg-box-mainlayout #field_wrapper_1_visualWorkflow img { width:auto !important; }
+.jg-box-mainlayout .bm-actionstrip-horiz table { margin:0; }
+.jg-box-mainlayout .bottom-bar, .jg-box-mainlayout  .bottom-bar:link, .jg-box-mainlayout  .bottom-bar:visited { background:none; }
+.jg-box-mainlayout table[onclick] + table[onclick], .jg-box-mainlayout a + table[onclick], .jg-box-mainlayout table[onclick] + a > table { margin-left:10px; }
+.jg-box-mainlayout .tab-strip .rule-highlight a.tab-left, .jg-box-mainlayout .tab-strip .rule-highlight a.tab-left .tab-inner { }
+.jg-box-mainlayout .tab-strip .rule-highlight a.tab-left .tab-text {  }
+.jg-box-mainlayout .attribute-field { word-wrap:break-word; }
+
+/* errors box */
+.jg-box-mainlayout #actionErrorMessagesBox { width:auto; margin:20px; }
+.jg-box-mainlayout li.error-text { font-size:14px; padding-left:25px; }
+.jg-box-mainlayout li.error-text + li.error-text, .jg-box-mainlayout ul.error-text + ul.error-text { margin-top:5px; }
+.jg-box-mainlayout #globalErrorMessages ul.plain-list li { font-size:14px; padding-left:25px; }
+.jg-box-mainlayout #globalErrorMessages ul.plain-list li + li { margin-top:5px; }
+
+/* tab strip */
+.jg-box-mainlayout ul.tab-strip { padding:3px 0; border-bottom:2px solid #C7C7C7; background:none; }
+.jg-box-mainlayout ul.tab-strip li { margin:0; padding:0; }
+.jg-box-mainlayout ul.tab-strip li + li { border-left:2px solid #c7c7c7; }
+.jg-box-mainlayout ul.tab-strip li a { border:0; background:none; border-radius:0; }
+.jg-box-mainlayout .tab-strip .tab-left { padding-left:20px; background:none; border:0; }
+.jg-box-mainlayout .tab-strip .tab-right { padding-right:20px; }
+.jg-box-mainlayout .tab-strip .tab-left:hover { background:none; }
+.jg-box-mainlayout .tab-strip .tab-active a.tab-left, .jg-box-mainlayout .tab-strip .tab-active a.tab-left:hover { background:none; border:0; }
+.jg-box-mainlayout .tab-strip a.tab-left .tab-text { color:#A8A8A8; font-size:20px; font-weight:normal; }
+.jg-box-mainlayout .tab-strip .tab-active a.tab-left .tab-text,
+.jg-box-mainlayout .tab-strip a.tab-left:hover .tab-text,
+.jg-box-mainlayout .tab-strip .tab-active a.tab-left:hover .tab-text { color:#4C4C4C; }
+.jg-box-mainlayout .tab-strip .tab-text, .jg-box-mainlayout .tab-strip a.tab-left { height:35px; line-height:33px; }
+.jg-box-mainlayout .tab-content { background:none; }
+
+.jg-box-sidenav, .jg-box-rightpanel { min-height:600px; }
+.jg-box-sidenav { position:absolute; top:0; left:0; width:50px; height:100%; background:#006c86 url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-sidenav.png') top left no-repeat; background-size:100% 100%; }
+.jg-box-rightpanel { margin-left:50px; position:relative; background:#198f92; }
+
+.jg-box-submenu { position:absolute; top:0; left:0; min-width:150px; padding-top:42px; box-sizing:border-box; }
+.jg-box-mainarea {  }
+
+.jg-list-mainmenu { margin:0; padding:20px 0; list-style:none; }
+.jg-item-mainmenu {  }
+.jg-item-mainmenu.jg-separator { height:50px; }
+.jg-item-mainmenu + .jg-item-mainmenu { margin-top:20px; }
+.jg-item-mainmenu .jg-linkbtn { height:50px; background-position:center center; background-repeat:no-repeat; }
+.jg-item-mainmenu .jg-linkbtn.active { background-color:#198f92; }
+.jg-linkbtn.profile { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-user.png'); }
+.jg-linkbtn.home { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-home.png'); }
+.jg-linkbtn.orders { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-orders.png'); }
+.jg-linkbtn.settings { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-settings.png'); }
+.jg-linkbtn.logout { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-logout.png'); }
+
+.jg-img-submenu-icon { display:block; width:auto; height:66px; margin:0 auto; }
+.jg-list-submenu { list-style:none; margin:50px 12px 50px 12px; padding:20px 0; border-bottom:1px solid white; }
+.jg-item-submenu {  }
+.jg-item-submenu + .jg-item-submenu {  }
+.jg-item-submenu a { display:block; padding:0 12px; line-height:70px; color:white; font-size:16px; font-weight:100; }
+.jg-item-submenu a.active, .jg-item-submenu a:hover { color:#e8ff00; }
+
+.jg-box-topbar, .jg-box-toolbar, .jg-box-maincontent, .jg-box-footer { min-width:1024px; box-sizing:border-box; }
+.jg-box-topbar { height:60px; padding-top:1px; color:white; background:#00575d; }
+.jg-box-topbar h2 { margin:0; padding:20px; color:white; font-size:16px; text-align:center; font-weight:normal; }
+
+.jg-box-toolbar { height:72px; padding:5px 20px; background:#0C727A; box-sizing:border-box; }
+.jg-box-toolbar.invert { background:#b9ca02; }
+.jg-box-toolbar.invert .jg-btn { color:#e8ff00; background:#0C727A; }
+.jg-box-toolbar .jg-txt-search { margin:13px 0; }
+.jg-box-toolbar .jg-btn { margin-top:15px; font-size:14px; }
+
+.jg-list-tool { float:left; list-style:none; margin:0; padding:0; }
+.jg-list-tool-right { float:right; list-style:none; margin:0; padding:0; }
+.jg-item-tool { float:left; }
+.jg-item-tool + .jg-item-tool { margin-left:25px; }
+.jg-item-tool.jg-separator { height:60px; border-right:1px solid #e8ff00; }
+.jg-box-toolbar.invert .jg-separator { border-color:#ecff26; }
+.jg-item-tool.jg-spacer { width:50px; height:10px; }
+.jg-tool-select { width:220px; height:41px; padding:10px; font-weight:100; color:white; font-size:14px; border:none; background:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-search.png') 0 0 no-repeat; -webkit-appearance:none; }
+.jg-item-tool option, .jg-item-tool option:hover { color:#000; }
+.jg-item-tool .jg-tool-select { margin-top:11px; }
+.jg-item-tool .jg-linkbtn { min-width:25px; margin-top:8px; padding-top:34px; color:white; text-align:center; font-weight:100; background-position:top center; background-repeat:no-repeat; }
+.jg-item-tool .jg-btn { background-color:transparent; color:white; border:2px solid #fff; }
+
+.jg-box-mainlayout .fa-search:before { position:relative; top:-3px; }
+
+.jg-box-mainlayout .hover-modal { width:30%; height:auto; }
+.jg-box-mainlayout .hover-modal-content { width:100%; margin:0 auto; box-sizing:border-box; }
+
+/* toolbars */
+.jg-item-tool .jg-linkbtn.search { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-loupe.png'); }
+.jg-item-tool .jg-linkbtn.manage { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-manage.png'); }
+.jg-item-tool .jg-linkbtn.refine { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-refine.png'); }
+.jg-item-tool .jg-linkbtn.default { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-default.png'); }
+.jg-item-tool .jg-linkbtn.fav { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-fav.png'); }
+.jg-item-tool .jg-linkbtn.trash { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-trash.png'); }
+.jg-item-tool .jg-linkbtn.edit { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-edit.png'); }
+.jg-tool-refresh { float:right; width:41px; height:8px; margin-top:10px; background:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-refresh.png') top right no-repeat; }
+
+.jg-item-tool.report { height:52px; }
+.jg-item-tool.report a { margin-top:4px; padding-top:42px; font-size:11px; }
+.jg-item-tool .jg-linkbtn.report-add { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-report-add.png'); }
+.jg-item-tool .jg-linkbtn.report-update { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-report-update.png'); }
+.jg-item-tool .jg-linkbtn.report-stylesheet { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-report-stylesheet.png'); }
+.jg-item-tool .jg-linkbtn.report-refresh { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-report-refresh.png'); }
+
+
+.jg-box-maincontent .extra-panes { display:none; }
+.jg-box-maincontent div.main-pane { float:none; width:auto; margin-left:0; background:none; }
+.jg-box-maincontent #cm-manager-content table.x-grid-table-bg-color { min-width:100%; }
+.jg-box-maincontent #cm-manager-content .x-grid3-hd-inner { padding:10px 15px; color:white; text-align:center; border:0; background:#B8CA42; }
+.jg-box-maincontent #cm-manager-content .x-grid3-hd-row td { border:0 !important; }
+.jg-box-maincontent #cm-manager-content .x-grid3-hd-inner .view-header { background:none; color:#fff; font-weight:100; }
+.jg-box-maincontent .jg-box-buttons { margin:50px 20px 30px; }
+
+/* new/copy order */
+.jg-item-tool .jg-linkbtn.update { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-update.png'); }
+.jg-item-tool .jg-linkbtn.startover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-startover.png'); }
+.jg-item-tool .jg-linkbtn.createtrans { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-createtrans.png'); }
+.jg-item-tool .jg-linkbtn.addtofav { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-addtofav.png'); }
+.jg-item-tool .jg-linkbtn.pipelineviewer { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-pipelineviewer.png'); }
+.jg-item-tool .jg-linkbtn.troubleshooting { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-troubleshooting.png'); }
+/* overrides */
+.jg-page-neworder #document-form { width:auto; }
+#attr_wrapper_1_totalContractValue_t { float:right; }
+#attr_wrapper_1_totalContractValue_t .field { font-size:20px; font-weight:bold; }
+#orderingRequestNoMoreThan90Characters_t {  }
+#readonly_1_note_t li span, #readonly_1_note_t li strong { font-size:14px !important; }
+
+.jg-box-maincontent { min-height:468px; overflow-x:scroll; background:#f2f2f2; }
+.jg-box-footer { padding:100px; background:#f2f2f2; }
+.jg-img-footer { display:block; width:230px; margin:0 auto; }
+
+
+/* cart */
+.jg-box-mainlayout .configuration-form { margin:0; padding:0 20px; }
+.jg-box-mainlayout #materialArrayset { margin:0 0 25px; }
+.jg-box-mainlayout .group-content { margin:20px 0; background:#afc008; }
+.jg-box-mainlayout .group-content .group-header { margin:0; padding:9px 15px; font-size:14px; color:#fff; background:#afc008; font-family:Arial, Helvetica, sans-serif; text-transform:none; border-bottom:0; line-height:1;}
+.model-config .jg-box-mainlayout .group-content .group-header span { display:block; padding-left:0; background:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-panel-arrow-down.png') 100% 50% no-repeat; }
+.model-config .jg-box-mainlayout .group-content.collapsed .group-header span { background:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-panel-arrow-down.png') 100% 50% no-repeat; }
+.model-config .jg-box-mainlayout .group-content.collapsed .group-header span { padding-left:0; }
+.jg-box-mainlayout .group-content .group-header:hover { color:#fff; background:none; }
+.jg-box-mainlayout .group-content .group-inner { border:none; margin-top:0; padding:10px; }
+.jg-box-mainlayout #materialArraySize { position:relative; bottom:3px; }
+
+.jg-box-mainlayout #jg-btn-addrow { position: relative; left: -7px; top: 2px; }
+
+/* reports */
+.jg-box-mainlayout td.view-header { padding:10px 15px; background:#afc008; }
+.jg-box-mainlayout td.view-header a { background:none; }
+
+
+/* login */
+.logged-out #jg-overlay {  }
+.logged-out .jg-box-mainlayout { display:none; }
+
+.guest-access .jg-box-login div.login-button { width:auto; text-align:center; }
+.guest-access .jg-box-login div.login-fields { width:auto; }
+.logged-out .jg-box-login #login-form-wrap { position:static; margin-left:auto; padding-top:34px; border:0; background:none; }
+.jg-box-login { position:absolute; top:0; right:0; min-height:660px; left:0; z-index:999; background:#00576a url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-bg.png') center center; background-size:cover; }
+.jg-box-login-inner { width:392px; margin:130px auto; }
+.jg-login-logo { display:block; margin:0 auto; }
+.jg-login-welcome { display:block; margin-top:38px; font-size:26px; color:#e8ff00; text-align:center; }
+.jg-box-login #login-form { width:auto !important; padding:0; margin:0; text-align:center; border:0; background:none; box-shadow:none; }
+.jg-box-login .jg-box-login-inner .login-fields { padding:0; background:none; }
+.jg-box-login .login-toggle { display:none; }
+.jg-box-login #login-form label { display:none !important; }
+.jg-box-login #login-form #psword { margin-top:35px; margin-bottom:0; }
+.jg-box-login .login-button td.button-middle { height:auto; padding:0; }
+.logged-out .jg-box-login #login-form a#log_in, .logged-out .jg-box-login #login-form .ui-block-b { width:285px; height:auto; margin-top:60px; line-height:50px; text-transform:capitalize; font-weight:bold !important; color:#00555C; border:0; border-radius:30px; background:#B8C942; }
+.logged-out .jg-box-login #login-form a#log_in:hover { background:#B8C942; color:#00555C !important; }
+.logged-out .jg-box-login #login-form a#log_in:active { color:#105F54 !important; background:#A0B038; }
+.jg-box-login #login-form input[type=text], .jg-box-login #login-form input[type=password] { width:100%; box-sizing:border-box; font-size:18px; border-radius:5px; padding:14px 20px; }
+.jg-box-login div.login-links { position:static; text-align:right; }
+.jg-box-login #login-form .login-links, .jg-box-login #login-form .login-links a { text-decoration:underline; color:#e8ff00 !important; font-style:italic; font-size:14px; }
+
+.jg-inner-column { box-sizing:border-box; padding-right:20px; }
+
+#grid-36645928 .column { float:none; }
+#attribute-principalCode .attribute-label-container, #attribute-showPrincipalFavorites .attribute-label-container { width:auto !important; }
+.jg-box-mainlayout #principalCode { margin-top:5px; }
+
+/* mobile */
+.jg-mobilelayout #login { background:#00576a url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-bg.png') center center; background-size:cover; }
+.jg-mobilelayout #login-form { background:none; box-shadow:none; }
+.jg-mobilelayout .ui-corner-all { border-radius:5px; }
+.jg-mobilelayout .jg-login-welcome { margin-bottom:30px; }
+.jg-mobilelayout #login-form .ui-submit { width:100%; margin-top:50px; background:#B8C942; border-radius:30px; }
+.jg-mobilelayout #login-form .ui-submit .ui-btn-text { font-size:22px; font-weight:bold; color:#00555C; line-height:32px; }
+.jg-mobilelayout div.ui-input-text { padding:0; }
+.jg-mobilelayout #login-form input { margin:0; padding:14px 20px; font-size:18px; box-sizing:border-box; }
+.jg-mobilelayout label[for=psword] + .ui-input-text { margin-top:20px; }
+.jg-mobilelayout #forgotpassword { width:auto; text-align:right; }
+.jg-mobilelayout #forgotpassword a { text-decoration:underline; color:#e8ff00; font-style:italic; font-size:1.2em; }
+.jg-mobilelayout table { border:0 !important; background:#edeac7; }
+.jg-mobilelayout button.ui-btn, .jg-mobilelayout button.ui-btn:hover { background:#0C727A; border:0; color:#fff; text-shadow:none; }
+.jg-mobilelayout .ui-mobile-viewport .jg-box-login #login-form { margin:20px 30px; }
+.jg-mobilelayout .jg-box-login .ui-block-b { display:block; margin:20px auto; float:none; }
+
+.jg-mobilelayout .ui-bar-b, .jg-mobilelayout .ui-page-theme-b .ui-bar-inherit, html.jg-mobilelayout .ui-bar-b .ui-bar-inherit, html.jg-mobilelayout .ui-body-b .ui-bar-inherit, html.jg-mobilelayout body .ui-group-theme-b .ui-bar-inherit { background:#eee; border:0; }
+.jg-mobilelayout #tabs .tab-link.active, .jg-mobilelayout #tabs .all-tabs.active,
+.jg-mobilelayout .ui-page-theme-b .ui-btn, html.jg-mobilelayout .ui-bar-b .ui-btn, html.jg-mobilelayout .ui-body-b .ui-btn, html.jg-mobilelayout body .ui-group-theme-b .ui-btn, html.jg-mobilelayout head+body .ui-btn.ui-btn-b, .jg-mobilelayout .ui-page-theme-b .ui-btn:visited, html.jg-mobilelayout .ui-bar-b .ui-btn:visited, html.jg-mobilelayout .ui-body-b .ui-btn:visited, html.jg-mobilelayout body .ui-group-theme-b .ui-btn:visited, html.jg-mobilelayout head+body .ui-btn.ui-btn-b:visited,
+.jg-mobilelayout .sidebar-container .sidebar-handle, .jg-mobilelayout .sidebar-container header h2,
+.jg-mobilelayout .ui-page-theme-b .ui-btn:active, html.jg-mobilelayout .ui-bar-b .ui-btn:active, html.jg-mobilelayout .ui-body-b .ui-btn:active, html.jg-mobilelayout body .ui-group-theme-b .ui-btn:active, html.jg-mobilelayout head+body .ui-btn.ui-btn-b:active
+.jg-mobilelayout .ui-page-theme-b .ui-btn:hover, html.jg-mobilelayout .ui-bar-b .ui-btn:hover, html.jg-mobilelayout .ui-body-b .ui-btn:hover, html.jg-mobilelayout body .ui-group-theme-b .ui-btn:hover, html.jg-mobilelayout head+body .ui-btn.ui-btn-b:hover
+{ border-color:#ccc; background:#007077; }
+.jg-mobilelayout footer.ui-footer { border-top:1px solid #ccc; background:#198F92; }
+.jg-mobilelayout .sidebar-container header h2 { color:#fff; }
+.jg-mobilelayout .line-item-grid th, .jg-mobilelayout .config-array thead th { border:0; color:#fff; background:#B8CA42; }
+.jg-mobilelayout .line-item-grid tfoot tr { color:#000; background:#B8CA42; }
+.jg-mobilelayout .config-array td, .jg-mobilelayout .config-array th { border:0; }
+.jg-mobilelayout footer.ui-footer button.ui-btn { color:#0C727A; background:#ECFF26; }
+.jg-mobilelayout #tabs .tab-link, .jg-mobilelayout #tabs .all-tabs { border-color:#ccc; }
+
+.jg-mobilelayout .ui-controlgroup { display:block; }
+.jg-mobilelayout .controlgroup div.heading, .jg-mobilelayout .controlgroup .ui-controlgroup-controls { box-sizing:border-box; }
+.jg-mobilelayout .controlgroup div.heading { margin-right:0; }
+.jg-mobilelayout .ui-field-contain > label, .jg-mobilelayout .ui-field-contain .ui-controlgroup-label, .jg-mobilelayout .ui-field-contain > .ui-rangeslider > label,
+.jg-mobilelayout .ui-field-contain > label ~ [class*=ui-], .jg-mobilelayout .ui-field-contain .ui-controlgroup-controls
+{ margin:0; padding-left:0; box-sizing:border-box; }
+.jg-mobilelayout .form-field { margin-top:0; }
+.jg-mobilelayout .form-field ul { margin-top:0; padding-left:17px; }
+.jg-mobilelayout .form-field ul li span, .jg-mobilelayout .form-field ul li strong { font-size:16px !important; }
+.jg-mobilelayout .lig-side-scroller table { margin-top:0; }
+.jg-mobilelayout #error-messages li { padding:0 10px 10px 10px; }
+
+.jg-box-table { display:block; margin-bottom:20px; float:none !important; }
+.jg-box-table table th, .jg-box-table table td { padding:10px 15px; border:0; }
+.jg-box-table.small table th, .jg-box-table.small table td { padding:3px 5px; font-size:12px; }
+.jg-box-mainlayout .column-1 button.button-text { padding:5px 10px; font-size:12px; height:auto; line-height:1; } 
+.jg-box-table table th { color:#fff; background:#B8CA42; }
+
+.jg-mobilelayout .jg-box-workflow { padding:50px 25px 40px; background:#fff; text-align:center; }
+.jg-mobilelayout .jg-box-workflow img { width:80%; margin:0 auto; }
+
+ 
+@media only screen and (min-width:480px) {
+	.jg-mobilelayout .jg-box-workflow img { width:auto; }	
+}
