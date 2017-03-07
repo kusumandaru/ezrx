@@ -604,6 +604,16 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         // tooltip
         adjust_tooltip();
+        // data with color red
+        // if price more than 0 give red color
+        $("td[id*='unitPrice']").each(function(i, data){
+            var remove_attr = data.id.split("attr_wrapper");
+            var object_span = $( "#readonly"+remove_attr[1] );
+            console.log(object_span);
+            if(parseInt(object_span) > 0){
+                object_span.css("color","red");
+            }
+        });
     }
 
     function transform_reportpage() {
