@@ -171,9 +171,10 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-maincontent .extra-panes { display:none; }
 .jg-box-maincontent div.main-pane { float:none; width:auto; margin-left:0; background:none; }
 .jg-box-maincontent #cm-manager-content table.x-grid-table-bg-color { min-width:100%; }
-.jg-box-maincontent #cm-manager-content .x-grid3-hd-inner { padding:10px 15px; color:white; text-align:center; border:0; background:#B8CA42; }
+.jg-box-maincontent #cm-manager-content .x-grid3-hd-inner { padding:10px 9px; color:white; border:0; background:#B8CA42; }
 .jg-box-maincontent #cm-manager-content .x-grid3-hd-row td { border:0 !important; }
 .jg-box-maincontent #cm-manager-content .x-grid3-hd-inner .view-header { background:none; color:#fff; font-weight:100; }
+
 .jg-box-maincontent .jg-box-buttons { margin:50px 20px 30px; }
 
 /* new/copy order */
