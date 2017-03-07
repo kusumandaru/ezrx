@@ -18,7 +18,7 @@
 
     function desktop_newlayout() {
         /* UI */
-        if (pagetitle.toLowerCase() == 'shopping cart') {
+        if (pagetitle.toLowerCase() == 'shopping cart' || pagetitle.toLowerCase() == 'model configuration') {
 
             var elem = document.getElementById('materialArrayset');
             var table = elem.children[0];
