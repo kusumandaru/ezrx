@@ -166,23 +166,37 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         /* EVENTS */
 
-        $('.jg-box-submenu').toggle();
-        $('.jg-box-toolbar').toggle();
+        //always hide menu
+        // $('.jg-box-submenu').css('paddingLeft', '-100px');
+        $('.jg-box-submenu').hide();
+        $('.jg-box-toolbar').hide();
         $('.jg-box-mainarea').css('paddingLeft', '0');
+
+        var show_menu = function(){
+            $('.jg-box-submenu').fadeIn();
+            // $('.jg-box-submenu').animate({paddingLeft: '150px'}, 2000);
+            // $('.jg-box-mainarea').css('paddingLeft', '150px');
+            $('.jg-box-mainarea').animate({paddingLeft: '150px'},1500);
+            $('.jg-box-toolbar').slideDown(1500);
+
+        }
+
+        var hide_menu = function(){
+            $('.jg-box-submenu').fadeOut();
+            // $('.jg-box-submenu').animate({paddingLeft: '0px'}, 2000);
+            // $('.jg-box-mainarea').css('paddingLeft', '0');
+            $('.jg-box-mainarea').animate({paddingLeft: '0'},1500);
+            $('.jg-box-toolbar').slideUp(1500);
+        }
+
+        //show menu on hover
         $('#jg-mainmenu-orders').mouseenter(function(e) {
-            $('.jg-box-submenu').toggle();
-            $('.jg-box-toolbar').toggle();
-            $('.jg-box-mainarea').css('paddingLeft', '150px');
-            // $('.jg-box-mainarea').animate({scrollLeft: -150}, 1000, 'linear')
+            show_menu();
         });
-
-        $('#jg-mainmenu-orders').mouseleave(function(e) {
-            $('.jg-box-submenu').toggle();
-            $('.jg-box-toolbar').toggle();
-            $('.jg-box-mainarea').css('paddingLeft', '0');
-            // $('.jg-box-mainarea').animate({scrollLeft: 0}, 1000, 'linear')
+        //hide menu when mouse leave
+        $('.jg-box-maincontent').mouseenter(function(e) {
+            hide_menu();
         });
-
 
         /*$('#jg-mainmenu-orders').bind('click', function(e) {
             e.preventDefault();
@@ -523,20 +537,21 @@ var urlSite = "https://ndaru.click/ezrx/";
          */
         $('#grid-36595617').closest('.column').wrapInner($("<div class='jg-inner-column'>"));
         $('#grid-36561838').closest('.column').css('marginTop', '8px');
+        //transisi right side
         $('#grid-36561838').addClass("collapsed");
         $('.jg-box-maincontent').css({"overflow": "hidden", "min-height": "800px"});
         $('#grid-36561838').parent().css({'position': 'absolute', 'right': '-250px'});
         $($('#grid-36561838').parent()).mouseenter(
             function(e){
                 $('#grid-36561838').removeClass("collapsed");
-                $('#grid-36561838').parent().animate({right: '0px'}, 3000)
+                $('#grid-36561838').parent().animate({right: '0px'}, 2000)
             }
         );
 
         $($('#grid-36561838').parent()).mouseleave(
             function(e){
-
-                $('#grid-36561838').parent().animate({right: '-250px'}, 3000)
+                $('#grid-36561838').addClass("collapsed");
+                $('#grid-36561838').parent().animate({right: '-250px'}, 2000)
             }
         );
 
