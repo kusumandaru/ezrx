@@ -52,14 +52,14 @@ var urlSite = "https://ndaru.click/ezrx/";
                     else if ($('#readonly_1_visualWorkflow').length > 0) {
                         var imgsrc = $('#readonly_1_visualWorkflow img').attr('src');
 
-                        if (imgsrc.indexOf('order_created_active.png') != -1 || imgsrc.indexOf('customer_selected_active.png') != -1) {
+                        if (imgsrc.indexOf('vi_order_created_active.png') != -1 || imgsrc.indexOf('vi_customer_selected_active.png') != -1) {
                             $('body').addClass('jg-page-neworder');
                             $('#jg-topbar-title').text("New Order");
                             $('title').text("New Order");
 
                             $('#jg-submenu-neworder').addClass('active');
                         }
-                        else if (imgsrc.indexOf('shoppping_cart_ready_active.png')) {
+                        else if (imgsrc.indexOf('vi_shoppping_cart_ready_active.png')) {
                             $('body').addClass('jg-page-shoppingcart');
                             $('#jg-topbar-title').text("Shopping Cart");
                             $('title').text("Shopping Cart");
@@ -481,7 +481,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         $('#config-header').hide();
 
-        var flowimg = $("<div class='column-layout clearfix '><div class='column label-left last' style='width:100%'><div class='form-item clearfix null' id='attr_wrapper_1_visualWorkflow'><label class='form-label' for='visualWorkflow' style='width: 100px;visibility:hidden'><span style='padding-right: 5px'>Visual Workflow</span></label><div class='form-element field-wrapper' id='field_wrapper_1_visualWorkflow' style='padding-left: 0px;'><div id='readonly_1_visualWorkflow'><img width='70%' src='/bmfsweb/zuelligpharmatest1/image/images/shoppping_cart_ready_active.png' alt='Broken Visual Workflow'></div><div id='msg_1_visualWorkflow' class='error-hover' data-action-message='' message=''></div></div></div></div></div>")
+        var flowimg = $("<div class='column-layout clearfix '><div class='column label-left last' style='width:100%'><div class='form-item clearfix null' id='attr_wrapper_1_visualWorkflow'><label class='form-label' for='visualWorkflow' style='width: 100px;visibility:hidden'><span style='padding-right: 5px'>Visual Workflow</span></label><div class='form-element field-wrapper' id='field_wrapper_1_visualWorkflow' style='padding-left: 0px;'><div id='readonly_1_visualWorkflow'><img width='70%' src='/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png' alt='Broken Visual Workflow'></div><div id='msg_1_visualWorkflow' class='error-hover' data-action-message='' message=''></div></div></div></div></div>")
             .insertBefore('.page-tabs');
 
         // toolbar
@@ -609,8 +609,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         $("td[id*='unitPrice']").each(function(i, data){
             var remove_attr = data.id.split("attr_wrapper");
             var object_span = $( "#readonly"+remove_attr[1] );
-            console.log(object_span);
-            if(parseInt(object_span) > 0){
+            if(parseInt(object_span.text()) > 0){
                 object_span.css("color","red");
             }
         });
@@ -730,17 +729,17 @@ var urlSite = "https://ndaru.click/ezrx/";
 
             if (pagetitle == 'zuellig pharma order process') {
                 if ($('a[href=#tab-draftOrder]').hasClass('active')) {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/order_created_active.png');
+                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_created_active.png');
                 }
                 else if ($('a[href=#tab-customerSearch]').hasClass('active')) {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/customer_selected_active.png');
+                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png');
                 }
                 else if ($('a[href=#tab-pricing]').hasClass('active')) {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/order_submitted_active.png');
+                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
                 }
             }
             else if (pagetitle == 'zuellig pharma products') {
-                $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/shoppping_cart_ready_active.png');
+                $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
 
                 $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table');
             }
@@ -748,13 +747,13 @@ var urlSite = "https://ndaru.click/ezrx/";
             // events
             $('.tab-link').click(function() {
                 if ($(this).attr('href') == '#tab-draftOrder') {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/order_created_active.png');
+                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_created_active.png');
                 }
                 else if ($(this).attr('href') == '#tab-customerSearch') {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/customer_selected_active.png');
+                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png');
                 }
                 else if ($(this).attr('href') == '#tab-pricing') {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/order_submitted_active.png');
+                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
                 }
 
                 mobile_adjustcontenttop();
