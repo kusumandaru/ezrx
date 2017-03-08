@@ -142,6 +142,9 @@ var urlSite = "https://ndaru.click/ezrx/";
                     )
                     .append($("<div class='jg-box-maincontent'></div>"))
                 )
+                .append($("<div class='jg-box-browsefolder'><a href='#' id='browse_folder' ><img src='./Commerce Management_files/images/browse_folder_icon.png' width='30px' /></a></div>")
+                    .append($("<div class='jg-box-foldermenu'></div>"))
+                )
             )
             .prependTo('body');
 
@@ -188,6 +191,19 @@ var urlSite = "https://ndaru.click/ezrx/";
             $('.jg-box-mainarea').animate({paddingLeft: '0'},1500);
             $('.jg-box-toolbar').slideUp(1500);
         }
+
+        var show_manage_folder = function(){
+
+        }
+
+        var hide_manage_folder = function(){
+
+        }
+
+        //show menu and folder on click
+        $("#browse_folder").on("click", function(){
+
+        });
 
         //show menu on hover
         $('#jg-mainmenu-orders').mouseenter(function(e) {
@@ -267,6 +283,10 @@ var urlSite = "https://ndaru.click/ezrx/";
             .append($("<li class='jg-item-tool'>")
                 .append($("<a href='#' id='jg-tool-folder-edit' class='jg-linkbtn edit'>Edit</a>"))
             );
+
+        var manage_folder_element = "<div style='background-color:#0C727A;width:200px;height:800px;right:0px;' >"+
+                                    "</div>";
+        $(manage_folder_element).appendTo($("#jg-box-rightpanel"));
 
         // dropdown
         $('#jg-tool-select').html($('select[name=new_search_id]').html());

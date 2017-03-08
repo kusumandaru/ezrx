@@ -101,6 +101,8 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-rightpanel { margin-left:50px; position:relative; background:#198f92; }
 
 .jg-box-submenu { position:absolute; top:0; left:0; min-width:150px; padding-top:42px; box-sizing:border-box; }
+.jg-box-browsefolder { position: fixed; top: 300px; right: 0px; box-sizing:border-box; height: 50px; width: 50px; background-color: #198f92; padding: 10px; }
+.jg-box-foldermenu { position:absolute; top:0; right:0; min-width:150px; padding-top:42px; box-sizing:border-box; }
 .jg-box-mainarea {  }
 
 .jg-list-mainmenu { margin:0; padding:20px 0; list-style:none; }
