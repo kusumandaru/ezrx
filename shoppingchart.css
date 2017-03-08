@@ -1,3 +1,6 @@
 .sc-no-stock { background-color:red; color:white}
 .sc-no-stock .input{ color:white; }
 .sc-no-stock .span{ color:white; }
+.sc-zero-stock { background-color:red; color:white}
+.sc-zero-stock .input{ color:white; }
+.sc-zero-stock .span{ color:white; }
