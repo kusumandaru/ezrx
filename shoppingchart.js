@@ -20,28 +20,48 @@
         /* UI */
         if (pagetitle.toLowerCase() == 'shopping cart' || pagetitle.toLowerCase() == 'model configuration') {
 
+
             var elem = document.getElementById('materialArrayset');
             var table = elem.children[0];
             var tbody = table.children[1];
             var trList = tbody.children;
 
-            Array.from(trList).forEach(tr=>
-            {
-                if(tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]').value.toLowerCase() == "no")
+            /**Array.from(trList).forEach(tr=>{
+                **/
+            for(var i = 0, max = trList.length; i < max; i++) {
+
+                var tr = trList[i];
+
+                var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
+                var qtyText = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
+                var inStockSpan = tr.querySelector(".cell-inStock").querySelector('span');
+                var overridePrice = tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]');
+
+                if(inStock.value.toLowerCase() == "no")
                 {
-                    var qtyText = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
                     qtyText.classList.add('sc-no-stock');
-                    var inStock = tr.querySelector(".cell-inStock").querySelector('span');
-                    inStock.classList.add('sc-no-stock');
+                    inStockSpan.classList.add('sc-no-stock');
                 }
-            });
+
+                if(tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]').value.toLowerCase() != "0.0")
+                {
+                    overridePrice.classList.add('sc-zero-stock');
+                }
+            }
         }
     }
 
     /* mobile */
-
     function mobile_newlayout() {
 
     }
+
+
+    $(document).ready(function(){
+        $('.sc-zero-stock:contains("0.0")').css('background-color', 'red');
+        $('.sc-zero-stock:not(:contains("0.0"))').css('background-color', 'white');
+        $('.sc-no-stock:contains("No")').css('background-color', 'red');
+        $('.sc-no-stock:contains("Yes")').css('background-color', 'white');
+    });
 
 })( jQuery );
