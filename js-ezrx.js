@@ -123,6 +123,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile'></a></li>"))
                     .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home'></a></li>"))
                     .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
+                    .append($("<li class='jg-item-mainmenu'><a id='jg-mainmenu-arrow' class='jg-linkbtn arrow'></a></li>"))
                     .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-mainmenu-orders' class='jg-linkbtn orders'></a></li>"))
                     .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
                     .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
@@ -162,7 +163,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#actionErrorMessagesBox').appendTo(errorsbox);
 
         // modal box
-        $('#myModal').appendTo('.jg-box-mainlayout');
+        $('<div id="myModal" >').appendTo('.jg-box-mainlayout');
 
         /* EVENTS */
 
@@ -210,13 +211,30 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
         });*/
 
+        function AnimateRotate(id_element,d){
+            var first = 0;
+            if(d == 360){
+                first = 180;
+            }
+            $({deg: first}).animate({deg: d}, {
+                step: function(now, fx){
+                    $("#"+id_element).css({
+                         transform: "rotate(" + now + "deg)"
+                    });
+                }
+            });
+        }
+
         var showOrHide = function(condition){
             if(condition){
                 //show
                 $('.jg-box-submenu').animate({left: "50px"},1500);
+                AnimateRotate('jg-mainmenu-arrow', 180);
+
             }else{
                 //hide
                 $('.jg-box-submenu').animate({left: "-150px"},1500);
+                AnimateRotate('jg-mainmenu-arrow', 360);
             }
         }
         var hide = false;
@@ -280,9 +298,9 @@ var urlSite = "https://ndaru.click/ezrx/";
                 .append($("<a href='#' id='jg-tool-refine' class='jg-linkbtn refine'>Refine</a>"))
             )
             .append($("<li class='jg-item-tool jg-separator'>"))
-            .append($("<li class='jg-item-tool'>")
+            /*.append($("<li class='jg-item-tool'>")
                 .append($("<a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' class='jg-linkbtn jg-tool-refresh'></a>"))
-            );/*
+            );*/
             .append($("<li class='jg-item-tool'>")
                 .append($("<a href='#' id='jg-tool-folder-default' class='jg-linkbtn default'>Default</a>"))
             )
@@ -294,7 +312,11 @@ var urlSite = "https://ndaru.click/ezrx/";
             )
             .append($("<li class='jg-item-tool'>")
                 .append($("<a href='#' id='jg-tool-folder-edit' class='jg-linkbtn edit'>Edit</a>"))
-            );*/
+            )
+            .append($("<li class='jg-item-tool jg-separator'>"))
+            .append($("<li class='jg-item-tool'>")
+                .append($("<div id='custom_folder' ></div>"))
+            );
 
         // dropdown
         $('#jg-tool-select').html($('select[name=new_search_id]').html());
@@ -321,6 +343,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                     button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
                 }else{
                     button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                    button_folder_toolbar = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn default'>"+nama_folder+"</a>";
+                    $("#custom_folder").append($(button_folder_toolbar));
                 }
                 list_folder += button_folder;
                 listFolder.push(nama_folder);
@@ -328,12 +352,12 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
         $('.jg-list-tool-right')
             .append($("<li class='jg-item-tool'>")
-                .append($("<a href='#' id='browse_folder' class='jg-linkbtn browse'>Browse</a>"))
+                // .append($("<a href='#' id='browse_folder' class='jg-linkbtn browse'>Browse</a>"))
                 .append($("<div class='jg-box-foldermenu'>"+
                             "<p class='jg-linkbtn' >Create New Folder<br/><br/>"+
                             "Folder Name : </p>"+
-                            "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='folder_name' >"+
-                            "<input type='submit' value='Create' style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' >"+
+                            "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='name' >"+
+                            "<input onClick='https://zuelligpharmatest1.bigmachines.com/commerce/buyside/admin_folder.jsp' value='Create' style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' >"+
                             "<hr/>"+list_folder+
                             "</div>"))
             );
@@ -342,16 +366,16 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         //show menu and folder on click
         var hide = false;
-        $("#browse_folder").on("click", function(){
+        $("#jg-tool-folder-edit").on("click", function(){
             if(!hide){
                 console.log("show");
                 hide = true;
-                $(this).animate({marginRight: '240px'}, 1500);
+                // $(this).animate({marginRight: '240px'}, 1500);
                 $('.jg-box-foldermenu').animate({right: '0px'},1500);
             }else{
                 console.log("hide");
                 hide = false;
-                $(this).animate({marginRight: '0px'}, 1500);
+                // $(this).animate({marginRight: '0px'}, 1500);
                 $('.jg-box-foldermenu').animate({right: '-400px'},1500);
             }
             
@@ -606,6 +630,8 @@ var urlSite = "https://ndaru.click/ezrx/";
         //button on top and bottom table
         // $("#materialArrayset").before( $(".jg-box-toolbar") ); //for top
         $(".jg-box-maincontent").after( $(".jg-box-toolbar").clone() ); //for bottom
+        $("#grid-36397039").children('.row').children('.column-0').css({width: "94%"});
+
         // collapsible boxes
         /* var newrow = $("<div class='row row-1 clearfix'>").appendTo('#grid-36397039');
          $('#grid-36561838').closest('.column').appendTo(newrow).removeClass('column-1 column');
@@ -941,7 +967,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         //material description
-        var input_val;
+        /*var input_val;
         $('td.cell-materialDescription').attr("tooltip", function(){
             var input_text = $(this).children(".attribute-field-container").children("input");
             input_val = $( input_text ).val()
@@ -965,13 +991,38 @@ var urlSite = "https://ndaru.click/ezrx/";
             $('.cell-materialDescription').mouseleave(function() {
                 $('#myModal').css("display", "none");
             });
+        });*/
+
+        //create description on hover.
+        $("td[id*='part_desc']").each(function(i, data){
+            var remove_attr = data.id.split("attr_wrapper");
+            var object_span = $( "#readonly"+remove_attr[1] );
+            var input_val = object_span.text();
+            object_span.attr("tooltip", function(){
+                            return input_val;
+                        })
+                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>')
+                        .mouseenter(function(){
+                            var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
+                            table += "<tbody>";
+                            table += "<tr><td>"+input_val+"</td></tr>";
+                            table += "</tbody></table>";
+                            if ($(this).attr('tooltip') != '') {
+                                $('#myModal').addClass("hover-modal-content").html(table);
+                                $('#myModal').css("display", "block");
+                            }
+                            $(this).mouseleave(function() {
+                                $('#myModal').css("display", "none");
+                            });
+                        });
         });
 
-        $('td.cell-contractBonus, td.cell-promotion, td.cell-materialDescription')
+        $('td.cell-contractBonus, td.cell-promotion, td[id*="part_desc"]')
             .hover(function(e) {
                 e.preventDefault();
             })
             .mousemove(function(e) {
+                console.log("hover");
                 $('#myModal').css('top', e.pageY - $(document).scrollTop() + 10 + 'px').css('left', e.pageX - $(document).scrollLeft() + 10 + 'px');
             });
     }
