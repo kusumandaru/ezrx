@@ -38,6 +38,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     transform_orderspage();
                 }
                 else if (pagetitle == 'transaction') {
+                    adjust_tooltip();
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-neworder').parent().remove();
                     $('#jg-submenu-copyorder').parent().remove();
@@ -433,7 +434,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#jg-tool-folder-edit').click(function(e) {
             e.preventDefault();
 
-            $('#edit').click();
+            // $('#edit').click();
         });
 
         // copy order
