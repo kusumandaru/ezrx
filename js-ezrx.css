@@ -101,9 +101,11 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-rightpanel { margin-left:50px; position:relative; background:#198f92; }
 
 .jg-box-submenu { position:absolute; top:0; left:0; min-width:150px; padding-top:42px; box-sizing:border-box; }
-.jg-box-browsefolder { position: fixed; top: 300px; right: 0px; box-sizing:border-box; height: 50px; width: 50px; background-color: #198f92; padding: 10px; }
-.jg-box-foldermenu { position:absolute; top:0; right:0; min-width:150px; padding-top:42px; box-sizing:border-box; }
+.jg-box-foldermenu { position: fixed; z-index: 10; top:0px; right:0; width: 250px; height: 100%; padding-top:90px; box-sizing:border-box; background-color: #0C727A; }
 .jg-box-mainarea {  }
+
+/* list folder right */
+.list-folder { background-position: top left!important; margin-left: 30px!important; text-align: left!important; padding-top: 10px!important; padding-left: 30px!important; margin-top: 20px!important; }
 
 .jg-list-mainmenu { margin:0; padding:20px 0; list-style:none; }
 .jg-item-mainmenu {  }
@@ -156,6 +158,7 @@ tfoot .jg-btn { margin:10px; }
 .jg-item-tool .jg-linkbtn.search { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-loupe.png'); }
 .jg-item-tool .jg-linkbtn.manage { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-manage.png'); }
 .jg-item-tool .jg-linkbtn.refine { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-refine.png'); }
+.jg-item-tool .jg-linkbtn.browse { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-browse.png'); }
 .jg-item-tool .jg-linkbtn.default { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-default.png'); }
 .jg-item-tool .jg-linkbtn.fav { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-fav.png'); }
 .jg-item-tool .jg-linkbtn.trash { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-tool-trash.png'); }

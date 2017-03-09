@@ -142,9 +142,6 @@ var urlSite = "https://ndaru.click/ezrx/";
                     )
                     .append($("<div class='jg-box-maincontent'></div>"))
                 )
-                .append($("<div class='jg-box-browsefolder'><a href='#' id='browse_folder' ><img src='./Commerce Management_files/images/browse_folder_icon.png' width='30px' /></a></div>")
-                    .append($("<div class='jg-box-foldermenu'></div>"))
-                )
             )
             .prependTo('body');
 
@@ -171,16 +168,18 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         //always hide menu
         // $('.jg-box-submenu').css('paddingLeft', '-100px');
-        $('.jg-box-submenu').hide();
-        $('.jg-box-toolbar').hide();
-        $('.jg-box-mainarea').css('paddingLeft', '0');
+        $('.jg-box-submenu').show();
+        // $('.jg-box-toolbar').toggle();
+        $('.jg-box-mainarea').css('paddingLeft', '150px');
+
+        var status_hover_menu = true;
 
         var show_menu = function(){
             $('.jg-box-submenu').fadeIn();
             // $('.jg-box-submenu').animate({paddingLeft: '150px'}, 2000);
             // $('.jg-box-mainarea').css('paddingLeft', '150px');
             $('.jg-box-mainarea').animate({paddingLeft: '150px'},1500);
-            $('.jg-box-toolbar').slideDown(1500);
+            // $('.jg-box-toolbar').slideDown(1500);
 
         }
 
@@ -200,28 +199,28 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         }
 
-        //show menu and folder on click
-        $("#browse_folder").on("click", function(){
-
-        });
-
         //show menu on hover
-        $('#jg-mainmenu-orders').mouseenter(function(e) {
+        /*$('#jg-mainmenu-orders').mouseenter(function(e) {
             show_menu();
-        });
-        //hide menu when mouse leave
-        $('.jg-box-maincontent').mouseenter(function(e) {
-            hide_menu();
-        });
-
-        /*$('#jg-mainmenu-orders').bind('click', function(e) {
-            e.preventDefault();
-
-            $('.jg-box-submenu').toggle();
-            $('.jg-box-toolbar').toggle();
-
-            $('.jg-box-mainarea').css('paddingLeft', $('.jg-box-submenu').is(':visible') ? '150px' : '0');
         });*/
+        //hide menu when mouse leave
+        /*$('.jg-box-maincontent').mouseenter(function(e) {
+            if(status_hover_menu){
+                hide_menu();
+            }
+        });*/
+
+        $('#jg-mainmenu-orders').bind('click', function(e) {
+            e.preventDefault();
+            // show_menu();
+            // status_hover_menu = !status_hover_menu;
+            // $('.jg-box-toolbar').toggle();
+
+            $('.jg-box-mainarea').animate({paddingLeft: $('.jg-box-submenu').is(':visible') ? '150px' : '0'},1500);
+            // $('.jg-box-mainarea').css('paddingLeft', $('.jg-box-submenu').is(':visible') ? '150px' : '0');
+
+
+        });
     }
 
     function transform_newfooter() {
@@ -272,6 +271,9 @@ var urlSite = "https://ndaru.click/ezrx/";
             )
             .append($("<li class='jg-item-tool jg-separator'>"))
             .append($("<li class='jg-item-tool'>")
+                .append($("<a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' class='jg-linkbtn jg-tool-refresh'></a>"))
+            );/*
+            .append($("<li class='jg-item-tool'>")
                 .append($("<a href='#' id='jg-tool-folder-default' class='jg-linkbtn default'>Default</a>"))
             )
             .append($("<li class='jg-item-tool'>")
@@ -282,11 +284,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             )
             .append($("<li class='jg-item-tool'>")
                 .append($("<a href='#' id='jg-tool-folder-edit' class='jg-linkbtn edit'>Edit</a>"))
-            );
-
-        var manage_folder_element = "<div style='background-color:#0C727A;width:200px;height:800px;right:0px;' >"+
-                                    "</div>";
-        $(manage_folder_element).appendTo($("#jg-box-rightpanel"));
+            );*/
 
         // dropdown
         $('#jg-tool-select').html($('select[name=new_search_id]').html());
@@ -298,10 +296,56 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         // refresh button
+        var listFolder = [];
+        var list_folder = "";
+        $('#dropzone .dropTarget td[title]').each(function(i, target) {
+            var nama_folder = $(target).attr('title').replace(/[^\w\s]/gi, '');
+            if(listFolder.indexOf(nama_folder) == -1){
+                var button_folder;
+                var link_folder = $(target).prev().find('a').attr('href');
+                if(nama_folder == "Default"){
+                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                }else if(nama_folder == "Trash"){
+                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
+                }else if(nama_folder == "Favourites"){
+                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
+                }else{
+                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                }
+                list_folder += button_folder;
+                listFolder.push(nama_folder);
+            }
+        });
         $('.jg-list-tool-right')
             .append($("<li class='jg-item-tool'>")
-                .append($("<a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' class='jg-linkbtn jg-tool-refresh'></a>"))
+                .append($("<a href='#' id='browse_folder' class='jg-linkbtn browse'>Browse</a>"))
+                .append($("<div class='jg-box-foldermenu'>"+
+                            "<p class='jg-linkbtn' >Create New Folder<br/><br/>"+
+                            "Folder Name : </p>"+
+                            "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='folder_name' >"+
+                            "<input type='submit' value='Create' style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' >"+
+                            "<hr/>"+list_folder+
+                            "</div>"))
             );
+
+        $(".jg-box-foldermenu").css("right","-400px");
+
+        //show menu and folder on click
+        var hide = false;
+        $("#browse_folder").on("click", function(){
+            if(!hide){
+                console.log("show");
+                hide = true;
+                $(this).animate({marginRight: '240px'}, 1500);
+                $('.jg-box-foldermenu').animate({right: '0px'},1500);
+            }else{
+                console.log("hide");
+                hide = false;
+                $(this).animate({marginRight: '0px'}, 1500);
+                $('.jg-box-foldermenu').animate({right: '-400px'},1500);
+            }
+            
+        });
 
         // page title
         pagetitle = $('#cm-manager-content').closest('table').prev().find('td').text().trim();
@@ -337,7 +381,9 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         // folders
-        $('#dropzone .dropTarget td[title]').each(function(i, target) {
+        
+        
+        /*$('#dropzone .dropTarget td[title]').each(function(i, target) {
             if ($(target).attr('title').toLowerCase().indexOf('default') != -1) {
                 $('#jg-tool-folder-default').attr('href', $(target).prev().find('a').attr('href'));
             }
@@ -347,7 +393,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             else if ($(target).attr('title').toLowerCase().indexOf('fav') != -1) {
                 $('#jg-tool-folder-fav').attr('href', $(target).prev().find('a').attr('href'));
             }
-        });
+        });*/
 
         // edit
         $('#jg-tool-folder-edit').click(function(e) {
