@@ -149,7 +149,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         var page = $('.commerce-sidebar-current').text().toLowerCase();
 
         // adjust rightpanel to submenu width
-        $('.jg-box-mainarea').css('paddingLeft', $('.jg-box-submenu').outerWidth());
+        // $('.jg-box-mainarea').css('paddingLeft', $('.jg-box-submenu').outerWidth());
 
         // remove table padding
         $('.jg-box-maincontent table').attr('cellspacing', '0').attr('cellpadding', '0');
@@ -170,9 +170,9 @@ var urlSite = "https://ndaru.click/ezrx/";
         // $('.jg-box-submenu').css('paddingLeft', '-100px');
         $('.jg-box-submenu').show();
         // $('.jg-box-toolbar').toggle();
-        $('.jg-box-mainarea').css('paddingLeft', '150px');
+        // $('.jg-box-mainarea').css('paddingLeft', '150px');
 
-        var status_hover_menu = true;
+        /*var status_hover_menu = true;
 
         var show_menu = function(){
             $('.jg-box-submenu').fadeIn();
@@ -189,15 +189,15 @@ var urlSite = "https://ndaru.click/ezrx/";
             // $('.jg-box-mainarea').css('paddingLeft', '0');
             $('.jg-box-mainarea').animate({paddingLeft: '0'},1500);
             $('.jg-box-toolbar').slideUp(1500);
-        }
+        }*/
 
-        var show_manage_folder = function(){
+        /*var show_manage_folder = function(){
 
         }
 
         var hide_manage_folder = function(){
 
-        }
+        }*/
 
         //show menu on hover
         /*$('#jg-mainmenu-orders').mouseenter(function(e) {
@@ -210,13 +210,23 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
         });*/
 
+        var showOrHide = function(condition){
+            if(condition){
+                //show
+                $('.jg-box-submenu').animate({left: "50px"},1500);
+            }else{
+                //hide
+                $('.jg-box-submenu').animate({left: "-150px"},1500);
+            }
+        }
+        var hide = false;
         $('#jg-mainmenu-orders').bind('click', function(e) {
             e.preventDefault();
             // show_menu();
-            // status_hover_menu = !status_hover_menu;
+            hide = !hide;
+            showOrHide(hide);
             // $('.jg-box-toolbar').toggle();
 
-            $('.jg-box-mainarea').animate({paddingLeft: $('.jg-box-submenu').is(':visible') ? '150px' : '0'},1500);
             // $('.jg-box-mainarea').css('paddingLeft', $('.jg-box-submenu').is(':visible') ? '150px' : '0');
 
 

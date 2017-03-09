@@ -97,12 +97,12 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-mainlayout .tab-content { background:none; }
 
 .jg-box-sidenav, .jg-box-rightpanel { min-height:600px; }
-.jg-box-sidenav { position:absolute; top:0; left:0; width:50px; height:100%; background:#006c86 url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-sidenav.png') top left no-repeat; background-size:100% 100%; }
-.jg-box-rightpanel { margin-left:50px; position:relative; background:#198f92; }
+.jg-box-sidenav { position:absolute; z-index:100; top:0; left:0; width:50px; height:100%; background:#006c86 url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-sidenav.png') top left no-repeat; background-size:100% 100%; }
+.jg-box-rightpanel { margin-left:0px; position:relative; }
 
-.jg-box-submenu { position:absolute; top:0; left:0; min-width:150px; padding-top:42px; box-sizing:border-box; }
+.jg-box-submenu { position: fixed; padding-left: 0px; z-index: 10; top:0; left:-150px; min-width:150px; padding-top:42px; box-sizing:border-box; background-color: #198f92; width: 150px; }
 .jg-box-foldermenu { position: fixed; z-index: 10; top:0px; right:0; width: 250px; height: 100%; padding-top:90px; box-sizing:border-box; background-color: #0C727A; }
-.jg-box-mainarea {  }
+.jg-box-mainarea { padding-left: 50px; }
 
 /* list folder right */
 .list-folder { background-position: top left!important; margin-left: 30px!important; text-align: left!important; padding-top: 10px!important; padding-left: 30px!important; margin-top: 20px!important; }
