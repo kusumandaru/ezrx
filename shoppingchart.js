@@ -19,8 +19,9 @@
     function desktop_newlayout() {
         /* UI */
         if (pagetitle.toLowerCase() == 'shopping cart' || pagetitle.toLowerCase() == 'model configuration') {
-
             materialWarning();
+        }
+        if (pagetitle.toLowerCase() == 'transaction') {
             refPORed();
         }
     }
@@ -62,9 +63,6 @@
         var customerPORefParent = $("label[for='customerPORef_t']");
         var customerPORef = customerPORefParent[0];
         customerPORef.querySelector('span').classList.add('sc-red-po-ref');
-        //var customerPORefLabel = customerPORef.children("label");
-        //var selector = customerPORefLabel.selector;
-        // var style = selector.style.add('sc-red-po-ref');
     }
 
     /* mobile */
