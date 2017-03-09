@@ -19,9 +19,16 @@
     function desktop_newlayout() {
         /* UI */
         if (pagetitle.toLowerCase() == 'shopping cart' || pagetitle.toLowerCase() == 'model configuration') {
+            materialWarning();
+        }
+        if (pagetitle.toLowerCase() == 'transaction') {
+            refPORed();
+        }
+    }
 
-
-            var elem = document.getElementById('materialArrayset');
+    function materialWarning(){
+        var elem = document.getElementById('materialArrayset');
+        if (elem !== null) {
             var table = elem.children[0];
             var tbody = table.children[1];
             var trList = tbody.children;
@@ -49,6 +56,16 @@
                 }
             }
         }
+
+    }
+
+    function refPORed(){
+        var customerPORefParent = $("label[for='customerPORef_t']");
+        var customerPORef = customerPORefParent[0];
+        customerPORef.querySelector('span').classList.add('sc-red-po-ref');
+        //var customerPORefLabel = customerPORef.children("label");
+        //var selector = customerPORefLabel.selector;
+        // var style = selector.style.add('sc-red-po-ref');
     }
 
     /* mobile */
