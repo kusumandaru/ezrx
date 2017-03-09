@@ -19,8 +19,9 @@
     function desktop_newlayout() {
         /* UI */
         if (pagetitle.toLowerCase() == 'shopping cart' || pagetitle.toLowerCase() == 'model configuration') {
-
             materialWarning();
+        }
+        if (pagetitle.toLowerCase() == 'transaction') {
             refPORed();
         }
     }
