@@ -4,3 +4,4 @@
 .sc-zero-stock { background-color:red; color:white}
 .sc-zero-stock .input{ color:white; }
 .sc-zero-stock .span{ color:white; }
+.column.label-left .form-label .sc-red-po-ref{color:red; !important;}
