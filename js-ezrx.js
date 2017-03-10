@@ -109,6 +109,8 @@ var urlSite = "https://ndaru.click/ezrx/";
             .prependTo('body');
 
         $('form[name=loginform]').appendTo('.jg-box-login-inner');
+        $('input[name=username]').attr("placeholder", "Username");
+        $('input[name=psword]').attr("placeholder", "Password");
         $('#login-form-head').remove();
         $('.login-links').insertBefore($('.login-button'));
 
@@ -212,9 +214,9 @@ var urlSite = "https://ndaru.click/ezrx/";
         });*/
 
         function AnimateRotate(id_element,d){
-            var first = 0;
-            if(d == 360){
-                first = 180;
+            var first = 180;
+            if(d == 180){
+                first = 0;
             }
             $({deg: first}).animate({deg: d}, {
                 step: function(now, fx){
@@ -229,12 +231,12 @@ var urlSite = "https://ndaru.click/ezrx/";
             if(condition){
                 //show
                 $('.jg-box-submenu').animate({left: "50px"},1500);
-                AnimateRotate('jg-mainmenu-arrow', 180);
+                AnimateRotate('jg-mainmenu-arrow', 360);
 
             }else{
                 //hide
                 $('.jg-box-submenu').animate({left: "-150px"},1500);
-                AnimateRotate('jg-mainmenu-arrow', 360);
+                AnimateRotate('jg-mainmenu-arrow', 180);
             }
         }
         var hide = false;
