@@ -230,7 +230,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         var showOrHide = function(condition){
             if(condition){
                 //show
-                $('.jg-box-submenu').animate({left: "50px"},1500);
+                $('.jg-box-submenu').animate({left: ($("#config-zuelligPharmaProducts").css("margin-left").replace("px","")+50)+"px"},1500);
                 AnimateRotate('jg-mainmenu-arrow', 360);
 
             }else{
