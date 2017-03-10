@@ -1000,18 +1000,12 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         //material description
-        /*var input_val;
+        //for add material page.
+        var input_val;
         $('td.cell-materialDescription').attr("tooltip", function(){
             var input_text = $(this).children(".attribute-field-container").children("input");
             input_val = $( input_text ).val()
             return input_val;
-        }).html(function() {
-            if (input_val != '') {
-                return '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
-            } else {
-                return '';
-            }
-
         }).mouseenter(function(){
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
             table += "<tbody>";
@@ -1024,9 +1018,9 @@ var urlSite = "https://ndaru.click/ezrx/";
             $('.cell-materialDescription').mouseleave(function() {
                 $('#myModal').css("display", "none");
             });
-        });*/
+        });
 
-        //create description on hover.
+        //for order page.
         $("td[id*='part_desc']").each(function(i, data){
             var remove_attr = data.id.split("attr_wrapper");
             var object_span = $( "#readonly"+remove_attr[1] );
@@ -1034,7 +1028,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             object_span.attr("tooltip", function(){
                             return input_val;
                         })
-                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>')
+                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>'+input_val)
                         .mouseenter(function(){
                             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
                             table += "<tbody>";
@@ -1050,12 +1044,11 @@ var urlSite = "https://ndaru.click/ezrx/";
                         });
         });
 
-        $('td.cell-contractBonus, td.cell-promotion, td[id*="part_desc"]')
+        $('td.cell-contractBonus, td.cell-promotion, td[id*="part_desc"], td.cell-materialDescription')
             .hover(function(e) {
                 e.preventDefault();
             })
             .mousemove(function(e) {
-                console.log("hover");
                 $('#myModal').css('top', e.pageY - $(document).scrollTop() + 10 + 'px').css('left', e.pageX - $(document).scrollLeft() + 10 + 'px');
             });
     }
