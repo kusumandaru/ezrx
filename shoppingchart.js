@@ -27,6 +27,11 @@
     }
 
     function materialWarning(){
+        materialArraySet();
+        additionalMaterialArraySet();
+    }
+
+    function materialArraySet(){
         var elem = document.getElementById('materialArrayset');
         if (elem !== null) {
             var table = elem.children[0];
@@ -42,21 +47,61 @@
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
                 var qtyText = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
                 var inStockSpan = tr.querySelector(".cell-inStock").querySelector('span');
+                var price = tr.querySelector(".cell-price").querySelector('input[name="price"]');
                 var overridePrice = tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]');
+                var type = tr.querySelector(".cell-type").querySelector('input[name="type"]');
 
-                if(inStock.value.toLowerCase() == "no")
+                if(inStock.value.toLowerCase() == "no" && type.value.toLowerCase() == "bonus")
                 {
                     qtyText.classList.add('sc-no-stock');
                     inStockSpan.classList.add('sc-no-stock');
+                } else {
+                    qtyText.classList.remove('sc-no-stock');
+                    inStockSpan.classList.remove('sc-no-stock');
                 }
 
-                if(tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]').value.toLowerCase() != "0.0")
+                if(parseInt(overridePrice.value) != parseInt(price.value))
                 {
                     overridePrice.classList.add('sc-zero-stock');
+                } else {
+                    overridePrice.classList.remove('sc-zero-stock');
                 }
             }
         }
+    }
 
+    function additionalMaterialArraySet(){
+        var elem = document.getElementById('additionalMaterialArrayset');
+        if (elem !== null) {
+            var table = elem.children[0];
+            var tbody = table.children[1];
+            var trList = tbody.children;
+
+            for(var i = 0, max = trList.length; i < max; i++) {
+
+                var tr = trList[i];
+
+                var inStock = tr.querySelector(".cell-inStockAdditional").querySelector('input[name="inStockAdditional"]');
+                var qty = tr.querySelector(".cell-additionalMaterialQty").querySelector('input[name="additionalMaterialQty"]');
+                var inStockSpan = tr.querySelector(".cell-inStockAdditional").querySelector('span');
+                var type = tr.querySelector(".cell-type_additional").querySelector('input[name="type_additional"]');
+                var stockQty = tr.querySelector(".cell-stockQty_Additional").querySelector('input[name="stockQty_Additional"]');
+
+                if(inStock.value.toLowerCase() == "no" && type.value.toLowerCase() == "bonus")
+                {
+                    inStockSpan.classList.add('sc-no-stock');
+                } else {
+                    inStockSpan.classList.remove('sc-no-stock');
+                }
+
+                if(parseInt(qty.value) != parseInt(stockQty.value) && qty.value != "")
+                {
+                    qty.classList.add('sc-zero-stock');
+                } else {
+                    qty.classList.remove('sc-zero-stock');
+                }
+            }
+        }
     }
 
     function refPORed(){
@@ -72,10 +117,12 @@
 
 
     $(document).ready(function(){
-        $('.sc-zero-stock:contains("0.0")').css('background-color', 'red');
-        $('.sc-zero-stock:not(:contains("0.0"))').css('background-color', 'white');
-        $('.sc-no-stock:contains("No")').css('background-color', 'red');
-        $('.sc-no-stock:contains("Yes")').css('background-color', 'white');
+        $("td input").on("change", function() {
+            additionalMaterialArraySet();
+            materialArraySet();
+        });
     });
+
+
 
 })( jQuery );
