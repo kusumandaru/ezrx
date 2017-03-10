@@ -38,7 +38,6 @@ var urlSite = "https://ndaru.click/ezrx/";
                     transform_orderspage();
                 }
                 else if (pagetitle == 'transaction') {
-                    adjust_tooltip();
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-neworder').parent().remove();
                     $('#jg-submenu-copyorder').parent().remove();
@@ -550,6 +549,18 @@ var urlSite = "https://ndaru.click/ezrx/";
             .append($("<button id='jg-btn-pipelineviewer' class='jg-btn'>Pipeline Viewer</button>"))
             .appendTo('.jg-box-maincontent');
 
+        adjust_tooltip();
+
+        // data with color red
+        // if price more than 0 give red color
+        $("td[id*='unitPrice']").each(function(i, data){
+            var remove_attr = data.id.split("attr_wrapper");
+            var object_span = $( "#readonly"+remove_attr[1] );
+            if(parseInt(object_span.text()) > 0){
+                object_span.css("color","red");
+            }
+        });
+
         /* EVENTS */
         $('#jg-tool-addtofav, #jg-btn-addtofav').click(function(e) {
             e.preventDefault();
@@ -641,20 +652,48 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#grid-36595617').closest('.column').wrapInner($("<div class='jg-inner-column'>"));
         $('#grid-36561838').closest('.column').css('marginTop', '8px');
         //transisi right side
-        $('#grid-36561838').addClass("collapsed");
         $('.jg-box-maincontent').css({"overflow": "hidden", "min-height": "800px"});
-        $('#grid-36561838').parent().css({'position': 'absolute', 'right': '-250px'});
-        $($('#grid-36561838').parent()).mouseenter(
+
+        $('#grid-365618381').addClass("collapsed");
+        var rightPanel = $('#grid-36397039').children('.row').children('.column-1');
+        $(rightPanel).css({'position': 'absolute', 'right': '-250px', 'height': '800px'});
+
+        $(rightPanel).mouseenter(
             function(e){
-                $('#grid-36561838').removeClass("collapsed");
-                $('#grid-36561838').parent().animate({right: '0px'}, 2000)
+                $(rightPanel).animate({right: '0px'}, 2000);
+                $('#grid-365618381').mouseenter(function(e){
+                    console.log('grid-365618381');
+                    $('#grid-365618381').addClass("collapsed");
+                    $('#grid-365618381').removeClass("collapsed");
+                });
+                $('#grid-36565572').mouseenter(function(e){
+                    console.log('grid-36565572');
+                    $('#group-36565572').addClass("collapsed");
+                    $('#group-36565572').removeClass("collapsed");
+                });
+                $('#grid-36701507').mouseenter(function(e){
+                    console.log('grid-36701507');
+                    $('#group-36701507').addClass("collapsed");
+                    $('#group-36701507').removeClass("collapsed");
+                });
+                $('#grid-365618381').mouseleave(function(e){
+                    $('#grid-365618381').addClass("collapsed");
+                });
+                $('#grid-36565572').mouseleave(function(e){
+                    $('#group-36565572').addClass("collapsed");
+                });
+                $('#grid-36701507').mouseleave(function(e){
+                    $('#group-36701507').addClass("collapsed");
+                });
             }
         );
 
-        $($('#grid-36561838').parent()).mouseleave(
+        $(rightPanel).mouseleave(
             function(e){
-                $('#grid-36561838').addClass("collapsed");
-                $('#grid-36561838').parent().animate({right: '-250px'}, 2000)
+                $('#grid-365618381').addClass("collapsed");
+                $('#group-36565572').addClass("collapsed");
+                $('#group-36701507').addClass("collapsed");
+                $(rightPanel).animate({right: '-250px'}, 2000);
             }
         );
 
@@ -707,15 +746,6 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         // tooltip
         adjust_tooltip();
-        // data with color red
-        // if price more than 0 give red color
-        $("td[id*='unitPrice']").each(function(i, data){
-            var remove_attr = data.id.split("attr_wrapper");
-            var object_span = $( "#readonly"+remove_attr[1] );
-            if(parseInt(object_span.text()) > 0){
-                object_span.css("color","red");
-            }
-        });
     }
 
     function transform_reportpage() {
