@@ -45,12 +45,11 @@
                 var tr = trList[i];
 
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
-                var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
+                var qtyText = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
                 var inStockSpan = tr.querySelector(".cell-inStock").querySelector('span');
                 var price = tr.querySelector(".cell-price").querySelector('input[name="price"]');
                 var overridePrice = tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]');
                 var type = tr.querySelector(".cell-type").querySelector('input[name="type"]');
-                var stockQty = tr.querySelector(".cell-stockQty").querySelector('input[name="stockQty"]');
 
                 if(inStock.value.toLowerCase() == "no" && type.value.toLowerCase() == "bonus")
                 {
@@ -66,13 +65,6 @@
                     overridePrice.classList.add('sc-zero-stock');
                 } else {
                     overridePrice.classList.remove('sc-zero-stock');
-                }
-
-                if(parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "")
-                {
-                    qty.classList.add('sc-zero-stock');
-                } else {
-                    qty.classList.remove('sc-zero-stock');
                 }
             }
         }
@@ -102,7 +94,7 @@
                     inStockSpan.classList.remove('sc-no-stock');
                 }
 
-                if(parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "")
+                if(parseInt(qty.value) != parseInt(stockQty.value) && qty.value != "")
                 {
                     qty.classList.add('sc-zero-stock');
                 } else {
@@ -123,10 +115,12 @@
 
     }
 
+
     $(document).ready(function(){
         $("td input").on("change", function() {
-            materialWarning();
+            additionalMaterialArraySet();
+            materialArraySet();
         });
     });
-
+  
 })( jQuery );
