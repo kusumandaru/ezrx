@@ -54,10 +54,10 @@
 
                 if(inStock.value.toLowerCase() == "no" && type.value.toLowerCase() == "bonus")
                 {
-                    qtyText.classList.add('sc-no-stock');
+                    qty.classList.add('sc-no-stock');
                     inStockSpan.classList.add('sc-no-stock');
                 } else {
-                    qtyText.classList.remove('sc-no-stock');
+                    qty.classList.remove('sc-no-stock');
                     inStockSpan.classList.remove('sc-no-stock');
                 }
 
