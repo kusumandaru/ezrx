@@ -115,7 +115,7 @@ tfoot .jg-btn { margin:10px; }
 .jg-item-mainmenu .jg-linkbtn.active { background-color:#198f92; }
 .jg-linkbtn.profile { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-user.png'); }
 .jg-linkbtn.home { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-home.png'); }
-.jg-linkbtn.arrow { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-arrow.png'); }
+.jg-linkbtn.arrow { transform: rotate(180deg); background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-arrow.png'); }
 .jg-linkbtn.orders { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-orders.png'); }
 .jg-linkbtn.settings { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-settings.png'); }
 .jg-linkbtn.logout { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-logout.png'); }
@@ -225,11 +225,14 @@ tfoot .jg-btn { margin:10px; }
 .logged-out #jg-overlay {  }
 .logged-out .jg-box-mainlayout { display:none; }
 
+
+
 .guest-access .jg-box-login div.login-button { width:auto; text-align:center; }
 .guest-access .jg-box-login div.login-fields { width:auto; }
 .logged-out .jg-box-login #login-form-wrap { position:static; margin-left:auto; padding-top:34px; border:0; background:none; }
-.jg-box-login { position:absolute; top:0; right:0; min-height:660px; left:0; z-index:999; background:#00576a url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-bg.png') center center; background-size:cover; }
-.jg-box-login-inner { width:392px; margin:130px auto; }
+.jg-box-login { position:absolute; top:0; right:0; min-height:660px; left:0; z-index:999; background:#00576a url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-new-bg.jpg') left center; background-size:cover; }
+/*.jg-box-login-inner { width:392px; margin:130px auto; }*/
+.jg-box-login-inner { background: rgba(0,85,93,0.70); background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%); box-shadow: 0 14px 33px 0 rgba(0,0,0,0.40); border-radius: 60px; max-width: 400px; padding: 30px; right: 20px;top: 50px; position: absolute; }
 .jg-login-logo { display:block; margin:0 auto; }
 .jg-login-welcome { display:block; margin-top:38px; font-size:26px; color:#e8ff00; text-align:center; }
 .jg-box-login #login-form { width:auto !important; padding:0; margin:0; text-align:center; border:0; background:none; box-shadow:none; }
