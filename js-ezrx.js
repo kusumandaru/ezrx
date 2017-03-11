@@ -703,7 +703,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $('#grid-365618381').addClass("collapsed");
                 $('#group-36565572').addClass("collapsed");
                 $('#group-36701507').addClass("collapsed");
-                $(rightPanel).animate({right: '-3200px'}, 2000);
+                $(rightPanel).animate({right: '-320px'}, 2000);
             }
         );
 
