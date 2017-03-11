@@ -170,6 +170,13 @@
         $("td select").on("change", function() {
             materialWarning();
         });
+        $('#jg-btn-addrow').bind('click', function(e) {
+            e.preventDefault();
+
+            $('#materialArrayset').find('.array-remove').click;
+        });
     });
+
+
   
 })( jQuery );
