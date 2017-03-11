@@ -641,7 +641,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         //button on top and bottom table
         // $("#materialArrayset").before( $(".jg-box-toolbar") ); //for top
         $(".jg-box-maincontent").after( $(".jg-box-toolbar").clone() ); //for bottom
-        $("#grid-36397039").children('.row').children('.column-0').css({width: "94%"});
+        $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
 
         // collapsible boxes
         /* var newrow = $("<div class='row row-1 clearfix'>").appendTo('#grid-36397039');
@@ -654,8 +654,19 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('.jg-box-maincontent').css({"overflow": "hidden", "min-height": "800px"});
 
         $('#grid-365618381').addClass("collapsed");
+
         var rightPanel = $('#grid-36397039').children('.row').children('.column-1');
-        $(rightPanel).css({'position': 'absolute', 'right': '-250px', 'height': '800px'});
+        $('#grid-36561838').children('.group-content')
+                           .css('margin','0px')
+                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-frequently.png' >");
+        $('#grid-36565572').children('.group-content')
+                           .css('margin','0px')
+                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-recommended.png' >");
+        $('#grid-36701507').children('.group-content')
+                           .css('margin','0px')
+                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-favourite.png' >");
+
+        $(rightPanel).css({'position': 'absolute', 'right': '-320px', 'height': '800px'});
 
         $(rightPanel).mouseenter(
             function(e){
