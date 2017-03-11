@@ -84,7 +84,7 @@
             var table = elem.children[0];
             var tbody = table.children[1];
 
-            if (tbody !== null) {
+            if (tbody != null) {
 
                 var trList = tbody.children;
 
