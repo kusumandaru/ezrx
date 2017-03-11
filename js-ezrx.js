@@ -653,7 +653,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         //transisi right side
         $('.jg-box-maincontent').css({"overflow": "hidden", "min-height": "800px"});
 
-        $('#grid-365618381').addClass("collapsed");
+        $('#grid-36561838').addClass("collapsed");
 
         var rightPanel = $('#grid-36397039').children('.row').children('.column-1');
         $('#grid-36561838').children('.group-content')
@@ -671,10 +671,10 @@ var urlSite = "https://ndaru.click/ezrx/";
         $(rightPanel).mouseenter(
             function(e){
                 $(rightPanel).animate({right: '0px'}, 2000);
-                $('#grid-365618381').mouseenter(function(e){
-                    console.log('grid-365618381');
-                    $('#grid-365618381').addClass("collapsed");
-                    $('#grid-365618381').removeClass("collapsed");
+                $('#grid-36561838').mouseenter(function(e){
+                    console.log('grid-36561838');
+                    $('#grid-36561838').addClass("collapsed");
+                    $('#grid-36561838').removeClass("collapsed");
                 });
                 $('#grid-36565572').mouseenter(function(e){
                     console.log('grid-36565572');
