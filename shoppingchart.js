@@ -52,12 +52,10 @@
                 var type = tr.querySelector(".cell-type").querySelector('input[name="type"]');
                 var stockQty = tr.querySelector(".cell-stockQty").querySelector('input[name="stockQty"]');
 
-                if(inStock.value.toLowerCase() == "no" && type.value.toLowerCase() == "bonus")
+                if(inStock.value.toLowerCase() == "no")
                 {
-                    qty.classList.add('sc-no-stock');
                     inStockSpan.classList.add('sc-no-stock');
                 } else {
-                    qty.classList.remove('sc-no-stock');
                     inStockSpan.classList.remove('sc-no-stock');
                 }
 
@@ -84,7 +82,7 @@
             var table = elem.children[0];
             var tbody = table.children[1];
 
-            if (typeof tbody !== 'undefined') {
+            if (tbody != null) {
 
                 var trList = tbody.children;
 
@@ -94,14 +92,24 @@
 
                     var inStock = tr.querySelector(".cell-inStockAdditional").querySelector('input[name="inStockAdditional"]');
                     var qty = tr.querySelector(".cell-additionalMaterialQty").querySelector('input[name="additionalMaterialQty"]');
-                    var inStockSpan = tr.querySelector(".cell-inStockAdditional").querySelector('span');
-                    var type = tr.querySelector(".cell-type_additional").querySelector('input[name="type_additional"]');
+
                     var stockQty = tr.querySelector(".cell-stockQty_Additional").querySelector('input[name="stockQty_Additional"]');
 
-                    if (inStock.value.toLowerCase() == "no" && type.value.toLowerCase() == "bonus") {
-                        inStockSpan.classList.add('sc-no-stock');
+                    var inStockSpan = tr.querySelector(".cell-inStockAdditional").querySelector('span');
+                    var inStockInput = tr.querySelector(".cell-inStockAdditional").querySelector('input');
+
+                    var typeInput = tr.querySelector(".cell-type_additional").querySelector('input[name="type_additional"]');
+                    var typeSelect = tr.querySelector(".cell-type_additional").querySelector('select[name="type_additional"]');
+
+                    var inStockData = inStockSpan != null ? inStockSpan : inStockInput;
+                    var inStockValue = inStockSpan != null ? inStockSpan.innerText : inStockInput.value;
+                    var typeData = typeInput != null ? typeInput : typeSelect;
+                    var typeValue = typeInput != null ? typeInput.value : typeSelect.value;
+
+                    if (inStockValue.toLowerCase() == "no" && typeValue.toLowerCase() == "bonus") {
+                        inStockData.classList.add('sc-no-stock');
                     } else {
-                        inStockSpan.classList.remove('sc-no-stock');
+                        inStockData.classList.remove('sc-no-stock');
                     }
 
                     if (parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "") {
