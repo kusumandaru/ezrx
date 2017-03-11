@@ -549,11 +549,13 @@ var urlSite = "https://ndaru.click/ezrx/";
         adjust_tooltip();
 
         // data with color red
-        // if price more than 0 give red color
-        $("td[id*='unitPrice']").each(function(i, data){
-            var remove_attr = data.id.split("attr_wrapper");
-            var object_span = $( "#readonly"+remove_attr[1] );
-            if(parseInt(object_span.text()) > 0){
+        // if isPriceOverride give red color
+        $("td[id*='isPriceOverride']").each(function(i, data){
+            if($(data).text() !== "False"){
+                var baris = $(data).parent();
+                var unitPrice = $(baris).find("td[id*='unitPrice']")
+                var remove_attr = $(unitPrice).attr("id").split("attr_wrapper");
+                var object_span = $( "#readonly"+remove_attr[1] );
                 object_span.css("color","red");
             }
         });
