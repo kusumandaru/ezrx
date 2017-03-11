@@ -686,8 +686,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                     $('#group-36701507').addClass("collapsed");
                     $('#group-36701507').removeClass("collapsed");
                 });
-                $('#grid-365618381').mouseleave(function(e){
-                    $('#grid-365618381').addClass("collapsed");
+                $('#grid-36561838').mouseleave(function(e){
+                    $('#grid-36561838').addClass("collapsed");
                 });
                 $('#grid-36565572').mouseleave(function(e){
                     $('#group-36565572').addClass("collapsed");
@@ -703,7 +703,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $('#grid-365618381').addClass("collapsed");
                 $('#group-36565572').addClass("collapsed");
                 $('#group-36701507').addClass("collapsed");
-                $(rightPanel).animate({right: '-250px'}, 2000);
+                $(rightPanel).animate({right: '-3200px'}, 2000);
             }
         );
 
