@@ -97,8 +97,10 @@
         tdDelete.classList.add('array-remove-cell');
         var aDelete = document.createElement('a');
         aDelete.classList.add('array-remove');
+        aDelete.classList.add('delete-btn');
         aDelete.setAttribute('href', '#');
         aDelete.innerHTML = 'Remove';
+
 
         tdDelete.appendChild(aDelete);
 
@@ -170,7 +172,7 @@
         $("td select").on("change", function() {
             materialWarning();
         });
-        $('#jg-btn-addrow').bind('click', function(e) {
+        $('.delete-btn').bind('click', function(e) {
             e.preventDefault();
 
             $('#materialArrayset').find('.array-remove').click;
