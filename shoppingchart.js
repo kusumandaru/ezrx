@@ -36,13 +36,21 @@
         if (elem !== null) {
             var table = elem.children[0];
             var tbody = table.children[1];
+            var theader = table.children[0];
+            var theadList = theader.children;
             var trList = tbody.children;
 
-            /**Array.from(trList).forEach(tr=>{
-                **/
+            for(var i = 0, max = theadList.length; i < max; i++) {
+                 var thead = theadList[i];
+
+                 addHeaderDelete(thead);
+            }
+
             for(var i = 0, max = trList.length; i < max; i++) {
 
                 var tr = trList[i];
+
+                addDelete(tr);
 
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
                 var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
@@ -74,6 +82,27 @@
                 }
             }
         }
+    }
+
+    function addHeaderDelete(thead){
+
+        var thDelete = document.createElement('th');
+        thDelete.classList.add('array-remove-cell');
+        thead.appendChild(thDelete);
+    }
+
+    function addDelete(tr){
+
+        var tdDelete = document.createElement('td');
+        tdDelete.classList.add('array-remove-cell');
+        var aDelete = document.createElement('a');
+        aDelete.classList.add('array-remove');
+        aDelete.setAttribute('href', '#');
+        aDelete.innerHTML = 'Remove';
+
+        tdDelete.appendChild(aDelete);
+
+        var buttonbox = tr.appendChild(tdDelete);
     }
 
     function additionalMaterialArraySet(){
