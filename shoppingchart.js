@@ -154,8 +154,8 @@
             tdDelete.classList.add('array-remove-cell');
 
             var aDelete = document.createElement('button');
-            //aDelete.classList.add('array-remove');
-            aDelete.href = "#";
+            aDelete.classList.add('array-remove');
+            //aDelete.href = "#";
             aDelete.onclick = function() {deleteRow(tr);};
 
             /**
