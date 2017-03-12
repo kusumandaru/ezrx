@@ -195,9 +195,14 @@
         $("td select").on("change", function() {
             materialWarning();
         });
-        $(".array-remove").on("click", function(e) {
-            e.preventDefault();
-            materialWarning();
+        $(".materialDescription").hover(function(){
+            if( $(this).val().length === 0 ) {
+                $(this).value = " ";
+            }
+        }, function(){
+            if( $(this).val().length === 0 ) {
+                $(this).value = " ";
+            }
         });
     });
 
