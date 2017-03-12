@@ -100,24 +100,19 @@
         aDelete.classList.add('delete-btn');
         aDelete.setAttribute('href', '#');
         aDelete.innerHTML = 'Remove';
-        aDelete.onclick = deleteRow();
-
+        aDelete.click( function(e) {e.preventDefault(); deleteRow(); return false; } )
 
         tdDelete.appendChild(aDelete);
 
         var buttonbox = tr.appendChild(tdDelete);
 
+        /**
         buttonbox.bind("click", function(e) {
             e.preventDefault();
 
             $("#materialArrayset").find(".array-remove").click;
         });
-
-        $(".delete-btn").bind("click", function(e) {
-            e.preventDefault();
-
-            $("#materialArrayset").find(".array-remove").click;
-        });
+         **/
     }
 
     function additionalMaterialArraySet(){
