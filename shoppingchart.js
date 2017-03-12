@@ -165,8 +165,7 @@
             });
              **/
             //tdDelete.appendChild(aDelete);
-
-            tdDelete.appendChild($("<input type='submit' id='hit' value='Del' onclick='deleteRow(tr)' class='btn'/>"));
+            tdDelete.appendChild($("<button id='hit' class='array-remove'></button>"));
             var buttonbox = tr.appendChild(tdDelete);
 
 
