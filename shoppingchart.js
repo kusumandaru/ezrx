@@ -172,10 +172,10 @@
         $("td select").on("change", function() {
             materialWarning();
         });
-        $('.delete-btn').bind('click', function(e) {
+        $(".delete-btn").bind("click", function(e) {
             e.preventDefault();
 
-            $('#materialArrayset').find('.array-remove').click;
+            $("#materialArrayset").find(".array-remove").click;
         });
     });
 
