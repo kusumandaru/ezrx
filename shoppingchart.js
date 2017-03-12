@@ -153,9 +153,7 @@
             tdDelete.classList.add('array-remove-cell');
 
             var aDelete = document.createElement('a');
-            //aDelete.classList.add('array-remove');
-            //aDelete.prop("href", "#")
-
+            aDelete.classList.add('array-remove');
             aDelete.classList.add('delete-btn');
 
             aDelete.setAttribute("click", function(e) {
@@ -198,7 +196,7 @@
         });
         $('input[name=materialDescription]').hover(function(){
             if( $(this).val().length === 0 ) {
-                $(this).autocomplete("search");
+                $(this).autocomplete();
             }
         }, function(){
 
