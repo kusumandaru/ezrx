@@ -197,7 +197,7 @@
         $("td select").on("change", function() {
             materialWarning();
         });
-        $('input[name=materialDescription]').hover(function(){
+        $("input[name=materialDescription]").hover(function(){
             if( $(this).val().length === 0 ) {
                 $(this).autocomplete();
             }
