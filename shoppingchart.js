@@ -155,6 +155,7 @@
             var aDelete = document.createElement('a');
             aDelete.classList.add('array-remove');
             aDelete.classList.add('delete-btn');
+            aDelete.href = "#";
 
             aDelete.setAttribute("click", function(e) {
                 e.preventDefault();
