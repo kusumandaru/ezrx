@@ -100,12 +100,24 @@
         aDelete.classList.add('delete-btn');
         aDelete.setAttribute('href', '#');
         aDelete.innerHTML = 'Remove';
-        aDelete.onclick = 'deleteRow();return false;';
+        aDelete.onclick = deleteRow();
 
 
         tdDelete.appendChild(aDelete);
 
         var buttonbox = tr.appendChild(tdDelete);
+
+        buttonbox.bind("click", function(e) {
+            e.preventDefault();
+
+            $("#materialArrayset").find(".array-remove").click;
+        });
+
+        $(".delete-btn").bind("click", function(e) {
+            e.preventDefault();
+
+            $("#materialArrayset").find(".array-remove").click;
+        });
     }
 
     function additionalMaterialArraySet(){
@@ -175,11 +187,6 @@
         });
         $("td select").on("change", function() {
             materialWarning();
-        });
-        $(".delete-btn").bind("click", function(e) {
-            e.preventDefault();
-
-            $("#materialArrayset").find(".array-remove").click;
         });
     });
 
