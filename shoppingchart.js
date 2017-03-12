@@ -49,8 +49,7 @@
             for(var i = 0, max = trList.length; i < max; i++) {
 
                 var tr = trList[i];
-
-                addDelete(tr);
+                //addDelete(tr);
 
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
                 var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
@@ -60,11 +59,13 @@
                 var type = tr.querySelector(".cell-type").querySelector('input[name="type"]');
                 var stockQty = tr.querySelector(".cell-stockQty").querySelector('input[name="stockQty"]');
 
-                if(inStock.value.toLowerCase() == "no")
-                {
-                    inStockSpan.classList.add('sc-no-stock');
-                } else {
-                    inStockSpan.classList.remove('sc-no-stock');
+                if(inStockSpan != null){
+                    if(inStock.value.toLowerCase() == "no")
+                    {
+                        inStockSpan.classList.add('sc-no-stock');
+                    } else {
+                        inStockSpan.classList.remove('sc-no-stock');
+                    }
                 }
 
                 if(parseInt(overridePrice.value) != parseInt(price.value))
@@ -95,10 +96,16 @@
 
         var tdDelete = document.createElement('td');
         tdDelete.classList.add('array-remove-cell');
-        var aDelete = document.createElement('a');
-        aDelete.classList.add('array-remove');
-        aDelete.setAttribute('href', '#');
+
+        var aDelete = document.createElement('button');
+        //aDelete.classList.add('array-remove');
+        aDelete.classList.add('delete-btn');
         aDelete.innerHTML = 'Remove';
+
+        aDelete.setAttribute("click", function(e) {
+            e.preventDefault();
+            deleteRow(tr);
+        });
 
         tdDelete.appendChild(aDelete);
 
@@ -162,6 +169,13 @@
 
     }
 
+    function deleteRow(tr){
+        tr.remove();
+    }
+
+    function deleteRow(){
+        $("#materialArrayset").find(".array-remove").click;
+    }
 
     $(document).ready(function(){
         $("td input").on("change", function() {
@@ -170,6 +184,12 @@
         $("td select").on("change", function() {
             materialWarning();
         });
+        $(".array-remove").on("click", function(e) {
+            e.preventDefault();
+            materialWarning();
+        });
     });
+
+
   
 })( jQuery );
