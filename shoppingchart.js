@@ -156,16 +156,16 @@
             var aDelete = document.createElement('a');
             aDelete.classList.add('array-remove');
             aDelete.href = "#";
-            aDelete.onclick = function() {deleteRow(tr);};
+            //aDelete.onclick = function() {deleteRow(tr);};
 
-            /**
+
             aDelete.setAttribute("click", function(e) {
-                e.preventDefault();
+                //e.preventDefault();
                 deleteRow(tr);
             });
-             **/
-            //tdDelete.appendChild(aDelete);
-            tdDelete.appendChild($("<button id='hit' class='array-remove'></button>"));
+
+            tdDelete.appendChild(aDelete);
+            //tdDelete.appendChild($("<button id='hit' class='array-remove'></button>"));
             var buttonbox = tr.appendChild(tdDelete);
 
 
