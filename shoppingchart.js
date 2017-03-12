@@ -49,6 +49,7 @@
             for(var i = 0, max = trList.length; i < max; i++) {
 
                 var tr = trList[i];
+                tr.setAttribute('id','tr'+i);
 
                 addDelete(tr);
 
@@ -96,26 +97,19 @@
         var tdDelete = document.createElement('td');
         tdDelete.classList.add('array-remove-cell');
 
-        var buttonDel = document.createElement('button');
-        buttonDel.classList.add('array-remove');
-        buttonDel.classList.add('delete-btn');
-        buttonDel.setAttribute('onClick', 'function(){ deleteRow(); } ;');
-        /**
-        var aDelete = document.createElement('a');
-        aDelete.classList.add('array-remove');
+        var aDelete = document.createElement('button');
+        //aDelete.classList.add('array-remove');
         aDelete.classList.add('delete-btn');
-        //aDelete.setAttribute('href', '#');
         aDelete.innerHTML = 'Remove';
-        aDelete.setAttribute('onClick', 'function(){ deleteRow(); } ;');
+
+        aDelete.setAttribute("click", function(e) {
+            e.preventDefault();
+            deleteRow(tr.id);
+        });
 
         tdDelete.appendChild(aDelete);
-         **/
-
-        tdDelete.appendChild(buttonDel);
 
         var buttonbox = tr.appendChild(tdDelete);
-
-
     }
 
     function additionalMaterialArraySet(){
@@ -175,6 +169,10 @@
 
     }
 
+    function deleteRow(id){
+        $("."+id).remove();
+    }
+
     function deleteRow(){
         $("#materialArrayset").find(".array-remove").click;
     }
@@ -184,6 +182,10 @@
             materialWarning();
         });
         $("td select").on("change", function() {
+            materialWarning();
+        });
+        $(".array-remove").on("click", function(e) {
+            e.preventDefault();
             materialWarning();
         });
     });
