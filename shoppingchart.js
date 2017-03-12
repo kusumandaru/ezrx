@@ -54,15 +54,18 @@
             for(var i = 0, max = trList.length; i < max; i++) {
 
                 var tr = trList[i];
-                //addDelete(tr);
+                addDelete(tr);
 
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
                 var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
                 var inStockSpan = tr.querySelector(".cell-inStock").querySelector('span');
                 var price = tr.querySelector(".cell-price").querySelector('input[name="price"]');
                 var overridePrice = tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]');
-                var type = tr.querySelector(".cell-type").querySelector('input[name="type"]');
                 var stockQty = tr.querySelector(".cell-stockQty").querySelector('input[name="stockQty"]');
+
+                var typeInput = tr.querySelector(".cell-type").querySelector('input[name="type"]');
+                var typeSelect = tr.querySelector(".cell-type").querySelector('select[name="type"]');
+                var typeData = typeInput != null ? typeInput : typeSelect;
 
                 if(inStockSpan != null){
                     if(inStock.value.toLowerCase() == "no")
@@ -80,7 +83,7 @@
                     overridePrice.classList.remove('sc-zero-stock');
                 }
 
-                if(parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "")
+                if(parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "" && typeData.value.toLowerCase() == "comm")
                 {
                     qty.classList.add('sc-zero-stock');
                 } else {
@@ -98,7 +101,6 @@
     }
 
     function addDelete(tr){
-
         var tdDelete = document.createElement('td');
         tdDelete.classList.add('array-remove-cell');
 
