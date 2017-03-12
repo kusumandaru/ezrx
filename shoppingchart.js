@@ -197,15 +197,13 @@
         });
         $('input[name=materialDescription]').hover(function(){
             if( $(this).val().length === 0 ) {
-                $(this).autocomplete("search");
+                $(this).autocomplete( "search", "" );
             }
         }, function(){
             if( $(this).val().length === 0 ) {
-                $(this).autocomplete("search");
+                $(this).autocomplete( "search", "" );
             }
         });
     });
 
-
-  
 })( jQuery );
