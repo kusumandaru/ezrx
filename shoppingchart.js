@@ -160,8 +160,9 @@
 
 
             aDelete.setAttribute("click", function(e) {
-                e.preventDefault();
                 deleteRow(tr);
+                //e.preventDefault();
+                
             }());
 
             tdDelete.appendChild(aDelete);
