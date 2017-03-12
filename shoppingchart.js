@@ -34,6 +34,7 @@
     function materialWarning(){
         materialArraySet();
         additionalMaterialArraySet();
+        countTotal();
     }
 
     function materialArraySet(){
@@ -93,31 +94,6 @@
         }
     }
 
-    function addHeaderDelete(thead){
-
-        var thDelete = document.createElement('th');
-        thDelete.classList.add('array-remove-cell');
-        thead.appendChild(thDelete);
-    }
-
-    function addDelete(tr){
-        var tdDelete = document.createElement('td');
-        tdDelete.classList.add('array-remove-cell');
-
-        var aDelete = document.createElement('button');
-        aDelete.classList.add('array-remove');
-        aDelete.classList.add('delete-btn');
-
-        aDelete.setAttribute("click", function(e) {
-            e.preventDefault();
-            deleteRow(tr);
-        });
-
-        tdDelete.appendChild(aDelete);
-
-        var buttonbox = tr.appendChild(tdDelete);
-    }
-
     function additionalMaterialArraySet(){
         var elem = document.getElementById('additionalMaterialArrayset');
         if (elem !== null) {
@@ -162,6 +138,40 @@
                 }
             }
         }
+    }
+
+    function countTotal(){
+
+    }
+
+    function addHeaderDelete(thead){
+        if(thead.find('th.array-remove-cell').length == 0) { //if not contain
+            var thDelete = document.createElement('th');
+            thDelete.classList.add('array-remove-cell');
+            thead.appendChild(thDelete);
+        }
+    }
+
+    function addDelete(tr){
+        if(tr.find('button.array-remove').length == 0){ //if not contain
+            var tdDelete = document.createElement('td');
+            tdDelete.classList.add('array-remove-cell');
+
+            var aDelete = document.createElement('button');
+            aDelete.classList.add('array-remove');
+            aDelete.classList.add('delete-btn');
+
+            aDelete.setAttribute("click", function(e) {
+                e.preventDefault();
+                deleteRow(tr);
+            });
+
+            tdDelete.appendChild(aDelete);
+
+            var buttonbox = tr.appendChild(tdDelete);
+        }
+
+
     }
 
     function refPORed(){
