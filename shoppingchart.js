@@ -100,6 +100,7 @@
         aDelete.classList.add('delete-btn');
         aDelete.setAttribute('href', '#');
         aDelete.innerHTML = 'Remove';
+        aDelete.onclick = 'deleteRow();return false;';
 
 
         tdDelete.appendChild(aDelete);
@@ -164,6 +165,9 @@
 
     }
 
+    function deleteRow(){
+        $("#materialArrayset").find(".array-remove").click;
+    }
 
     $(document).ready(function(){
         $("td input").on("change", function() {
