@@ -197,11 +197,11 @@
         });
         $('input[name=materialDescription]').hover(function(){
             if( $(this).val().length === 0 ) {
-                $(this).value = " ";
+                $(this).val(' ');
             }
         }, function(){
             if( $(this).val().length === 0 ) {
-                $(this).value = " ";
+                $(this).val(' ');
             }
         });
     });
