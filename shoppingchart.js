@@ -76,7 +76,7 @@
                     }
                 }
 
-                if(parseInt(overridePrice.value) != parseInt(price.value))
+                if(parseInt(overridePrice.value) != parseInt(price.value) && parseInt(overridePrice.value) != 0)
                 {
                     overridePrice.classList.add('sc-zero-stock');
                 } else {
@@ -152,7 +152,7 @@
             var tdDelete = document.createElement('td');
             tdDelete.classList.add('array-remove-cell');
 
-            var aDelete = document.createElement('button');
+            var aDelete = document.createElement('a');
             aDelete.classList.add('array-remove');
             aDelete.classList.add('delete-btn');
 
