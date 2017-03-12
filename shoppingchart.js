@@ -105,9 +105,8 @@
         tdDelete.classList.add('array-remove-cell');
 
         var aDelete = document.createElement('button');
-        //aDelete.classList.add('array-remove');
+        aDelete.classList.add('array-remove');
         aDelete.classList.add('delete-btn');
-        aDelete.innerHTML = 'Remove';
 
         aDelete.setAttribute("click", function(e) {
             e.preventDefault();
