@@ -98,14 +98,10 @@
         var aDelete = document.createElement('a');
         aDelete.classList.add('array-remove');
         aDelete.classList.add('delete-btn');
-        aDelete.setAttribute('href', '#');
+        //aDelete.setAttribute('href', '#');
         aDelete.innerHTML = 'Remove';
 
-        aDelete.bind("click", function(e) {
-            e.preventDefault();
-
-            deleteRow();
-        });
+        aDelete.setAttribute('onClick', 'function(){ deleteRow(); } ;');
 
         tdDelete.appendChild(aDelete);
 
