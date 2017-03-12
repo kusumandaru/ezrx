@@ -155,11 +155,14 @@
             var aDelete = document.createElement('a');
             aDelete.classList.add('array-remove');
             aDelete.href = "#";
+            aDelete.onclick = function() {deleteRow(tr);};
 
+            /**
             aDelete.setAttribute("click", function(e) {
                 e.preventDefault();
                 deleteRow(tr);
             });
+             **/
             tdDelete.appendChild(aDelete);
 
             var buttonbox = tr.appendChild(tdDelete);
