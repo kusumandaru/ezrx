@@ -61,11 +61,13 @@
                 var type = tr.querySelector(".cell-type").querySelector('input[name="type"]');
                 var stockQty = tr.querySelector(".cell-stockQty").querySelector('input[name="stockQty"]');
 
-                if(inStock.value.toLowerCase() == "no")
-                {
-                    inStockSpan.classList.add('sc-no-stock');
-                } else {
-                    inStockSpan.classList.remove('sc-no-stock');
+                if(inStockSpan != null){
+                    if(inStock.value.toLowerCase() == "no")
+                    {
+                        inStockSpan.classList.add('sc-no-stock');
+                    } else {
+                        inStockSpan.classList.remove('sc-no-stock');
+                    }
                 }
 
                 if(parseInt(overridePrice.value) != parseInt(price.value))
