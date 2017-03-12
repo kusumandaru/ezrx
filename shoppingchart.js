@@ -54,7 +54,7 @@
             for(var i = 0, max = trList.length; i < max; i++) {
 
                 var tr = trList[i];
-                addDelete(tr);
+                //addDelete(tr);
 
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
                 var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
@@ -197,7 +197,7 @@
         });
         $('input[name=materialDescription]').hover(function(){
             if( $(this).val().length === 0 ) {
-                $(this).bind('focus', function(){ $(this).autocomplete("search"); } );
+                $(this).autocomplete("search");
             }
         }, function(){
 
