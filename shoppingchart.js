@@ -200,7 +200,7 @@
         $("input[name=materialDescription]").hover(function(){
             if( $(this).val().length === 0 ) {
                 $(this).val() == " ";
-                $(this).autocomplete();
+                $(this).autocomplete({source: jsonPartString});
             }
         }, function(){
 
