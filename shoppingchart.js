@@ -28,6 +28,7 @@
     }
 
     function hideVisualProgress(){
+        if(ifdocument.getElementById('field_wrapper_1_visualWorkflow') != null)
         document.getElementById('field_wrapper_1_visualWorkflow').style.display = 'none';           // Hide
     }
 
