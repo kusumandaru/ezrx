@@ -20,10 +20,15 @@
         /* UI */
         if (pagetitle.toLowerCase() == 'shopping cart' || pagetitle.toLowerCase() == 'model configuration') {
             materialWarning();
+            hideVisualProgress();
         }
         if (pagetitle.toLowerCase() == 'transaction') {
             refPORed();
         }
+    }
+
+    function hideVisualProgress(){
+        document.getElementById('field_wrapper_1_visualWorkflow').style.display = 'none';           // Hide
     }
 
     function materialWarning(){
@@ -43,7 +48,7 @@
             for(var i = 0, max = theadList.length; i < max; i++) {
                  var thead = theadList[i];
 
-                 //addHeaderDelete(thead);
+                 addHeaderDelete(thead);
             }
 
             for(var i = 0, max = trList.length; i < max; i++) {
