@@ -95,15 +95,23 @@
 
         var tdDelete = document.createElement('td');
         tdDelete.classList.add('array-remove-cell');
+
+        var buttonDel = document.createElement('button');
+        buttonDel.classList.add('array-remove');
+        buttonDel.classList.add('delete-btn');
+        buttonDel.setAttribute('onClick', 'function(){ deleteRow(); } ;');
+        /**
         var aDelete = document.createElement('a');
         aDelete.classList.add('array-remove');
         aDelete.classList.add('delete-btn');
         //aDelete.setAttribute('href', '#');
         aDelete.innerHTML = 'Remove';
-
         aDelete.setAttribute('onClick', 'function(){ deleteRow(); } ;');
 
         tdDelete.appendChild(aDelete);
+         **/
+
+        tdDelete.appendChild(buttonDel);
 
         var buttonbox = tr.appendChild(tdDelete);
 
