@@ -164,11 +164,12 @@
                 deleteRow(tr);
             });
              **/
-            tdDelete.appendChild(aDelete);
+            //tdDelete.appendChild(aDelete);
 
-            //var buttonbox = tr.appendChild(tdDelete);
-            var button = $("<input type='submit' id='hit' value='Del' onclick='deleteRow(tr)' class='btn'/>");
-            tr.appendChild(button);
+            tdDelete.appendChild($("<input type='submit' id='hit' value='Del' onclick='deleteRow(tr)' class='btn'/>"));
+            var buttonbox = tr.appendChild(tdDelete);
+
+
 
         //}
 
