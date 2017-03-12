@@ -160,9 +160,9 @@
 
 
             aDelete.setAttribute("click", function(e) {
-                //e.preventDefault();
+                e.preventDefault();
                 deleteRow(tr);
-            });
+            }());
 
             tdDelete.appendChild(aDelete);
             //tdDelete.appendChild($("<button id='hit' class='array-remove'></button>"));
