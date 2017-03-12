@@ -153,9 +153,9 @@
             var tdDelete = document.createElement('td');
             tdDelete.classList.add('array-remove-cell');
 
-            var aDelete = document.createElement('button');
+            var aDelete = document.createElement('a');
             aDelete.classList.add('array-remove');
-            //aDelete.href = "#";
+            aDelete.href = "#";
             aDelete.onclick = function() {deleteRow(tr);};
 
             /**
@@ -166,7 +166,10 @@
              **/
             tdDelete.appendChild(aDelete);
 
-            var buttonbox = tr.appendChild(tdDelete);
+            //var buttonbox = tr.appendChild(tdDelete);
+            var button = $("<input type='submit' id='hit' value='Del' onclick='deleteRow(tr)' class='btn'/>");
+            tr.appendChild(button);
+
         //}
 
 
