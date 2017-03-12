@@ -154,7 +154,7 @@
 
             var aDelete = document.createElement('a');
             //aDelete.classList.add('array-remove');
-            aDelete.attr("href", "#")
+            aDelete.prop("href", "#")
 
             aDelete.classList.add('delete-btn');
 
