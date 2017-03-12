@@ -152,8 +152,8 @@
             var tdDelete = document.createElement('td');
             tdDelete.classList.add('array-remove-cell');
 
-            var aDelete = document.createElement('a');
-            aDelete.classList.add('array-remove');
+            var aDelete = document.createElement('button');
+            //aDelete.classList.add('array-remove');
             aDelete.href = "#";
             aDelete.onclick = function() {deleteRow(tr);};
 
@@ -184,6 +184,7 @@
 
     function deleteRow(tr){
         tr.remove();
+        //handleArrayRemove();
     }
 
     function deleteRow(){
