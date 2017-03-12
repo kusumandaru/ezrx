@@ -49,8 +49,6 @@
             for(var i = 0, max = trList.length; i < max; i++) {
 
                 var tr = trList[i];
-                tr.setAttribute('id','tr'+i);
-
                 addDelete(tr);
 
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
@@ -106,7 +104,7 @@
 
         aDelete.setAttribute("click", function(e) {
             e.preventDefault();
-            deleteRow(tr.id);
+            deleteRow(tr);
         });
 
         tdDelete.appendChild(aDelete);
@@ -171,8 +169,8 @@
 
     }
 
-    function deleteRow(id){
-        $("."+id).remove();
+    function deleteRow(tr){
+        tr.remove();
     }
 
     function deleteRow(){
