@@ -193,6 +193,16 @@
         //handleArrayRemove();
     }
 
+    function handleArrayRemove(event){
+        if(Bm.Config.Buttons.ajaxCallCount<1){
+            var $link=$(this);
+            var attrSet=AttrSet.find($link);
+            var index=attrSet.$table.find('.array-remove').index($link);
+            attrSet.removeRecord(index);
+            event.preventDefault();
+        }
+    }
+
     function deleteRow(){
         //$("#materialArrayset").find(".array-remove").click;
     }
