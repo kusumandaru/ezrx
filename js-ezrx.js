@@ -1025,9 +1025,10 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('td.cell-materialDescription').attr("tooltip", function(){
             var input_text = $(this).children(".attribute-field-container").children("input");
             input_val = $( input_text ).val();
-            console.log(input_val);
             return input_val;
         }).mouseenter(function(){
+            var input_text = $(this).children(".attribute-field-container").children("input");
+            input_val = $( input_text ).val();
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
             table += "<tbody>";
             table += "<tr><td>"+input_val+"</td></tr>";
