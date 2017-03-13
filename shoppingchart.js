@@ -158,12 +158,13 @@
             aDelete.href = "#";
             //aDelete.onclick = function() {deleteRow(tr);};
 
-
+            /**
             aDelete.setAttribute("click", function(e) {
                 deleteRow(tr);
                 //e.preventDefault();
 
             }());
+             **/
 
             tdDelete.appendChild(aDelete);
             //tdDelete.appendChild($("<button id='hit' class='array-remove'></button>"));
