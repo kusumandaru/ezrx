@@ -640,7 +640,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         //button on top and bottom table
         // $("#materialArrayset").before( $(".jg-box-toolbar") ); //for top
-        $(".jg-box-maincontent").after( $(".jg-box-toolbar").clone() ); //for bottom
+        $("#materialArrayset").after( $(".jg-box-toolbar").clone() ); //for bottom
         $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
 
         // collapsible boxes
