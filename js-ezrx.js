@@ -560,6 +560,15 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
         });
 
+        // if Type Bonus Change row collor with grey #EEE;
+        $("td[id*='refNO_text']").each(function(i, data){
+            var refNo = $(this).attr("id").split("attr_wrapper");
+            var object_span = $("#readonly"+refNo[1]);
+            if(object_span.text() == "Bonus"){
+                console.log(object_span.parent('line-item'));
+            }
+        });
+
         /* EVENTS */
         $('#jg-tool-addtofav, #jg-btn-addtofav').click(function(e) {
             e.preventDefault();
@@ -640,7 +649,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         //button on top and bottom table
         // $("#materialArrayset").before( $(".jg-box-toolbar") ); //for top
-        $(".jg-box-maincontent").after( $(".jg-box-toolbar").clone() ); //for bottom
+        $("#materialArrayset").after( $(".jg-box-toolbar").clone() ); //for bottom
         $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
 
         // collapsible boxes
@@ -961,7 +970,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
             table += '</table>';
             if ($(this).attr('tooltip').trim() != '') {
-                $('#myModal .hover-modal-content').html(table);
+                $('#myModal').addClass('hover-modal-content').html(table);
                 $('#myModal').css("display", "block");
             }
             $('.cell-contractBonus').mouseleave(function() {
@@ -1001,7 +1010,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
             table += '</table>';
             if ($(this).attr('tooltip').trim() != '') {
-                $('#myModal .hover-modal-content').html(table);
+                $('#myModal').addClass('hover-modal-content').html(table);
                 $('#myModal').css("display", "block");
             }
             $('.cell-promotion').mouseleave(function() {
@@ -1014,7 +1023,8 @@ var urlSite = "https://ndaru.click/ezrx/";
         var input_val;
         $('td.cell-materialDescription').attr("tooltip", function(){
             var input_text = $(this).children(".attribute-field-container").children("input");
-            input_val = $( input_text ).val()
+            input_val = $( input_text ).val();
+            console.log(input_val);
             return input_val;
         }).mouseenter(function(){
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
@@ -1022,7 +1032,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             table += "<tr><td>"+input_val+"</td></tr>";
             table += "</tbody></table>";
             if ($(this).attr('tooltip') != '') {
-                $('#myModal .hover-modal-content').html(table);
+                $('#myModal').addClass('hover-modal-content').html(table);
                 $('#myModal').css("display", "block");
             }
             $('.cell-materialDescription').mouseleave(function() {

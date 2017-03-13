@@ -217,6 +217,20 @@ tfoot .jg-btn { margin:10px; }
 
 .jg-box-mainlayout #jg-btn-addrow { position: relative; left: -7px; top: 2px; }
 
+.array-remove{
+	background-image: url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/material-trash.png') !important;
+	border-radius: 70px;
+	width: 24px;
+	height: 24px;
+}
+
+.array-add{
+	background-image: url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/masterial-add.png') !important;
+	border-radius: 70px;
+	width: 24px;
+	height: 24px;
+}
+
 /* reports */
 .jg-box-mainlayout td.view-header { padding:10px 15px; background:#afc008; }
 .jg-box-mainlayout td.view-header a { background:none; }
