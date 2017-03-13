@@ -259,15 +259,26 @@ var urlSite = "https://ndaru.click/ezrx/";
 
     function tranform_ordersubmenu() {
         // orders submenu
-        $('.jg-box-submenu')
-            .append($("<img src='https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
-            .append($("<ul class='jg-list-submenu'>")
-                    .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders'>My Orders</a></li>"))
-                    .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/reports/report_manager.jsp?process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myreports'>My Reports</a></li>"))
-                    .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-neworder'>New Order</a></li>"))
-                    .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-copyorder'>Copy Order</a></li>"))
-                // .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-export'>Export</a></li>"))
-            );
+        if(/@zuelligpharma.com\s*$/.test(_BM_USER_LOGIN)){
+            $('.jg-box-submenu')
+                .append($("<img src='https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
+                .append($("<ul class='jg-list-submenu'>")
+                        .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders'>My Orders</a></li>"))
+                        .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/reports/report_manager.jsp?process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myreports'>My Reports</a></li>"))
+                        .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-neworder'>New Order</a></li>"))
+                        .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-copyorder'>Copy Order</a></li>"))
+                    // .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-export'>Export</a></li>"))
+                );
+        }else{
+            $('.jg-box-submenu')
+                .append($("<img src='https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
+                .append($("<ul class='jg-list-submenu'>")
+                        .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders'>My Orders</a></li>"))
+                        .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-neworder'>New Order</a></li>"))
+                        .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-copyorder'>Copy Order</a></li>"))
+                    // .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-export'>Export</a></li>"))
+                );
+        }
 
         // new order
         $('#jg-submenu-neworder').click(function(e) {
