@@ -136,7 +136,6 @@
                         qty.classList.remove('sc-zero-stock');
                     }
                 }
-                $("#materialArrayset tr:last").children('.array-remove-cell').append('<a href="#" id="jg-btn-addrow" class="array-add"></a>');
             }
         }
     }
@@ -150,7 +149,7 @@
     }
 
     function addDelete(tr){
-        //if(tr.childNodes[tr.children.length-1].className.search('array-remove-cell') < 0) { //if not contain
+        if(tr.childNodes[tr.children.length-1].className.search('array-remove-cell') < 0) { //if not contain
             var tdDelete = document.createElement('td');
             tdDelete.classList.add('array-remove-cell');
 
@@ -167,10 +166,7 @@
             tdDelete.appendChild(aDelete);
 
             var buttonbox = tr.appendChild(tdDelete);
-
-
-
-        //}
+        }
 
 
     }
