@@ -162,7 +162,7 @@
             aDelete.setAttribute("click", function(e) {
                 deleteRow(tr);
                 //e.preventDefault();
-                
+
             }());
 
             tdDelete.appendChild(aDelete);
@@ -193,7 +193,7 @@
     }
 
     function deleteRow(){
-        $("#materialArrayset").find(".array-remove").click;
+        //$("#materialArrayset").find(".array-remove").click;
     }
 
     $(document).ready(function(){
