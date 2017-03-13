@@ -944,7 +944,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             if ($(this).text().trim() != '') {
                 return '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
             } else {
-                return '';
+                return '-';
             }
 
         }).mouseenter(function() {
@@ -984,7 +984,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             if ($(this).text().trim() != '') {
                 return '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
             } else {
-                return '';
+                return '-';
             }
 
         }).mouseenter(function() {
