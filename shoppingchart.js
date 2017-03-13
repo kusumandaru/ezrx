@@ -45,17 +45,17 @@
             var theader = table.children[0];
             var theadList = theader.children;
             var trList = tbody.children;
-
+            var thead = null;
             for(var i = 0, max = theadList.length; i < max; i++) {
-                 var thead = theadList[i];
+                 thead = theadList[i];
 
-                 addHeaderDelete(thead);
+                 // addHeaderDelete(thead);
             }
 
             for(var i = 0, max = trList.length; i < max; i++) {
 
                 var tr = trList[i];
-                addDelete(tr);
+                addDelete(tr, thead);
 
                 var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
                 var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
@@ -148,8 +148,9 @@
         //}
     }
 
-    function addDelete(tr){
+    function addDelete(tr, thead){
         if(tr.childNodes[tr.children.length-1].className.search('array-remove-cell') < 0) { //if not contain
+            addHeaderDelete(thead);
             var tdDelete = document.createElement('td');
             tdDelete.classList.add('array-remove-cell');
 
