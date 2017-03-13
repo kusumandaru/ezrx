@@ -636,10 +636,11 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         // add row button
         // $('#materialArrayset table').append($("<tfoot><tr><td colspan=100><button class='jg-btn-transparent addrow jg-btn-addrow'>Add Row</button></td></tr></tfoot>"));
-        $('label[for=materialArraySize]').before($("<button id='jg-btn-addrow' class='jg-btn jg-btn-transparent jg-btn-icononly addrow'></button>"));
-        $('#materialArraySize').parent().css('position', 'relative');
-        $('#materialArraySize').closest('.attribute-label-container').css('top', '-3px').css('width', '150px');
-        $('#jg-btn-addrow').closest('.attribute-label-container').css('top', '-3px').css('width', '150px');
+        $("#materialArrayset tr:last").children('.array-remove-cell').append('<a href="#" id="jg-btn-addrow" class="array-add"></a>');
+        // $('label[for=materialArraySize]').before($("<button id='jg-btn-addrow' class='jg-btn jg-btn-transparent jg-btn-icononly addrow'></button>"));
+        // $('#materialArraySize').parent().css('position', 'relative');
+        // $('#materialArraySize').closest('.attribute-label-container').css('top', '-3px').css('width', '150px');
+        // $('#jg-btn-addrow').closest('.attribute-label-container').css('top', '-3px').css('width', '150px');
         $('#grid-36595617').css('marginBottom', '10px');
 
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
