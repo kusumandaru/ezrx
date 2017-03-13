@@ -666,7 +666,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                            .css('margin','0px')
                            .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-favourite.png' >");
         var mainContentWidth = $(".jg-box-maincontent").width();
-        var rightValue = mainContentWidth/4;
+        var rightValue = -(mainContentWidth/4);
 
         $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
 
