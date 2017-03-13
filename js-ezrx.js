@@ -665,8 +665,10 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#grid-36701507').children('.group-content')
                            .css('margin','0px')
                            .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-favourite.png' >");
+        var mainContentWidth = $(".jg-box-maincontent").width();
+        var rightValue = mainContentWidth/4;
 
-        $(rightPanel).css({'position': 'absolute', 'right': '-320px', 'height': '800px'});
+        $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
 
         $(rightPanel).mouseenter(
             function(e){
@@ -703,7 +705,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $('#grid-365618381').addClass("collapsed");
                 $('#group-36565572').addClass("collapsed");
                 $('#group-36701507').addClass("collapsed");
-                $(rightPanel).animate({right: '-320px'}, 2000);
+                $(rightPanel).animate({right: rightValue+'px'}, 2000);
             }
         );
 
