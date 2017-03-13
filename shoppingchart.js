@@ -158,13 +158,10 @@
             aDelete.href = "#";
             //aDelete.onclick = function() {deleteRow(tr);};
 
-            /**
-            aDelete.setAttribute("click", function(e) {
-                deleteRow(tr);
-                //e.preventDefault();
 
+            aDelete.setAttribute("click", function(e) {
+                arrayRemove();
             }());
-             **/
 
             tdDelete.appendChild(aDelete);
             //tdDelete.appendChild($("<button id='hit' class='array-remove'></button>"));
@@ -193,14 +190,12 @@
         //handleArrayRemove();
     }
 
-    function handleArrayRemove(event){
-        if(Bm.Config.Buttons.ajaxCallCount<1){
+    function arrayRemove(event){
             var $link=$(this);
             var attrSet=AttrSet.find($link);
             var index=attrSet.$table.find('.array-remove').index($link);
             attrSet.removeRecord(index);
             event.preventDefault();
-        }
     }
 
     function deleteRow(){
