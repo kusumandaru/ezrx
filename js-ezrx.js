@@ -961,7 +961,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
             table += '</table>';
             if ($(this).attr('tooltip').trim() != '') {
-                $('#myModal .hover-modal-content').html(table);
+                $('#myModal').addClass('hover-modal-content').html(table);
                 $('#myModal').css("display", "block");
             }
             $('.cell-contractBonus').mouseleave(function() {
@@ -1001,7 +1001,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
             table += '</table>';
             if ($(this).attr('tooltip').trim() != '') {
-                $('#myModal .hover-modal-content').html(table);
+                $('#myModal').addClass('hover-modal-content').html(table);
                 $('#myModal').css("display", "block");
             }
             $('.cell-promotion').mouseleave(function() {
