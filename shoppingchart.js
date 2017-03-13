@@ -140,11 +140,11 @@
     }
 
     function addHeaderDelete(thead){
-        //if(thead.childNodes[thead.children.length-1].className.search('array-remove-cell') < 0) { //if not contain
+        if(thead.childNodes[thead.children.length-1].className.search('array-remove-cell') < 0) { //if not contain
             var thDelete = document.createElement('th');
             thDelete.classList.add('array-remove-cell');
             thead.appendChild(thDelete);
-        //}
+        }
     }
 
     function addDelete(tr){
