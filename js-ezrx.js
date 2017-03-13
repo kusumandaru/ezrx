@@ -636,7 +636,6 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         // add row button
         // $('#materialArrayset table').append($("<tfoot><tr><td colspan=100><button class='jg-btn-transparent addrow jg-btn-addrow'>Add Row</button></td></tr></tfoot>"));
-        $("#materialArrayset tr:last").children('.array-remove-cell').append('<a href="#" id="jg-btn-addrow" class="array-add"></a>');
         // $('label[for=materialArraySize]').before($("<button id='jg-btn-addrow' class='jg-btn jg-btn-transparent jg-btn-icononly addrow'></button>"));
         // $('#materialArraySize').parent().css('position', 'relative');
         // $('#materialArraySize').closest('.attribute-label-container').css('top', '-3px').css('width', '150px');
@@ -720,7 +719,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         );
 
         /* EVENTS */
-        $('.jg-btn-addrow').bind('click', function(e) {
+        /*$('.jg-btn-addrow').bind('click', function(e) {
             e.preventDefault();
 
             $(this).closest('table').find('a.array-add')[0].click();
@@ -729,7 +728,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             e.preventDefault();
 
             $('#materialArrayset').find('a.array-add')[0].click();
-        });
+        });*/
 
         $('#btn-cart-update').bind('click', function(e) {
             e.preventDefault();
