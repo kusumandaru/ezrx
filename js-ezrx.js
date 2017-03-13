@@ -34,7 +34,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     $('body').addClass('jg-page-orders');
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-myorders').addClass('active');
-
+                    $('.main-pane').prepend("<input type='hidden' name='nama_folder' value='doremi' />");
                     transform_orderspage();
                 }
                 else if (pagetitle == 'transaction') {
@@ -89,6 +89,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 }
 
                 transform_newfooter();
+            }else if( pagetitle == 'folders' ){
+                console.log(document.bmDocForm);
             }
         }
 
@@ -430,7 +432,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#jg-tool-folder-edit').click(function(e) {
             e.preventDefault();
 
-            // $('#edit').click();
+            $('#edit').click();
         });
 
         // copy order
