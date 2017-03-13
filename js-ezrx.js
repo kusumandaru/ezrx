@@ -1032,10 +1032,10 @@ var urlSite = "https://ndaru.click/ezrx/";
             table += "<tbody>";
             table += "<tr><td>"+input_val+"</td></tr>";
             table += "</tbody></table>";
-            if ($(this).attr('tooltip') != '') {
-                $('#myModal').addClass('hover-modal-content').html(table);
-                $('#myModal').css("display", "block");
-            }
+            // if ($(this).attr('tooltip') != '') {
+            $('#myModal').addClass('hover-modal-content').html(table);
+            $('#myModal').css("display", "block");
+            // }
             $('.cell-materialDescription').mouseleave(function() {
                 $('#myModal').css("display", "none");
             });
