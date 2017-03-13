@@ -136,6 +136,7 @@
                         qty.classList.remove('sc-zero-stock');
                     }
                 }
+                $("#materialArrayset tr:last").children('.array-remove-cell').append('<a href="#" id="jg-btn-addrow" class="array-add"></a>');
             }
         }
     }

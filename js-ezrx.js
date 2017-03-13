@@ -636,7 +636,6 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         // add row button
         // $('#materialArrayset table').append($("<tfoot><tr><td colspan=100><button class='jg-btn-transparent addrow jg-btn-addrow'>Add Row</button></td></tr></tfoot>"));
-        $("#materialArrayset tr:last").children('.array-remove-cell').append('<a href="#" id="jg-btn-addrow" class="array-add"></a>');
         // $('label[for=materialArraySize]').before($("<button id='jg-btn-addrow' class='jg-btn jg-btn-transparent jg-btn-icononly addrow'></button>"));
         // $('#materialArraySize').parent().css('position', 'relative');
         // $('#materialArraySize').closest('.attribute-label-container').css('top', '-3px').css('width', '150px');
@@ -720,7 +719,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         );
 
         /* EVENTS */
-        $('.jg-btn-addrow').bind('click', function(e) {
+        /*$('.jg-btn-addrow').bind('click', function(e) {
             e.preventDefault();
 
             $(this).closest('table').find('a.array-add')[0].click();
@@ -729,7 +728,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             e.preventDefault();
 
             $('#materialArrayset').find('a.array-add')[0].click();
-        });
+        });*/
 
         $('#btn-cart-update').bind('click', function(e) {
             e.preventDefault();
@@ -1025,9 +1024,10 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('td.cell-materialDescription').attr("tooltip", function(){
             var input_text = $(this).children(".attribute-field-container").children("input");
             input_val = $( input_text ).val();
-            console.log(input_val);
             return input_val;
         }).mouseenter(function(){
+            var input_text = $(this).children(".attribute-field-container").children("input");
+            input_val = $( input_text ).val();
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
             table += "<tbody>";
             table += "<tr><td>"+input_val+"</td></tr>";
