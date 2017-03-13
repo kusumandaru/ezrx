@@ -560,6 +560,15 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
         });
 
+        // if Type Bonus Change row collor with grey #EEE;
+        $("td[id*='refNO_text']").each(function(i, data){
+            var refNo = $(this).attr("id").split("attr_wrapper");
+            var object_span = $("#readonly"+refNo[1]);
+            if(object_span.text() == "Bonus"){
+                console.log(object_span.parent('line-item'));
+            }
+        });
+
         /* EVENTS */
         $('#jg-tool-addtofav, #jg-btn-addtofav').click(function(e) {
             e.preventDefault();
