@@ -425,7 +425,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "<input type='hidden' name='formaction' value='addCmFolder' >"+
                             "<input type='hidden' name='bm_cm_process_id' value='"+ bm_cm_process_id_val +"' >"+
                             "<input type='hidden' name='folder_id' value='"+ folder_id_val +"' >"+
-                            "<select name='id' style='display:none;' >"+
+                            "<select name='id' id='folder' style='display:none;' >"+
                             optionsFolder+
                             "</select>"+
                             "</form>"+
@@ -435,7 +435,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         $(".tmp-folder-remove").on("click", function(){
             var id = $(this).id;
-            $("#id").value = id;
+            $("#folder").value = id;
             bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
             bmCancelBubble(event);
         })
