@@ -333,33 +333,6 @@ var urlSite = "https://ndaru.click/ezrx/";
             $('a.list-field')[0].click();
         });
 
-        // refresh button
-        var listFolder = [];
-        var list_folder = "";
-        $('#dropzone .dropTarget td[title]').each(function(i, target) {
-            var nama_folder = $(target).attr('title').replace(/[^\w\s]/gi, '');
-            console.log(nama_folder);
-            console.log(listFolder);
-            console.log(listFolder.indexOf(nama_folder));
-            var button_folder;
-            var link_folder = $(target).prev().find('a').attr('href');
-            console.log(nama_folder);
-            if(nama_folder.toLowerCase() == "default"){
-                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
-            }else if(nama_folder.toLowerCase() == "trash"){
-                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
-            }else if(nama_folder.toLowerCase() == "favourites"){
-                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
-            }else{
-                console.log(nama_folder);
-                button_folder = "<a href='"+link_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
-                button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
-                $(".jg-list-tool").append($(button_folder_toolbar));
-            }
-            list_folder += button_folder;
-            listFolder.push(nama_folder);
-        });
-
         function addFolder(form)
         {
             if(form.name.value == "[Default]" || form.name.value == "[Trash]"){
@@ -400,7 +373,41 @@ var urlSite = "https://ndaru.click/ezrx/";
                 }
             }
         }
-
+        
+        var listFolder = [];
+        var list_folder = "<table style='background-color:#0C727A;' >";
+        var optionsFolder = "";
+        $('#dropzone .dropTarget td[title]').each(function(i, target) {
+            var nama_folder = $(target).attr('title').replace(/[^\w\s]/gi, '');
+            var id_folder = $(target).parent().attr("id");
+            var button_folder = "<tr><td>";
+            var link_folder = $(target).prev().find('a').attr('href');
+            if(nama_folder.toLowerCase() == "default"){
+                button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                $("#jg-tool-folder-default").attr("href", link_folder);
+            }else if(nama_folder.toLowerCase() == "trash"){
+                button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
+                $("#jg-tool-folder-trash").attr("href", link_folder);
+            }else if(nama_folder.toLowerCase() == "favourites"){
+                button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
+                $("#jg-tool-folder-fav").attr("href", link_folder);
+            }else{
+                console.log(nama_folder);
+                button_folder += "<a href='"+link_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
+                $(".jg-list-tool").append($(button_folder_toolbar));
+                optionsFolder += "<option value="+id_folder+" ></option>";
+            }
+            button_folder += "</td><td style='padding-top:30px;' >";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' data-id='"+id_folder+"' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' data-id='"+id_folder+"' ></a>";
+            button_folder += "</td></tr>";
+            list_folder += button_folder;
+            listFolder.push(nama_folder);
+        });
+        list_folder += "</table>";
+        var bm_cm_process_id_val = $("input[name='bm_cm_process_id']").val();
+        var folder_id_val = $("input[name='folder_id']").val();
         $('.jg-list-tool-right')
             .append($("<li class='jg-item-tool'>")
                 // .append($("<a href='#' id='browse_folder' class='jg-linkbtn browse'>Browse</a>"))
@@ -409,14 +416,31 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "Folder Name : </p>"+
                             "<form name='templateFolder1' method='post' action='admin_folder.jsp' >"+
                             "<input type='hidden' name='formaction' value='addCmFolder' >"+
-                            "<input type='hidden' name='bm_cm_process_id' value='"+ $("input[name='bm_cm_process_id']").val() +"' >"+
-                            "<input type='hidden' name='folder_id' value='"+ $("input[name='folder_id']").val() +"' >"+
+                            "<input type='hidden' name='bm_cm_process_id' value='"+ bm_cm_process_id_val +"' >"+
+                            "<input type='hidden' name='folder_id' value='"+ folder_id_val +"' >"+
                             "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='name' size='20' maxlength='30' >"+
                             "<button style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' onclick='javascript:bmSubmitForm('admin_folder.jsp', document.templateFolder1, addFolder);bmCancelBubble(event)' >Create</button>"+
-                            "<hr/>"+list_folder+
                             "</form>"+
+                            "<form name='templateFolder2' method='post' action='admin_folder.jsp' >"+
+                            "<input type='hidden' name='formaction' value='addCmFolder' >"+
+                            "<input type='hidden' name='bm_cm_process_id' value='"+ bm_cm_process_id_val +"' >"+
+                            "<input type='hidden' name='folder_id' value='"+ folder_id_val +"' >"+
+                            "<select name='id' id='folder' style='display:none;' >"+
+                            optionsFolder+
+                            "</select>"+
+                            "</form>"+
+                            "<hr/>"+list_folder+
                           "</div>"))
             );
+
+        $(".tmp-folder-remove").on("click", function(){
+            var id = $(this).data('id');
+            // console.log(id);
+            $("#folder option[value='"+id+"']").attr("selected","");
+            // console.log($("#folder option:selected"));
+            bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
+            bmCancelBubble(event);
+        })
 
         $(".jg-box-foldermenu").css("right","-400px");
 
