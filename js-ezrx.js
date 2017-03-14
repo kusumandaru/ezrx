@@ -478,7 +478,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             isAnotherRenameToo = false;
             var id = $(this).data('id');
             $("#hidden_name_folder2").val( $("#input_"+id).val() );
-            bmSubmitForm('admin_folder.jsp', document.bmForm2, renameFolder);
+            bmSubmitForm('admin_folder.jsp', document.templateFolder2, renameFolder);
             bmCancelBubble(event);
             //hide element
             $("#input_"+id).hide();
