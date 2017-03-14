@@ -399,8 +399,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 button_folder += "</td><td style='padding-top:30px;' >";
                 button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' id='btn_rename_"+id_folder+"' data-id='"+id_folder+"' ></a>";
                 button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' id='btn_remove_"+id_folder+"' data-id='"+id_folder+"' ></a>";
-                button_folder += "<a href='#' class='tmp-folder tmp-folder-save' id='btn_save_"+id_folder+"' data-id='"+id_folder+"' ></a>";
-                button_folder += "<a href='#' class='tmp-folder tmp-folder-close' id='btn_close_"+id_folder+"' data-id='"+id_folder+"' ></a>";
+                button_folder += "<a href='#' class='tmp-folder tmp-folder-save' style='display:none;' id='btn_save_"+id_folder+"' data-id='"+id_folder+"' ></a>";
+                button_folder += "<a href='#' class='tmp-folder tmp-folder-close' style='display:none;' id='btn_close_"+id_folder+"' data-id='"+id_folder+"' ></a>";
                 button_folder += "</td></tr>";
             }
             list_folder += button_folder;
