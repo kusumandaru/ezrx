@@ -375,7 +375,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         }
         
         var listFolder = [];
-        var list_folder = "<table>";
+        var list_folder = "<table style='background-color:#0C727A;' >";
         $('#dropzone .dropTarget td[title]').each(function(i, target) {
             var nama_folder = $(target).attr('title').replace(/[^\w\s]/gi, '');
             var button_folder = "<tr><td>";
