@@ -373,7 +373,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='name' size='20' maxlength='30' >"+
                             "<button style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' onclick='javascript:bmSubmitForm('admin_folder.jsp', document.templateFolder1, addFolder);bmCancelBubble(event)' ></button>"+
                             "<hr/>"+list_folder+
-                            "</form>"
+                            "</form>"+
                           "</div>"))
             );
 
