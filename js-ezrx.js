@@ -333,33 +333,6 @@ var urlSite = "https://ndaru.click/ezrx/";
             $('a.list-field')[0].click();
         });
 
-        // refresh button
-        var listFolder = [];
-        var list_folder = "";
-        $('#dropzone .dropTarget td[title]').each(function(i, target) {
-            var nama_folder = $(target).attr('title').replace(/[^\w\s]/gi, '');
-            console.log(nama_folder);
-            console.log(listFolder);
-            console.log(listFolder.indexOf(nama_folder));
-            var button_folder;
-            var link_folder = $(target).prev().find('a').attr('href');
-            console.log(nama_folder);
-            if(nama_folder.toLowerCase() == "default"){
-                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
-            }else if(nama_folder.toLowerCase() == "trash"){
-                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
-            }else if(nama_folder.toLowerCase() == "favourites"){
-                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
-            }else{
-                console.log(nama_folder);
-                button_folder = "<a href='"+link_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
-                button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
-                $(".jg-list-tool").append($(button_folder_toolbar));
-            }
-            list_folder += button_folder;
-            listFolder.push(nama_folder);
-        });
-
         function addFolder(form)
         {
             if(form.name.value == "[Default]" || form.name.value == "[Trash]"){
@@ -400,6 +373,36 @@ var urlSite = "https://ndaru.click/ezrx/";
                 }
             }
         }
+        
+        var listFolder = [];
+        var list_folder = "<table>";
+        $('#dropzone .dropTarget td[title]').each(function(i, target) {
+            var nama_folder = $(target).attr('title').replace(/[^\w\s]/gi, '');
+            var button_folder = "<tr><td>";
+            var link_folder = $(target).prev().find('a').attr('href');
+            if(nama_folder.toLowerCase() == "default"){
+                button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                $("#jg-tool-folder-default").attr("href", link_folder);
+            }else if(nama_folder.toLowerCase() == "trash"){
+                button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
+                $("#jg-tool-folder-trash").attr("href", link_folder);
+            }else if(nama_folder.toLowerCase() == "favourites"){
+                button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
+                $("#jg-tool-folder-fav").attr("href", link_folder);
+            }else{
+                console.log(nama_folder);
+                button_folder += "<a href='"+link_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
+                $(".jg-list-tool").append($(button_folder_toolbar));
+            }
+            button_folder += "</td><td>";
+            button_folder += "<a href='#' class='tmp-folder-rename' ></a>";
+            button_folder += "<a href='#' class='tmp-folder-close' ></a>";
+            button_folder += "</td></tr>";
+            list_folder += button_folder;
+            listFolder.push(nama_folder);
+        });
+        list_folder += "</table>";
 
         $('.jg-list-tool-right')
             .append($("<li class='jg-item-tool'>")
