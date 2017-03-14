@@ -426,6 +426,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "<input type='hidden' name='formaction' value='addCmFolder' >"+
                             "<input type='hidden' name='bm_cm_process_id' value='"+ bm_cm_process_id_val +"' >"+
                             "<input type='hidden' name='folder_id' value='"+ folder_id_val +"' >"+
+                            "<input type='hidden' name='name' id='hidden_name_folder2' >"+
                             "<select name='id' id='folder' style='display:none;' >"+
                             optionsFolder+
                             "</select>"+
@@ -440,21 +441,54 @@ var urlSite = "https://ndaru.click/ezrx/";
             bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
             bmCancelBubble(event);
         });
-
+        var isAnotherRenameToo = false;
         $(".tmp-folder-rename").on("click", function(){
-            var id = $(this).data('id');
-            $("#folder option[value='"+id+"']").attr("selected","");
-            //hide element
-            $("#display_folder_"+id).hide();
-            $("#btn_rename_"+id).hide();
-            $("#btn_remove_"+id).hide();
-            //show element
-            $("#input_"+id).show();
-            $("#btn_save_"+id).show();
-            $("#btn_close_"+id).show();
+            if(!isAnotherRenameToo){
+                isAnotherRenameToo = true;
+                var id = $(this).data('id');
+                $("#folder option[value='"+id+"']").attr("selected","");
+                //hide element
+                $("#display_folder_"+id).hide();
+                $("#btn_rename_"+id).hide();
+                $("#btn_remove_"+id).hide();
+                //show element
+                $("#input_"+id).show();
+                $("#btn_save_"+id).show();
+                $("#btn_close_"+id).show();
+            }else{
+                alert("Please save / close another rename");
+            }
         });
 
 
+        $(".tmp-folder-close").on("click", function(){
+            isAnotherRenameToo = false;
+            var id = $(this).data('id');
+            //hide element
+            $("#input_"+id).hide();
+            $("#btn_save_"+id).hide();
+            $("#btn_close_"+id).hide();
+            //show element
+            $("#display_folder_"+id).show();
+            $("#btn_rename_"+id).show();
+            $("#btn_remove_"+id).show();
+        });
+
+        $(".tmp-folder-save").on("click", function(){
+            isAnotherRenameToo = false;
+            var id = $(this).data('id');
+            $("#hidden_name_folder2").val( $("#input_"+id).val() );
+            bmSubmitForm('admin_folder.jsp', document.bmForm2, renameFolder);
+            bmCancelBubble(event);
+            //hide element
+            $("#input_"+id).hide();
+            $("#btn_save_"+id).hide();
+            $("#btn_close_"+id).hide();
+            //show element
+            $("#display_folder_"+id).show();
+            $("#btn_rename_"+id).show();
+            $("#btn_remove_"+id).show();
+        });
 
         $(".jg-box-foldermenu").css("right","-400px");
 
