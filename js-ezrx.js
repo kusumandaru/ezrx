@@ -34,7 +34,6 @@ var urlSite = "https://ndaru.click/ezrx/";
                     $('body').addClass('jg-page-orders');
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-myorders').addClass('active');
-                    $('.main-pane').prepend("<input type='hidden' name='nama_folder' value='doremi' />");
                     transform_orderspage();
                 }
                 else if (pagetitle == 'transaction') {
@@ -90,7 +89,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
                 transform_newfooter();
             }else if( pagetitle == 'folders' ){
-                console.log(document.bmDocForm);
+                window.location = window.location.host;
             }
         }
 
@@ -324,9 +323,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 .append($("<a href='#' id='jg-tool-folder-edit' class='jg-linkbtn edit'>Edit</a>"))
             )
             .append($("<li class='jg-item-tool jg-separator'>"))
-            .append($("<li class='jg-item-tool'>")
-                .append($("<div id='custom_folder' ></div>"))
-            );
+            .append($("<div id='custom_folder' ></div>"))
 
         // dropdown
         $('#jg-tool-select').html($('select[name=new_search_id]').html());
@@ -342,24 +339,28 @@ var urlSite = "https://ndaru.click/ezrx/";
         var list_folder = "";
         $('#dropzone .dropTarget td[title]').each(function(i, target) {
             var nama_folder = $(target).attr('title').replace(/[^\w\s]/gi, '');
-            if(listFolder.indexOf(nama_folder) == -1){
-                var button_folder;
-                var link_folder = $(target).prev().find('a').attr('href');
-                if(nama_folder == "Default"){
-                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
-                }else if(nama_folder == "Trash"){
-                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
-                }else if(nama_folder == "Favourites"){
-                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
-                }else{
-                    button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
-                    button_folder_toolbar = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn default'>"+nama_folder+"</a>";
-                    $("#custom_folder").append($(button_folder_toolbar));
-                }
-                list_folder += button_folder;
-                listFolder.push(nama_folder);
+            console.log(nama_folder);
+            console.log(listFolder);
+            console.log(listFolder.indexOf(nama_folder));
+            var button_folder;
+            var link_folder = $(target).prev().find('a').attr('href');
+            console.log(nama_folder);
+            if(nama_folder.toLowerCase() == "default"){
+                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+            }else if(nama_folder.toLowerCase() == "trash"){
+                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
+            }else if(nama_folder.toLowerCase() == "favourites"){
+                button_folder = "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
+            }else{
+                console.log(nama_folder);
+                button_folder = "<a href='"+link_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
+                $("#custom_folder").append($(button_folder_toolbar));
             }
+            list_folder += button_folder;
+            listFolder.push(nama_folder);
         });
+
         $('.jg-list-tool-right')
             .append($("<li class='jg-item-tool'>")
                 // .append($("<a href='#' id='browse_folder' class='jg-linkbtn browse'>Browse</a>"))
@@ -580,7 +581,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         $("td[id*='refNO_text']").each(function(i, data){
             var refNo = $(this).attr("id").split("attr_wrapper");
             var object_span = $("#readonly"+refNo[1]);
-            if(object_span.text() == "Bonus"){
+            if(object_span.text().toLowerCase() == "bonus"){
                 console.log(object_span.parent('line-item'));
             }
         });
