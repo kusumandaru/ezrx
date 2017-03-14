@@ -378,11 +378,11 @@ var urlSite = "https://ndaru.click/ezrx/";
             $("#id").value = id;
         }
 
-        function renameFolder(id){
+        function customRenameFolder(id){
             selectIdFolder(id);
         }
 
-        function deleteFolder(id){
+        function customDeleteFolder(id){
             selectIdFolder(id);
             bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
             bmCancelBubble(event);
@@ -413,8 +413,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 optionsFolder += "<option value="+id_folder+" ></option>";
             }
             button_folder += "</td><td style='padding-top:30px;' >";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' onclick='renameFolder("+id_folder+")' ></a>";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' onclick='deleteFolder("+id_folder+")' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' onclick='customRenameFolder("+id_folder+")' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' onclick='customDeleteFolder("+id_folder+")' ></a>";
             button_folder += "</td></tr>";
             list_folder += button_folder;
             listFolder.push(nama_folder);
