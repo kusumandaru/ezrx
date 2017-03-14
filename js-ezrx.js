@@ -399,8 +399,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 optionsFolder += "<option value="+id_folder+" ></option>";
             }
             button_folder += "</td><td style='padding-top:30px;' >";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' id='"+id_folder+"' ></a>";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' id='"+id_folder+"' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' data-id='"+id_folder+"' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' data-id='"+id_folder+"' ></a>";
             button_folder += "</td></tr>";
             list_folder += button_folder;
             listFolder.push(nama_folder);
@@ -434,7 +434,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             );
 
         $(".tmp-folder-remove").on("click", function(){
-            var id = $(this).id;
+            var id = $(this).data('id');
             console.log(id);
             $("#folder option[value='"+id+"']").attr("selected","");
             console.log($("#folder option:selected"));
