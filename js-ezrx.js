@@ -435,7 +435,9 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         $(".tmp-folder-remove").on("click", function(){
             var id = $(this).id;
+            console.log(id);
             $("#folder option[value='"+id+"']").attr("selected","");
+            console.log($("#folder option:selected"));
             // bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
             // bmCancelBubble(event);
         })
