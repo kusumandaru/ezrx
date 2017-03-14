@@ -231,12 +231,12 @@ var urlSite = "https://ndaru.click/ezrx/";
         var showOrHide = function(condition){
             if(condition){
                 //show
-                $('.jg-box-submenu').animate({left: "50px"},1500);
+                $('.jg-box-submenu').animate({left: "50px"},1000);
                 AnimateRotate('jg-mainmenu-arrow', 360);
 
             }else{
                 //hide
-                $('.jg-box-submenu').animate({left: "-150px"},1500);
+                $('.jg-box-submenu').animate({left: "-150px"},1000);
                 AnimateRotate('jg-mainmenu-arrow', 180);
             }
         }
@@ -498,11 +498,11 @@ var urlSite = "https://ndaru.click/ezrx/";
             if(!hide){
                 hide = true;
                 // $(this).animate({marginRight: '240px'}, 1500);
-                $('.jg-box-foldermenu').animate({right: '0px'},1500);
+                $('.jg-box-foldermenu').animate({right: '0px'},1000);
             }else{
                 hide = false;
                 // $(this).animate({marginRight: '0px'}, 1500);
-                $('.jg-box-foldermenu').animate({right: '-400px'},1500);
+                $('.jg-box-foldermenu').animate({right: '-400px'},1000);
             }
             
         });
