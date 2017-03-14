@@ -322,8 +322,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             .append($("<li class='jg-item-tool'>")
                 .append($("<a href='#' id='jg-tool-folder-edit' class='jg-linkbtn edit'>Edit</a>"))
             )
-            .append($("<li class='jg-item-tool jg-separator'>"))
-            .append($("<div id='custom_folder' ></div>"))
+            .append($("<li class='jg-item-tool jg-separator'>"));
 
         // dropdown
         $('#jg-tool-select').html($('select[name=new_search_id]').html());
