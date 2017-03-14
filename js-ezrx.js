@@ -371,7 +371,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "<input type='hidden' name='bm_cm_process_id' value='"+ $("input[name='bm_cm_process_id']").val() +"' >"+
                             "<input type='hidden' name='folder_id' value='"+ $("input[name='folder_id']").val() +"' >"+
                             "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='name' size='20' maxlength='30' >"+
-                            "<button style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' onclick='javascript:bmSubmitForm('admin_folder.jsp', document.templateFolder1, addFolder);bmCancelBubble(event)' ></button>"+
+                            "<button style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' onclick='javascript:bmSubmitForm('admin_folder.jsp', document.templateFolder1, addFolder);bmCancelBubble(event)' >Create</button>"+
                             "<hr/>"+list_folder+
                             "</form>"+
                           "</div>"))
