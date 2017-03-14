@@ -109,7 +109,8 @@ tfoot .jg-btn { margin:10px; }
 
 .tmp-folder{
 	background-repeat: no-repeat; 
-	padding: 11px;
+	padding: 12px;
+	margin: 5px
 }
 
 .tmp-folder-rename { 
