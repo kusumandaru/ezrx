@@ -355,7 +355,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 console.log(nama_folder);
                 button_folder = "<a href='"+link_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
                 button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
-                $("#custom_folder").append($(button_folder_toolbar));
+                $(".jg-list-tool").append($(button_folder_toolbar));
             }
             list_folder += button_folder;
             listFolder.push(nama_folder);
