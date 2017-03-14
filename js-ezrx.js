@@ -89,7 +89,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
                 transform_newfooter();
             }else if( pagetitle == 'folders' ){
-                window.location = window.location.host;
+                window.location = 'https://'+window.location.host;
             }
         }
 
@@ -360,6 +360,47 @@ var urlSite = "https://ndaru.click/ezrx/";
             listFolder.push(nama_folder);
         });
 
+        function addFolder(form)
+        {
+            if(form.name.value == "[Default]" || form.name.value == "[Trash]"){
+                bmErrorString += "[Default] and [Trash] folders already exist";
+            }
+            bmCheckString(form.name, "Folder Name");
+        }
+
+        function renameFolder(form)
+        {
+            for(var i=0; i<form.id.length; i++)
+            {
+                if(form.id.options[i].selected){
+                    if(form.id.options[i].text == "[Default]" || form.id.options[i].text == "[Trash]"){
+                        bmErrorString += "[Default] and [Trash] folders are mandatory and cannot be renamed";
+                    }
+                }
+            }
+            if(form.name.value == "[Default]" || form.name.value == "[Trash]"){
+                bmErrorString += "[Default] and [Trash] folders already exist";
+            }
+
+            bmCheckString(form.name, "New Name");
+        }
+
+        function deleteFolder(form)
+        {
+            for(var i=0; i<form.id.length; i++)
+            {
+                if(form.id.options[i].selected){
+                    if(form.id.options[i].text == "[Default]" || form.id.options[i].text == "[Trash]"){
+                        bmErrorString += "[Default] and [Trash] folders are mandatory and cannot be deleted";
+                        return false;
+                    }
+                    if(form.id.options[i].value == form.folder_id.value){
+                        form.folder_id.value=-1;
+                    }
+                }
+            }
+        }
+
         $('.jg-list-tool-right')
             .append($("<li class='jg-item-tool'>")
                 // .append($("<a href='#' id='browse_folder' class='jg-linkbtn browse'>Browse</a>"))
@@ -371,7 +412,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "<input type='hidden' name='bm_cm_process_id' value='"+ $("input[name='bm_cm_process_id']").val() +"' >"+
                             "<input type='hidden' name='folder_id' value='"+ $("input[name='folder_id']").val() +"' >"+
                             "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='name' size='20' maxlength='30' >"+
-                            "<button style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' onclick='javascript:bmSubmitForm('admin_folder.jsp', document.templateFolder1, addFolder);bmCancelBubble(event)' ></button>"+
+                            "<button style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' onclick='javascript:bmSubmitForm('admin_folder.jsp', document.templateFolder1, addFolder);bmCancelBubble(event)' >Create</button>"+
                             "<hr/>"+list_folder+
                             "</form>"+
                           "</div>"))
