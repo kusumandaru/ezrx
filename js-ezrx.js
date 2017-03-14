@@ -396,8 +396,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $(".jg-list-tool").append($(button_folder_toolbar));
             }
             button_folder += "</td><td>";
-            button_folder += "<a href='#' class='tmp-folder-rename' ></a>";
-            button_folder += "<a href='#' class='tmp-folder-close' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-close' ></a>";
             button_folder += "</td></tr>";
             list_folder += button_folder;
             listFolder.push(nama_folder);
