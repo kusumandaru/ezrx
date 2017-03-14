@@ -89,7 +89,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
                 transform_newfooter();
             }else if( pagetitle == 'folders' ){
-                window.location = window.location.host;
+                window.location = 'https://'+window.location.host;
             }
         }
 
