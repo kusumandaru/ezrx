@@ -366,10 +366,15 @@ var urlSite = "https://ndaru.click/ezrx/";
                 .append($("<div class='jg-box-foldermenu'>"+
                             "<p class='jg-linkbtn' >Create New Folder<br/><br/>"+
                             "Folder Name : </p>"+
-                            "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='name' >"+
-                            "<input onClick='https://zuelligpharmatest1.bigmachines.com/commerce/buyside/admin_folder.jsp' value='Create' style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' >"+
+                            "<form name='templateFolder1' method='post' action='admin_folder.jsp' >"+
+                            "<input type='hidden' name='formaction' value='addCmFolder' >"+
+                            "<input type='hidden' name='bm_cm_process_id' value='"+ $("input[name='bm_cm_process_id']").val() +"' >"+
+                            "<input type='hidden' name='folder_id' value='"+ $("input[name='folder_id']").val() +"' >"+
+                            "<input type='text' style='padding:5px;width:83%;margin-bottom:10px;' name='name' size='20' maxlength='30' >"+
+                            "<button style='padding:5px;border-radius:20px;width:70px;height:30px;color:white;background-color:#0C727A;border:2px solid white;margin-left:160px;' onclick='javascript:bmSubmitForm('admin_folder.jsp', document.templateFolder1, addFolder);bmCancelBubble(event)' ></button>"+
                             "<hr/>"+list_folder+
-                            "</div>"))
+                            "</form>"
+                          "</div>"))
             );
 
         $(".jg-box-foldermenu").css("right","-400px");
@@ -378,12 +383,10 @@ var urlSite = "https://ndaru.click/ezrx/";
         var hide = false;
         $("#jg-tool-folder-edit").on("click", function(){
             if(!hide){
-                console.log("show");
                 hide = true;
                 // $(this).animate({marginRight: '240px'}, 1500);
                 $('.jg-box-foldermenu').animate({right: '0px'},1500);
             }else{
-                console.log("hide");
                 hide = false;
                 // $(this).animate({marginRight: '0px'}, 1500);
                 $('.jg-box-foldermenu').animate({right: '-400px'},1500);
@@ -443,7 +446,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#jg-tool-folder-edit').click(function(e) {
             e.preventDefault();
 
-            $('#edit').click();
+            // $('#edit').click();
         });
 
         // copy order
