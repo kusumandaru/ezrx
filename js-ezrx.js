@@ -373,20 +373,6 @@ var urlSite = "https://ndaru.click/ezrx/";
                 }
             }
         }
-
-        function selectIdFolder(id){
-            $("#id").value = id;
-        }
-
-        function customRenameFolder(id){
-            selectIdFolder(id);
-        }
-
-        function customDeleteFolder(id){
-            selectIdFolder(id);
-            bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
-            bmCancelBubble(event);
-        }
         
         var listFolder = [];
         var list_folder = "<table style='background-color:#0C727A;' >";
@@ -413,8 +399,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 optionsFolder += "<option value="+id_folder+" ></option>";
             }
             button_folder += "</td><td style='padding-top:30px;' >";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' onclick='customRenameFolder("+id_folder+")' ></a>";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' onclick='customDeleteFolder("+id_folder+")' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' id='"+id_folder+"' ></a>";
+            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' id='"+id_folder+"' ></a>";
             button_folder += "</td></tr>";
             list_folder += button_folder;
             listFolder.push(nama_folder);
@@ -446,6 +432,13 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "<hr/>"+list_folder+
                           "</div>"))
             );
+
+        $(".tmp-folder-remove").on("click", function(){
+            var id = $(this).id;
+            $("#id").value = id;
+            bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
+            bmCancelBubble(event);
+        })
 
         $(".jg-box-foldermenu").css("right","-400px");
 
