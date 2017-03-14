@@ -392,16 +392,17 @@ var urlSite = "https://ndaru.click/ezrx/";
                 button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
                 $("#jg-tool-folder-fav").attr("href", link_folder);
             }else{
-                console.log(nama_folder);
-                button_folder += "<a href='"+link_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
+                button_folder += "<a href='"+link_folder+"' id='display_folder_"+id_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a><input id='input_"+id_folder+"' name='name' class='input-folder' style='display:none;' />";
                 button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
                 $(".jg-list-tool").append($(button_folder_toolbar));
                 optionsFolder += "<option value="+id_folder+" ></option>";
+                button_folder += "</td><td style='padding-top:30px;' >";
+                button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' id='btn_rename_"+id_folder+"' data-id='"+id_folder+"' ></a>";
+                button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' id='btn_remove_"+id_folder+"' data-id='"+id_folder+"' ></a>";
+                button_folder += "<a href='#' class='tmp-folder tmp-folder-save' id='btn_save_"+id_folder+"' data-id='"+id_folder+"' ></a>";
+                button_folder += "<a href='#' class='tmp-folder tmp-folder-close' id='btn_close_"+id_folder+"' data-id='"+id_folder+"' ></a>";
+                button_folder += "</td></tr>";
             }
-            button_folder += "</td><td style='padding-top:30px;' >";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' data-id='"+id_folder+"' ></a>";
-            button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' data-id='"+id_folder+"' ></a>";
-            button_folder += "</td></tr>";
             list_folder += button_folder;
             listFolder.push(nama_folder);
         });
@@ -435,12 +436,25 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         $(".tmp-folder-remove").on("click", function(){
             var id = $(this).data('id');
-            // console.log(id);
             $("#folder option[value='"+id+"']").attr("selected","");
-            // console.log($("#folder option:selected"));
             bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
             bmCancelBubble(event);
-        })
+        });
+
+        $(".tmp-folder-rename").on("click", function(){
+            var id = $(this).data('id');
+            $("#folder option[value='"+id+"']").attr("selected","");
+            //hide element
+            $("#display_folder_"+id).hide();
+            $("#btn_rename_"+id).hide();
+            $("#btn_remove_"+id).hide();
+            //show element
+            $("#input_"+id).show();
+            $("#btn_save_"+id).show();
+            $("#btn_close_"+id).show();
+        });
+
+
 
         $(".jg-box-foldermenu").css("right","-400px");
 
