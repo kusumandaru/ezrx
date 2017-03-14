@@ -441,7 +441,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                             "<input type='hidden' name='folder_id' value='"+ folder_id_val +"' >"+
                             "<select name='id' style='display:none;' >"+
                             optionsFolder+
-                            "</select>"
+                            "</select>"+
                             "</form>"+
                             "<hr/>"+list_folder+
                           "</div>"))
