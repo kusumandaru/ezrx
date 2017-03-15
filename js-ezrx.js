@@ -768,9 +768,31 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('.tab-content button').addClass('jg-btn');
         $('.attribute-label[for=principalCode]').parent().css('marginTop', '5px');
         $('.attribute-label[for=showPrincipalFavorites]').parent().css('marginTop', '5px');
-
+        /* Toolbar on bottom table. */
         $("#materialArrayset").after( $(".jg-box-toolbar").clone() ); //for bottom
         $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
+        /* Right Panel Content */
+        $('#grid-36595617').closest('.column').wrapInner($("<div class='jg-inner-column'>"));
+        $('#grid-36561838').closest('.column').css('marginTop', '8px');
+        //transisi right side
+        $('.jg-box-maincontent').css({"overflow": "hidden", "min-height": "800px"});
+
+        $('#grid-36561838').addClass("collapsed");
+
+        var rightPanel = $('#grid-36397039').children('.row').children('.column-1');
+        $('#grid-36561838').children('.group-content')
+                           .css('margin','0px')
+                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-frequently.png' >");
+        $('#grid-36565572').children('.group-content')
+                           .css('margin','0px')
+                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-recommended.png' >");
+        $('#grid-36701507').children('.group-content')
+                           .css('margin','0px')
+                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-favourite.png' >");
+        var mainContentWidth = $(".jg-box-maincontent").width();
+        var rightValue = -(mainContentWidth/4);
+
+        $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
         
     }
 
