@@ -1053,35 +1053,6 @@ var urlSite = "https://ndaru.click/ezrx/";
                 return '';
             }
 
-        }).mouseenter(function() {
-            var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Ordered Quantity</th><th style="border: 1px solid #999;padding:5px;">Bonus Product</th><th style="border: 1px solid #999;padding:5px;">Bonus Quantity</th></tr></thead>';
-            var x = $(this).attr('tooltip').trim();
-            if (x != "") {
-                var col = x.trim().split(",");
-                if (col.length > 0) {
-                    table += "<tbody>";
-                    col.forEach(function(row) {
-                        table += '<tr>';
-                        row = row.trim().split('-');
-                        if (row.length > 0) {
-                            row.forEach(function(item) {
-                                table = table + '<td style="border: 1px solid #999;padding:5px;">' + item + '</td>';
-                            });
-                        }
-                        table += '</tr>';
-                    });
-                    table += '</tbody>';
-
-                }
-            }
-            table += '</table>';
-            if ($(this).attr('tooltip').trim() != '') {
-                $('#myModal').addClass('hover-modal-content').html(table);
-                $('#myModal').css("display", "block");
-            }
-            $('.cell-contractBonus').mouseleave(function() {
-                $('#myModal').css("display", "none");
-            });
         });
 
         //material description
