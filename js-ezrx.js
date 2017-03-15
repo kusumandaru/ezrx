@@ -833,6 +833,43 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $(rightPanel).animate({right: rightValue+'px'}, 2000);
             }
         );
+
+        /* Events */
+
+        $('#btn-cart-update').bind('click', function(e) {
+            e.preventDefault();
+
+            $('#update')[0].click();
+        });
+
+        $('#btn-cart-addtoorder').bind('click', function(e) {
+            e.preventDefault();
+
+            $('#add_to_cart')[0].click();
+        });
+
+        $('#btn-cart-startover').bind('click', function(e) {
+            e.preventDefault();
+
+            $('#start_over')[0].click();
+        });
+
+        $('#btn-cart-save').bind('click', function(e) {
+            e.preventDefault();
+
+            $('#save')[0].click();
+        });
+
+        $('#btn-cart-cancelshopping').bind('click', function(e) {
+            e.preventDefault();
+
+            if ($('#cancel_shopping_cart').length) {
+                $('#cancel_shopping_cart')[0].click();
+            }
+            else {
+                $('#cancel')[0].click()
+            }
+        });
         
     }
 
