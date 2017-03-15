@@ -793,6 +793,46 @@ var urlSite = "https://ndaru.click/ezrx/";
         var rightValue = -(mainContentWidth/4);
 
         $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
+
+        /* Show or Hide right panel content */
+        $(rightPanel).mouseenter(
+            function(e){
+                $(rightPanel).animate({right: '0px'}, 2000);
+                $('#grid-36561838').mouseenter(function(e){
+                    console.log('grid-36561838');
+                    $('#grid-36561838').addClass("collapsed");
+                    $('#grid-36561838').removeClass("collapsed");
+                });
+                $('#grid-36565572').mouseenter(function(e){
+                    console.log('grid-36565572');
+                    $('#group-36565572').addClass("collapsed");
+                    $('#group-36565572').removeClass("collapsed");
+                });
+                $('#grid-36701507').mouseenter(function(e){
+                    console.log('grid-36701507');
+                    $('#group-36701507').addClass("collapsed");
+                    $('#group-36701507').removeClass("collapsed");
+                });
+                $('#grid-36561838').mouseleave(function(e){
+                    $('#grid-36561838').addClass("collapsed");
+                });
+                $('#grid-36565572').mouseleave(function(e){
+                    $('#group-36565572').addClass("collapsed");
+                });
+                $('#grid-36701507').mouseleave(function(e){
+                    $('#group-36701507').addClass("collapsed");
+                });
+            }
+        );
+
+        $(rightPanel).mouseleave(
+            function(e){
+                $('#grid-365618381').addClass("collapsed");
+                $('#group-36565572').addClass("collapsed");
+                $('#group-36701507').addClass("collapsed");
+                $(rightPanel).animate({right: rightValue+'px'}, 2000);
+            }
+        );
         
     }
 
