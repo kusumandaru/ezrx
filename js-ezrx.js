@@ -1084,46 +1084,6 @@ var urlSite = "https://ndaru.click/ezrx/";
             });
         });
 
-        $('td.cell-promotion').attr('tooltip', function() {
-            return $(this).text()
-        }).html(function() {
-            if ($(this).text().trim() != '') {
-                return '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
-            } else {
-                return '';
-            }
-
-        }).mouseenter(function() {
-            var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Ordered Quantity</th><th style="border: 1px solid #999;padding:5px;">Contract Price</th></tr></thead>';
-            var x = $(this).attr('tooltip').trim();
-            if (x != "") {
-                var col = x.trim().split(",");
-                if (col.length > 0) {
-                    table += "<tbody>";
-                    col.forEach(function(row) {
-                        table += '<tr>';
-                        row = row.trim().split('-');
-                        if (row.length > 0) {
-                            row.forEach(function(item) {
-                                table = table + '<td style="border: 1px solid #999;padding:5px;">' + item + '</td>';
-                            });
-                        }
-                        table += '</tr>';
-                    });
-                    table += '</tbody>';
-
-                }
-            }
-            table += '</table>';
-            if ($(this).attr('tooltip').trim() != '') {
-                $('#myModal').addClass('hover-modal-content').html(table);
-                $('#myModal').css("display", "block");
-            }
-            $('.cell-promotion').mouseleave(function() {
-                $('#myModal').css("display", "none");
-            });
-        });
-
         //material description
         //for add material page.
         var input_val;
