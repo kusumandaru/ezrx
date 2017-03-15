@@ -763,6 +763,14 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#sticky-actions').hide();
         $('#tab-material').closest('ul').hide();
 
+        $('#grid-36595617').css('marginBottom', '10px');
+        $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
+        $('.tab-content button').addClass('jg-btn');
+        $('.attribute-label[for=principalCode]').parent().css('marginTop', '5px');
+        $('.attribute-label[for=showPrincipalFavorites]').parent().css('marginTop', '5px');
+
+        $("#materialArrayset").after( $(".jg-box-toolbar").clone() ); //for bottom
+        $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
         
     }
 
