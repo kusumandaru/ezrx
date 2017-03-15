@@ -870,6 +870,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $('#cancel')[0].click()
             }
         });
+
+        adjust_tooltip();
         
     }
 
