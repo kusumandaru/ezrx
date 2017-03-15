@@ -1046,13 +1046,6 @@ var urlSite = "https://ndaru.click/ezrx/";
     function adjust_tooltip() {
         $('td.cell-contractBonus').attr('tooltip', function() {
             return $(this).text()
-        }).html(function() {
-            if ($(this).text().trim() != '') {
-                return '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
-            } else {
-                return '';
-            }
-
         });
 
         //material description
