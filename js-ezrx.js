@@ -693,8 +693,10 @@ var urlSite = "https://ndaru.click/ezrx/";
         $("td[id*='refNO_text']").each(function(i, data){
             var refNo = $(this).attr("id").split("attr_wrapper");
             var object_span = $("#readonly"+refNo[1]);
+            // console.log(object_span.text());
             if(object_span.text().toLowerCase() == "bonus"){
-                console.log(object_span.parent('line-item'));
+                // console.log("bonus");
+                $(this).parent().css("background-color","#EEE").removeClass('child-line-item');
             }
         });
 
