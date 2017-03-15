@@ -75,7 +75,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     $('#jg-submenu-neworder').parent().remove();
                     $('#jg-submenu-copyorder').parent().remove();
 
-                    transform_modelconfig();
+                    //transform_modelconfig();
                 }
                 else if (pagetitle == "report manager") {
                     $('body').addClass('jg-page-orders');
