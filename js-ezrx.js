@@ -772,20 +772,22 @@ var urlSite = "https://ndaru.click/ezrx/";
         $("td.cell-materialDescription").children().children('input').each(function(){
             var id_input = this.id;
             textbox = $(document.createElement('textarea')).attr({
-                id : id_input,
-                name : this.name,
+                id : "area_"+id_input,
+                name : "area_"+this.name,
                 value : $(this).val(),
                 style : ($(this).attr("style") != 'undefined')? $(this).attr("style") : '',
                 "class" : $(this).attr("class")+" textarea-listen ",
                 cols : 23
             });
-            $(this).replaceWith(textbox);
-            $("#"+id_input).css("height", (15+document.getElementById(id_input).scrollHeight)+"px");
+            $(this).hide();
+            $(this).parent().append(textbox);
+            $("#area_"+id_input).css("height", (15+document.getElementById("area_"+id_input).scrollHeight)+"px");
         });
 
         $(".textarea-listen").keydown(function(){
             this.style.height = "1px";
             this.style.height = (25+this.scrollHeight)+"px";
+            $("#"+this.id.replace("area_","")).val( this.val() );
         });
 
         $('#grid-36595617').css('marginBottom', '10px');
