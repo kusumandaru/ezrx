@@ -779,8 +779,9 @@ var urlSite = "https://ndaru.click/ezrx/";
                 "class" : $(this).attr("class")+" textarea-listen ",
                 cols : 23
             });
-            $(this).hide();
-            $(this).parent().append(textbox);
+            $(this).replaceWith(textbox);
+            /*$(this).hide();
+            $(this).parent().append(textbox);*/
             $("#area_"+id_input).css("height", (15+document.getElementById("area_"+id_input).scrollHeight)+"px");
         });
 
@@ -862,6 +863,36 @@ var urlSite = "https://ndaru.click/ezrx/";
         );
 
         /* Events */
+
+        $('.array-add').bind('click', function(e){
+            //listen add array
+            setTimeout(function(){
+                $("td.cell-overridePrice").children().children('input').each(function(){
+                    $(this).css("width","110px");
+                });
+                $("td.cell-materialDescription").children().children('input').each(function(){
+                    var id_input = this.id;
+                    textbox = $(document.createElement('textarea')).attr({
+                        id : "area_"+id_input,
+                        name : "area_"+this.name,
+                        value : $(this).val(),
+                        style : ($(this).attr("style") != 'undefined')? $(this).attr("style") : '',
+                        "class" : $(this).attr("class")+" textarea-listen ",
+                        cols : 23
+                    });
+                    $(this).replaceWith(textbox);
+                    /*$(this).hide();
+                    $(this).parent().append(textbox);*/
+                    $("#area_"+id_input).css("height", (15+document.getElementById("area_"+id_input).scrollHeight)+"px");
+                });
+
+                $(".textarea-listen").keydown(function(){
+                    this.style.height = "1px";
+                    this.style.height = (25+this.scrollHeight)+"px";
+                    $("#"+this.id.replace("area_","")).val( $(this).val() );
+                });
+            }, 2000);
+        })
 
         $('.cart-update').bind('click', function(e) {
             e.preventDefault();
