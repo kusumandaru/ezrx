@@ -765,11 +765,11 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#sticky-actions').hide();
         $('#tab-material').closest('ul').hide();
         /* change width override price*/
-        $("td[class='cell-overridePrice']").children().children('input').each(function(){
+        $("td.cell-overridePrice").children().children('input').each(function(){
             $(this).css("width","110px");
         });
         /* change input in material description to textarea */
-        $("td[class='cell-materialDescription']").children().children('input').each(function(){
+        $("td.cell-materialDescription").children().children('input').each(function(){
             textbox = $(document.createElement('textarea')).attr({
                 id : this.id,
                 name : this.name,
