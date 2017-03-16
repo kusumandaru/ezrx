@@ -891,6 +891,10 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         /* Events */
 
+        $('.array-add').bind('click', function(e){
+            $(".textarea-listen").remove();
+        });
+
         $('.cart-update').bind('click', function(e) {
             e.preventDefault();
 
