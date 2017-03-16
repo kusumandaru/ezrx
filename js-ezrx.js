@@ -774,9 +774,9 @@ var urlSite = "https://ndaru.click/ezrx/";
                 id : this.id,
                 name : this.name,
                 value : $(this).val(),
-                style : $(this).attr("style"),
+                style : $(this).attr("style")+"height:"+this.scrollHeight+"px",
                 "class" : $(this).attr("class")+" textarea-listen ",
-                cols : 18
+                cols : 23
             });
             $(this).replaceWith(textbox);
         });
