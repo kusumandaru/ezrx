@@ -768,8 +768,8 @@ var urlSite = "https://ndaru.click/ezrx/";
         /* change input in material description to textarea */
         $("td[class='cell-materialDescription ']").children().children('input').each(function(){
             textbox = $(document.createElement('textarea')).attr({
-                id : $(this).id,
-                name : $(this).name,
+                id : this.id,
+                name : this.name,
                 value : $(this).val(),
                 style : $(this).attr("style"),
                 "class" : $(this).attr("class")+" textarea-listen ",
@@ -778,10 +778,10 @@ var urlSite = "https://ndaru.click/ezrx/";
             $(this).replaceWith(textbox);
         });
 
-        $(".textarea-listen").on("change", function(){
+        $(".textarea-listen").keydown(function(){
             this.style.height = "1px";
             this.style.height = (25+this.scrollHeight)+"px";
-        })
+        });
 
         $('#grid-36595617').css('marginBottom', '10px');
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
