@@ -780,7 +780,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 cols : 23
             });
             $(this).replaceWith(textbox);
-            $("#"+id_input).style.height = (25+$(this).scrollHeight)+"px";
+            $("#"+id_input).css("height", (25+$(this).scrollHeight)+"px");
         });
 
         $(".textarea-listen").keydown(function(){
