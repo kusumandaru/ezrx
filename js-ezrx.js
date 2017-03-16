@@ -776,7 +776,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 value : $(this).val(),
                 style : ($(this).attr("style") != 'undefined')? $(this).attr("style") : '',
                 "class" : $(this).attr("class")+" textarea-listen ",
-                cols : 18
+                cols : 23
             });
             $(this).replaceWith(textbox);
             $(this).style.height = (25+$(this).scrollHeight)+"px";
