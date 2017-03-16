@@ -765,6 +765,19 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#sticky-actions').hide();
         $('#tab-material').closest('ul').hide();
 
+        /* change input in material description to textarea */
+        $("td[class='cell-materialDescription ']").children().children('input').each(function(){
+            textbox = $(document.createElement('textarea')).attr({
+                id : $(this).id,
+                name : $(this).name,
+                value : $(this).val(),
+                style : $(this).attr("style"),
+                "class" : $(this).attr("class"),
+                cols : 18
+            });
+            $(this).replaceWith(textbox);
+        });
+
         $('#grid-36595617').css('marginBottom', '10px');
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
         $('.tab-content button').addClass('jg-btn');
@@ -1130,11 +1143,11 @@ var urlSite = "https://ndaru.click/ezrx/";
         //for add material page.
         var input_val;
         $('td.cell-materialDescription').attr("tooltip", function(){
-            var input_text = $(this).children(".attribute-field-container").children("input");
+            var input_text = $(this).children(".attribute-field-container").children("textarea");
             input_val = $( input_text ).val();
             return input_val;
         }).mouseenter(function(){
-            var input_text = $(this).children(".attribute-field-container").children("input");
+            var input_text = $(this).children(".attribute-field-container").children("textarea");
             input_val = $( input_text ).val();
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
             table += "<tbody>";
