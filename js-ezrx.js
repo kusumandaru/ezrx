@@ -772,11 +772,16 @@ var urlSite = "https://ndaru.click/ezrx/";
                 name : $(this).name,
                 value : $(this).val(),
                 style : $(this).attr("style"),
-                "class" : $(this).attr("class"),
+                "class" : $(this).attr("class")+" textarea-listen ",
                 cols : 18
             });
             $(this).replaceWith(textbox);
         });
+
+        $(".textarea-listen").on("change", function(){
+            this.style.height = "1px";
+            this.style.height = (25+this.scrollHeight)+"px";
+        })
 
         $('#grid-36595617').css('marginBottom', '10px');
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
