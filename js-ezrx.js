@@ -799,7 +799,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         /* Show or Hide right panel content */
         $(rightPanel).mouseenter(
             function(e){
-                $(rightPanel).animate({right: '0px'}, 2000);
+                $(rightPanel).stop().animate({right: '0px'}, 2000);
                 $('#grid-36561838').mouseenter(function(e){
                     console.log('grid-36561838');
                     $('#grid-36561838').addClass("collapsed");
@@ -832,37 +832,37 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $('#grid-365618381').addClass("collapsed");
                 $('#group-36565572').addClass("collapsed");
                 $('#group-36701507').addClass("collapsed");
-                $(rightPanel).animate({right: rightValue+'px'}, 2000);
+                $(rightPanel).stop().animate({right: rightValue+'px'}, 2000);
             }
         );
 
         /* Events */
 
-        $('#btn-cart-update').bind('click', function(e) {
+        $('.cart-update').bind('click', function(e) {
             e.preventDefault();
 
             $('#update')[0].click();
         });
 
-        $('#btn-cart-addtoorder').bind('click', function(e) {
+        $('.cart-addtoorder').bind('click', function(e) {
             e.preventDefault();
 
             $('#add_to_cart')[0].click();
         });
 
-        $('#btn-cart-startover').bind('click', function(e) {
+        $('.cart-startover').bind('click', function(e) {
             e.preventDefault();
 
             $('#start_over')[0].click();
         });
 
-        $('#btn-cart-save').bind('click', function(e) {
+        $('.cart-save').bind('click', function(e) {
             e.preventDefault();
 
             $('#save')[0].click();
         });
 
-        $('#btn-cart-cancelshopping').bind('click', function(e) {
+        $('.cart-cancelshopping').bind('click', function(e) {
             e.preventDefault();
 
             if ($('#cancel_shopping_cart').length) {
