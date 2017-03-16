@@ -769,7 +769,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             $(this).css("width","110px");
         });
         /* change input in material description to textarea */
-        /*$("td.cell-materialDescription").children().children('input').each(function(){
+        $("td.cell-materialDescription").children().children('input').each(function(){
             var id_input = this.id;
             textbox = $(document.createElement('textarea')).attr({
                 id : "area_"+id_input,
@@ -788,7 +788,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             this.style.height = "1px";
             this.style.height = (25+this.scrollHeight)+"px";
             $("#"+this.id.replace("area_","")).val( $(this).val() );
-        });*/
+        });
 
         $('#grid-36595617').css('marginBottom', '10px');
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
