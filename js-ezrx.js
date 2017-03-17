@@ -760,6 +760,19 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('.jg-list-tool').append($("<li class='jg-item-tool'>")
             .append($("<button id='btn-cart-cancelshopping' class='jg-btn jg-btn-icon cart-cancelshopping'>Cancel Shopping</button>"))
         );
+
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+        $("#attribute-overridePrice").children('.attribute-label').html( $("#attribute-overridePrice").children('.attribute-label').text().replace(" ","<br/>") );
+        
+        /* End   : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of Material Description to 2 lines display */
+        $("#attribute-materialDescription").children('.attribute-label').html( $("#attribute-overridePrice").children('.attribute-label').text().replace(" ","<br/>") );
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
         
         /* Start : 17 March 2017 */
         /* Task  : hide icon for first row on additional bonus table */
@@ -776,7 +789,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         // tweak originals
         $('#sticky-actions').hide();
         $('#tab-material').closest('ul').hide();
-        /* change width override price*/
+        /* change width override price */
         $("td.cell-overridePrice").children().children('input').each(function(){
             $(this).css("width","110px");
         });
