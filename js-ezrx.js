@@ -762,7 +762,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         );
         
         /* Start : 17 Maret 2017 */
-        /* hide icon for first row on additional bonus table */
+        /* Task  : hide icon for first row on additional bonus table */
         $("#additionalMaterialArrayset tbody tr:first").children('.array-remove-cell').children('.array-remove').hide();
         /*
             needs to hide delete button for the first row of table additional bonus.
@@ -770,8 +770,8 @@ var urlSite = "https://ndaru.click/ezrx/";
             and then find children of this selector who have class array-remove-cell,
             and then find element who have class array-remove and then hide it.
         */
-        /* End : 17 Maret 2017 */
-        /* hide icon for first row on additional bonus table */
+        /* End  : 17 Maret 2017 */
+        /* Task : hide icon for first row on additional bonus table */
 
         // tweak originals
         $('#sticky-actions').hide();
@@ -803,7 +803,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     // $(this).replaceWith(textbox);
                     $(this).hide();
                     $(this).parent().parent().append(textbox);
-                    $("#area_"+id_input).css("height", (15+document.getElementById("area_"+id_input).scrollHeight)+"px");
+                    $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
                 });
             }
         }, 50);
@@ -821,7 +821,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             // $(this).replaceWith(textbox);
             $(this).hide();
             $(this).parent().parent().append(textbox);
-            $("#area_"+id_input).css("height", (15+document.getElementById("area_"+id_input).scrollHeight)+"px");
+            $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
         });
 
         $(".textarea-listen").keydown(function(){
