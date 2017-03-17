@@ -803,7 +803,11 @@ var urlSite = "https://ndaru.click/ezrx/";
                     // $(this).replaceWith(textbox);
                     $(this).hide();
                     $(this).parent().parent().append(textbox);
+                    /* Start : 17 Maret 2017 */
+                    /* Task  : Reduce height of material description textarea */
                     $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
+                    /* End   : 17 Maret 2017 */
+                    /* Task  : Reduce height of material description textarea */
                 });
             }
         }, 50);
@@ -821,14 +825,21 @@ var urlSite = "https://ndaru.click/ezrx/";
             // $(this).replaceWith(textbox);
             $(this).hide();
             $(this).parent().parent().append(textbox);
+            /* Start : 17 Maret 2017 */
+            /* Task  : Reduce height of material description textarea */
             $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
+            /* End   : 17 Maret 2017 */
+            /* Task  : Reduce height of material description textarea */
         });
-
+        /* Start : 17 Maret 2017 */
+        /* Task  : Reduce height of material description textarea */
         $(".textarea-listen").keydown(function(){
             this.style.height = "1px";
             this.style.height = (this.scrollHeight)+"px";
             $("#"+this.id.replace("area_","")).val( $(this).val() );
         });
+        /* End   : 17 Maret 2017 */
+        /* Task  : Reduce height of material description textarea */
 
         $('#grid-36595617').css('marginBottom', '10px');
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
