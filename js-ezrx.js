@@ -761,7 +761,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             .append($("<button id='btn-cart-cancelshopping' class='jg-btn jg-btn-icon cart-cancelshopping'>Cancel Shopping</button>"))
         );
         
-        /* Start : 17 Maret 2017 */
+        /* Start : 17 March 2017 */
         /* Task  : hide icon for first row on additional bonus table */
         $("#additionalMaterialArrayset tbody tr:first").children('.array-remove-cell').children('.array-remove').hide();
         /*
@@ -770,7 +770,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             and then find children of this selector who have class array-remove-cell,
             and then find element who have class array-remove and then hide it.
         */
-        /* End  : 17 Maret 2017 */
+        /* End  : 17 March 2017 */
         /* Task : hide icon for first row on additional bonus table */
 
         // tweak originals
@@ -803,10 +803,10 @@ var urlSite = "https://ndaru.click/ezrx/";
                     // $(this).replaceWith(textbox);
                     $(this).hide();
                     $(this).parent().parent().append(textbox);
-                    /* Start : 17 Maret 2017 */
+                    /* Start : 17 March 2017 */
                     /* Task  : Reduce height of material description textarea */
                     $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
-                    /* End   : 17 Maret 2017 */
+                    /* End   : 17 March 2017 */
                     /* Task  : Reduce height of material description textarea */
                 });
             }
@@ -825,20 +825,20 @@ var urlSite = "https://ndaru.click/ezrx/";
             // $(this).replaceWith(textbox);
             $(this).hide();
             $(this).parent().parent().append(textbox);
-            /* Start : 17 Maret 2017 */
+            /* Start : 17 March 2017 */
             /* Task  : Reduce height of material description textarea */
             $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
-            /* End   : 17 Maret 2017 */
+            /* End   : 17 March 2017 */
             /* Task  : Reduce height of material description textarea */
         });
-        /* Start : 17 Maret 2017 */
+        /* Start : 17 March 2017 */
         /* Task  : Reduce height of material description textarea */
         $(".textarea-listen").keydown(function(){
             this.style.height = "1px";
             this.style.height = (this.scrollHeight)+"px";
             $("#"+this.id.replace("area_","")).val( $(this).val() );
         });
-        /* End   : 17 Maret 2017 */
+        /* End   : 17 March 2017 */
         /* Task  : Reduce height of material description textarea */
 
         $('#grid-36595617').css('marginBottom', '10px');
@@ -1231,13 +1231,19 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         //for order page.
         $("td[id*='part_desc']").each(function(i, data){
+            /* Start : 17 March 2017 */
+            /* Task  : Make 2 or more line, for descripton material */
+            $(data).css("white-space","normal");
+            /* add css white-space then give value normal */
+            /* Start : 17 March 2017 */
+            /* Task  : Make 2 or more line, for descripton material */
             var remove_attr = data.id.split("attr_wrapper");
             var object_span = $( "#readonly"+remove_attr[1] );
             var input_val = object_span.text();
             object_span.attr("tooltip", function(){
                             return input_val;
                         })
-                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>'+input_val)
+                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:10px"></i>'+input_val)
                         .mouseenter(function(){
                             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
                             table += "<tbody>";
