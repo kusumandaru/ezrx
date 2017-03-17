@@ -770,10 +770,10 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         /* Start : 17 March 2017 */
         /* Task  : Change header of Material Description to 2 lines display */
-        $("#attribute-materialDescription").children('.attribute-label').html( $("#attribute-overridePrice").children('.attribute-label').text().replace(" ","<br/>") );
+        $("#attribute-materialDescription").children('.attribute-label').html( $("#attribute-materialDescription").children('.attribute-label').text().replace(" ","<br/>") );
         /* Start : 17 March 2017 */
         /* Task  : Change header of override price to 2 lines display */
-        
+
         /* Start : 17 March 2017 */
         /* Task  : hide icon for first row on additional bonus table */
         $("#additionalMaterialArrayset tbody tr:first").children('.array-remove-cell').children('.array-remove').hide();
@@ -790,9 +790,14 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#sticky-actions').hide();
         $('#tab-material').closest('ul').hide();
         /* change width override price */
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
         $("td.cell-overridePrice").children().children('input').each(function(){
-            $(this).css("width","110px");
+            $(this).css("width","60px");
         });
+        /* End   : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+        
         var MaterialSize = $("#materialArrayset").data("size");
         var oldMaterialSize = 0;
         setInterval(function(){
