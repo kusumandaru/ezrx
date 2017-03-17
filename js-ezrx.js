@@ -761,9 +761,103 @@ var urlSite = "https://ndaru.click/ezrx/";
             .append($("<button id='btn-cart-cancelshopping' class='jg-btn jg-btn-icon cart-cancelshopping'>Cancel Shopping</button>"))
         );
 
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+        $("#attribute-overridePrice").children('.attribute-label').html( $("#attribute-overridePrice").children('.attribute-label').text().replace(" ","<br/>") );
+        
+        /* End   : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of Material Description to 2 lines display */
+        $("#attribute-materialDescription").children('.attribute-label').html( $("#attribute-materialDescription").children('.attribute-label').text().replace(" ","<br/>") );
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+
+        /* Start : 17 March 2017 */
+        /* Task  : hide icon for first row on additional bonus table */
+        $("#additionalMaterialArrayset tbody tr:first").children('.array-remove-cell').children('.array-remove').hide();
+        /*
+            needs to hide delete button for the first row of table additional bonus.
+            first we need to find id additionalMaterialArrayset and then select tbody and then select the :first of tr.
+            and then find children of this selector who have class array-remove-cell,
+            and then find element who have class array-remove and then hide it.
+        */
+        /* End  : 17 March 2017 */
+        /* Task : hide icon for first row on additional bonus table */
+
         // tweak originals
         $('#sticky-actions').hide();
         $('#tab-material').closest('ul').hide();
+        /* change width override price */
+        /* Start : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+        $("td.cell-overridePrice").children().children('input').each(function(){
+            $(this).css("width","60px");
+        });
+        /* End   : 17 March 2017 */
+        /* Task  : Change header of override price to 2 lines display */
+        
+        var MaterialSize = $("#materialArrayset").data("size");
+        var oldMaterialSize = 0;
+        setInterval(function(){
+            oldMaterialSize = $("#materialArrayset").data("size");
+            if(MaterialSize != oldMaterialSize){
+                MaterialSize = $("#materialArrayset").data("size");
+                $("td.cell-overridePrice").children().children('input').each(function(){
+                    $(this).css("width","110px");
+                });     
+
+                $("td.cell-materialDescription").children().children('input').each(function(){
+                    var id_input = this.id;
+                    textbox = $(document.createElement('textarea')).attr({
+                        id : "area_"+id_input,
+                        name : "area_"+this.name,
+                        value : $(this).val(),
+                        style : ($(this).attr("style") != 'undefined')? $(this).attr("style") : '',
+                        "class" : $(this).attr("class")+" textarea-listen ",
+                        cols : 23
+                    });
+                    // $(this).replaceWith(textbox);
+                    $(this).hide();
+                    $(this).parent().parent().append(textbox);
+                    /* Start : 17 March 2017 */
+                    /* Task  : Reduce height of material description textarea */
+                    $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
+                    /* End   : 17 March 2017 */
+                    /* Task  : Reduce height of material description textarea */
+                });
+            }
+        }, 50);
+        /* change input in material description to textarea */
+        $("td.cell-materialDescription").children().children('input').each(function(){
+            var id_input = this.id;
+            textbox = $(document.createElement('textarea')).attr({
+                id : "area_"+id_input,
+                name : "area_"+this.name,
+                value : $(this).val(),
+                style : ($(this).attr("style") != 'undefined')? $(this).attr("style") : '',
+                "class" : $(this).attr("class")+" textarea-listen ",
+                cols : 23
+            });
+            // $(this).replaceWith(textbox);
+            $(this).hide();
+            $(this).parent().parent().append(textbox);
+            /* Start : 17 March 2017 */
+            /* Task  : Reduce height of material description textarea */
+            $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
+            /* End   : 17 March 2017 */
+            /* Task  : Reduce height of material description textarea */
+        });
+        /* Start : 17 March 2017 */
+        /* Task  : Reduce height of material description textarea */
+        $(".textarea-listen").keydown(function(){
+            this.style.height = "1px";
+            this.style.height = (this.scrollHeight)+"px";
+            $("#"+this.id.replace("area_","")).val( $(this).val() );
+        });
+        /* End   : 17 March 2017 */
+        /* Task  : Reduce height of material description textarea */
 
         $('#grid-36595617').css('marginBottom', '10px');
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
@@ -799,7 +893,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         /* Show or Hide right panel content */
         $(rightPanel).mouseenter(
             function(e){
-                $(rightPanel).animate({right: '0px'}, 2000);
+                $(rightPanel).stop().animate({right: '0px'}, 2000);
                 $('#grid-36561838').mouseenter(function(e){
                     console.log('grid-36561838');
                     $('#grid-36561838').addClass("collapsed");
@@ -832,37 +926,41 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $('#grid-365618381').addClass("collapsed");
                 $('#group-36565572').addClass("collapsed");
                 $('#group-36701507').addClass("collapsed");
-                $(rightPanel).animate({right: rightValue+'px'}, 2000);
+                $(rightPanel).stop().animate({right: rightValue+'px'}, 2000);
             }
         );
 
         /* Events */
 
-        $('#btn-cart-update').bind('click', function(e) {
+        $('.array-add').bind('click', function(e){
+            $(".textarea-listen").remove();
+        });
+
+        $('.cart-update').bind('click', function(e) {
             e.preventDefault();
 
             $('#update')[0].click();
         });
 
-        $('#btn-cart-addtoorder').bind('click', function(e) {
+        $('.cart-addtoorder').bind('click', function(e) {
             e.preventDefault();
 
             $('#add_to_cart')[0].click();
         });
 
-        $('#btn-cart-startover').bind('click', function(e) {
+        $('.cart-startover').bind('click', function(e) {
             e.preventDefault();
 
             $('#start_over')[0].click();
         });
 
-        $('#btn-cart-save').bind('click', function(e) {
+        $('.cart-save').bind('click', function(e) {
             e.preventDefault();
 
             $('#save')[0].click();
         });
 
-        $('#btn-cart-cancelshopping').bind('click', function(e) {
+        $('.cart-cancelshopping').bind('click', function(e) {
             e.preventDefault();
 
             if ($('#cancel_shopping_cart').length) {
@@ -1151,13 +1249,19 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         //for order page.
         $("td[id*='part_desc']").each(function(i, data){
+            /* Start : 17 March 2017 */
+            /* Task  : Make 2 or more line, for descripton material */
+            $(data).css("white-space","normal");
+            /* add css white-space then give value normal */
+            /* Start : 17 March 2017 */
+            /* Task  : Make 2 or more line, for descripton material */
             var remove_attr = data.id.split("attr_wrapper");
             var object_span = $( "#readonly"+remove_attr[1] );
             var input_val = object_span.text();
             object_span.attr("tooltip", function(){
                             return input_val;
                         })
-                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>'+input_val)
+                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:10px"></i>'+input_val)
                         .mouseenter(function(){
                             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
                             table += "<tbody>";
