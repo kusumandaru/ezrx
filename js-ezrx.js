@@ -826,7 +826,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         $(".textarea-listen").keydown(function(){
             this.style.height = "1px";
-            this.style.height = (25+this.scrollHeight)+"px";
+            this.style.height = (this.scrollHeight)+"px";
             $("#"+this.id.replace("area_","")).val( $(this).val() );
         });
 
