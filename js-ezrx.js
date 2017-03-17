@@ -760,6 +760,18 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('.jg-list-tool').append($("<li class='jg-item-tool'>")
             .append($("<button id='btn-cart-cancelshopping' class='jg-btn jg-btn-icon cart-cancelshopping'>Cancel Shopping</button>"))
         );
+        
+        /* Start : 17 Maret 2017 */
+        /* hide icon for first row on additional bonus table */
+        $("#additionalMaterialArrayset tbody tr:first").children('.array-remove-cell').children('.array-remove').hide();
+        /*
+            needs to hide delete button for the first row of table additional bonus.
+            first we need to find id additionalMaterialArrayset and then select tbody and then select the :first of tr.
+            and then find children of this selector who have class array-remove-cell,
+            and then find element who have class array-remove and then hide it.
+        */
+        /* End : 17 Maret 2017 */
+        /* hide icon for first row on additional bonus table */
 
         // tweak originals
         $('#sticky-actions').hide();
