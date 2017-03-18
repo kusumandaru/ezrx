@@ -768,6 +768,12 @@ var urlSite = "https://ndaru.click/ezrx/";
         /* End   : 17 March 2017 */
         /* Task  : Change header of override price to 2 lines display */
 
+        /* Start : 18 March 2017 */
+        /* Task  : Change width of material code */
+        $('td.cell-material').children('.attribute-field-container').children('input').css("width","75px");
+        /* End   : 18 March 2017 */
+        /* Task  : Change width of material code */
+
         /* Start : 17 March 2017 */
         /* Task  : Change header of Material Description to 2 lines display */
         $("#attribute-materialDescription").children('.attribute-label').html( $("#attribute-materialDescription").children('.attribute-label').text().replace(" ","<br/>") );
@@ -816,7 +822,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                         value : $(this).val(),
                         style : ($(this).attr("style") != 'undefined')? $(this).attr("style") : '',
                         "class" : $(this).attr("class")+" textarea-listen ",
-                        cols : 23
+                        cols : 25
                     });
                     // $(this).replaceWith(textbox);
                     $(this).hide();
@@ -838,7 +844,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 value : $(this).val(),
                 style : ($(this).attr("style") != 'undefined')? $(this).attr("style") : '',
                 "class" : $(this).attr("class")+" textarea-listen ",
-                cols : 23
+                cols : 25
             });
             // $(this).replaceWith(textbox);
             $(this).hide();
@@ -932,9 +938,16 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         /* Events */
 
+        /* Start : 18 March 2017 */
+        /* Task  : When button array-add clicked, it trigger update button too */
         $('.array-add').bind('click', function(e){
             $(".textarea-listen").remove();
+            setTimeout(function(){
+                $('#update')[0].click();
+            }, 4000);
         });
+        /* Start : 18 March 2017 */
+        /* Task  : When button array-add clicked, it trigger update button too */
 
         $('.cart-update').bind('click', function(e) {
             e.preventDefault();
