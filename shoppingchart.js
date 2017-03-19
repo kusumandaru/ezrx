@@ -67,14 +67,25 @@
                 var typeSelect = tr.querySelector(".cell-type").querySelector('select[name="type"]');
                 var typeData = typeInput != null ? typeInput : typeSelect;
 
-                if(inStockSpan != null){
-                    if(inStock.value.toLowerCase() == "no")
-                    {
-                        inStockSpan.classList.add('sc-no-stock');
-                    } else {
-                        inStockSpan.classList.remove('sc-no-stock');
+                var materialCode = tr.querySelector(".cell-material").querySelector('input[name="material"');
+
+                /* Start : 19 March 2017 */
+                /* Task  : Change logic for check no stock */
+                if( materialCode.length == 8 ){
+                    if(inStockSpan != null){
+                        if(inStock.value.toLowerCase() == "no")
+                        {
+                            inStockSpan.classList.add('sc-no-stock');
+                        } else {
+                            inStockSpan.classList.remove('sc-no-stock');
+                        }
                     }
                 }
+                /* 
+                    if user fill material code and length of character is 8, check the stock is yes or no.
+                */
+                /* End   : 19 March 2017 */
+                /* Task  : Change logic for check no stock */
 
                 if(parseInt(overridePrice.value) != parseInt(price.value) && parseInt(overridePrice.value) != 0)
                 {
