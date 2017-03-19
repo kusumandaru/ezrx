@@ -202,7 +202,8 @@ var urlSite = "https://ndaru.click/ezrx/";
                 $('#myMenuModal').css({
                     "background": "#FFFFFF",
                     "box-shadow": "0 2px 4px 0 rgba(0,0,0,0.30)",
-                    "border-radius": "4px"
+                    "border-radius": "4px",
+                    "width": "100px"
                 })
                 $('#myMenuModal').addClass("hover-modal-content").html(spanDescription);
                 $('#myMenuModal').css("display", "block");
