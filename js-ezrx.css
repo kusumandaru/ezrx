@@ -145,11 +145,11 @@ tfoot .jg-btn { margin:10px; }
 .jg-linkbtn.home { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon.png'); }
 .jg-linkbtn.home:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon_active.png'); }
 .jg-linkbtn.copy_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_copy_order_icon.png');  }
-.jg-linkbtn.copy_order:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_copy_order_icon_active.png');  }
+.jg-linkbtn.copy_order:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_copy_order_active.png');  }
 .jg-linkbtn.my_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_order_icon.png');  }
 .jg-linkbtn.my_order:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_order_icon_active.png');  }
-.jg-linkbtn.my_report { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_report_icon.png');  }
-.jg-linkbtn.my_report:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_report_icon_active.png');  }
+.jg-linkbtn.my_report { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_reports_icon.png');  }
+.jg-linkbtn.my_report:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_reports_icon_active.png');  }
 .jg-linkbtn.new_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_new_order_icon.png');  }
 .jg-linkbtn.new_order:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_new_order_icon_active.png');  }
 /* unused icon */
