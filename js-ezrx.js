@@ -139,7 +139,21 @@ var urlSite = "https://ndaru.click/ezrx/";
                         .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings'></a></li>"))
                         .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout'></a></li>"))
                     )
-                ).prependTo('body');
+                )
+                .append($("<div class='jg-box-rightpanel'></div>")
+                    // .append($("<div class='jg-box-submenu'></div>"))
+                    .append($("<div class='jg-box-mainarea'>")
+                        .append($("<div class='jg-box-topbar'></div>")
+                            .append($("<h2 id='jg-topbar-title'></h2>"))
+                        )
+                        .append($("<div class='jg-box-toolbar'></div>")
+                            .append($("<ul class='jg-list-tool'>"))
+                            .append($("<ul class='jg-list-tool-right'>"))
+                        )
+                        .append($("<div class='jg-box-maincontent'></div>"))
+                    )
+                )
+                .prependTo('body');
         }else{
             var newlayout = $("<div class='jg-box-mainlayout'>")
                 .append($("<div class='jg-box-sidenav'></div>")
@@ -158,21 +172,22 @@ var urlSite = "https://ndaru.click/ezrx/";
                         .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings'></a></li>"))
                         .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout'></a></li>"))
                     )
-                ).prependTo('body');
-        }
-            /*.append($("<div class='jg-box-rightpanel'></div>")
-                .append($("<div class='jg-box-submenu'></div>"))
-                .append($("<div class='jg-box-mainarea'>")
-                    .append($("<div class='jg-box-topbar'></div>")
-                        .append($("<h2 id='jg-topbar-title'></h2>"))
-                    )
-                    .append($("<div class='jg-box-toolbar'></div>")
-                        .append($("<ul class='jg-list-tool'>"))
-                        .append($("<ul class='jg-list-tool-right'>"))
-                    )
-                    .append($("<div class='jg-box-maincontent'></div>"))
                 )
-            )*/
+                .append($("<div class='jg-box-rightpanel'></div>")
+                    // .append($("<div class='jg-box-submenu'></div>"))
+                    .append($("<div class='jg-box-mainarea'>")
+                        .append($("<div class='jg-box-topbar'></div>")
+                            .append($("<h2 id='jg-topbar-title'></h2>"))
+                        )
+                        .append($("<div class='jg-box-toolbar'></div>")
+                            .append($("<ul class='jg-list-tool'>"))
+                            .append($("<ul class='jg-list-tool-right'>"))
+                        )
+                        .append($("<div class='jg-box-maincontent'></div>"))
+                    )
+                )
+                .prependTo('body');
+        }
 
         // mainmenu status
         var page = $('.commerce-sidebar-current').text().toLowerCase();
