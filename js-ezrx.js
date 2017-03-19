@@ -1242,7 +1242,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             } else {
                 button_helper = '-';
             }
-            $(this).children('.attribute-field-container').children('span').append(button_helper);
+            $(this).children('.attribute-field-container').children('span').html(button_helper);
             return $(this).text();
         }).mouseenter(function() {
             /* Start : 17 March 2017 */
@@ -1291,7 +1291,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             } else {
                 button_helper = '-';
             }
-            $(this).children('.attribute-field-container').children('span').append(button_helper);
+            $(this).children('.attribute-field-container').children('span').html(button_helper);
             return $(this).text()
         }).mouseenter(function() {
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Ordered Quantity</th><th style="border: 1px solid #999;padding:5px;">Contract Price</th></tr></thead>';
