@@ -67,7 +67,7 @@
                 var typeSelect = tr.querySelector(".cell-type").querySelector('select[name="type"]');
                 var typeData = typeInput != null ? typeInput : typeSelect;
 
-                var materialCode = tr.querySelector(".cell-material").querySelector('input[name="material"');
+                var materialCode = tr.querySelector(".cell-material").querySelector('input[name="material"]');
 
                 /* Start : 19 March 2017 */
                 /* Task  : Change logic for check no stock */
