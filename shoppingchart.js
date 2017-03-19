@@ -95,9 +95,9 @@
                     console.log(qty_now);
                     console.log(qty_before);
                     if(qty_now != qty_before){
-                        inStockSpan.classList.remove('sc-no-stock');
-                    }else{
                         inStockSpan.classList.add('sc-no-stock');
+                    }else{
+                        inStockSpan.classList.remove('sc-no-stock');
                     }
                 }
 
