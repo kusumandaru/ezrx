@@ -90,14 +90,14 @@
                 */
                 if(typeData.value.toLowerCase() == "bonus"){
                     var qty_now = parseInt(qty.value);
-                    var qty_before = parseInt($("#bonus_qty-"+i));
+                    var qty_before = parseInt($("#bonus_qty-"+i).val());
                     if(qty_now != qty_before){
                         inStockSpan.classList.remove('sc-no-stock');
                     }else{
                         inStockSpan.classList.add('sc-no-stock');
                     }
                 }
-                
+
                 /*
                     Start : 19 March 2017
                     Task  : Quantity on Bonus should be red if it overridden. If the flag is true highlight to red
