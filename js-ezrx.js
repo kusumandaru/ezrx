@@ -198,7 +198,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             var button = $(data).children();
             var description = $(button).data('description');
             $(this).mouseenter(function(){
-                var spanDescription = '<div style="border-radius:60px;width:100px;" >'+description+'</div>';
+                var spanDescription = '<div style="background: #FFFFFF;box-shadow: 0 2px 4px 0 rgba(0,0,0,0.30);border-radius: 4px;" >'+description+'</div>';
                 $('#myModal').css({
                     "width": "100px",
                     "border-radius": "60px"
@@ -1250,10 +1250,10 @@ var urlSite = "https://ndaru.click/ezrx/";
             /* Task  : Add header column Product Description */
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;">'+
                         '<thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;">'+
-                        '<th style="border: 1px solid #999;padding:5px;">Ordered Quantity</th>'+
-                        '<th style="border: 1px solid #999;padding:5px;">Bonus Product</th>'+
-                        '<th style="border: 1px solid #999;padding:5px;">Product Description</th>'+
-                        '<th style="border: 1px solid #999;padding:5px;">Bonus Quantity</th></tr></thead>';
+                        '<th style="border: 1px solid #999;padding:5px;">Ordered Qty</th>'+
+                        '<th style="border: 1px solid #999;padding:5px;">Bonus Material</th>'+
+                        '<th style="border: 1px solid #999;padding:5px;">Material  Desc</th>'+
+                        '<th style="border: 1px solid #999;padding:5px;">Bonus Qty</th></tr></thead>';
             /* End : 17 March 2017 */
             /* Task  : Add header column Product Description */
             var x = $(this).attr('tooltip').trim();
