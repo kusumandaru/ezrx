@@ -72,8 +72,8 @@
                 /* Start : 19 March 2017 */
                 /* Task  : Change logic for check no stock */
                 console.log(materialCode);
-                console.log(materialCode.length);
-                if( materialCode.length == 8 ){
+                console.log($(materialCode).length);
+                if( $(materialCode).length == 8 ){
                     if(inStockSpan != null){
                         if(inStock.value.toLowerCase() == "no")
                         {
