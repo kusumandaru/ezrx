@@ -92,9 +92,9 @@
                     var qty_now = parseInt(qty.value);
                     var qty_before = parseInt($("#bonus_qty-"+i).val());
                     if(qty_now != qty_before){
-                        $(qty).classList.add('sc-no-stock');
+                        qty.classList.add('sc-no-stock');
                     }else{
-                        $(qty).classList.remove('sc-no-stock');
+                        qty.classList.remove('sc-no-stock');
                     }
                 }
 
