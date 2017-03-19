@@ -1237,13 +1237,14 @@ var urlSite = "https://ndaru.click/ezrx/";
     function adjust_tooltip() {
         $('td.cell-contractBonus').attr('tooltip', function() {
             var button_helper;
+            var valueOfBonus = $(this).text();
             if ($(this).text().trim() != '') {
                 button_helper = '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
             } else {
                 button_helper = '-';
             }
             $(this).children('.attribute-field-container').children('span').html(button_helper);
-            return $(this).text();
+            return valueOfBonus;
         }).mouseenter(function() {
             /* Start : 17 March 2017 */
             /* Task  : Add header column Product Description */
@@ -1286,13 +1287,14 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         $('td.cell-promotion').attr('tooltip', function() {
             var button_helper;
+            var valueOfPromotion = $(this).text();
             if ($(this).text().trim() != '') {
                 button_helper = '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
             } else {
                 button_helper = '-';
             }
             $(this).children('.attribute-field-container').children('span').html(button_helper);
-            return $(this).text()
+            return valueOfPromotion;
         }).mouseenter(function() {
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Ordered Quantity</th><th style="border: 1px solid #999;padding:5px;">Contract Price</th></tr></thead>';
             var x = $(this).attr('tooltip').trim();
