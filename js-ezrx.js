@@ -199,6 +199,10 @@ var urlSite = "https://ndaru.click/ezrx/";
             var description = $(button).data('description');
             $(this).mouseenter(function(){
                 var spanDescription = '<div style="border-radius:60px;width:100px;" >'+description+'</div>';
+                $('#myModal').css({
+                    "width": "100px",
+                    "border-radius": "60px"
+                })
                 $('#myModal').addClass("hover-modal-content").html(spanDescription);
                 $('#myModal').css("display", "block");
                 $(this).mouseleave(function(){
@@ -208,7 +212,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         $("li.jg-item-mainmenu:not('.jg-separator')").mousemove(function(e){
-            $('#myModal').css('top', e.pageY - $(document).scrollTop() + 10 + 'px').css('left', e.pageX - $(document).scrollLeft() + 50 + 'px');
+            $('#myModal').css('top', e.pageY - $(document).scrollTop() + 'px').css('left', e.pageX - $(document).scrollLeft() + 50 + 'px');
         })
 
         /*
