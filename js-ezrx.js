@@ -763,8 +763,8 @@ var urlSite = "https://ndaru.click/ezrx/";
         // if isPriceOverride give red color
         $("td[id*='isPriceOverride']").each(function(i, data){
             if($(data).text() !== "False"){
-                var baris = $(data).parent();
-                var unitPrice = $(baris).find("td[id*='unitPrice']")
+                var line = $(data).parent();
+                var unitPrice = $(line).find("td[id*='unitPrice']")
                 var remove_attr = $(unitPrice).attr("id").split("attr_wrapper");
                 var object_span = $( "#readonly"+remove_attr[1] );
                 object_span.css("color","red");
@@ -779,6 +779,18 @@ var urlSite = "https://ndaru.click/ezrx/";
             if(object_span.text().toLowerCase() == "bonus"){
                 // console.log("bonus");
                 $(this).parent().css("background-color","#EEE").removeClass('child-line-item');
+            }
+        });
+
+        $("td[id*='bonusOverideFlag_l']").each(function(i, data){
+            var refNo = $(this).attr("id").split("attr_wrapper");
+            var object_span = $("#readonly"+refNo[1]);
+            if(object_span.text() == "True"){
+                var line = $(this).parent();
+                var qty = $(line).find("td[id*='qty_l']");
+                var remove_attr = $(qty).attr("id").split("attr_wrapper");
+                var qty_span = $( "#readonly"+remove_attr[1] );
+                qty_span.css("color", "red");
             }
         });
 
