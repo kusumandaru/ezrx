@@ -28,7 +28,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             // if ($('input[name=pageName][value=commerce_manager]').length == 1) {
             if (pagetitle == 'commerce management' || pagetitle == 'transaction' || pagetitle == 'model configuration' || pagetitle == "report manager") {
                 transform_mainlayout();
-                tranform_ordersubmenu();
+                // tranform_ordersubmenu();
 
                 if (pagetitle == 'commerce management') {
                     $('body').addClass('jg-page-orders');
@@ -120,21 +120,47 @@ var urlSite = "https://ndaru.click/ezrx/";
 
     function transform_mainlayout() {
         // Add new layout
-        var newlayout = $("<div class='jg-box-mainlayout'>")
-            .append($("<div class='jg-box-sidenav'></div>")
-                .append($("<ul class='jg-list-mainmenu'>")
-                    .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile'></a></li>"))
-                    .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home'></a></li>"))
-                    .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
-                    .append($("<li class='jg-item-mainmenu'><a id='jg-mainmenu-arrow' class='jg-linkbtn arrow'></a></li>"))
-                    .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-mainmenu-orders' class='jg-linkbtn orders'></a></li>"))
-                    .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
-                    .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
-                    .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings'></a></li>"))
-                    .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout'></a></li>"))
-                )
-            )
-            .append($("<div class='jg-box-rightpanel'></div>")
+        if(/@zuelligpharma.com\s*$/.test(_BM_USER_LOGIN)){
+            var newlayout = $("<div class='jg-box-mainlayout'>")
+                .append($("<div class='jg-box-sidenav'></div>")
+                    .append($("<ul class='jg-list-mainmenu'>")
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/reports/report_manager.jsp?process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myreports' class='jg-linkbtn my_report'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders' class='jg-linkbtn my_order'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-neworder' class='jg-linkbtn new_order'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-copyorder' class='jg-linkbtn copy_order'></a></li>"))
+                        /*.append($("<li class='jg-item-mainmenu'><a id='jg-mainmenu-arrow' class='jg-linkbtn arrow'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-mainmenu-orders' class='jg-linkbtn orders'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
+                        */
+                        .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout'></a></li>"))
+                    )
+                ).prependTo('body');
+        }else{
+            var newlayout = $("<div class='jg-box-mainlayout'>")
+                .append($("<div class='jg-box-sidenav'></div>")
+                    .append($("<ul class='jg-list-mainmenu'>")
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders' class='jg-linkbtn my_order'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-neworder' class='jg-linkbtn new_order'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-copyorder' class='jg-linkbtn copy_order'></a></li>"))
+                        /*.append($("<li class='jg-item-mainmenu'><a id='jg-mainmenu-arrow' class='jg-linkbtn arrow'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-mainmenu-orders' class='jg-linkbtn orders'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
+                        */
+                        .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout'></a></li>"))
+                    )
+                ).prependTo('body');
+        }
+            /*.append($("<div class='jg-box-rightpanel'></div>")
                 .append($("<div class='jg-box-submenu'></div>"))
                 .append($("<div class='jg-box-mainarea'>")
                     .append($("<div class='jg-box-topbar'></div>")
@@ -146,8 +172,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     )
                     .append($("<div class='jg-box-maincontent'></div>"))
                 )
-            )
-            .prependTo('body');
+            )*/
 
         // mainmenu status
         var page = $('.commerce-sidebar-current').text().toLowerCase();
@@ -172,7 +197,14 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         //always hide menu
         // $('.jg-box-submenu').css('paddingLeft', '-100px');
-        $('.jg-box-submenu').show();
+        // $('.jg-box-submenu').show();
+
+        $('#jg-submenu-neworder').click(function(e) {
+            e.preventDefault();
+
+            newTransaction();
+        });
+
         // $('.jg-box-toolbar').toggle();
         // $('.jg-box-mainarea').css('paddingLeft', '150px');
 
@@ -214,7 +246,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
         });*/
 
-        function AnimateRotate(id_element,d){
+        /*function AnimateRotate(id_element,d){
             var first = 180;
             if(d == 180){
                 first = 0;
@@ -246,7 +278,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             hide = !hide;
             showOrHide(hide);
 
-        });
+        });*/
     }
 
     function transform_newfooter() {

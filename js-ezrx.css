@@ -142,8 +142,13 @@ tfoot .jg-btn { margin:10px; }
 .jg-item-mainmenu .jg-linkbtn.active { background-color:#198f92; }
 .jg-linkbtn.profile { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-user.png'); }
 .jg-linkbtn.home { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-home.png'); }
-.jg-linkbtn.arrow { transform: rotate(180deg); background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-arrow.png'); }
-.jg-linkbtn.orders { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-orders.png'); }
+.jg-linkbtn.copy_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_copy_order_icon.png');  }
+.jg-linkbtn.my_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_order_icon.png');  }
+.jg-linkbtn.my_report { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_report_icon.png');  }
+.jg-linkbtn.new_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_new_order_icon.png');  }
+/* unused icon */
+/*.jg-linkbtn.arrow { transform: rotate(180deg); background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-arrow.png'); }
+.jg-linkbtn.orders { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-orders.png'); }*/
 .jg-linkbtn.settings { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-settings.png'); }
 .jg-linkbtn.logout { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-logout.png'); }
 
