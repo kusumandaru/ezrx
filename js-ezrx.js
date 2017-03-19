@@ -120,24 +120,28 @@ var urlSite = "https://ndaru.click/ezrx/";
 
     function transform_mainlayout() {
         // Add new layout
+        /*
+            Start : 19 March 2017
+            Task  : Edit left side menu design.
+        */
         if(/@zuelligpharma.com\s*$/.test(_BM_USER_LOGIN)){
             var newlayout = $("<div class='jg-box-mainlayout'>")
                 .append($("<div class='jg-box-sidenav'></div>")
                     .append($("<ul class='jg-list-mainmenu'>")
-                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/reports/report_manager.jsp?process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myreports' class='jg-linkbtn my_report'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile' data-description='Profile' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home' data-description='Home' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/reports/report_manager.jsp?process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myreports' class='jg-linkbtn my_report' data-description='My Reports' ></a></li>"))
                         .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders' class='jg-linkbtn my_order'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-neworder' class='jg-linkbtn new_order'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-copyorder' class='jg-linkbtn copy_order'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders' class='jg-linkbtn my_order' data-description='My Order' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-neworder' class='jg-linkbtn new_order' data-description='New Order' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-copyorder' class='jg-linkbtn copy_order' data-description='Copy Order' ></a></li>"))
                         /*.append($("<li class='jg-item-mainmenu'><a id='jg-mainmenu-arrow' class='jg-linkbtn arrow'></a></li>"))
                         .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-mainmenu-orders' class='jg-linkbtn orders'></a></li>"))
                         .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
                         */
                         .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings' data-description='Settings' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout' data-description='Logout' ></a></li>"))
                     )
                 )
                 .append($("<div class='jg-box-rightpanel'></div>")
@@ -158,19 +162,19 @@ var urlSite = "https://ndaru.click/ezrx/";
             var newlayout = $("<div class='jg-box-mainlayout'>")
                 .append($("<div class='jg-box-sidenav'></div>")
                     .append($("<ul class='jg-list-mainmenu'>")
-                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/profile/edit_profile.jsp?_bm_trail_refresh_=true&navType=1' id='jg-mainmenu-profile' class='jg-linkbtn profile' data-description='Profile' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/display_company_profile.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-home' class='jg-linkbtn home' data-description='Home' ></a></li>"))
                         .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders' class='jg-linkbtn my_order'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-neworder' class='jg-linkbtn new_order'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-copyorder' class='jg-linkbtn copy_order'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders' class='jg-linkbtn my_order' data-description='My Order' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-neworder' class='jg-linkbtn new_order' data-description='New Order' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='#' id='jg-submenu-copyorder' class='jg-linkbtn copy_order' data-description='Copy Order' ></a></li>"))
                         /*.append($("<li class='jg-item-mainmenu'><a id='jg-mainmenu-arrow' class='jg-linkbtn arrow'></a></li>"))
                         .append($("<li class='jg-item-mainmenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-mainmenu-orders' class='jg-linkbtn orders'></a></li>"))
                         .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
                         */
                         .append($("<li class='jg-item-mainmenu jg-separator'></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings'></a></li>"))
-                        .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout'></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/admin/index.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-settings' class='jg-linkbtn settings' data-description='Settings' ></a></li>"))
+                        .append($("<li class='jg-item-mainmenu'><a href='/logout.jsp?_bm_trail_refresh_=true' id='jg-mainmenu-logout' class='jg-linkbtn logout' data-description='Logout' ></a></li>"))
                     )
                 )
                 .append($("<div class='jg-box-rightpanel'></div>")
@@ -188,6 +192,29 @@ var urlSite = "https://ndaru.click/ezrx/";
                 )
                 .prependTo('body');
         }
+
+        /*  add description on hover menu   */
+        $("li.jg-item-mainmenu:not('.jg-separator')").each(function(i, data){
+            var button = $(data).children();
+            var description = $(button).data('description');
+            $(this).mouseenter(function(){
+                var spanDescription = '<div>'+description+'</div>';
+                $('#myModal').addClass("hover-modal-content").html(spanDescription);
+                $('#myModal').css("display", "block");
+                $(this).mouseleave(function(){
+                    $('#myModal').css("display", "none");
+                })
+            })
+        });
+
+        $("li.jg-item-mainmenu:not('.jg-separator')").mousemove(function(e){
+            $('#myModal').css('top', e.pageY - $(document).scrollTop() + 10 + 'px').css('left', e.pageX - $(document).scrollLeft() + 10 + 'px');
+        })
+
+        /*
+            Start : 19 March 2017
+            Task  : Edit left side menu design.
+        */
 
         // mainmenu status
         var page = $('.commerce-sidebar-current').text().toLowerCase();
