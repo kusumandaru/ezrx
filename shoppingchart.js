@@ -81,6 +81,9 @@
                         }
                     }
                 }
+                /* 
+                    if user fill material code and length of character is 8, check the stock is yes or no.
+                */
                 /*
                     Start : 19 March 2017
                     Task  : Quantity on Bonus should be red if it overridden. If the flag is true highlight to red
@@ -94,8 +97,10 @@
                         inStockSpan.classList.add('sc-no-stock');
                     }
                 }
-                /* 
-                    if user fill material code and length of character is 8, check the stock is yes or no.
+                
+                /*
+                    Start : 19 March 2017
+                    Task  : Quantity on Bonus should be red if it overridden. If the flag is true highlight to red
                 */
                 /* End   : 19 March 2017 */
                 /* Task  : Change logic for check no stock */
