@@ -140,17 +140,25 @@ tfoot .jg-btn { margin:10px; }
 .jg-item-mainmenu + .jg-item-mainmenu { margin-top:20px; }
 .jg-item-mainmenu .jg-linkbtn { height:50px; background-position:center center; background-repeat:no-repeat; }
 .jg-item-mainmenu .jg-linkbtn.active { background-color:#198f92; }
-.jg-linkbtn.profile { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-user.png'); }
-.jg-linkbtn.home { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-home.png'); }
+.jg-linkbtn.profile { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_user_icon.png'); }
+.jg-linkbtn.profile:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_user_icon_active.png'); }
+.jg-linkbtn.home { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon.png'); }
+.jg-linkbtn.home:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon_active.png'); }
 .jg-linkbtn.copy_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_copy_order_icon.png');  }
+.jg-linkbtn.copy_order:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_copy_order_icon_active.png');  }
 .jg-linkbtn.my_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_order_icon.png');  }
+.jg-linkbtn.my_order:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_order_icon_active.png');  }
 .jg-linkbtn.my_report { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_report_icon.png');  }
+.jg-linkbtn.my_report:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_my_report_icon_active.png');  }
 .jg-linkbtn.new_order { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_new_order_icon.png');  }
+.jg-linkbtn.new_order:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_new_order_icon_active.png');  }
 /* unused icon */
 /*.jg-linkbtn.arrow { transform: rotate(180deg); background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-arrow.png'); }
 .jg-linkbtn.orders { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-orders.png'); }*/
-.jg-linkbtn.settings { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-settings.png'); }
-.jg-linkbtn.logout { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-mainmenu-logout.png'); }
+.jg-linkbtn.settings { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_setting_icon.png'); }
+.jg-linkbtn.settings:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_setting_icon_active.png'); }
+.jg-linkbtn.logout { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_logout_icon.png'); }
+.jg-linkbtn.logout:hover { background-image:url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/lsm_logout_icon_active.png'); }
 
 .jg-img-submenu-icon { display:block; width:auto; height:66px; margin:0 auto; }
 .jg-list-submenu { list-style:none; margin:50px 12px 50px 12px; padding:20px 0; border-bottom:1px solid white; }
