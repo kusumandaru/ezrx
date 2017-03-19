@@ -91,6 +91,8 @@
                 if(typeData.value.toLowerCase() == "bonus"){
                     var qty_now = parseInt(qty.value);
                     var qty_before = parseInt($("#bonus_qty-"+i).val());
+                    console.log(qty_now);
+                    console.log(qty_before);
                     if(qty_now != qty_before){
                         inStockSpan.classList.remove('sc-no-stock');
                     }else{
