@@ -136,33 +136,34 @@
                 for (var i = 0, max = trList.length; i < max; i++) {
 
                     var tr = trList[i];
+                    if(tr.classList.contains("messages") == false){
+                        var inStock = tr.querySelector(".cell-inStockAdditional").querySelector('input[name="inStockAdditional"]');
+                        var qty = tr.querySelector(".cell-additionalMaterialQty").querySelector('input[name="additionalMaterialQty"]');
 
-                    var inStock = tr.querySelector(".cell-inStockAdditional").querySelector('input[name="inStockAdditional"]');
-                    var qty = tr.querySelector(".cell-additionalMaterialQty").querySelector('input[name="additionalMaterialQty"]');
+                        var stockQty = tr.querySelector(".cell-stockQty_Additional").querySelector('input[name="stockQty_Additional"]');
 
-                    var stockQty = tr.querySelector(".cell-stockQty_Additional").querySelector('input[name="stockQty_Additional"]');
+                        var inStockSpan = tr.querySelector(".cell-inStockAdditional").querySelector('span');
+                        var inStockInput = tr.querySelector(".cell-inStockAdditional").querySelector('input');
 
-                    var inStockSpan = tr.querySelector(".cell-inStockAdditional").querySelector('span');
-                    var inStockInput = tr.querySelector(".cell-inStockAdditional").querySelector('input');
+                        var typeInput = tr.querySelector(".cell-type_additional").querySelector('input[name="type_additional"]');
+                        var typeSelect = tr.querySelector(".cell-type_additional").querySelector('select[name="type_additional"]');
 
-                    var typeInput = tr.querySelector(".cell-type_additional").querySelector('input[name="type_additional"]');
-                    var typeSelect = tr.querySelector(".cell-type_additional").querySelector('select[name="type_additional"]');
+                        var inStockData = inStockSpan != null ? inStockSpan : inStockInput;
+                        var inStockValue = inStockSpan != null ? inStockSpan.innerText : inStockInput.value;
+                        var typeData = typeInput != null ? typeInput : typeSelect;
+                        var typeValue = typeInput != null ? typeInput.value : typeSelect.value;
 
-                    var inStockData = inStockSpan != null ? inStockSpan : inStockInput;
-                    var inStockValue = inStockSpan != null ? inStockSpan.innerText : inStockInput.value;
-                    var typeData = typeInput != null ? typeInput : typeSelect;
-                    var typeValue = typeInput != null ? typeInput.value : typeSelect.value;
+                        if (inStockValue.toLowerCase() == "no" && typeValue.toLowerCase() == "bonus") {
+                            inStockData.classList.add('sc-no-stock');
+                        } else {
+                            inStockData.classList.remove('sc-no-stock');
+                        }
 
-                    if (inStockValue.toLowerCase() == "no" && typeValue.toLowerCase() == "bonus") {
-                        inStockData.classList.add('sc-no-stock');
-                    } else {
-                        inStockData.classList.remove('sc-no-stock');
-                    }
-
-                    if (parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "") {
-                        qty.classList.add('sc-zero-stock');
-                    } else {
-                        qty.classList.remove('sc-zero-stock');
+                        if (parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "") {
+                            qty.classList.add('sc-zero-stock');
+                        } else {
+                            qty.classList.remove('sc-zero-stock');
+                        }
                     }
                 }
             }
