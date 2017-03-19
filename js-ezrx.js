@@ -198,21 +198,22 @@ var urlSite = "https://ndaru.click/ezrx/";
             var button = $(data).children();
             var description = $(button).data('description');
             $(this).mouseenter(function(){
-                var spanDescription = '<div style="background: #FFFFFF;box-shadow: 0 2px 4px 0 rgba(0,0,0,0.30);border-radius: 4px;" >'+description+'</div>';
-                $('#myModal').css({
-                    "width": "100px",
-                    "border-radius": "60px"
+                var spanDescription = '<div>'+description+'</div>';
+                $('#myMenuModal').css({
+                    "background": "#FFFFFF",
+                    "box-shadow": "0 2px 4px 0 rgba(0,0,0,0.30)",
+                    "border-radius": "4px"
                 })
-                $('#myModal').addClass("hover-modal-content").html(spanDescription);
-                $('#myModal').css("display", "block");
+                $('#myMenuModal').addClass("hover-modal-content").html(spanDescription);
+                $('#myMenuModal').css("display", "block");
                 $(this).mouseleave(function(){
-                    $('#myModal').css("display", "none");
+                    $('#myMenuModal').css("display", "none");
                 })
             })
         });
 
         $("li.jg-item-mainmenu:not('.jg-separator')").mousemove(function(e){
-            $('#myModal').css('top', e.pageY - $(document).scrollTop() + 'px').css('left', e.pageX - $(document).scrollLeft() + 50 + 'px');
+            $('#myMenuModal').css('top', e.pageY - $(document).scrollTop() + 'px').css('left', e.pageX - $(document).scrollLeft() + 50 + 'px');
         })
 
         /*
@@ -238,6 +239,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         // modal box
         $('<div id="myModal" >').appendTo('.jg-box-mainlayout');
+        $('<div id="myMenuModal" >').appendTo('.jg-box-mainlayout');
 
         /* EVENTS */
 
