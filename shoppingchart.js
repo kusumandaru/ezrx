@@ -55,69 +55,70 @@
 
                 var tr = trList[i];
                 // addDelete(tr);
+                if(tr.classList.contains("messages") == false){
+                    var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
+                    var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
+                    var inStockSpan = tr.querySelector(".cell-inStock").querySelector('span');
+                    var price = tr.querySelector(".cell-price").querySelector('input[name="price"]');
+                    var overridePrice = tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]');
+                    var stockQty = tr.querySelector(".cell-stockQty").querySelector('input[name="stockQty"]');
 
-                var inStock = tr.querySelector(".cell-inStock").querySelector('input[name="inStock"]');
-                var qty = tr.querySelector(".cell-qty_text").querySelector('input[name="qty_text"]');
-                var inStockSpan = tr.querySelector(".cell-inStock").querySelector('span');
-                var price = tr.querySelector(".cell-price").querySelector('input[name="price"]');
-                var overridePrice = tr.querySelector(".cell-overridePrice").querySelector('input[name="overridePrice"]');
-                var stockQty = tr.querySelector(".cell-stockQty").querySelector('input[name="stockQty"]');
+                    var typeInput = tr.querySelector(".cell-type").querySelector('input[name="type"]');
+                    var typeSelect = tr.querySelector(".cell-type").querySelector('select[name="type"]');
+                    var typeData = typeInput != null ? typeInput : typeSelect;
 
-                var typeInput = tr.querySelector(".cell-type").querySelector('input[name="type"]');
-                var typeSelect = tr.querySelector(".cell-type").querySelector('select[name="type"]');
-                var typeData = typeInput != null ? typeInput : typeSelect;
+                    var materialCode = tr.querySelector(".cell-material").querySelector('input[name="material"]');
 
-                var materialCode = tr.querySelector(".cell-material").querySelector('input[name="material"]');
-
-                /* Start : 19 March 2017 */
-                /* Task  : Change logic for check no stock */
-                if( $(materialCode).val().length == 8 ){
-                    if(inStockSpan != null){
-                        if(inStock.value.toLowerCase() == "no")
-                        {
-                            inStockSpan.classList.add('sc-no-stock');
-                        } else {
-                            inStockSpan.classList.remove('sc-no-stock');
+                    /* Start : 19 March 2017 */
+                    /* Task  : Change logic for check no stock */
+                    if( $(materialCode).val().length == 8 ){
+                        if(inStockSpan != null){
+                            if(inStock.value.toLowerCase() == "no")
+                            {
+                                inStockSpan.classList.add('sc-no-stock');
+                            } else {
+                                inStockSpan.classList.remove('sc-no-stock');
+                            }
                         }
                     }
-                }
-                /* 
-                    if user fill material code and length of character is 8, check the stock is yes or no.
-                */
-                /*
-                    Start : 19 March 2017
-                    Task  : Quantity on Bonus should be red if it overridden. If the flag is true highlight to red
-                */
-                if(typeData.value.toLowerCase() == "bonus"){
-                    var qty_now = parseInt(qty.value);
-                    var qty_before = parseInt($("#bonus_qty-"+i).val());
-                    if(qty_now != qty_before){
-                        qty.classList.add('sc-no-stock');
-                    }else{
-                        qty.classList.remove('sc-no-stock');
+                    /* 
+                        if user fill material code and length of character is 8, check the stock is yes or no.
+                    */
+                    /*
+                        Start : 19 March 2017
+                        Task  : Quantity on Bonus should be red if it overridden. If the flag is true highlight to red
+                    */
+                    if(typeData.value.toLowerCase() == "bonus"){
+                        var qty_now = parseInt(qty.value);
+                        var qty_before = parseInt($("#bonus_qty-"+i).val());
+                        if(qty_now != qty_before){
+                            qty.classList.add('sc-no-stock');
+                        }else{
+                            qty.classList.remove('sc-no-stock');
+                        }
                     }
-                }
 
-                /*
-                    Start : 19 March 2017
-                    Task  : Quantity on Bonus should be red if it overridden. If the flag is true highlight to red
-                */
-                /* End   : 19 March 2017 */
-                /* Task  : Change logic for check no stock */
+                    /*
+                        Start : 19 March 2017
+                        Task  : Quantity on Bonus should be red if it overridden. If the flag is true highlight to red
+                    */
+                    /* End   : 19 March 2017 */
+                    /* Task  : Change logic for check no stock */
 
-                if(parseInt(overridePrice.value) != parseInt(price.value) && parseInt(overridePrice.value) != 0)
-                {
-                    overridePrice.classList.add('sc-zero-stock');
-                } else {
-                    overridePrice.classList.remove('sc-zero-stock');
-                }
+                    if(parseInt(overridePrice.value) != parseInt(price.value) && parseInt(overridePrice.value) != 0)
+                    {
+                        overridePrice.classList.add('sc-zero-stock');
+                    } else {
+                        overridePrice.classList.remove('sc-zero-stock');
+                    }
 
-                if(parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "" && typeData.value.toLowerCase() == "comm")
-                {
-                    qty.classList.add('sc-zero-stock');
-                } else {
-                    qty.classList.remove('sc-zero-stock');
-                }
+                    if(parseInt(qty.value) > parseInt(stockQty.value) && qty.value != "" && typeData.value.toLowerCase() == "comm")
+                    {
+                        qty.classList.add('sc-zero-stock');
+                    } else {
+                        qty.classList.remove('sc-zero-stock');
+                    }
+                }       
             }
         }
     }
