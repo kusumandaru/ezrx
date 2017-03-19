@@ -1251,7 +1251,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                         '<thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;">'+
                         '<th style="border: 1px solid #999;padding:5px;">Ordered Quantity</th>'+
                         '<th style="border: 1px solid #999;padding:5px;">Bonus Product</th>'+
-                        '<th style="border: 1px solid #999;padding:5px;">Product Description</th>'
+                        '<th style="border: 1px solid #999;padding:5px;">Product Description</th>'+
                         '<th style="border: 1px solid #999;padding:5px;">Bonus Quantity</th></tr></thead>';
             /* End : 17 March 2017 */
             /* Task  : Add header column Product Description */
