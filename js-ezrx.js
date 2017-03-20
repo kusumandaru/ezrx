@@ -79,6 +79,11 @@ var urlSite = "https://ndaru.click/ezrx/";
                             $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
                         }
 
+                        /*
+                            End : 20 March 2017
+                            Task  : Order in Submitted Status the Logo(to guide the shopping stages) is missing
+                        */
+
                     }
 
                     transform_newcopypage();
@@ -591,6 +596,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             Task  : Bonus Override Flag Should be hidden using CSS
         */
         var bonusOverride = "39692884";
+        console.log(bonusOverride);
         $("col").each(function(i, data){
             if(this.id == bonusOverride){
                 $(this).addClass('rule-hide');
