@@ -603,32 +603,6 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         $(".jg-box-foldermenu").css("right","-400px");
-        /*
-            Start : 20 March 2017
-            Task  : Bonus Override Flag Should be hidden using CSS
-        */
-        var bonusOverride = "39692884";
-        console.log(bonusOverride);
-        $("col").each(function(i, data){
-            if(this.id == bonusOverride){
-                $(this).addClass('rule-hide');
-            }
-        });
-
-        $("th").each(function(i, data){
-            if($(this).data("colid") == bonusOverride){
-                $(this).addClass('rule-hide');
-            }
-        });
-
-        $("td[id*='"+bonusOverride+"']").each(function(i, data){
-            $(this).addClass('rule-hide');
-        });
-
-        /*
-            Start : 20 March 2017
-            Task  : Bonus Override Flag Should be hidden using CSS
-        */
 
         //show menu and folder on click
         var hide = false;
@@ -849,6 +823,33 @@ var urlSite = "https://ndaru.click/ezrx/";
                 qty_span.css("color", "red");
             }
         });
+
+        /*
+            Start : 20 March 2017
+            Task  : Bonus Override Flag Should be hidden using CSS
+        */
+        var bonusOverride = "39692884";
+        console.log(bonusOverride);
+        $("col").each(function(i, data){
+            if(this.id == bonusOverride){
+                $(this).addClass('rule-hide');
+            }
+        });
+
+        $("th").each(function(i, data){
+            if($(this).data("colid") == bonusOverride){
+                $(this).addClass('rule-hide');
+            }
+        });
+
+        $("td[id*='"+bonusOverride+"']").each(function(i, data){
+            $(this).addClass('rule-hide');
+        });
+
+        /*
+            Start : 20 March 2017
+            Task  : Bonus Override Flag Should be hidden using CSS
+        */
 
         /* EVENTS */
         $('#jg-tool-addtofav, #jg-btn-addtofav').click(function(e) {
