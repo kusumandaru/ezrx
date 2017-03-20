@@ -26,6 +26,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         }
         else {
             // if ($('input[name=pageName][value=commerce_manager]').length == 1) {
+                console.log(pagetitle);
             if (pagetitle == 'commerce management' || pagetitle == 'transaction' || pagetitle == 'model configuration' || pagetitle == "report manager") {
                 transform_mainlayout();
                 // tranform_ordersubmenu();
@@ -841,8 +842,8 @@ var urlSite = "https://ndaru.click/ezrx/";
 
     function transform_modelconfig() {
         $('body').addClass('jg-page-cartpage');
-        $('#jg-topbar-title').text("Shopping Cart");
-        $('title').text("Shopping Cart");
+        /*$('#jg-topbar-title').text("Shopping Cart");
+        $('title').text("Shopping Cart");*/
 
         // console.log($('.cell-promotion').html());
 
