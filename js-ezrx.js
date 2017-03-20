@@ -38,6 +38,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     transform_orderspage();
                 }
                 else if (pagetitle == 'transaction') {
+                    $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-neworder').parent().remove();
                     $('#jg-submenu-copyorder').parent().remove();
@@ -67,6 +68,17 @@ var urlSite = "https://ndaru.click/ezrx/";
                         else {
                             $('#jg-topbar-title').text("(Page title hasn't been set for this page.)");
                         }
+
+                        /*
+                            Start : 20 March 2017
+                            Task  : Order in Submitted Status the Logo(to guide the shopping stages) is missing
+                        */
+
+                        if($("#readonly_1_status_t").text().toLowerCase() == 'submitted')
+                        {
+                            $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
+                        }
+
                     }
 
                     transform_newcopypage();
