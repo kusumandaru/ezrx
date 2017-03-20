@@ -573,6 +573,31 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         $(".jg-box-foldermenu").css("right","-400px");
+        /*
+            Start : 20 March 2017
+            Task  : Bonus Override Flag Should be hidden using CSS
+        */
+        var bonusOverride = "39692884";
+        $("col").each(function(i, data){
+            if(this.id == bonusOverride){
+                $(this).addClass('rule-hide');
+            }
+        });
+
+        $("th").each(function(i, data){
+            if($(this).data("colid") == bonusOverride){
+                $(this).addClass('rule-hide');
+            }
+        });
+
+        $("td[id*='"+bonusOverride+"']").each(function(i, data){
+            $(this).addClass('rule-hide');
+        });
+
+        /*
+            Start : 20 March 2017
+            Task  : Bonus Override Flag Should be hidden using CSS
+        */
 
         //show menu and folder on click
         var hide = false;
@@ -1206,9 +1231,11 @@ var urlSite = "https://ndaru.click/ezrx/";
                 }
             }
             else if (pagetitle == 'zuellig pharma products') {
-                $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
 
-                $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table');
+                $(".jg-box-workflow").hide();
+                // $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
+
+                // $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table');
             }
 
             // events
