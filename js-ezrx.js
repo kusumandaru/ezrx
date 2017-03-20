@@ -73,23 +73,23 @@ var urlSite = "https://ndaru.click/ezrx/";
                             Start : 20 March 2017
                             Task  : Order in Submitted Status the Logo(to guide the shopping stages) is missing
                         */
-                        var status_page = $("#readonly_1_status_t").text().toLowerCase();
-                        var visualIndicatorFlow = '/bmfsweb/zuelligpharmatest1/image/images/vi_order_created_active.png';
-
+                        //order created
+                        $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_created_active.png');
+                        //user click customer input form
                         $("#customersNew_t").on("click", function(){
-                            visualIndicatorFlow =  '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png';
+                            $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png');
                         });
-
+                        //user has added material
                         if( $("#line-item-grid tbody.line-item-grid-body").children('tr').attr('id') != 'emptyRow' ){
-                            visualIndicatorFlow = '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png';
+                            $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
                         }
-
-                        if( status_page == 'submitted')
+                        //user has submitted order
+                        if( $("#readonly_1_status_t").text().toLowerCase() == 'submitted')
                         {
-                            visualIndicatorFlow = '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png';
+                            $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
                         }
 
-                        $('#readonly_1_visualWorkflow img').attr('src', visualIndicatorFlow);
+                        
 
                         /*
                             End : 20 March 2017
