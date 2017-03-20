@@ -1247,7 +1247,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             mobile_loginpage();
         }
         else if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
-            $('#tabs').before($("<div class='jg-box-workflow'>")
+            /*$('#tabs').before($("<div class='jg-box-workflow'>")
                 .append($("<img src='' class='jg-img-workflow' />"))
             );
 
@@ -1283,7 +1283,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 }
 
                 mobile_adjustcontenttop();
-            });
+            });*/
 
             mobile_adjustcontenttop();
         }
