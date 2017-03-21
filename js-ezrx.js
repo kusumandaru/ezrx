@@ -828,6 +828,36 @@ var urlSite = "https://ndaru.click/ezrx/";
         });
 
         /*
+            Start : 21 March 2017
+            Task  : Highlight "In Stock" No In commerce to Red and Qty to Red for Commercial Material Line (Comm)
+            Task  : Highlight "In Stock" No In commerce to Red for Bonus Material Line (Bonus).
+        */
+
+        $("td[id*='inStock']").each(function(i, data){
+            var refNo = $(this).attr("id").split("attr_wrapper");
+            var object_span = $("#readonly"+refNo[1]);
+            if(object_span.text().toLowerCase() == 'no'){
+                object_span.addClass('sc-no-stock');
+                var line = $(this).parent();
+                var type = $(line).find("td[id*='refNO_text']");
+                var remove_attr = $(type).attr("id").split("attr_wrapper");
+                var type_span = $( "#readonly"+remove_attr[1] );
+                if(type_span.text().toLowerCase() == 'comm'){
+                    var qty = $(line).find("td[id*='qty_l']");
+                    var remove_attr = $(qty).attr("id").split("attr_wrapper");
+                    var qty_span = $( "#readonly"+remove_attr[1] );
+                    qty_span.css("color", "red");
+                }
+            }
+        });
+
+        /*
+            End : 21 March 2017
+            Task  : Highlight "In Stock" No In commerce to Red and Qty to Red for Commercial Material Line (Comm)
+            Task  : Highlight "In Stock" No In commerce to Red for Bonus Material Line (Bonus).
+        */
+
+        /*
             Start : 20 March 2017
             Task  : Bonus Override Flag Should be hidden using CSS
         */
