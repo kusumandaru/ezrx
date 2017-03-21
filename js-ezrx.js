@@ -1287,10 +1287,9 @@ var urlSite = "https://ndaru.click/ezrx/";
         if (pagetitle == 'login') {
             mobile_loginpage();
         }else{
-            
-            transform_mainlayout();
 
             if (pagetitle == 'commerce management') {
+                transform_mainlayout();
                 transform_orderspage();
             }
             /*
