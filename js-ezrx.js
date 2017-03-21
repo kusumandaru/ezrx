@@ -1269,7 +1269,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('html').addClass('jg-mobilelayout');
         var urlarr = url.split('/');
         console.log(urlarr);
-        if (urlarr[3] == "mobile" && urlarr.length == 4) {
+        if ( ( urlarr[3].match("mobile") !== null ) && (urlarr.length == 4) ) {
             // $('#jg-overlay').hide();
             location.href = "/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true";
             return false;
