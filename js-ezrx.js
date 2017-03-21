@@ -1257,7 +1257,7 @@ var urlSite = "https://ndaru.click/ezrx/";
     /* mobile */
 
     function mobile_newlayout() {
-        
+        console.log("Mobile");
         $('#jg-overlay').hide();
         $('html').addClass('jg-mobilelayout');
 
