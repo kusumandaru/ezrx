@@ -7,8 +7,8 @@ var urlSite = "https://ndaru.click/ezrx/";
     $(document).ready(function() {
         url = window.location.href;
         pagetitle = $('title').text().toLowerCase();
-        console.log(pagetitle);
-        console.log(navigator.userAgent);
+        // console.log(pagetitle);
+        // console.log(navigator.userAgent);
         setTimeout(function() {
             if( navigator.userAgent.match(/Android/i)
              || navigator.userAgent.match(/webOS/i)
@@ -1266,7 +1266,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
     function mobile_newlayout() {
         var urlarr = url.split('/');
-        console.log(urlarr);
+        // console.log(urlarr);
         if ( ( urlarr[3].match("mobile") !== null ) && (urlarr.length == 4) ) {
             location.href = "/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true";
             return false;

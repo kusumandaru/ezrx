@@ -26,6 +26,7 @@
 
     /* mobile */
     function mobile_newlayout() {
+        console.log(pagetitle);
         if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
             refPORed();
         }
