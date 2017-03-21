@@ -9,6 +9,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         pagetitle = $('title').text().toLowerCase();
 
         setTimeout(function() {
+            console.log($('html').hasClass('ui-mobile'));
             if (!$('html').hasClass('ui-mobile')) {
                 $('#jg-overlay').hide();
                 desktop_newlayout();
