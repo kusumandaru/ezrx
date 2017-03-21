@@ -1264,7 +1264,6 @@ var urlSite = "https://ndaru.click/ezrx/";
     /* mobile */
 
     function mobile_newlayout() {
-        console.log("Mobile");
         $('#jg-overlay').hide();
         $('html').addClass('jg-mobilelayout');
 
@@ -1287,8 +1286,25 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         if (pagetitle == 'login') {
             mobile_loginpage();
+        }else{
+            
+            transform_mainlayout();
+
+            /*if (pagetitle == 'commerce management') {
+                transform_orderspage();
+            }
+            else if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
+                transform_newcopypage();
+            }
+            else if (pagetitle == 'model configuration') {
+                transform_modelconfig();
+            }
+            else if (pagetitle == "report manager") {
+                transform_reportpage();
+            }*/
+            mobile_adjustcontenttop();
         }
-        else if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
+        
             /*$('#tabs').before($("<div class='jg-box-workflow'>")
                 .append($("<img src='' class='jg-img-workflow' />"))
             );
@@ -1326,9 +1342,6 @@ var urlSite = "https://ndaru.click/ezrx/";
 
                 mobile_adjustcontenttop();
             });*/
-
-            mobile_adjustcontenttop();
-        }
     }
 
     function mobile_loginpage() {
