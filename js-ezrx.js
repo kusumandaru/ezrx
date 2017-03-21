@@ -837,7 +837,8 @@ var urlSite = "https://ndaru.click/ezrx/";
             var refNo = $(this).attr("id").split("attr_wrapper");
             var object_span = $("#readonly"+refNo[1]);
             if(object_span.text().toLowerCase() == 'no'){
-                object_span.addClass('sc-no-stock');
+                // object_span.addClass('sc-no-stock');
+                object_span.css("color", "red");
                 var line = $(this).parent();
                 var type = $(line).find("td[id*='refNO_text']");
                 var remove_attr = $(type).attr("id").split("attr_wrapper");
