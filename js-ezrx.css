@@ -317,7 +317,7 @@ tfoot .jg-btn { margin:10px; }
 
 /* mobile */
 .jg-mobilelayout #login { background:#00576a url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-login-new-bg.jpg') center center; background-size:cover; }
-.jg-mobilelayout #login-form { background:none; box-shadow:none; }
+.jg-mobilelayout #login-form { width:auto !important; padding:0; margin:0; text-align:center; border:0; background:none; box-shadow:none; }
 .jg-mobilelayout .ui-corner-all { border-radius:5px; }
 .jg-mobilelayout .jg-login-welcome { margin-bottom:30px; }
 .jg-mobilelayout #login-form .ui-submit { width:100%; margin-top:50px; background:#B8C942; border-radius:30px; }
@@ -330,7 +330,7 @@ tfoot .jg-btn { margin:10px; }
 .jg-mobilelayout table { border:0 !important; background:#edeac7; }
 .jg-mobilelayout button.ui-btn, .jg-mobilelayout button.ui-btn:hover { background:#0C727A; border:0; color:#fff; text-shadow:none; }
 .jg-mobilelayout .ui-mobile-viewport .jg-box-login #login-form { margin:20px 30px; }
-.jg-mobilelayout .jg-box-login .ui-block-b { display:block; margin:20px auto; float:none; }
+.jg-mobilelayout .jg-box-login .ui-block-b { width:285px; height:auto; margin-top:60px; line-height:50px; text-transform:capitalize; font-weight:bold !important; color:#00555C; border:0; border-radius:30px; background:#B8C942; }
 
 .jg-mobilelayout .ui-bar-b, .jg-mobilelayout .ui-page-theme-b .ui-bar-inherit, html.jg-mobilelayout .ui-bar-b .ui-bar-inherit, html.jg-mobilelayout .ui-body-b .ui-bar-inherit, html.jg-mobilelayout body .ui-group-theme-b .ui-bar-inherit { background:#eee; border:0; }
 .jg-mobilelayout #tabs .tab-link.active, .jg-mobilelayout #tabs .all-tabs.active,
