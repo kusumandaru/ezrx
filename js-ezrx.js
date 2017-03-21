@@ -1362,7 +1362,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             .append($("<div class='jg-box-login-bottom'>")
                 .append($("<img src='https://ndaru.click/ezrx/images/zuellig.png' class='jg-login-logo' />"))
             );
-
+        $("#main-content").addClass('login-mobile-box');
         $('label[for=username], label[for=psword]').hide();
         $('#forgotpassword').insertAfter($('label[for=psword]').next());
         $('footer').hide();
