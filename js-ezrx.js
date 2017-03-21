@@ -7,7 +7,8 @@ var urlSite = "https://ndaru.click/ezrx/";
     $(document).ready(function() {
         url = window.location.href;
         pagetitle = $('title').text().toLowerCase();
-
+        console.log(pagetitle);
+        console.log(navigator.userAgent);
         setTimeout(function() {
             if( navigator.userAgent.match(/Android/i)
              || navigator.userAgent.match(/webOS/i)
