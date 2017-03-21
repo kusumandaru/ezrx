@@ -10,6 +10,7 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         setTimeout(function() {
             console.log($('html').hasClass('ui-mobile'));
+            console.log(navigator.userAgent);
             if (!$('html').hasClass('ui-mobile')) {
                 $('#jg-overlay').hide();
                 desktop_newlayout();
