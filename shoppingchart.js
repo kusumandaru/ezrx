@@ -219,7 +219,8 @@
     function refPORed(){
         var customerPORefParent = $("label[for='customerPORef_t']");
         var customerPORef = customerPORefParent[0];
-        customerPORef.querySelector('span').classList.add('sc-red-po-ref');
+        $(customerPORef).css("color","red");
+        // customerPORef.querySelector('span').classList.add('sc-red-po-ref');
     }
 
     function deleteRow(tr){
