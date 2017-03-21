@@ -1265,7 +1265,6 @@ var urlSite = "https://ndaru.click/ezrx/";
     /* mobile */
 
     function mobile_newlayout() {
-        $('html').addClass('jg-mobilelayout');
         var urlarr = url.split('/');
         console.log(urlarr);
         if ( ( urlarr[3].match("mobile") !== null ) && (urlarr.length == 4) ) {
@@ -1283,6 +1282,8 @@ var urlSite = "https://ndaru.click/ezrx/";
             return;
         }
         $('#jg-overlay').hide();
+        $('html').addClass('jg-mobilelayout');
+        
         if (pagetitle == 'login') {
             mobile_loginpage();
         }else{
