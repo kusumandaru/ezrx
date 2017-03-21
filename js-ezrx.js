@@ -1257,11 +1257,13 @@ var urlSite = "https://ndaru.click/ezrx/";
     /* mobile */
 
     function mobile_newlayout() {
+        
+        $('#jg-overlay').hide();
+        $('html').addClass('jg-mobilelayout');
+
         var urlarr = url.split('/');
         if (urlarr[3] == "mobile" && urlarr.length == 4) {
             // $('#jg-overlay').hide();
-            $('#jg-overlay').hide();
-            $('html').addClass('jg-mobilelayout');
             location.href = "/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true";
             return false;
         }
@@ -1275,9 +1277,6 @@ var urlSite = "https://ndaru.click/ezrx/";
 
             return;
         }
-
-        $('#jg-overlay').hide();
-        $('html').addClass('jg-mobilelayout');
 
         if (pagetitle == 'login') {
             mobile_loginpage();
