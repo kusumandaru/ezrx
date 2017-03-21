@@ -9,14 +9,19 @@ var urlSite = "https://ndaru.click/ezrx/";
         pagetitle = $('title').text().toLowerCase();
 
         setTimeout(function() {
-            console.log($('html').hasClass('ui-mobile'));
-            console.log(navigator.userAgent);
-            if (!$('html').hasClass('ui-mobile')) {
-                $('#jg-overlay').hide();
-                desktop_newlayout();
+            if( navigator.userAgent.match(/Android/i)
+             || navigator.userAgent.match(/webOS/i)
+             || navigator.userAgent.match(/iPhone/i)
+             || navigator.userAgent.match(/iPad/i)
+             || navigator.userAgent.match(/iPod/i)
+             || navigator.userAgent.match(/BlackBerry/i)
+             || navigator.userAgent.match(/Windows Phone/i)
+             ){
+                mobile_newlayout();
             }
             else {
-                mobile_newlayout();
+                $('#jg-overlay').hide();
+                desktop_newlayout();
             }
         }, 1000);
     });
