@@ -1291,10 +1291,13 @@ var urlSite = "https://ndaru.click/ezrx/";
                 transform_mainlayout();
                 transform_orderspage();
             }
-            /*
+            
             else if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
-                transform_newcopypage();
+                var customerPORefParent = $("label[for='customerPORef_t']");
+                var customerPORef = customerPORefParent[0];
+                $(customerPORef).css("color","red");
             }
+            /*
             else if (pagetitle == 'model configuration') {
                 transform_modelconfig();
             }

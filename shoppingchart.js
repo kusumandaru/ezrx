@@ -24,14 +24,6 @@
         }, 1000);
     });
 
-    /* mobile */
-    function mobile_newlayout() {
-        console.log(pagetitle);
-        if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
-            refPORed();
-        }
-    }
-
     function desktop_newlayout() {
         /* UI */
         if (pagetitle.toLowerCase() == 'shopping cart' || pagetitle.toLowerCase() == 'model configuration') {
@@ -220,8 +212,12 @@
     function refPORed(){
         var customerPORefParent = $("label[for='customerPORef_t']");
         var customerPORef = customerPORefParent[0];
-        $(customerPORef).css("color","red");
-        // customerPORef.querySelector('span').classList.add('sc-red-po-ref');
+        customerPORef.querySelector('span').classList.add('sc-red-po-ref');
+    }
+
+    /* mobile */
+    function mobile_newlayout() {
+
     }
 
     function deleteRow(tr){
