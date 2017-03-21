@@ -1288,9 +1288,8 @@ var urlSite = "https://ndaru.click/ezrx/";
             $('#jg-overlay').hide();
             mobile_loginpage();
         }else{
-
+            $('#jg-overlay').hide();
             if (pagetitle == 'commerce management') {
-                $('#jg-overlay').hide();
                 transform_mainlayout();
                 transform_orderspage();
             }
