@@ -7,14 +7,29 @@
         pagetitle = $('title').text().toLowerCase();
 
         setTimeout(function() {
-            if (!$('html').hasClass('ui-mobile')) {
-                desktop_newlayout();
+            if( navigator.userAgent.match(/Android/i)
+             || navigator.userAgent.match(/webOS/i)
+             || navigator.userAgent.match(/iPhone/i)
+             || navigator.userAgent.match(/iPad/i)
+             || navigator.userAgent.match(/iPod/i)
+             || navigator.userAgent.match(/BlackBerry/i)
+             || navigator.userAgent.match(/Windows Phone/i)
+             ){
+                mobile_newlayout();
             }
             else {
-                mobile_newlayout();
+                desktop_newlayout();
+
             }
         }, 1000);
     });
+
+    /* mobile */
+    function mobile_newlayout() {
+        if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
+            refPORed();
+        }
+    }
 
     function desktop_newlayout() {
         /* UI */
@@ -205,11 +220,6 @@
         var customerPORefParent = $("label[for='customerPORef_t']");
         var customerPORef = customerPORefParent[0];
         customerPORef.querySelector('span').classList.add('sc-red-po-ref');
-    }
-
-    /* mobile */
-    function mobile_newlayout() {
-
     }
 
     function deleteRow(tr){
