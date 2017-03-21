@@ -1304,7 +1304,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                             $(customerPORef).css("color","red");
                         };
                     });
-                } )
+                }, 1000 );
             }
             /*
             else if (pagetitle == 'model configuration') {
