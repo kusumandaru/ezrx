@@ -1290,9 +1290,10 @@ var urlSite = "https://ndaru.click/ezrx/";
             
             transform_mainlayout();
 
-            /*if (pagetitle == 'commerce management') {
+            if (pagetitle == 'commerce management') {
                 transform_orderspage();
             }
+            /*
             else if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
                 transform_newcopypage();
             }
