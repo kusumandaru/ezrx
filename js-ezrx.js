@@ -1287,11 +1287,11 @@ var urlSite = "https://ndaru.click/ezrx/";
         if (pagetitle == 'login') {
             mobile_loginpage();
         }else{
+            console.log(pagetitle);
             if (pagetitle == 'commerce management') {
                 transform_mainlayout();
                 transform_orderspage();
             }
-            
             else if (pagetitle == 'zuellig pharma order process' || pagetitle == 'zuellig pharma products') {
                 var customerPORefParent = $("label[for='customerPORef_t']");
                 var customerPORef = customerPORefParent[0];
