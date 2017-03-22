@@ -131,6 +131,22 @@ var urlSite = "https://ndaru.click/ezrx/";
                 transform_newfooter();
             }else if( pagetitle == 'folders' ){
                 window.location = 'https://'+window.location.host;
+            }else if( pagetitle == 'my profile' ){
+                var selectorRows = $("input[name='email']").closest('.bgcolor-form').next();
+                var typeUser = $(selectorRows).children('.form-input').text().replace(/\s/g,'');
+                if(typeUser.toLowerCase() != 'fullaccess'){
+                    var listTable = $("table.dashed-table");
+                    listTable.each(function(i, data){
+                        if(i != 0){
+                            $(data).hide();
+                        }else{
+                            $(data).children().children('tr.bgcolor-form').each(function(e, row){
+                                $(row).hide();
+                                $("input[name='password']").closest('tr.bgcolor-form').show();
+                            });
+                        }
+                    });
+                }
             }
         }
 
