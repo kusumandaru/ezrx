@@ -1325,15 +1325,12 @@ var urlSite = "https://ndaru.click/ezrx/";
                 window.onerror = function(){
                     return true;
                 }
-
-                $( document ).ajaxStop(function() {
-                    console.log("ajax stop work");
-                  if($('a[href=#tab-pricing]').hasClass('active')){
-                        var customerPORefParent = $("label[for='customerPORef_t']");
-                        var customerPORef = customerPORefParent[0];
-                        $(customerPORef).css("color","red");
-                    };
-                });
+                if($('a[href=#tab-pricing]').hasClass('active')){
+                    console.log("tab pricing active");
+                    var customerPORefParent = $("label[for='customerPORef_t']");
+                    var customerPORef = customerPORefParent[0];
+                    $(customerPORef).css("color","red");
+                };
             }
             /*
             else if (pagetitle == 'model configuration') {
