@@ -1002,6 +1002,16 @@ var urlSite = "https://ndaru.click/ezrx/";
         /* End  : 17 March 2017 */
         /* Task : hide icon for first row on additional bonus table */
 
+        /*
+            Start : 23 March 2017
+            Task  : hide + button in additional bonus table.
+        */
+        $('#additionalMaterialArrayset thead tr th:first').children('a.array-add').hide();    
+        /*
+            End   : 23 March 2017
+            Task  : hide + button in additional bonus table.
+        */
+
         // tweak originals
         $('#sticky-actions').hide();
         $('#tab-material').closest('ul').hide();
