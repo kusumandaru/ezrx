@@ -1341,21 +1341,20 @@ var urlSite = "https://ndaru.click/ezrx/";
             mobile_loginpage();
         }else{
             console.log(pagetitle);
+            $('.tab-link').bind("tap", function() {
+                if ($(this).attr('href') == '#tab-pricing') {
+                    console.log("tab pricing active");
+                    var customerPORefParent = $("label[for='customerPORef_t']");
+                    var customerPORef = customerPORefParent[0];
+                    $(customerPORef).css("color","red");
+                };
+            });
             if (pagetitle == 'commerce management') {
                 transform_mainlayout();
                 transform_orderspage();
             }
             else if (pagetitle == 'zuellig pharma order process') {
                 console.log("execute");
-                $('.tab-link').bind("tap", function() {
-                    console.log("user tapping");
-                    if ($(this).attr('href') == '#tab-pricing') {
-                        console.log("tab pricing active");
-                        var customerPORefParent = $("label[for='customerPORef_t']");
-                        var customerPORef = customerPORefParent[0];
-                        $(customerPORef).css("color","red");
-                    };
-                });
             }
             /*
             else if (pagetitle == 'model configuration') {
