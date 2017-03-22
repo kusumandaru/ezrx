@@ -1318,15 +1318,19 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
             else if (pagetitle == 'zuellig pharma order process') {
                 console.log("execute");
-                $( document ).ajaxStop(function() {
-                    console.log("ajax beres");
-                    console.log($('a[href=#tab-pricing]'));
-                  if($('a[href=#tab-pricing]').hasClass('active')){
-                        var customerPORefParent = $("label[for='customerPORef_t']");
-                        var customerPORef = customerPORefParent[0];
-                        $(customerPORef).css("color","red");
-                    };
-                });
+                try{
+                    $( document ).ajaxStop(function() {
+                        console.log("ajax beres");
+                        console.log($('a[href=#tab-pricing]'));
+                      if($('a[href=#tab-pricing]').hasClass('active')){
+                            var customerPORefParent = $("label[for='customerPORef_t']");
+                            var customerPORef = customerPORefParent[0];
+                            $(customerPORef).css("color","red");
+                        };
+                    });
+                }catch(e){
+                    console.log(e);
+                }
             }
             /*
             else if (pagetitle == 'model configuration') {
