@@ -1342,6 +1342,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         }else{
             console.log(pagetitle);
             $('.tab-link').bind("tap", function() {
+                console.log("tap");
                 if ($(this).attr('href') == '#tab-pricing') {
                     console.log("tab pricing active");
                     var customerPORefParent = $("label[for='customerPORef_t']");
