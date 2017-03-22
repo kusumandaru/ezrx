@@ -1341,6 +1341,9 @@ var urlSite = "https://ndaru.click/ezrx/";
             mobile_loginpage();
         }else{
             console.log(pagetitle);
+            $('.tab-link').click(function() {
+                console.log($(this));
+            });
             if (pagetitle == 'commerce management') {
                 transform_mainlayout();
                 transform_orderspage();
