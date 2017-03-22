@@ -1078,7 +1078,15 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('.attribute-label[for=principalCode]').parent().css('marginTop', '5px');
         $('.attribute-label[for=showPrincipalFavorites]').parent().css('marginTop', '5px');
         /* Toolbar on bottom table. */
-        $("#materialArrayset").after( $(".jg-box-toolbar").clone() ); //for bottom
+        /*
+            Start : 22 March 2017
+            Task  : Remove all the icons in top row
+        */
+        $("#materialArrayset").after( $(".jg-box-toolbar") ); //for bottom
+        /*
+            End   : 22 March 2017
+            Task  : Remove all the icons in top row
+        */
         $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
         /* Right Panel Content */
         $('#grid-36595617').closest('.column').wrapInner($("<div class='jg-inner-column'>"));
@@ -1298,6 +1306,8 @@ var urlSite = "https://ndaru.click/ezrx/";
         $('#jg-overlay').hide();
         $('html').addClass('jg-mobilelayout');
         
+        console.log(pagetitle);
+
         if (pagetitle == 'login') {
             mobile_loginpage();
         }else{
