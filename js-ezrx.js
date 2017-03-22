@@ -804,7 +804,12 @@ var urlSite = "https://ndaru.click/ezrx/";
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
         */
         $('.jg-order-box-cust').append( $('.jg-order-box-cust').clone().html( $("select[name='customerSearchFilter']").closest('div.column') ) )
-        $("select[name='orderType_t']").closest('.column-layout').removeClass('clearfix');
+        var kolom_customer_sold = $("#attr_wrapper_1_customerSoldToId_t").parent();
+        $( kolom_customer_sold ).css({
+            "position" : "absolute",
+            "margin-top" : "35px",
+        })
+        $("select[name='orderType_t']").closest('.column-layout').removeClass('clearfix').append( $("#attr_wrapper_1_customerSoldToId_t").parent() );
         /*
             End : 22 March 2017
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
