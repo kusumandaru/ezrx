@@ -799,7 +799,16 @@ var urlSite = "https://ndaru.click/ezrx/";
             .appendTo('.jg-box-maincontent');
 
         adjust_tooltip();
-
+        /*
+            Start : 22 March 2017
+            Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
+        */
+        $('.jg-order-box-cust').append( $('.jg-order-box-cust').clone().html( $("select[name='customerSearchFilter']").closest('div.column') ) )
+        $("select[name='orderType_t']").closest('.column-layout').removeClass('clearfix');
+        /*
+            End : 22 March 2017
+            Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
+        */
         // data with color red
         // if isPriceOverride give red color
         $("td[id*='isPriceOverride']").each(function(i, data){
