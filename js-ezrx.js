@@ -1321,6 +1321,11 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
             else if (pagetitle == 'zuellig pharma order process') {
                 console.log("execute");
+                
+                window.onerror = function(){
+                    return true;
+                }
+
                 $( document ).ajaxStop(function() {
                     console.log("ajax stop work");
                   if($('a[href=#tab-pricing]').hasClass('active')){
