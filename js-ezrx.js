@@ -821,17 +821,17 @@ var urlSite = "https://ndaru.click/ezrx/";
         */
         $('.jg-order-box-cust').parent().prepend( $('.jg-order-box-cust').clone().html( $("select[name='customerSearchFilter']").closest('div.column') ) );
 
-        var kolom_customer_sold = $("#attr_wrapper_1_customerSoldToId_t").parent();
+        /*var kolom_customer_sold = $("#attr_wrapper_1_customerSoldToId_t").parent();
         $( kolom_customer_sold ).css({
             "position" : "absolute",
             "margin-top" : "35px",
-        });
+        });*/
         /* sales rep name dll */
-        $("#attr_wrapper_1_owner_t").css("width","35%");
+        // $("#attr_wrapper_1_owner_t").css("width","35%");
 
-        $("select[name='orderType_t']").closest('.column-layout').removeClass('clearfix').append( $("#attr_wrapper_1_customerSoldToId_t").parent() );
+        /*$("select[name='orderType_t']").closest('.column-layout').removeClass('clearfix').append( $("#attr_wrapper_1_customerSoldToId_t").parent() );
         $( $("#attr_wrapper_1_customerSoldToId_t").parent().parent() ).next().removeClass('clearfix');
-        $("#panel_36350863").css({ "padding-top":"150px" });
+        $("#panel_36350863").css({ "padding-top":"150px" });*/
         /*
             End : 22 March 2017
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
