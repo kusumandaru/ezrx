@@ -1342,13 +1342,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         }else{
             console.log(pagetitle);
             $('.tab-link').bind("tap", function() {
-                console.log("tap");
-                if ($(this).attr('href') == '#tab-pricing') {
-                    console.log("tab pricing active");
-                    var customerPORefParent = $("label[for='customerPORef_t']");
-                    var customerPORef = customerPORefParent[0];
-                    $(customerPORef).css("color","red");
-                };
+                console.log($(this));
             });
             if (pagetitle == 'commerce management') {
                 transform_mainlayout();
@@ -1356,6 +1350,14 @@ var urlSite = "https://ndaru.click/ezrx/";
             }
             else if (pagetitle == 'zuellig pharma order process') {
                 console.log("execute");
+                $('.tab-link').bind("tap", function() {
+                    if ($(this).attr('href') == '#tab-pricing') {
+                        console.log("tab pricing active");
+                        var customerPORefParent = $("label[for='customerPORef_t']");
+                        var customerPORef = customerPORefParent[0];
+                        $(customerPORef).css("color","red");
+                    };
+                });
             }
             /*
             else if (pagetitle == 'model configuration') {
