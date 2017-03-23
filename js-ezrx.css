@@ -369,6 +369,10 @@ tfoot .jg-btn { margin:10px; }
 .jg-mobilelayout .jg-box-workflow { padding:50px 25px 40px; background:#fff; text-align:center; }
 .jg-mobilelayout .jg-box-workflow img { width:80%; margin:0 auto; }
 
+/* Header Table Material */
+.config-array th.array-attribute {
+	padding: 10px!important;
+}
 
 @media only screen and (min-width:480px) {
     .jg-mobilelayout .jg-box-workflow img { width:auto; }
