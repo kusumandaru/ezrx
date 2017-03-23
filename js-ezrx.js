@@ -1331,13 +1331,13 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         pagetitle = $('title').text().toLowerCase().trim();
         console.log(pagetitle);
-        if (pagetitle == '') {
+        /*if (pagetitle == '') {
             setTimeout(function() {
                 mobile_newlayout();
             }, 1000);
 
             return;
-        }
+        }*/
         $('#jg-overlay').hide();
         $('html').addClass('jg-mobilelayout');
         
