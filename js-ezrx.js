@@ -821,11 +821,11 @@ var urlSite = "https://ndaru.click/ezrx/";
         */
         $('.jg-order-box-cust').parent().prepend( $('.jg-order-box-cust').clone().html( $("select[name='customerSearchFilter']").closest('div.column') ) );
 
-        var kolom_customer_sold = $("#attr_wrapper_1_customerSoldToId_t").parent();
+        /*var kolom_customer_sold = $("#attr_wrapper_1_customerSoldToId_t").parent();
         $( kolom_customer_sold ).css({
             "position" : "absolute",
             "margin-top" : "35px",
-        });
+        });*/
         $("select[name='orderType_t']").closest('.column-layout').removeClass('clearfix').append( $("#attr_wrapper_1_customerSoldToId_t").parent() );
         $( $("#attr_wrapper_1_customerSoldToId_t").parent().parent() ).next().removeClass('clearfix');
         $("#panel_36350863").css({ "padding-top":"150px" });
