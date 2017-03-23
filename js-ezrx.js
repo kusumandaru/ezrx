@@ -1359,21 +1359,20 @@ var urlSite = "https://ndaru.click/ezrx/";
                     console.log("try and catch");
                     setTimeout( function(){
                         console.log("execute tap");
-                        console.log($("a.tab-link"));
                         $("a.tab-link").on("tap", function(){
-                            console.log("tab-link");
+                            if ($(this).attr('href') == '#tab-pricing') {
+                                console.log("tab pricing active");
+                                var customerPORefParent = $("label[for='customerPORef_t']");
+                                var customerPORef = customerPORefParent[0];
+                                $(customerPORef).css("color","red");
+                            };
                         });
                     }, 4000 );
                 }catch(err){
                     console.log(err);
                 }
                 /*$('.tab-link').bind("tap", function() {
-                    if ($(this).attr('href') == '#tab-pricing') {
-                        console.log("tab pricing active");
-                        var customerPORefParent = $("label[for='customerPORef_t']");
-                        var customerPORef = customerPORefParent[0];
-                        $(customerPORef).css("color","red");
-                    };
+                    
                 });*/
             }
             /*
