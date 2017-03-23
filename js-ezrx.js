@@ -1358,6 +1358,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 try{
                     console.log("try and catch");
                     setTimeout( function(){
+                        console.log("execute tap");
                         $("a.tab-link").on("tap", function(){
                             console.log("tab-link");
                         });
