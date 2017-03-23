@@ -1330,7 +1330,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         }
 
         pagetitle = $('title').text().toLowerCase().trim();
-
+        console.log(pagetitle);
         if (pagetitle == '') {
             setTimeout(function() {
                 mobile_newlayout();
@@ -1346,7 +1346,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         if (pagetitle == 'login') {
             mobile_loginpage();
         }else{
-            console.log(pagetitle);
+            
             /*$('.tab-link').bind("tap", function() {
                 console.log($(this));
             });*/
