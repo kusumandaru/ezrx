@@ -1361,10 +1361,12 @@ var urlSite = "https://ndaru.click/ezrx/";
                         console.log("execute tap");
                         $("a.tab-link").on("tap", function(){
                             if ($(this).attr('href') == '#tab-pricing') {
-                                console.log("tab pricing active");
-                                var customerPORefParent = $("label[for='customerPORef_t']");
-                                var customerPORef = customerPORefParent[0];
-                                $(customerPORef).css("color","red");
+                                setTimeout( function(){
+                                    console.log("tab pricing active");
+                                    var customerPORefParent = $("label[for='customerPORef_t']");
+                                    var customerPORef = customerPORefParent[0];
+                                    $(customerPORef).css("color","red");
+                                }, 4000 );
                             };
                         });
                     }, 4000 );
