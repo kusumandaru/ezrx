@@ -820,7 +820,10 @@ var urlSite = "https://ndaru.click/ezrx/";
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
         */
         $('.jg-order-box-cust').parent().prepend( $('.jg-order-box-cust').clone().html( $("select[name='customerSearchFilter']").closest('div.column') ) );
+        
         $("#attr_wrapper_1_owner_t").parent().parent().removeClass('clearfix');
+
+        $( $("#attr_wrapper_1_customerShipToId_t").parent().siblings('.spacer-column') ).hide();
         /*var kolom_customer_sold = $("#attr_wrapper_1_customerSoldToId_t").parent();
         $( kolom_customer_sold ).css({
             "position" : "absolute",
