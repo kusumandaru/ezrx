@@ -1361,7 +1361,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                         $("a.tab-link").on("tap", function(){
                             console.log("tab-link");
                         });
-                    }, 2000 );
+                    }, 4000 );
                 }catch(err){
                     console.log(err);
                 }
