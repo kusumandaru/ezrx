@@ -1360,6 +1360,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                     setTimeout( function(){
                         console.log("execute tap");
                         $("a.tab-link").on("tap", function(){
+                            console.log( $(this) );
                             if ($(this).attr('href') == '#tab-pricing') {
                                 console.log("tab tapping");
                                 setTimeout( function(){
