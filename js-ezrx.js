@@ -1331,6 +1331,9 @@ var urlSite = "https://ndaru.click/ezrx/";
 
         pagetitle = $('title').text().toLowerCase().trim();
         console.log(pagetitle);
+        $('.tab-link').bind("tap", function() {
+            console.log($(this));
+        });
         /*if (pagetitle == '') {
             setTimeout(function() {
                 mobile_newlayout();
@@ -1340,16 +1343,12 @@ var urlSite = "https://ndaru.click/ezrx/";
         }*/
         $('#jg-overlay').hide();
         $('html').addClass('jg-mobilelayout');
-        
-        console.log(pagetitle);
 
         if (pagetitle == 'login') {
             mobile_loginpage();
         }else{
             
-            /*$('.tab-link').bind("tap", function() {
-                console.log($(this));
-            });*/
+            
             if (pagetitle == 'commerce management') {
                 transform_mainlayout();
                 transform_orderspage();
