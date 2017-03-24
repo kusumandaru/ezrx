@@ -1,13 +1,19 @@
 
 (function($) {
 
-    var url, pagetitle;
+    var url, pagetitle, rootFolder;
 
     $(document).ready(function() {
         url = window.location.href;
         pagetitle = $('title').text().toLowerCase();
-        // console.log(pagetitle);
-        // console.log(navigator.userAgent);
+        
+        var fullUrl = window.location.host;
+        //window.location.host is subdomain.domain.com
+        var parts = fullUrl.split('.');
+        var sub = parts[0];
+
+        rootFolder = '/bmfsweb/'+sub;
+
         setTimeout(function() {
             if( navigator.userAgent.match(/Android/i)
              || navigator.userAgent.match(/webOS/i)
@@ -45,7 +51,7 @@
                     transform_orderspage();
                 }
                 else if (pagetitle == 'transaction') {
-                    $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
+                    $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_shoppping_cart_ready_active.png');
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-neworder').parent().remove();
                     $('#jg-submenu-copyorder').parent().remove();
@@ -81,22 +87,22 @@
                             Task  : Order in Submitted Status the Logo(to guide the shopping stages) is missing
                         */
                         //order created
-                        $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_created_active.png');
+                        $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_order_created_active.png');
                         //user click customer input form
                         $("#customersNew_t").on("click", function(){
-                            $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png');
+                            $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_customer_selected_active.png');
                         });
                         if( ($("#readonly_1_status_t").text().toLowerCase() != 'submitted') && $("#customersNew_t").val() != '' ){
-                           $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png'); 
+                           $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_customer_selected_active.png'); 
                         }
                         //user has added material
                         if( $("#line-item-grid tbody.line-item-grid-body").children('tr').attr('id') != 'emptyRow' ){
-                            $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
+                            $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_shoppping_cart_ready_active.png');
                         }
                         //user has submitted order
                         if( $("#readonly_1_status_t").text().toLowerCase() == 'submitted')
                         {
-                            $('#readonly_1_visualWorkflow img').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
+                            $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_order_submitted_active.png');
                         }
 
                         
@@ -156,11 +162,11 @@
     function transform_loginpage() {
         var newlayout = $("<div class='jg-box-login'>")
             .append($("<div class='jg-box-login-inner'>")
-                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/ezrx.png' class='jg-login-logo' />"))
+                .append($("<img src='"+rootFolder+"/image/images/ezrx.png' class='jg-login-logo' />"))
                 .append($("<span class='jg-login-welcome'>Welcome</span>"))
             )
             .append($("<div class='jg-box-login-bottom'>")
-                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/zuellig.png' class='jg-login-logo' />"))
+                .append($("<img src='"+rootFolder+"/image/images/zuellig.png' class='jg-login-logo' />"))
             )
 
             .prependTo('body');
@@ -390,7 +396,7 @@
     function transform_newfooter() {
         // new footer
         $('.jg-box-mainarea').append($("<div class='jg-box-footer'>")
-            .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/dk-img-footer.png' class='jg-img-footer' />"))
+            .append($("<img src='"+rootFolder+"/image/images/dk-img-footer.png' class='jg-img-footer' />"))
         );
     }
 
@@ -398,7 +404,7 @@
         // orders submenu
         if(/@zuelligpharma.com\s*$/.test(_BM_USER_LOGIN)){
             $('.jg-box-submenu')
-                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
+                .append($("<img src='"+rootFolder+"/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
                 .append($("<ul class='jg-list-submenu'>")
                         .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders'>My Orders</a></li>"))
                         .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/reports/report_manager.jsp?process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myreports'>My Reports</a></li>"))
@@ -408,7 +414,7 @@
                 );
         }else{
             $('.jg-box-submenu')
-                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
+                .append($("<img src='"+rootFolder+"/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
                 .append($("<ul class='jg-list-submenu'>")
                         .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders'>My Orders</a></li>"))
                         .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-neworder'>New Order</a></li>"))
@@ -963,7 +969,7 @@
 
         $('#config-header').hide();
 
-        var flowimg = $("<div class='column-layout clearfix '><div class='column label-left last' style='width:100%'><div class='form-item clearfix null' id='attr_wrapper_1_visualWorkflow'><label class='form-label' for='visualWorkflow' style='width: 100px;visibility:hidden'><span style='padding-right: 5px'>Visual Workflow</span></label><div class='form-element field-wrapper' id='field_wrapper_1_visualWorkflow' style='padding-left: 0px;'><div id='readonly_1_visualWorkflow'><img width='70%' src='/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png' alt='Broken Visual Workflow'></div><div id='msg_1_visualWorkflow' class='error-hover' data-action-message='' message=''></div></div></div></div></div>")
+        var flowimg = $("<div class='column-layout clearfix '><div class='column label-left last' style='width:100%'><div class='form-item clearfix null' id='attr_wrapper_1_visualWorkflow'><label class='form-label' for='visualWorkflow' style='width: 100px;visibility:hidden'><span style='padding-right: 5px'>Visual Workflow</span></label><div class='form-element field-wrapper' id='field_wrapper_1_visualWorkflow' style='padding-left: 0px;'><div id='readonly_1_visualWorkflow'><img width='70%' src='"+rootFolder+"/image/images/vi_shoppping_cart_ready_active.png' alt='Broken Visual Workflow'></div><div id='msg_1_visualWorkflow' class='error-hover' data-action-message='' message=''></div></div></div></div></div>")
             .insertBefore('.page-tabs');
 
         // toolbar
@@ -1133,13 +1139,13 @@
         var rightPanel = $('#grid-36397039').children('.row').children('.column-1');
         $('#grid-36561838').children('.group-content')
                            .css('margin','0px')
-                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-frequently.png' >");
+                           .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-frequently.png' >");
         $('#grid-36565572').children('.group-content')
                            .css('margin','0px')
-                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-recommended.png' >");
+                           .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-recommended.png' >");
         $('#grid-36701507').children('.group-content')
                            .css('margin','0px')
-                           .children('.group-header').children('span').prepend("<img src='/bmfsweb/zuelligpharmatest1/image/images/rsm-favourite.png' >");
+                           .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-favourite.png' >");
         var mainContentWidth = $(".jg-box-maincontent").width();
         var rightValue = -(mainContentWidth/4);
 
@@ -1369,7 +1375,7 @@
                 });
 
                 $(".jg-mobilelayout #header a.ui-btn-left span").css({
-                    "background": 'url("/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon.png")',
+                    "background": 'url("'+rootFolder+'/image/images/lsm_home_icon.png")',
                     "background-repeat": "no-repeat",
                 });
             }
@@ -1415,19 +1421,19 @@
 
             if (pagetitle == 'zuellig pharma order process') {
                 if ($('a[href=#tab-draftOrder]').hasClass('active')) {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_created_active.png');
+                    $('.jg-img-workflow').attr('src', rootFolder+'/image/images/vi_order_created_active.png');
                 }
                 else if ($('a[href=#tab-customerSearch]').hasClass('active')) {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png');
+                    $('.jg-img-workflow').attr('src', rootFolder+'/image/images/vi_customer_selected_active.png');
                 }
                 else if ($('a[href=#tab-pricing]').hasClass('active')) {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
+                    $('.jg-img-workflow').attr('src', rootFolder+'/image/images/vi_order_submitted_active.png');
                 }
             }
             else if (pagetitle == 'zuellig pharma products') {
 
                 $(".jg-box-workflow").hide();
-                // $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_shoppping_cart_ready_active.png');
+                // $('.jg-img-workflow').attr('src', rootFolder+'/image/images/vi_shoppping_cart_ready_active.png');
 
                 // $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table');
             }
@@ -1435,13 +1441,13 @@
             // events
             $('.tab-link').click(function() {
                 if ($(this).attr('href') == '#tab-draftOrder') {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_created_active.png');
+                    $('.jg-img-workflow').attr('src', rootFolder+'/image/images/vi_order_created_active.png');
                 }
                 else if ($(this).attr('href') == '#tab-customerSearch') {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_customer_selected_active.png');
+                    $('.jg-img-workflow').attr('src', rootFolder+'/image/images/vi_customer_selected_active.png');
                 }
                 else if ($(this).attr('href') == '#tab-pricing') {
-                    $('.jg-img-workflow').attr('src', '/bmfsweb/zuelligpharmatest1/image/images/vi_order_submitted_active.png');
+                    $('.jg-img-workflow').attr('src', rootFolder+'/image/images/vi_order_submitted_active.png');
                 }
 
                 mobile_adjustcontenttop();
@@ -1449,11 +1455,11 @@
     }
 
     function mobile_loginpage() {
-        var imglogin = $("<img src='/bmfsweb/zuelligpharmatest1/image/images/ezrx.png' class='jg-login-logo'>")
+        var imglogin = $("<img src='"+rootFolder+"/image/images/ezrx.png' class='jg-login-logo'>")
             .prependTo('#login-form')
             .after("<span class='jg-login-welcome'>Welcome</span>")
             .append($("<div class='jg-box-login-bottom'>")
-                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/zuellig.png' class='jg-login-logo' />"))
+                .append($("<img src='"+rootFolder+"/image/images/zuellig.png' class='jg-login-logo' />"))
             );
         $("#main-content").addClass('login-mobile-box');
         $('label[for=username], label[for=psword]').hide();
