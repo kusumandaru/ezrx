@@ -1359,7 +1359,15 @@
                 });
                 $("span#quote-total").css({
                     "color": "#fff"
-                })
+                });
+                $(".jg-mobilelayout #header a.ui-btn-left").css({
+                    "padding-top": "5px",
+                    "background": "#00575D",
+                });
+
+                $(".jg-mobilelayout #header a.ui-btn-left span").css({
+                    "background": 'url("/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon.png")'
+                });
             }
             else if (pagetitle == 'zuellig pharma order process') {
                 console.log("execute");
