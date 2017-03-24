@@ -1366,7 +1366,8 @@
                 });
 
                 $(".jg-mobilelayout #header a.ui-btn-left span").css({
-                    "background": 'url("/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon.png")'
+                    "background": 'url("/bmfsweb/zuelligpharmatest1/image/images/lsm_home_icon.png")',
+                    "background-repeat": "no-repeat",
                 });
             }
             else if (pagetitle == 'zuellig pharma order process') {
