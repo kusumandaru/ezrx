@@ -1,4 +1,3 @@
-var urlSite = "https://ndaru.click/ezrx/";
 
 (function($) {
 
@@ -1438,11 +1437,11 @@ var urlSite = "https://ndaru.click/ezrx/";
     }
 
     function mobile_loginpage() {
-        var imglogin = $("<img src='https://ndaru.click/ezrx/images/ezrx.png' class='jg-login-logo'>")
+        var imglogin = $("<img src='/bmfsweb/zuelligpharmatest1/image/images/ezrx.png' class='jg-login-logo'>")
             .prependTo('#login-form')
             .after("<span class='jg-login-welcome'>Welcome</span>")
             .append($("<div class='jg-box-login-bottom'>")
-                .append($("<img src='https://ndaru.click/ezrx/images/zuellig.png' class='jg-login-logo' />"))
+                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/zuellig.png' class='jg-login-logo' />"))
             );
         $("#main-content").addClass('login-mobile-box');
         $('label[for=username], label[for=psword]').hide();
