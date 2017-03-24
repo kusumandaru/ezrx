@@ -1361,8 +1361,11 @@
                     "color": "#fff"
                 });
                 $(".jg-mobilelayout #header a.ui-btn-left").css({
-                    "padding-top": "5px",
                     "background": "#00575D",
+                    "width": "30px",
+                    "margin-left": "10px",
+                    "padding-top": "10px",
+                    "padding-left": "10px",
                 });
 
                 $(".jg-mobilelayout #header a.ui-btn-left span").css({
