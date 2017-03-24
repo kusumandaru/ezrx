@@ -391,7 +391,7 @@ var urlSite = "https://ndaru.click/ezrx/";
     function transform_newfooter() {
         // new footer
         $('.jg-box-mainarea').append($("<div class='jg-box-footer'>")
-            .append($("<img src='https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-img-footer.png' class='jg-img-footer' />"))
+            .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/dk-img-footer.png' class='jg-img-footer' />"))
         );
     }
 
@@ -399,7 +399,7 @@ var urlSite = "https://ndaru.click/ezrx/";
         // orders submenu
         if(/@zuelligpharma.com\s*$/.test(_BM_USER_LOGIN)){
             $('.jg-box-submenu')
-                .append($("<img src='https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
+                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
                 .append($("<ul class='jg-list-submenu'>")
                         .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders'>My Orders</a></li>"))
                         .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/reports/report_manager.jsp?process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myreports'>My Reports</a></li>"))
@@ -409,7 +409,7 @@ var urlSite = "https://ndaru.click/ezrx/";
                 );
         }else{
             $('.jg-box-submenu')
-                .append($("<img src='https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
+                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/dk-submenu-icon-orders.png' class='jg-img-submenu-icon' />"))
                 .append($("<ul class='jg-list-submenu'>")
                         .append($("<li class='jg-item-submenu'><a href='/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true' id='jg-submenu-myorders'>My Orders</a></li>"))
                         .append($("<li class='jg-item-submenu'><a href='#' id='jg-submenu-neworder'>New Order</a></li>"))
