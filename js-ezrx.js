@@ -157,11 +157,11 @@ var urlSite = "https://ndaru.click/ezrx/";
     function transform_loginpage() {
         var newlayout = $("<div class='jg-box-login'>")
             .append($("<div class='jg-box-login-inner'>")
-                .append($("<img src="+urlSite+"images/ezrx.png class='jg-login-logo' />"))
+                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/ezrx.png' class='jg-login-logo' />"))
                 .append($("<span class='jg-login-welcome'>Welcome</span>"))
             )
             .append($("<div class='jg-box-login-bottom'>")
-                .append($("<img src="+urlSite+"images/zuellig.png class='jg-login-logo' />"))
+                .append($("<img src='/bmfsweb/zuelligpharmatest1/image/images/zuellig.png' class='jg-login-logo' />"))
             )
 
             .prependTo('body');
