@@ -1512,7 +1512,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             var button_helper;
             var valueOfPromotion = $(this).text();
             if ($(this).text().trim() != '') {
-                button_helper = '<i class="fa fa-search" aria-hidden="true" style="padding:15px"></i>';
+                button_helper = '<i class="material-lens" aria-hidden="true" style="padding:15px"></i>';
             } else {
                 button_helper = '-';
             }
@@ -1586,7 +1586,7 @@ var urlSite = "https://ndaru.click/ezrx/";
             object_span.attr("tooltip", function(){
                             return input_val;
                         })
-                        .html('<i class="fa fa-search" aria-hidden="true" style="padding:10px"></i>'+input_val)
+                        .html('<i class="material-lens" aria-hidden="true" style="padding:10px"></i>'+input_val)
                         .mouseenter(function(){
                             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
                             table += "<tbody>";
