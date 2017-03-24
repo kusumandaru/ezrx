@@ -274,6 +274,15 @@ tfoot .jg-btn { margin:10px; }
 	height: 24px!important;
 }
 
+.material-lens{
+	background-image: url('https://zuelligpharmatest1.bigmachines.com/bmfsweb/zuelligpharmatest1/image/images/material-lens.png') !important;
+	background-position: left top!important;
+	background-repeat: no-repeat!important;
+	border-radius: 100px;
+	width: 24px!important;
+	height: 24px!important;
+}
+
 /* reports */
 .jg-box-mainlayout td.view-header { padding:10px 15px; background:#afc008; }
 .jg-box-mainlayout td.view-header a { background:none; }
