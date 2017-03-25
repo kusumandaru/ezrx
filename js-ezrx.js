@@ -914,16 +914,25 @@
             Start : 20 March 2017
             Task  : Bonus Override Flag Should be hidden using CSS
         */
-        var bonusOverride = "39692884";
-        console.log(bonusOverride);
-        $("col").each(function(i, data){
-            if(this.id == bonusOverride){
-                $(this).addClass('rule-hide');
-            }
-        });
+        var bonusOverride = 0;
 
         $("th").each(function(i, data){
-            if($(this).data("colid") == bonusOverride){
+
+            if( $( data ).children().text().toLowerCase() == "bonus overide" ){
+                bonusOverride = $( data ).data("colid");
+                $( data ).addClass("rule-hide");
+            }
+
+            if( bonusOverride != 0 ){
+                if($(data).data("colid") == bonusOverride){
+                    $(data).addClass('rule-hide');
+                }
+            }
+            
+        });
+
+        $("col").each(function(i, data){
+            if(this.id == bonusOverride){
                 $(this).addClass('rule-hide');
             }
         });
@@ -1112,7 +1121,15 @@
         /* End   : 17 March 2017 */
         /* Task  : Reduce height of material description textarea */
 
-        $('#grid-36595617').css('marginBottom', '10px');
+        var tabelMaterial = $("#tab-material-content").children('.grid.clearfix').children().children('.column-0');
+        var tabelFavFreqReq = $("#tab-material-content").children('.grid.clearfix').children().children('.column-1');
+
+        /* total price on top table material */
+        var rowGrid = $( tabelMaterial ).children().children('.grid.clearfix');
+        var totalPriceTop = rowGrid[0];
+        $( totalPriceTop ).css('marginBottom', '10px');
+        // $('#grid-36595617').css('marginBottom', '10px');
+
         $('#PastOrders, #CurrentCustFav').parent().addClass('jg-box-table small');
         $('.tab-content button').addClass('jg-btn');
         $('.attribute-label[for=principalCode]').parent().css('marginTop', '5px');
@@ -1127,17 +1144,38 @@
             End   : 22 March 2017
             Task  : Remove all the icons in top row
         */
-        $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
+        $( tabelMaterial ).css({ "width": "100%" });
+        // $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
         /* Right Panel Content */
-        $('#grid-36595617').closest('.column').wrapInner($("<div class='jg-inner-column'>"));
-        $('#grid-36561838').closest('.column').css('marginTop', '8px');
+        $( totalPriceTop ).closest('.column').wrapInner($("<div class='jg-inner-column'>"));
+        // $('#grid-36595617').closest('.column').wrapInner($("<div class='jg-inner-column'>"));
+        $( tabelFavFreqReq ).css({"margin-top": "8px"});
+        // $('#grid-36561838').closest('.column').css('marginTop', '8px');
         //transisi right side
         $('.jg-box-maincontent').css({"overflow": "hidden", "min-height": "800px"});
 
-        $('#grid-36561838').addClass("collapsed");
+        var listRightSideMenu = $( tabelFavFreqReq ).children();
+        listRightSideMenu.each(function(i, data){
+            var iconRightSideBar = "";
+            if(i == 0){
+                //frequently
+                // $( data ).addClass("collapsed");
+                iconRightSideBar = "<img src='"+rootFolder+"/image/images/rsm-frequently.png' >"
+            }else if( i == 1 ){
+                //recomended
+                iconRightSideBar = "<img src='"+rootFolder+"/image/images/rsm-recommended.png' >"
+            }else if( i == 2 ){
+                //favourite
+                iconRightSideBar = "<img src='"+rootFolder+"/image/images/rsm-favourite.png' >"
+            }
+            $( data ).children('.group-content')
+                           .css('margin','0px')
+                           .children('.group-header').children('span').prepend( iconRightSideBar );
+        });
+        // $('#grid-36561838').addClass("collapsed");
 
-        var rightPanel = $('#grid-36397039').children('.row').children('.column-1');
-        $('#grid-36561838').children('.group-content')
+        // var rightPanel = $('#grid-36397039').children('.row').children('.column-1');
+        /*$('#grid-36561838').children('.group-content')
                            .css('margin','0px')
                            .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-frequently.png' >");
         $('#grid-36565572').children('.group-content')
@@ -1145,28 +1183,39 @@
                            .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-recommended.png' >");
         $('#grid-36701507').children('.group-content')
                            .css('margin','0px')
-                           .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-favourite.png' >");
+                           .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-favourite.png' >");*/
         var mainContentWidth = $(".jg-box-maincontent").width();
         var rightValue = -(mainContentWidth/4);
 
-        $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
+        $( tabelFavFreqReq ).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
+        // $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
 
         /* Show or Hide right panel content */
-        $(rightPanel).mouseenter(
+        $( tabelFavFreqReq ).mouseenter(
             function(e){
-                $(rightPanel).stop().animate({right: '0px'}, 2000);
-                $('#grid-36561838').mouseenter(function(e){
-                    console.log('grid-36561838');
+                $( tabelFavFreqReq ).stop().animate({right: '0px'}, 2000);
+
+                listRightSideMenu.each( function(i, data){
+                    //mouse enter
+                    $( data ).mouseenter(function(e){
+                        $( data ).addClass("collapsed");
+                        $( data ).removeClass("collapsed");
+                    });
+                    //mouse leave
+                    $( data ).mouseleave(function(e){
+                        $( data ).addClass("collapsed");
+                    });
+                } );
+
+                /*$('#grid-36561838').mouseenter(function(e){
                     $('#grid-36561838').addClass("collapsed");
                     $('#grid-36561838').removeClass("collapsed");
                 });
                 $('#grid-36565572').mouseenter(function(e){
-                    console.log('grid-36565572');
                     $('#group-36565572').addClass("collapsed");
                     $('#group-36565572').removeClass("collapsed");
                 });
                 $('#grid-36701507').mouseenter(function(e){
-                    console.log('grid-36701507');
                     $('#group-36701507').addClass("collapsed");
                     $('#group-36701507').removeClass("collapsed");
                 });
@@ -1178,16 +1227,19 @@
                 });
                 $('#grid-36701507').mouseleave(function(e){
                     $('#group-36701507').addClass("collapsed");
-                });
+                });*/
             }
         );
 
-        $(rightPanel).mouseleave(
+        $( tabelFavFreqReq ).mouseleave(
             function(e){
-                $('#grid-365618381').addClass("collapsed");
+                listRightSideMenu.each( function(i, data){
+                    $( data ).addClass("collapsed");
+                } );
+                /*$('#grid-365618381').addClass("collapsed");
                 $('#group-36565572').addClass("collapsed");
-                $('#group-36701507').addClass("collapsed");
-                $(rightPanel).stop().animate({right: rightValue+'px'}, 2000);
+                $('#group-36701507').addClass("collapsed");*/
+                $( tabelFavFreqReq ).stop().animate({right: rightValue+'px'}, 2000);
             }
         );
 
@@ -1570,11 +1622,11 @@
         //for add material page.
         var input_val;
         $('td.cell-materialDescription').attr("tooltip", function(){
-            var input_text = $(this).children(".attribute-field-container").children("input");
+            var input_text = $(this).children(".attribute-field-container").children("textarea");
             input_val = $( input_text ).val();
             return input_val;
         }).mouseenter(function(){
-            var input_text = $(this).children(".attribute-field-container").children("input");
+            var input_text = $(this).children(".attribute-field-container").children("textarea");
             input_val = $( input_text ).val();
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
             table += "<tbody>";
