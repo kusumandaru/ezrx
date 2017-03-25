@@ -1159,7 +1159,7 @@
             var iconRightSideBar = "";
             if(i == 0){
                 //frequently
-                // $( data ).addClass("collapsed");
+                $( data ).addClass("collapsed");
                 iconRightSideBar = "<img src='"+rootFolder+"/image/images/rsm-frequently.png' >"
             }else if( i == 1 ){
                 //recomended
@@ -1198,8 +1198,12 @@
                 listRightSideMenu.each( function(i, data){
                     //mouse enter
                     $( data ).mouseenter(function(e){
-                        $( data ).addClass("collapsed");
-                        $( data ).removeClass("collapsed");
+                        if( $(data).hasClass("collapsed") ){
+                            $( data ).removeClass("collapsed");
+                        }else{
+                            $( data ).addClass("collapsed");
+                            $( data ).removeClass("collapsed");
+                        }
                     });
                     //mouse leave
                     $( data ).mouseleave(function(e){
