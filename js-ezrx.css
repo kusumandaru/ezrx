@@ -96,7 +96,7 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-mainlayout .tab-strip .tab-text, .jg-box-mainlayout .tab-strip a.tab-left { height:35px; line-height:33px; }
 .jg-box-mainlayout .tab-content { background:none; }
 
-.jg-box-sidenav, .jg-box-rightpanel { min-height:600px; }
+.jg-box-sidenav, .jg-box-rightpanel { min-height:700px; }
 .jg-box-sidenav { position:absolute; z-index:100; top:0; left:0; width:50px; height:100%; background:#006c86 url('../images/dk-sidenav.png') top left no-repeat; background-size:100% 100%; }
 .jg-box-rightpanel { margin-left:0px; position:relative; }
 
