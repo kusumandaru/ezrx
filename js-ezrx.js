@@ -820,6 +820,9 @@
             .appendTo('.jg-box-maincontent');
 
         adjust_tooltip();
+
+        $("#pipeline_viewer").closest('.button-middle').hide();
+
         /*
             Start : 22 March 2017
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
@@ -1157,9 +1160,10 @@
         var listRightSideMenu = $( tabelFavFreqReq ).children();
         listRightSideMenu.each(function(i, data){
             var iconRightSideBar = "";
+            $( data ).addClass("collapsed");
             if(i == 0){
                 //frequently
-                $( data ).addClass("collapsed");
+                // $( data ).addClass("collapsed");
                 iconRightSideBar = "<img src='"+rootFolder+"/image/images/rsm-frequently.png' >"
             }else if( i == 1 ){
                 //recomended
