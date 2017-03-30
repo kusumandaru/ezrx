@@ -945,6 +945,336 @@
         });
 
         /*
+            Start : 29 March 2017
+            Task  : Search customer on order page
+        */
+        var searchCustomer = $("#search_customer").closest(".bm-actionstrip-horiz");
+        //remove last div 
+        searchCustomer.closest('.column.label-left').css({"width":"70%"});
+        searchCustomer.closest('.column.label-left').next().remove();
+        var tableSearchCustomer = $("#search_customer").closest("table");
+        var getBmOpenWindow = $( tableSearchCustomer ).attr("onclick").split( "bmOpenWindow(" );
+        var getValueUrl = getBmOpenWindow[1].split(';');
+        var urlCustomerSearch = getValueUrl[0].split(',');
+        urlCustomerSearch = urlCustomerSearch[0];
+        urlCustomerSearch = urlCustomerSearch.replace("'","");
+        urlCustomerSearch = urlCustomerSearch.replace("'","");
+
+        var parentOfSearchCustomer = $( searchCustomer ).parent();
+        //hide searchCustomer 
+        $( searchCustomer ).hide();
+        //create element
+        $("body").append( $("<div id='layer_search_customer' ></div>") );
+        $("#layer_search_customer").css({ "position":"fixed", "top":"0", "right":"0", "bottom":"0", "left":"0", "z-index":"99999", "background":"white", "display":"none"});
+        $( parentOfSearchCustomer ).append( "<div class='bm-actionstrip-horiz' >"+
+                                            "<table>"+
+                                            "<body>"+
+                                            "<tr>"+
+                                            "<td class='button-middle' >"+
+                                            "<div style='margin: 0px 0px 1px;' >"+
+                                            "<a class='button-text' id='show_search_customer' style='cursor:pointer;' >Search Customer</a>"+
+                                            "</div>"+
+                                            "</td>"+
+                                            "</tr>"+
+                                            "</tbody>"+
+                                            "</table>"+
+                                            "</div>"
+                                            );
+        $( "#layer_search_customer" ).append( "<form name='SearchCustomer' method='post' action='/commerce/buyside/crm_browse_dialog.jsp' id='templateSearchCustomer' >"+
+                                            "<input type='hidden' name='from' value='1' >"+
+                                            "<input type='hidden' name='version_id' value='36282630' >"+
+                                            "<input type='hidden' name='document_id' value='36244074' >"+
+                                            "<input type='hidden' name='curpos' value='0' >"+
+                                            "<input type='hidden' name='next_cursor' >"+
+                                            "<input type='hidden' name='current_cursor' >"+
+                                            "<input type='hidden' name='prev_cursor' >"+
+                                            "<input type='hidden' name='order_dir' value='ASC' >"+
+                                            "<input type='hidden' name='order_by' >"+
+                                            "<input type='hidden' name='search' value='false' >"+
+                                            "<table>"+
+                                            "<thead>"+
+                                            "<tr class='bgcolor-form'>"+
+                                                "<td class='view-header' colspan='5'>Search for Accounts</td>"+
+                                            "</tr>"+
+                                            "</thead>"+
+                                            "<tbody>"+
+                                            "<tr>"+
+                                            "<td>"+
+                                            "<table>"+
+                                            "<tr class='bgcolor-form'> "+
+                                              "<td class='form-label'>"+
+                                                "Company Name:"+
+                                              "</td>"+
+                                              "<td class='form-input'>"+
+                                                "<input type='text' name='_company_name~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                            "</tr>"+
+                                            "<tr class='bgcolor-form'> "+
+                                              "<td class='form-label'>"+
+                                                "Customer Ship To Id:"+
+                                              "</td>"+
+                                              "<td class='form-input'>"+
+                                                "<input type='text' name='_customer_id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                            "</tr>"+
+                                            "<tr class='bgcolor-form'> "+
+                                              "<td class='form-label'>"+
+                                                "Customer Sold To Id:"+
+                                              "</td>"+
+                                              "<td class='form-input'>"+
+                                                "<input type='text' name='_Customer Sold To Id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                            "</tr>"+
+                                            "</table>"+
+                                            "</td>"+
+                                            "<td>"+
+                                            "<table>"+
+                                            "<tr class='bgcolor-form'> "+
+                                              "<td class='form-label'>"+
+                                                "Ship To Postal Code:"+
+                                              "</td>"+
+                                              "<td class='form-input'>"+
+                                                "<input type='text' name='_Ship To Postal Code~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                            "</tr>"+
+                                            "<tr class='bgcolor-form'> "+
+                                              "<td class='form-label'>"+
+                                                "Ship To Phone:"+
+                                              "</td>"+
+                                              "<td class='form-input'>"+
+                                                "<input type='text' name='_Ship To Phone~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                            "</tr>"+
+                                            "</table>"+
+                                            "</td>"+
+                                            "</tr>"+
+                                            "</tbody>"+
+                                            "</table>"+
+                                            "<div class='bm-actionstrip-horiz' >"+
+                                            "<table>"+
+                                            "<body>"+
+                                            "<tr>"+
+                                            "<td class='button-middle' >"+
+                                            "<div style='margin: 0px 0px 1px;' >"+
+                                            "<a class='button-text' id='search' style='cursor:pointer;' >Search</a>"+
+                                            "</div>"+
+                                            "</td>"+
+                                            "</tr>"+
+                                            "</tbody>"+
+                                            "</table>"+
+                                            "<table>"+
+                                            "<body>"+
+                                            "<tr>"+
+                                            "<td class='button-middle' >"+
+                                            "<div style='margin: 0px 0px 1px;' >"+
+                                            "<a class='button-text' id='close' style='cursor:pointer;' >Close</a>"+
+                                            "</div>"+
+                                            "</td>"+
+                                            "</tr>"+
+                                            "</tbody>"+
+                                            "</table>"+
+                                            "</div>"+
+                                            "</form>"+
+                                            "<div id='resultSearchCustomer'></div>"+
+                                            "<div id='modalCustomerDescription'></div>" );
+        
+        function get_detail(url_customer){
+          console.log(url_customer);
+          url_customer = url_customer.replace("'","");
+          $.ajax({
+            url: url_customer,
+            data: $("form[name='bmForm']").serialize() + "&token=" + _BM_CSRF_TOKEN,
+            success: function(result){
+              console.log(result);
+            },error: function(){
+              console.log("failed get data");
+            }
+          })
+        }
+
+        function submit(form) {
+          $("#resultSearchCustomer").hide();
+          var dataSearchCustomer = $("form[name='"+form+"']").serialize() + "&token=" + _BM_CSRF_TOKEN;
+          $.ajax({
+             url: "/commerce/buyside/crm_browse_dialog.jsp",
+             /*beforeSend: function(xhr) { 
+              xhr.setRequestHeader("Authorization", "Basic " + btoa("username:password")); 
+             },*/
+             type: 'POST',
+             data: dataSearchCustomer,
+             // dataType: 'html',
+             // contentType: 'text/plain',
+             // processData: false,
+             // async: false,
+             success: function (data) {
+              // alert(JSON.stringify(data));
+              // console.log( JSON.stringify(data) );
+              console.log("done");
+              $("#resultSearchCustomer").html( $( data ).find("form[name='bmForm']") );
+              $("#resultSearchCustomer").show();
+              /*
+                cant select table parent of menu bottom,
+                just pick parent spesific and remove it.
+              */
+              var bottomMenu = $("#search_again").parent().parent().parent().parent().parent().parent().parent().parent().parent();
+              var contentTable = $( bottomMenu ).prev().prev().prev();
+              $( contentTable ).find('tr').each(function(e, dataContent){
+                //remove all href in content
+                $(dataContent).find('a').each(function(i, data_href){
+                  if( typeof( $( dataContent ).find("input[name='_customer_id']").val() ) != 'undefined' ){
+                    var link_data = $( data_href ).attr("href");
+                    link_data = link_data.replace("javascript:bmSubmitForm","");
+                    link_data = link_data.replace("(","");
+                    link_data = link_data.replace(")","");
+                    link_data = link_data.split(",");
+                    link_data = link_data[0];
+
+                    $( data_href ).attr("href","#");
+                    $( data_href ).on("click", function(){
+                      get_detail( link_data );
+                    });
+                  }
+                });
+
+                //implementasi on klik in checklist to on select data
+                $( dataContent ).find("input[name='populate'").each(function(i, dataRadio){
+                  var button = "<a href='#' data-id='"+$(dataRadio).val()+"' >Select</a>";
+                  $(dataRadio).replaceWith($(button).on("click", function(){
+                                var customer_id = $(dataRadio).val();
+                                console.log("select");
+                                console.log(customer_id);
+                                save(customer_id);
+                              }));
+                });
+
+              });
+
+              // remove bottom Menu
+              $( bottomMenu ).remove();
+            },
+              error: function(){
+               $("#resultSearchCustomer").show();
+               console.log("Cannot get data");
+             }
+            });
+        }
+
+        function doSearch(){
+          document.SearchCustomer.search.value = true;
+          document.SearchCustomer.curpos.value=0;
+          submit('SearchCustomer');
+        }
+
+        function save(_customer_id)
+        {       
+          /*var _customer_id = "";    
+          if(form.populate.type == "radio"){
+            if(form.populate.checked){
+              _customer_id = form._customer_id.value;         
+            }
+          }else{      
+            for(var i=0;i < form.populate.length ;i++)
+            {
+              if(form.populate[i].checked)
+              {
+                _customer_id = form._customer_id[i].value;            
+                break;
+              }
+            }
+          }*/
+            
+          if(window.mobileSaveBrowseData){
+              window.mobileSaveBrowseData(_customer_id, 36246153);
+          } else {
+              win = null;
+              try {
+                  window.setAttrVal = Bm.setAttrVal;
+                  window.setAttrVal('_customer_id', _customer_id);
+                  setDocFormIds(36244074, window.document.bmDocForm.document_number.value, 36246153);
+                  bmSubmitForm('/commerce/buyside/document.jsp', window.document.bmDocForm, bmValidateForm, 'performAction');
+              } catch(e) {
+                console.log(e);
+              }        
+          }
+        }  //end of save(form) method
+
+        function search(form, orderField){
+    
+            form.curpos.value=0;
+          
+          var oldOrderBy = form.order_by.value;
+          form.order_by.value=orderField;
+          var dir = form.order_dir;
+              if(oldOrderBy == orderField){
+                if(dir.value=='ASC') dir.value='DESC';
+                else dir.value='ASC';
+              }else{
+            dir.value='ASC';
+          }
+              submit('bmForm');
+        } 
+
+        function prevSearch(form){
+          if(true)
+          {
+            form.curpos.value = form.curpos.value - 10;
+            form.current_cursor.value = form.prev_cursor.value;
+            submit('bmForm'); 
+          }
+          else{
+            alert("There are no previous records to display");
+                        return;
+              }
+        }
+
+        function nextSearch(form){
+          if(true)
+          {
+             form.curpos.value = parseInt(form.curpos.value)+10;
+             form.current_cursor.value = form.next_cursor.value;
+             submit('bmForm'); 
+          }
+          else{
+            alert("There are no more records to display.");
+                        return;
+                      }
+        }
+
+        function submitOnReturnKey(e) {
+          var charCode;
+          if (window.event) charCode = window.event.keyCode;
+          else if (e) charCode = e.which;
+          else return true;
+
+            if (charCode == 13) {
+            doSearch();
+          }
+        }
+
+        $("#show_search_customer").on("click", function(){
+            $("#layer_search_customer").show();
+        });
+
+        $("#search").on("click", function(){
+          console.log("search customer")
+          doSearch();
+        });
+
+        function close_customer_search(){
+          console.log("close search customer")
+          $("form[name='SearchCustomer']").find('input.form-input').each(function(e, data){
+            $( data ).val("");
+          })
+          $("#resultSearchCustomer").html('');
+          $("#layer_search_customer").hide();
+        }
+
+        $("#close").on("click", function(){
+          close_customer_search();
+        });
+
+        
+        /*
+            End   : 29 March 2017
+            Task  : Search customer on order page
+        */
+
+        /*
             Start : 20 March 2017
             Task  : Bonus Override Flag Should be hidden using CSS
         */
