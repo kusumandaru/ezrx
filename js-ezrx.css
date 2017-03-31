@@ -59,7 +59,7 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-mainlayout table { border:0 !important; background:#edeac7; }
 .jg-box-mainlayout td.button-middle { margin:0; background:#007078; }
 .jg-box-mainlayout .button-text, .jg-box-mainlayout .button-text:link, .jg-box-mainlayout .button-text:visited { color:#fff; }
-.jg-box-mainlayout .view-label, .jg-box-mainlayout .form-label, .jg-box-mainlayout .form-item label { color:#404040; }
+.jg-box-mainlayout .view-label, .jg-box-mainlayout .form-label, .jg-box-mainlayout .form-item label { color:#404040!important; }
 .jg-box-mainlayout .column.label-left .blocklabel { display:block; float:none; padding:0; margin-bottom:5px; }
 .jg-box-mainlayout .view-label, .jg-box-mainlayout .form-label, .jg-box-mainlayout .form-item label { font-size:14px; font-weight:bold; }
 .jg-box-mainlayout #attr_wrapper_1_visualWorkflow { margin:0; padding:0; }
@@ -385,6 +385,10 @@ tfoot .jg-btn { margin:10px; }
 	Task : hide pipeline viewer;
 */
 #jg-btn-pipelineviewer { display: none; }
+
+/* 
+	Task : search customer;
+*/
 
 @media only screen and (min-width:480px) {
     .jg-mobilelayout .jg-box-workflow img { width:auto; }
