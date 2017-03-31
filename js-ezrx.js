@@ -1001,6 +1001,61 @@
                                             "</table>"+
                                             "</div>"
                                             );
+
+        /* Modal Search Customer */
+        function search(form, orderField){
+    
+            form.curpos.value=0;
+          
+          var oldOrderBy = form.order_by.value;
+          form.order_by.value=orderField;
+          var dir = form.order_dir;
+              if(oldOrderBy == orderField){
+                if(dir.value=='ASC') dir.value='DESC';
+                else dir.value='ASC';
+              }else{
+            dir.value='ASC';
+          }
+              submit('bmForm');
+        } 
+
+        function prevSearch(form){
+          if(true)
+          {
+            form.curpos.value = form.curpos.value - 10;
+            form.current_cursor.value = form.prev_cursor.value;
+            submit('bmForm'); 
+          }
+          else{
+            alert("There are no previous records to display");
+                        return;
+              }
+        }
+
+        function nextSearch(form){
+          if(true)
+          {
+             form.curpos.value = parseInt(form.curpos.value)+10;
+             form.current_cursor.value = form.next_cursor.value;
+             submit('bmForm'); 
+          }
+          else{
+            alert("There are no more records to display.");
+                        return;
+                      }
+        }
+
+        function submitOnReturnKey(e) {
+          var charCode;
+          if (window.event) charCode = window.event.keyCode;
+          else if (e) charCode = e.which;
+          else return true;
+
+            if (charCode == 13) {
+            doSearch();
+          }
+        }
+
         $( "#layer_search_customer" ).append( "<form name='SearchCustomer' method='post' action='/commerce/buyside/crm_browse_dialog.jsp' id='templateSearchCustomer' >"+
                                             "<input type='hidden' name='from' value='1' >"+
                                             "<input type='hidden' name='version_id' value='"+version_id+"' >"+
@@ -1197,60 +1252,7 @@
               setDocFormIds(document_id, window.document.bmDocForm.document_number.value, 36313484);
               bmSubmitForm('/commerce/buyside/document.jsp', window.document.bmDocForm, bmValidateForm, 'performAction');
           }
-        }  //end of save(form) method
-
-        function search(form, orderField){
-    
-            form.curpos.value=0;
-          
-          var oldOrderBy = form.order_by.value;
-          form.order_by.value=orderField;
-          var dir = form.order_dir;
-              if(oldOrderBy == orderField){
-                if(dir.value=='ASC') dir.value='DESC';
-                else dir.value='ASC';
-              }else{
-            dir.value='ASC';
-          }
-              submit('bmForm');
-        } 
-
-        function prevSearch(form){
-          if(true)
-          {
-            form.curpos.value = form.curpos.value - 10;
-            form.current_cursor.value = form.prev_cursor.value;
-            submit('bmForm'); 
-          }
-          else{
-            alert("There are no previous records to display");
-                        return;
-              }
-        }
-
-        function nextSearch(form){
-          if(true)
-          {
-             form.curpos.value = parseInt(form.curpos.value)+10;
-             form.current_cursor.value = form.next_cursor.value;
-             submit('bmForm'); 
-          }
-          else{
-            alert("There are no more records to display.");
-                        return;
-                      }
-        }
-
-        function submitOnReturnKey(e) {
-          var charCode;
-          if (window.event) charCode = window.event.keyCode;
-          else if (e) charCode = e.which;
-          else return true;
-
-            if (charCode == 13) {
-            doSearch();
-          }
-        }
+        }  //end of save(_customer_id) method
 
         $("#show_search_customer").on("click", function(){
             $("#layer_search_customer").show();
