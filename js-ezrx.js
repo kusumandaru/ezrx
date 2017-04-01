@@ -1603,6 +1603,37 @@
             }
         );
 
+        /*  Start : 1 April 2017
+            Task  : Change style of content material search
+        */
+        // allign search button
+        $("#search_html").parents('.attribute-inner').css({"padding": "0px"});
+        // remove add material flag
+        $("#attribute-previous_res").hide();
+        $("#attribute-next_res").hide();
+        $("#attribute-addMaterialsFlag").hide();
+        //add bottom menu
+        $("<div id='menu_bottom' width='100%' ></div>").insertAfter("#materialResults")
+        //move to bottom menu
+        $("#menu_bottom").append($("<div id='area_add' style='float:left;' ></div>"));
+        $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:200px' ></div>"));
+        $("#area_add").append($("#attribute-addMaterials"));
+        $("#area_paging").append( $('<div class="attribute-inner clearfix" style="float:left;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="prev_custom"><p><button class="jg-btn">Previous</button></p></div></div></div>') )
+                         .append( $('<div class="attribute-inner clearfix"><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom"><p><button class="jg-btn">Next</button></p></div></div></div>') );
+
+        $("#prev_custom").on("click", function(){
+            $("#previous_res_true").click();
+        });
+        
+        $("#next_custom").on("click", function(){
+            $("#next_res_true").click();
+        });
+
+
+        /*  End   : 1 April 2017
+            Task  : Change style of content material search
+        */
+
         /* Events */
 
         /* Start : 18 March 2017 */
