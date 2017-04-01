@@ -1012,10 +1012,10 @@
                                             "<input type='hidden' name='order_dir' value='ASC' >"+
                                             "<input type='hidden' name='order_by' >"+
                                             "<input type='hidden' name='search' value='false' >"+
-                                            "<table style='width:100%;' >"+
+                                            "<table style='width:100%;border-spacing: 0px!important;' >"+
                                             "<thead>"+
                                             "<tr class='bgcolor-form' >"+
-                                                "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;' >Search for Accounts</td>"+
+                                                "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Accounts</td>"+
                                             "</tr>"+
                                             "</thead>"+
                                             "<tbody style='background-color:#0C727A;' >"+
@@ -1066,8 +1066,9 @@
                                             "</tr>"+
                                             "</tbody>"+
                                             "</table>"+
-                                            "<div class='bm-actionstrip-horiz' style='background-color:#0C727A!important;padding:5px;'  >"+
-                                            "<table style='margin-right: 30px!important;margin-left: 570px;' >"+
+                                            "<div style='background-color:#0C727A!important;width:100%;' >"+
+                                            "<div class='bm-actionstrip-horiz' style='padding:10px;margin:0px auto!important;width:200px;'  >"+
+                                            "<table style='margin-right: 15px!important;' >"+
                                             "<body>"+
                                             "<tr>"+
                                             "<td class='button-middle' style='background-color: #B8CA41!important;background-image: none!important;border-radius:20px!important;' >"+
@@ -1089,6 +1090,7 @@
                                             "</tr>"+
                                             "</tbody>"+
                                             "</table>"+
+                                            "</div>"+
                                             "</div>"+
                                             "</form>"+
                                             "<div id='resultSearchCustomer'></div>"+
@@ -1267,6 +1269,7 @@
 
         $("#show_search_customer").on("click", function(){
             $("#layer_search_customer").show();
+            $("body").css({"overflow":"hidden"});
         });
 
         $("#search").on("click", function(){
@@ -1281,6 +1284,7 @@
           })
           $("#resultSearchCustomer").html('');
           $("#layer_search_customer").hide();
+          $("body").css({"overflow":"scroll"});
         }
 
         $("#close").on("click", function(){
@@ -1289,6 +1293,7 @@
 
         if( window.location.href.split("?").length > 1){
             $("#layer_search_customer").show();
+            $("body").css({"overflow":"hidden"});
         }
 
         /*
