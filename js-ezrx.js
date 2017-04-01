@@ -1145,7 +1145,7 @@
                 $(dataContent).find('a').each(function(i, data_href){
                   if( typeof( $( dataContent ).find("input[name='_customer_id']").val() ) != 'undefined' ){
                     
-                    if( $( data_href ).text().toLowerCase() == 'text' ){
+                    if( $( data_href ).text().toLowerCase() == 'view' ){
                         $( data_href ).parent().remove();
                     }else{
                         $( data_href ).replaceWith( $( data_href ).text() );
