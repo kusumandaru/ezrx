@@ -1143,8 +1143,12 @@
               $( $('#resultSearchCustomer').children().children('table')[1] ).attr("cellpadding","3");
               $( header ).remove();
 
+              $(".bgcolor-list-even").each(function(e, dataEven){
+                $( dataEven ).css({"background-color":"lightgrey"});
+              })
+
               $($( $('#resultSearchCustomer').children().children('table')[1] ).find('td.view-header')).each(function(e, dataHeader){
-                $( dataHeader ).css({"background-color":"#0C727A!important"});
+                $( dataHeader ).css({"background-color":"#0C727A!important", "color":"#fff"});
               });
 
               $( contentTable ).find('tr').each(function(e, dataContent){
@@ -1171,7 +1175,7 @@
                           get_detail( link_data );
                         });*/
                   }else{
-                    $( data_href ).css({"background-color":"#0C727A!important"});
+                    $( data_href ).css({"background-color":"#0C727A!important", "color":"#fff"});
                   }
                 });
 
