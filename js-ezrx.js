@@ -1139,7 +1139,13 @@
 
               // remove header all addresses.
               var header = $( $('#resultSearchCustomer').children().children('table')[1] ).children().children('tr.view-header').children()[1];
+              $( $('#resultSearchCustomer').children().children('table')[1] ).attr("cellspacing","0");
+              $( $('#resultSearchCustomer').children().children('table')[1] ).attr("cellpadding","3");
               $( header ).remove();
+
+              $($( $('#resultSearchCustomer').children().children('table')[1] ).find('td.view-header')).each(function(e, dataHeader){
+                $( dataHeader ).css({"background-color":"#0C727A!important"});
+              });
 
               $( contentTable ).find('tr').each(function(e, dataContent){
                 //remove all href in content
@@ -1164,6 +1170,8 @@
                         $( data_href ).on("click", function(){
                           get_detail( link_data );
                         });*/
+                  }else{
+                    $( data_href ).css({"background-color":"#0C727A!important"});
                   }
                 });
 
