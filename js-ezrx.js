@@ -1134,11 +1134,13 @@
               */
               var bottomMenu = $("#search_again").parent().parent().parent().parent().parent().parent().parent().parent().parent();
               var contentTable = $( bottomMenu ).prev().prev().prev();
+
+              // remove header all addresses.
+              var header = $( $('#resultSearchCustomer').children().children('table')[1] ).children().children('tr.view-header').children()[1];
+              $( header ).remove();
+
               $( contentTable ).find('tr').each(function(e, dataContent){
                 //remove all href in content
-
-                var header = $( $('#resultSearchCustomer').children().children('table')[1] ).children().children('tr.view-header').children()[1];
-                $( header ).remove();
 
                 $(dataContent).find('a').each(function(i, data_href){
                   if( typeof( $( dataContent ).find("input[name='_customer_id']").val() ) != 'undefined' ){
