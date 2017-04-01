@@ -1285,8 +1285,12 @@
         });
 
         $("#search").on("click", function(){
-          console.log("search customer")
-          doSearch();
+          if( $("#form_search_customer").css("display") == "none" ){
+            $("#form_search_customer").slideDown();
+        }else{
+            $("#form_search_customer").slideUp();
+            doSearch();
+        }
         });
 
         function close_customer_search(){
