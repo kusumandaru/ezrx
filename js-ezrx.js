@@ -1148,7 +1148,7 @@
               })
 
               $($( $('#resultSearchCustomer').children().children('table')[1] ).find('td.view-header')).each(function(e, dataHeader){
-                $( dataHeader ).css({"background-color":"#0C727A!important", "color":"#fff"});
+                $( dataHeader ).css({"background-color":"#0C727A!important", "color":"#fff", "padding":"10px 0px 10px 0px"});
               });
 
               $( contentTable ).find('tr').each(function(e, dataContent){
@@ -1175,7 +1175,7 @@
                           get_detail( link_data );
                         });*/
                   }else{
-                    $( data_href ).css({"background-color":"#0C727A!important", "color":"#fff"});
+                    $( data_href ).css({"background-color":"#0C727A!important", "color":"#fff", "padding": "10px 0px 10px 0px"});
                   }
                 });
 
