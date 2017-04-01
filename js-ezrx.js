@@ -1012,7 +1012,7 @@
                                             "<input type='hidden' name='order_dir' value='ASC' >"+
                                             "<input type='hidden' name='order_by' >"+
                                             "<input type='hidden' name='search' value='false' >"+
-                                            "<table style='width:100%;border-spacing: 0px!important;' >"+
+                                            "<table id='form_search_customer' style='width:100%;border-spacing: 0px!important;' >"+
                                             "<thead>"+
                                             "<tr class='bgcolor-form' >"+
                                                 "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Accounts</td>"+
