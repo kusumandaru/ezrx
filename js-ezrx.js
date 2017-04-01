@@ -1274,7 +1274,9 @@
           close_customer_search();
         });
 
-        
+        if( window.location.href.split("?").length > 1){
+            $("#layer_search_customer").show();
+        }
 
         /*
             End   : 29 March 2017
