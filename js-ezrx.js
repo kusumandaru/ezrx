@@ -1001,61 +1001,6 @@
                                             "</table>"+
                                             "</div>"
                                             );
-
-        /* Modal Search Customer */
-        function search(form, orderField){
-    
-            form.curpos.value=0;
-          
-          var oldOrderBy = form.order_by.value;
-          form.order_by.value=orderField;
-          var dir = form.order_dir;
-              if(oldOrderBy == orderField){
-                if(dir.value=='ASC') dir.value='DESC';
-                else dir.value='ASC';
-              }else{
-            dir.value='ASC';
-          }
-              submit('bmForm');
-        } 
-
-        function prevSearch(form){
-          if(true)
-          {
-            form.curpos.value = form.curpos.value - 10;
-            form.current_cursor.value = form.prev_cursor.value;
-            submit('bmForm'); 
-          }
-          else{
-            alert("There are no previous records to display");
-                        return;
-              }
-        }
-
-        function nextSearch(form){
-          if(true)
-          {
-             form.curpos.value = parseInt(form.curpos.value)+10;
-             form.current_cursor.value = form.next_cursor.value;
-             submit('bmForm'); 
-          }
-          else{
-            alert("There are no more records to display.");
-                        return;
-                      }
-        }
-
-        function submitOnReturnKey(e) {
-          var charCode;
-          if (window.event) charCode = window.event.keyCode;
-          else if (e) charCode = e.which;
-          else return true;
-
-            if (charCode == 13) {
-            doSearch();
-          }
-        }
-
         $( "#layer_search_customer" ).append( "<form name='SearchCustomer' method='post' action='/commerce/buyside/crm_browse_dialog.jsp' id='templateSearchCustomer' >"+
                                             "<input type='hidden' name='from' value='1' >"+
                                             "<input type='hidden' name='version_id' value='"+version_id+"' >"+
@@ -1067,65 +1012,65 @@
                                             "<input type='hidden' name='order_dir' value='ASC' >"+
                                             "<input type='hidden' name='order_by' >"+
                                             "<input type='hidden' name='search' value='false' >"+
-                                            "<table>"+
+                                            "<table style='width:100%;' >"+
                                             "<thead>"+
-                                            "<tr class='bgcolor-form'>"+
-                                                "<td class='view-header' colspan='5'>Search for Accounts</td>"+
+                                            "<tr class='bgcolor-form' >"+
+                                                "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;' >Search for Accounts</td>"+
                                             "</tr>"+
                                             "</thead>"+
-                                            "<tbody>"+
+                                            "<tbody style='background-color:#0C727A;' >"+
                                             "<tr>"+
                                             "<td>"+
-                                            "<table>"+
-                                            "<tr class='bgcolor-form'> "+
-                                              "<td class='form-label'>"+
+                                            "<table style='margin-left:200px;' >"+
+                                            "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
+                                              "<td class='form-label' style='color:#fff;' >"+
                                                 "Company Name:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input type='text' name='_company_name~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_company_name~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
                                             "</tr>"+
-                                            "<tr class='bgcolor-form'> "+
-                                              "<td class='form-label'>"+
+                                            "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
+                                              "<td class='form-label' style='color:#fff;' >"+
                                                 "Customer Ship To Id:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input type='text' name='_customer_id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_customer_id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
                                             "</tr>"+
-                                            "<tr class='bgcolor-form'> "+
-                                              "<td class='form-label'>"+
+                                            "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
+                                              "<td class='form-label' style='color:#fff;' >"+
                                                 "Customer Sold To Id:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input type='text' name='_Customer Sold To Id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Customer Sold To Id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
                                             "</tr>"+
                                             "</table>"+
                                             "</td>"+
-                                            "<td>"+
-                                            "<table>"+
-                                            "<tr class='bgcolor-form'> "+
-                                              "<td class='form-label'>"+
+                                            "<td style='vertical-align:top;' >"+
+                                            "<table style='margin-right:200px;' >"+
+                                            "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
+                                              "<td class='form-label' style='color:#fff;' >"+
                                                 "Ship To Postal Code:"+
                                               "</td>"+
-                                              "<td class='form-input'>"+
-                                                "<input type='text' name='_Ship To Postal Code~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                              "<td class='form-input' >"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Postal Code~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
                                             "</tr>"+
-                                            "<tr class='bgcolor-form'> "+
-                                              "<td class='form-label'>"+
+                                            "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
+                                              "<td class='form-label' style='color:#fff;' >"+
                                                 "Ship To Phone:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input type='text' name='_Ship To Phone~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Phone~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
                                             "</tr>"+
                                             "</table>"+
                                             "</td>"+
                                             "</tr>"+
                                             "</tbody>"+
                                             "</table>"+
-                                            "<div class='bm-actionstrip-horiz' >"+
-                                            "<table>"+
+                                            "<div class='bm-actionstrip-horiz' style='background-color:#0C727A!important;padding:5px;'  >"+
+                                            "<table style='margin-right: 30px!important;margin-left: 570px;' >"+
                                             "<body>"+
                                             "<tr>"+
-                                            "<td class='button-middle' >"+
+                                            "<td class='button-middle' style='background-color: #B8CA41!important;background-image: none!important;border-radius:20px!important;' >"+
                                             "<div style='margin: 0px 0px 1px;' >"+
                                             "<a class='button-text' id='search' style='cursor:pointer;' >Search</a>"+
                                             "</div>"+
@@ -1136,7 +1081,7 @@
                                             "<table>"+
                                             "<body>"+
                                             "<tr>"+
-                                            "<td class='button-middle' >"+
+                                            "<td class='button-middle' style='background-color: #0C727A!important;background-image: none!important;border-radius: 20px!important;border: 1px solid #000;' >"+
                                             "<div style='margin: 0px 0px 1px;' >"+
                                             "<a class='button-text' id='close' style='cursor:pointer;' >Close</a>"+
                                             "</div>"+
@@ -1253,6 +1198,59 @@
               bmSubmitForm('/commerce/buyside/document.jsp', window.document.bmDocForm, bmValidateForm, 'performAction');
           }
         }  //end of save(_customer_id) method
+
+        function search(form, orderField){
+    
+            form.curpos.value=0;
+          
+          var oldOrderBy = form.order_by.value;
+          form.order_by.value=orderField;
+          var dir = form.order_dir;
+              if(oldOrderBy == orderField){
+                if(dir.value=='ASC') dir.value='DESC';
+                else dir.value='ASC';
+              }else{
+            dir.value='ASC';
+          }
+              submit('bmForm');
+        } 
+
+        function prevSearch(form){
+          if(true)
+          {
+            form.curpos.value = form.curpos.value - 10;
+            form.current_cursor.value = form.prev_cursor.value;
+            submit('bmForm'); 
+          }
+          else{
+            alert("There are no previous records to display");
+                        return;
+              }
+        }
+
+        function nextSearch(form){
+          if(true)
+          {
+             form.curpos.value = parseInt(form.curpos.value)+10;
+             form.current_cursor.value = form.next_cursor.value;
+             submit('bmForm'); 
+          }
+          else{
+            alert("There are no more records to display.");
+                        return;
+                      }
+        }
+
+        function submitOnReturnKey(e) {
+          var charCode;
+          if (window.event) charCode = window.event.keyCode;
+          else if (e) charCode = e.which;
+          else return true;
+
+            if (charCode == 13) {
+            doSearch();
+          }
+        }
 
         $("#show_search_customer").on("click", function(){
             $("#layer_search_customer").show();
