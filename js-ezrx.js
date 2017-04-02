@@ -1308,8 +1308,10 @@
         });
 
         if( window.location.href.split("?").length > 1){
-            $("#layer_search_customer").show();
-            $("body").css({"overflow":"hidden"});
+            if( /formaction=create/i.test(window.location.href.split("?")[1]) ){
+                $("#layer_search_customer").show();
+                $("body").css({"overflow":"hidden"});
+            }
         }
 
         /*
