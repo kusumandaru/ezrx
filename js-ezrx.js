@@ -1027,21 +1027,21 @@
                                                 "Company Name:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_company_name~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_company_name~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
                                             "</tr>"+
                                             "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
                                               "<td class='form-label' style='color:#fff;' >"+
                                                 "Customer Ship To Id:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_customer_id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_customer_id~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
                                             "</tr>"+
                                             "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
                                               "<td class='form-label' style='color:#fff;' >"+
                                                 "Customer Sold To Id:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Customer Sold To Id~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Customer Sold To Id~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
                                             "</tr>"+
                                             "</table>"+
                                             "</td>"+
@@ -1052,14 +1052,14 @@
                                                 "Ship To Postal Code:"+
                                               "</td>"+
                                               "<td class='form-input' >"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Postal Code~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Postal Code~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
                                             "</tr>"+
                                             "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
                                               "<td class='form-label' style='color:#fff;' >"+
                                                 "Ship To Phone:"+
                                               "</td>"+
                                               "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Phone~0' class='form-input' size='20' maxlength='128' value='' onkeypress='return submitOnReturnKey(event)'></td>"+
+                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Phone~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
                                             "</tr>"+
                                             "</table>"+
                                             "</td>"+
@@ -1268,7 +1268,13 @@
                       }
         }
 
-        function submitOnReturnKey(e) {
+        $(".customer-search").keyup(function(e){
+            if(e.keyCode == 13){
+                doSearch();
+            }
+        })
+
+        /*function submitOnReturnKey(e) {
           var charCode;
           if (window.event) charCode = window.event.keyCode;
           else if (e) charCode = e.which;
@@ -1277,7 +1283,7 @@
             if (charCode == 13) {
             doSearch();
           }
-        }
+        }*/
 
         $("#show_search_customer").on("click", function(){
             $("#layer_search_customer").show();
