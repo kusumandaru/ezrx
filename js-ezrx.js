@@ -1018,6 +1018,10 @@
                                                 "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Customer</td>"+
                                             "</tr>"+
                                             "</thead>"+
+                                            "<tbody>"+
+                                            "<tr>"+
+                                            "<td>"+
+                                            "<table>"+
                                             "<tbody style='background-color:#0C727A;' >"+
                                             "<tr>"+
                                             "<td>"+
@@ -1066,12 +1070,16 @@
                                             "</tr>"+
                                             "</tbody>"+
                                             "</table>"+
+                                            "</td>"+
+                                            "</tr>"+
+                                            "</tbody>"+
+                                            "</table>"+
                                             "<div style='background-color:#0C727A!important;width:100%;' >"+
-                                            "<div class='bm-actionstrip-horiz' style='padding:10px;margin:0px auto!important;width:200px;'  >"+
+                                            "<div class='bm-actionstrip-horiz' style='padding:10px;margin:0px auto!important;width:240px;'  >"+
                                             "<table style='margin-right: 15px!important;' >"+
                                             "<body>"+
                                             "<tr>"+
-                                            "<td class='button-middle' style='background-color: #B8CA41!important;background-image: none!important;border-radius:20px!important;' >"+
+                                            "<td class='button-middle' style='background-color: #B8CA41!important;background-image: none!important;border-radius:20px!important;width:90px;color:#0C727A!important;' >"+
                                             "<div style='margin: 0px 0px 1px;' >"+
                                             "<a class='button-text' id='search' style='cursor:pointer;' >Search</a>"+
                                             "</div>"+
@@ -1082,7 +1090,7 @@
                                             "<table>"+
                                             "<body>"+
                                             "<tr>"+
-                                            "<td class='button-middle' style='background-color: #0C727A!important;background-image: none!important;border-radius: 20px!important;border: 1px solid #000;' >"+
+                                            "<td class='button-middle' style='background-color: #0C727A!important;background-image: none!important;border-radius: 20px!important;border: 1px solid #fff;color:#fff!important;width:70px;' >"+
                                             "<div style='margin: 0px 0px 1px;' >"+
                                             "<a class='button-text' id='close' style='cursor:pointer;' >Close</a>"+
                                             "</div>"+
