@@ -1131,6 +1131,7 @@
               $("#resultSearchCustomer").show();
 
               $("#next_iter_link").attr("href", "#");
+              $("#previous_iter_link").attr("href", "#");
 
               $("#next_iter_link").on("click", function nextSearch(){
                   if(true)
@@ -1144,6 +1145,19 @@
                     return;
                   }
                })
+
+              $("#previous_iter_link").on("click", function(){
+                  if(true)
+                  {
+                    bmForm.curpos.value = bmForm.curpos.value - 10;
+                    bmForm.current_cursor.value = bmForm.prev_cursor.value;
+                    submit('bmForm'); 
+                  }
+                  else{
+                    alert("There are no previous records to display");
+                    return;
+                  }
+              });
 
               /*
                 cant select table parent of menu bottom,
@@ -1256,19 +1270,6 @@
           }
               submit('bmForm');
         } 
-
-        function prevSearch(form){
-          if(true)
-          {
-            form.curpos.value = form.curpos.value - 10;
-            form.current_cursor.value = form.prev_cursor.value;
-            submit('bmForm'); 
-          }
-          else{
-            alert("There are no previous records to display");
-                        return;
-              }
-        }
 
         $(".customer-search").keyup(function(e){
             if(e.keyCode == 13){
