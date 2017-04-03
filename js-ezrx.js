@@ -1015,7 +1015,7 @@
                                             "<table id='form_search_customer' style='width:100%;border-spacing: 0px!important;' >"+
                                             "<thead>"+
                                             "<tr class='bgcolor-form' >"+
-                                                "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Accounts</td>"+
+                                                "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Customer</td>"+
                                             "</tr>"+
                                             "</thead>"+
                                             "<tbody style='background-color:#0C727A;' >"+
