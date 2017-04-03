@@ -1018,14 +1018,14 @@
                                                 "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Customer</td>"+
                                             "</tr>"+
                                             "</thead>"+
-                                            "<tbody>"+
-                                            "<tr>"+
-                                            "<td>"+
-                                            "<table>"+
                                             "<tbody style='background-color:#0C727A;' >"+
                                             "<tr>"+
                                             "<td>"+
-                                            "<table style='margin-left:200px;' >"+
+                                            "<table style='width:100%;margin-top:10px' >"+
+                                            "<tbody style='background-color:#0C727A;' >"+
+                                            "<tr>"+
+                                            "<td>"+
+                                            "<table style='margin-left:200px; border-spacing: 5px;' >"+
                                             "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
                                               "<td class='form-label' style='color:#fff;' >"+
                                                 "Company Name:"+
@@ -1050,7 +1050,7 @@
                                             "</table>"+
                                             "</td>"+
                                             "<td style='vertical-align:top;' >"+
-                                            "<table style='margin-right:200px;' >"+
+                                            "<table style='margin-right:200px; border-spacing: 5px;' >"+
                                             "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
                                               "<td class='form-label' style='color:#fff;' >"+
                                                 "Ship To Postal Code:"+
@@ -1090,9 +1090,9 @@
                                             "<table>"+
                                             "<body>"+
                                             "<tr>"+
-                                            "<td class='button-middle' style='background-color: #0C727A!important;background-image: none!important;border-radius: 20px!important;border: 1px solid #fff;color:#fff!important;width:70px;' >"+
+                                            "<td class='button-middle' style='background-color: #0C727A!important;background-image: none!important;border-radius: 20px!important;border: 1px solid #fff;width:90px;' >"+
                                             "<div style='margin: 0px 0px 1px;' >"+
-                                            "<a class='button-text' id='close' style='cursor:pointer;' >Close</a>"+
+                                            "<a class='button-text' id='close' style='cursor:pointer;color:#fff!important;' >Close</a>"+
                                             "</div>"+
                                             "</td>"+
                                             "</tr>"+
@@ -1656,10 +1656,10 @@
         $("<div id='menu_bottom' width='100%' ></div>").insertAfter("#materialResults")
         //move to bottom menu
         $("#menu_bottom").append($("<div id='area_add' style='float:left;' ></div>"));
-        $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:200px' ></div>"));
+        $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:300px;' ></div>"));
         $("#area_add").append($("#attribute-addMaterials"));
         $("#area_paging").append( $('<div class="attribute-inner clearfix" style="float:left;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="prev_custom"><p><button class="jg-btn">Previous</button></p></div></div></div>') )
-                         .append( $('<div class="attribute-inner clearfix"><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom"><p><button class="jg-btn">Next</button></p></div></div></div>') );
+                         .append( $('<div class="attribute-inner clearfix"><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom" style="width:100px;" ><p><button class="jg-btn">Next</button></p></div></div></div>') );
 
         $("#prev_custom").on("click", function(){
             $("#previous_res_true").click();
