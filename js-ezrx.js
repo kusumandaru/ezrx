@@ -1127,9 +1127,24 @@
              success: function (data) {
               // alert(JSON.stringify(data));
               // console.log( JSON.stringify(data) );
-              console.log("done");
               $("#resultSearchCustomer").html( $( data ).find("form[name='bmForm']") );
               $("#resultSearchCustomer").show();
+
+              $("#next_iter_link").attr("href", "#");
+
+              $("#next_iter_link").on("click", function nextSearch(){
+                  if(true)
+                  {
+                     bmForm.curpos.value = parseInt(bmForm.curpos.value)+10;
+                     bmForm.current_cursor.value = bmForm.next_cursor.value;
+                     submit('bmForm'); 
+                  }
+                  else{
+                    alert("There are no more records to display.");
+                    return;
+                  }
+               })
+
               /*
                 cant select table parent of menu bottom,
                 just pick parent spesific and remove it.
@@ -1253,19 +1268,6 @@
             alert("There are no previous records to display");
                         return;
               }
-        }
-
-        function nextSearch(form){
-          if(true)
-          {
-             form.curpos.value = parseInt(form.curpos.value)+10;
-             form.current_cursor.value = form.next_cursor.value;
-             submit('bmForm'); 
-          }
-          else{
-            alert("There are no more records to display.");
-                        return;
-                      }
         }
 
         $(".customer-search").keyup(function(e){
