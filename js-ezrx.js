@@ -1174,6 +1174,9 @@
               var bottomMenu = $("#search_again").parent().parent().parent().parent().parent().parent().parent().parent().parent();
               var contentTable = $( bottomMenu ).prev().prev().prev();
 
+              //change Accounts to Customer
+              $( $(".top-bar")[0] ).text("Customers");
+
               // remove header all addresses.
               var header = $( $('#resultSearchCustomer').children().children('table')[1] ).children().children('tr.view-header').children()[1];
               $( $('#resultSearchCustomer').children().children('table')[1] ).attr("cellspacing","0");
@@ -1434,6 +1437,20 @@
         /* Task : hide icon for first row on additional bonus table */
 
         /*
+            Start : 4 April 2017
+            Task : remove button delete
+        */
+        $(".cell-type").each(function(e, dataType){
+            if($(dataType).text().toLowerCase() == "bonus" ){
+                $(dataType).parent().find("td:last").hide()
+            }
+        });
+        /*
+            End : 4 April 2017
+            Task : remove button delete
+        */
+
+        /*
             Start : 23 March 2017
             Task  : hide + button in additional bonus table.
         */
@@ -1513,6 +1530,9 @@
             this.style.height = (this.scrollHeight)+"px";
             $("#"+this.id.replace("area_","")).val( $(this).val() );
         });
+
+        $("#tab-material-content").css({"width":"98%"});
+
         /* End   : 17 March 2017 */
         /* Task  : Reduce height of material description textarea */
 
@@ -1583,7 +1603,7 @@
         var mainContentWidth = $(".jg-box-maincontent").width();
         var rightValue = -(mainContentWidth/4);
 
-        $( tabelFavFreqReq ).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
+        $( tabelFavFreqReq ).css({'position': 'fixed', 'right': rightValue+'px', 'height': '800px'});
         // $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
 
         /* Show or Hide right panel content */
@@ -1659,7 +1679,7 @@
         $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:300px;' ></div>"));
         $("#area_add").append($("#attribute-addMaterials"));
         $("#area_paging").append( $('<div class="attribute-inner clearfix" style="float:left;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="prev_custom"><p><button class="jg-btn">Previous</button></p></div></div></div>') )
-                         .append( $('<div class="attribute-inner clearfix"><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom" style="width:100px;" ><p><button class="jg-btn">Next</button></p></div></div></div>') );
+                         .append( $('<div class="attribute-inner clearfix"><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom" ><p><button class="jg-btn" style="width:100px;" >Next</button></p></div></div></div>') );
 
         $("#prev_custom").on("click", function(){
             $("#previous_res_true").click();
@@ -1986,7 +2006,7 @@
                     table += "<tbody>";
                     col.forEach(function(row) {
                         table += '<tr>';
-                        row = row.trim().split('-');
+                        row = row.trim().split('#@#');
                         if (row.length > 0) {
                             row.forEach(function(item) {
                                 table = table + '<td style="border: 1px solid #999;padding:5px;">' + item + '</td>';
@@ -2027,7 +2047,7 @@
                     table += "<tbody>";
                     col.forEach(function(row) {
                         table += '<tr>';
-                        row = row.trim().split('-');
+                        row = row.trim().split('#@#');
                         if (row.length > 0) {
                             row.forEach(function(item) {
                                 table = table + '<td style="border: 1px solid #999;padding:5px;">' + item + '</td>';
