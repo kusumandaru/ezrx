@@ -1442,7 +1442,7 @@
         */
         $(".cell-type").each(function(e, dataType){
             if($(dataType).text().toLowerCase() == "bonus" ){
-                $(dataType).parent().find("td:last").hide()
+                $(dataType).parent().find("td:last").children().hide();
             }
         });
         /*
