@@ -13,6 +13,7 @@
         var sub = parts[0];
 
         rootFolder = '/bmfsweb/'+sub;
+        _loadingImage = rootFolder+"/image/images/loading-icon.gif";closeLoadingDialog();
 
         setTimeout(function() {
             if( navigator.userAgent.match(/Android/i)
@@ -28,7 +29,6 @@
             else {
                 $('#jg-overlay').hide();
                 $("#loading-mask").children("#loading-dialog").children('img').attr("src", rootFolder+"/image/images/loading-icon.gif");
-                var _loadingImage = rootFolder+"/image/images/loading-icon.gif";closeLoadingDialog();
                 desktop_newlayout();
             }
         }, 1000);
