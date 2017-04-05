@@ -1103,7 +1103,7 @@
                                             "</div>"+
                                             "</form>"+
                                             "<div id='resultSearchCustomer'></div>"+
-                                            "<div id='loadingCustomer' style='margin:0px auto;display:none;' >"+
+                                            "<div id='loadingCustomer' style='width:10%;margin:0px auto;display:none;' >"+
                                             "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
                                             "</div>" );
         
