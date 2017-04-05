@@ -1220,7 +1220,7 @@
                 });
 
                 //implementasi on klik in checklist to on select data
-                $( dataContent ).find("input[name='populate'").each(function(i, dataRadio){
+                $( dataContent ).find("input[name='populate']").each(function(i, dataRadio){
                   var button = "<a href='#' >Select</a>";
                   $(dataRadio).replaceWith($(button).on("click", function(e){
                                 e.preventDefault();
@@ -1233,7 +1233,7 @@
               });
 
               // remove bottom Menu
-              // $( bottomMenu ).remove();
+              $( bottomMenu ).remove();
             },
               error: function(){
                $("#resultSearchCustomer").show();
