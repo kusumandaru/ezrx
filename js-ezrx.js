@@ -28,6 +28,7 @@
             else {
                 $('#jg-overlay').hide();
                 $("#loading-mask").children("#loading-dialog").children('img').attr("src", rootFolder+"/image/images/loading-icon.gif");
+                var _loadingImage = rootFolder+"/image/images/loading-icon.gif";closeLoadingDialog();
                 desktop_newlayout();
             }
         }, 1000);
