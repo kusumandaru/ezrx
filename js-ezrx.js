@@ -1233,7 +1233,7 @@
               });
 
               // remove bottom Menu
-              $( bottomMenu ).remove();
+              // $( bottomMenu ).remove();
             },
               error: function(){
                $("#resultSearchCustomer").show();
@@ -1435,6 +1435,21 @@
         */
         /* End  : 17 March 2017 */
         /* Task : hide icon for first row on additional bonus table */
+        /*
+            Start : 5 April 2017
+            Task  : replace style width for handle low resolution
+        */
+
+        $("#search_html").closest('.row').children().each(function(e, dataColumn){
+            $(dataColumn).css({"width":"30%"});
+        });
+
+        /*
+            End   : 5 April 2017
+            Task  : replace style width for handle low resolution
+        */
+
+
 
         /*
             Start : 4 April 2017
