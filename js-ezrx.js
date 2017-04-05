@@ -27,6 +27,7 @@
             }
             else {
                 $('#jg-overlay').hide();
+                $("#loading-mask").children("#loading-dialog").children('img').attr("src", rootFolder+"/image/images/loading-icon.gif");
                 desktop_newlayout();
             }
         }, 1000);
@@ -1102,7 +1103,9 @@
                                             "</div>"+
                                             "</form>"+
                                             "<div id='resultSearchCustomer'></div>"+
-                                            "<div id='modalCustomerDescription'></div>" );
+                                            "<div id='loadingCustomer' style='margin:0px auto;display:none;' >"+
+                                            "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
+                                            "</div>" );
         
         function get_detail(url_customer){
           console.log(url_customer);
@@ -1119,6 +1122,7 @@
         }
 
         function submit(form) {
+          $("#loadingCustomer").show();
           $("#resultSearchCustomer").hide();
           var dataSearchCustomer = $("form[name='"+form+"']").serialize() + "&token=" + _BM_CSRF_TOKEN;
           $.ajax({
@@ -1136,6 +1140,7 @@
               // alert(JSON.stringify(data));
               // console.log( JSON.stringify(data) );
               $("#resultSearchCustomer").html( $( data ).find("form[name='bmForm']") );
+              $("#loadingCustomer").hide();
               $("#resultSearchCustomer").show();
 
               $("#next_iter_link").attr("href", "#");
@@ -1236,6 +1241,7 @@
               $( bottomMenu ).remove();
             },
               error: function(){
+               $("#loadingCustomer").hide();
                $("#resultSearchCustomer").show();
                console.log("Cannot get data");
              }
