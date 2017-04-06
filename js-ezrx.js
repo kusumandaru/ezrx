@@ -14,7 +14,7 @@
 
         rootFolder = '/bmfsweb/'+sub;
         _loadingImage = rootFolder+"/image/images/loading-icon.gif";closeLoadingDialog();
-        
+
         setTimeout(function() {
             if( navigator.userAgent.match(/Android/i)
              || navigator.userAgent.match(/webOS/i)
@@ -1291,6 +1291,7 @@
 
         $(".customer-search").keyup(function(e){
             if(e.keyCode == 13){
+                $("#form_search_customer").slideUp();
                 doSearch();
             }
         })
@@ -1312,12 +1313,12 @@
         });
 
         $("#search").on("click", function(){
-          if( $("#form_search_customer").css("display") == "none" ){
-            $("#form_search_customer").slideDown();
-        }else{
-            $("#form_search_customer").slideUp();
-            doSearch();
-        }
+            if( $("#form_search_customer").css("display") == "none" ){
+                $("#form_search_customer").slideDown();
+            }else{
+                $("#form_search_customer").slideUp();
+                doSearch();
+            }
         });
 
         function close_customer_search(){
