@@ -14,7 +14,7 @@
 
         rootFolder = '/bmfsweb/'+sub;
         _loadingImage = rootFolder+"/image/images/loading-icon.gif";closeLoadingDialog();
-
+        
         setTimeout(function() {
             if( navigator.userAgent.match(/Android/i)
              || navigator.userAgent.match(/webOS/i)
