@@ -1473,7 +1473,7 @@
             Task  : align customer information
         */
         var parentOfCustomerInfo = $( "#attribute-duplicateMaterialsPresentMessageHTML" );
-
+        $( parentOfCustomerInfo ).next().css({"margin-top":"20px"});
         var customerSoldtoID = $( $( parentOfCustomerInfo ).next().children()[0] ).children()[1];
         var row2 = $( parentOfCustomerInfo ).next().children()[1];
 
@@ -1486,6 +1486,25 @@
         /*
             Start : 6 April 2017
             Task  : align customer information
+        */
+
+        /*
+            Start : 6 April 2017
+            Task  : Auto scroll to result search material
+        */
+
+        var materialSearchText = $("#material_s").val();
+        var materialDescSearchText = $("#materialDescription_s").val();
+
+        if( materialSearchText.length > 0 || materialDescSearchText.length > 0 ){
+            $('html, body').animate({
+                scrollTop: $("#materialResults").offset().top
+            }, 2000);
+        }
+            
+        /*
+            Start : 6 April 2017
+            Task  : Auto scroll to result search material
         */
 
         /*
