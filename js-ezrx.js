@@ -1467,6 +1467,27 @@
         */
         /* End  : 17 March 2017 */
         /* Task : hide icon for first row on additional bonus table */
+
+        /*
+            Start : 6 April 2017
+            Task  : align customer information
+        */
+        var parentOfCustomerInfo = $( "#attribute-duplicateMaterialsPresentMessageHTML" );
+
+        var customerSoldtoID = $( $( parentOfCustomerInfo ).next().children()[0] ).children()[1];
+        var row2 = $( parentOfCustomerInfo ).next().children()[1];
+
+        $( customerSoldtoID ).appendTo( $(row2) );
+
+        $( row2 ).children().each( function(e, customerData){
+            $( customerData ).css({"width":"30%"});
+        });
+
+        /*
+            Start : 6 April 2017
+            Task  : align customer information
+        */
+
         /*
             Start : 5 April 2017
             Task  : replace style width for handle low resolution
