@@ -849,6 +849,30 @@
             End : 22 March 2017
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
         */
+
+        /*
+            Start : 6-5-2017
+            Task  : address is not completely shown
+        */
+
+        $("div[id*='shipTo_t_address']").each(function(e, dataAddress){
+            if( /attr_wrapper/i.test($(dataAddress).attr('id')) ){
+                $( "#"+$(dataAddress).attr('id') ).find('.readonly-wrapper').css({"white-space":"normal"})
+            }
+        });
+
+        $("div[id*='customerAddressLine']").each(function(e, dataAddress){
+            if( /attr_wrapper/i.test($(dataAddress).attr('id')) ){
+                $( "#"+$(dataAddress).attr('id') ).find('.readonly-wrapper').css({"white-space":"normal"})
+            }
+        });
+
+        /*
+            Start : 6-5-2017
+            Task  : address is not completely shown
+        */
+
+
         // data with color red
         // if isPriceOverride give red color
         $("td[id*='isPriceOverride']").each(function(i, data){
