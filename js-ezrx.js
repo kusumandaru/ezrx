@@ -1481,6 +1481,8 @@
 
         $( row2 ).children().each( function(e, customerData){
             $( customerData ).css({"width":"30%"});
+            $( customerData ).find('.attribute-label-container').css({"width":"100%"}).children('.attribute-label').css("cssText", "color: #00575d!important");
+            $( customerData ).find('.attribute-field-container').css({"width":"100%"});
         });
 
         /*
@@ -1497,8 +1499,9 @@
         var materialDescSearchText = $("#materialDescription_s").val();
 
         if( materialSearchText.length > 0 || materialDescSearchText.length > 0 ){
+            console.log( $("#materialResults").offset().top )
             $('html, body').animate({
-                scrollTop: $("#materialResults").offset().top
+                scrollTop: $("#materialResults").offset().top-250
             }, 2000);
         }
             
@@ -1762,11 +1765,13 @@
         //add bottom menu
         $("<div id='menu_bottom' width='100%' ></div>").insertAfter("#materialResults")
         //move to bottom menu
-        $("#menu_bottom").append($("<div id='area_add' style='float:left;' ></div>"));
+        // $("#menu_bottom").append($("<div id='area_add' style='float:left;' ></div>"));
         $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:300px;' ></div>"));
-        $("#area_add").append($("#attribute-addMaterials"));
-        $("#area_paging").append( $('<div class="attribute-inner clearfix" style="float:left;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="prev_custom"><p><button class="jg-btn">Previous</button></p></div></div></div>') )
-                         .append( $('<div class="attribute-inner clearfix"><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom" ><p><button class="jg-btn" style="width:100px;" >Next</button></p></div></div></div>') );
+        $("#attribute-addMaterials").css({"float":"left"});
+        $("#addMaterials").children('p').children().css("width","100px");
+        $("#area_paging").append($("#attribute-addMaterials"));
+        $("#area_paging").append( $('<div class="attribute-inner clearfix" style="float:left;padding-left:0px;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="prev_custom"><p><button class="jg-btn">Previous</button></p></div></div></div>') )
+                         .append( $('<div class="attribute-inner clearfix" style="float:left;padding-left:0px;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom" ><p><button class="jg-btn" style="width:100px;" >Next</button></p></div></div></div>') );
 
         $("#prev_custom").on("click", function(){
             $("#previous_res_true").click();
