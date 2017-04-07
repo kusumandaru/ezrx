@@ -1766,7 +1766,7 @@
         $("<div id='menu_bottom' width='100%' ></div>").insertAfter("#materialResults")
         //move to bottom menu
         // $("#menu_bottom").append($("<div id='area_add' style='float:left;' ></div>"));
-        $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:300px;' ></div>"));
+        $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:400px;' ></div>"));
         $("#attribute-addMaterials").css({"float":"left"});
         $("#addMaterials").children('p').children().css("width","100px");
         $("#area_paging").append($("#attribute-addMaterials"));
