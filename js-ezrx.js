@@ -1,20 +1,79 @@
 
 (function($) {
+    /*
+        Start : -
+        Task  : -
+        Page  : Global
+        File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+        Layout : Both
 
+        @url        : get full path url.
+        @pagetitle  : get page title of CPQ page.
+        @rootFolder : set root folder for CPQ test or production
+    */
     var url, pagetitle, rootFolder;
+    /*
+        End   : -
+        Task  : -
+        Page  : Global
+        File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+        Layout : Both
+    */
 
     $(document).ready(function() {
+        /*
+            Start : -
+            Task  : -
+            Page  : Global
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Both
+
+            Get Url of appliction, and get page title of Application.
+        */
         url = window.location.href;
         pagetitle = $('title').text().toLowerCase();
+        /*
+            End   : -
+            Task  : -
+            Page  : Global
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Both
+        */
         
+        /*
+            Start : 24 March 2017
+            Task  : Change all link to dynamic url.
+            Page  : Global
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Both
+
+            get full url split it to get subdomain, and generate url of assets.
+        */
         var fullUrl = window.location.host;
-        //window.location.host is subdomain.domain.com
         var parts = fullUrl.split('.');
         var sub = parts[0];
-
         rootFolder = '/bmfsweb/'+sub;
+        /*
+            End   : 24 March 2017
+            Task  : Change all link to dynamic url.
+            Page  : Global
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Both
+        */
+        
+        /*
+            Start : -
+            Task  : -
+            Page  : Global
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Both
 
+            Checking user access application from Mobile or Desktop.
+        */
         setTimeout(function() {
+            /*
+                if User access application from mobile, then application call function mobile_newlayout().
+            */
             if( navigator.userAgent.match(/Android/i)
              || navigator.userAgent.match(/webOS/i)
              || navigator.userAgent.match(/iPhone/i)
@@ -26,26 +85,65 @@
                 mobile_newlayout();
             }
             else {
+                /*
+                    else if user access application from desktop, then application call function desktop_newlayout().
+                */
+                /*
+                    Start : 5 April 2017
+                    Task  : Replace variable _loadingImage for new Loading.
+                    Page  : Global
+                    File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+                    Layout : Dekstop
+
+                    Replace loading animation.
+                */
                 _loadingImage = rootFolder+"/image/images/loading-icon.gif";closeLoadingDialog();
                 $('#jg-overlay').hide();
                 $("#loading-mask").children("#loading-dialog").children('img').attr("src", rootFolder+"/image/images/loading-icon.gif");
                 desktop_newlayout();
+                /*
+                    End   : 5 April 2017
+                    Task  : Replace variable _loadingImage for new Loading.
+                    Page  : Global
+                    File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+                    Layout : Dekstop
+                */
             }
         }, 1000);
+
+        /*
+            End   : -
+            Task  : -
+            Page  : -
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Both
+        */
     });
 
     function desktop_newlayout() {
         /* UI */
+        /*
+            Start : -
+            Task  : -
+            Page  : Global
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
+
+            Checking if user access login page, then access function transform_loginpage()
+        */
         if ($('.-out').length == 1 || $('#login').length == 1 || $('#login-form-wrap').length > 0) {
             transform_loginpage();
         }
         else {
-            // if ($('input[name=pageName][value=commerce_manager]').length == 1) {
+            /*
+                if user access commerce management / transaction / model configuration / report manager page.
+            */
                 console.log(pagetitle);
             if (pagetitle == 'commerce management' || pagetitle == 'transaction' || pagetitle == 'model configuration' || pagetitle == "report manager") {
                 transform_mainlayout();
-                // tranform_ordersubmenu();
-
+                /*
+                    if user access commerce management page, element of id=jg-mainmenu-orders add class active, and call function transfrom_orderspage()
+                */
                 if (pagetitle == 'commerce management') {
                     $('body').addClass('jg-page-orders');
                     $('#jg-mainmenu-orders').addClass('active');
@@ -53,12 +151,21 @@
                     transform_orderspage();
                 }
                 else if (pagetitle == 'transaction') {
+                    /*
+                        if user access transaction page, set element id of readonly_1_visualWorkflow has child image to vi_shoppping_cart_ready_active.png
+                        then add class active to element id of jg-mainmenu-orders then, remove element of jg-mainmenu-neworder and jg-mainmenu-copyorder
+                    */
                     $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_shoppping_cart_ready_active.png');
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-neworder').parent().remove();
                     $('#jg-submenu-copyorder').parent().remove();
-
+                    
                     if (url.indexOf('copy_processing') != -1) {
+                        /*
+                            if position element of copy_processing in url is none, then add class jg-page-copyorder, then add class jg-page-copyorder
+                            add text "Copy Order" to element id is jg-topbar-title, give text "Copy Order" to element title
+                            and add class active to element id is jg-submenu-copyorder
+                        */
                         $('body').addClass('jg-page-copyorder');
                         $('#jg-topbar-title').text("Copy Order");
                         $('title').text("Copy Order");
@@ -66,9 +173,18 @@
                         $('#jg-submenu-copyorder').addClass('active');
                     }
                     else if ($('#readonly_1_visualWorkflow').length > 0) {
+                        /*
+                            get image src from child element image of element readonly_1_visualWorkflow
+                        */
                         var imgsrc = $('#readonly_1_visualWorkflow img').attr('src');
 
                         if (imgsrc.indexOf('vi_order_created_active.png') != -1 || imgsrc.indexOf('vi_customer_selected_active.png') != -1) {
+                            /*
+                                if image src is vi_order_created_active.png or vi_customer_selected_active.png
+                                add class jg-page-neworder to body element
+                                set text "New Order" to title element
+                                add class active to element jg-submenu-neworder
+                            */
                             $('body').addClass('jg-page-neworder');
                             $('#jg-topbar-title').text("New Order");
                             $('title').text("New Order");
@@ -76,32 +192,57 @@
                             $('#jg-submenu-neworder').addClass('active');
                         }
                         else if (imgsrc.indexOf('vi_shoppping_cart_ready_active.png')) {
+                            /*
+                                if image src is vi_shoppping_cart_ready_active.png then add class jg-page-shoppingcart to body element.
+                                add text "Shopping Cart" to jg-topbar-title element
+                                add text "Shopping Cart" to title element.
+                            */
                             $('body').addClass('jg-page-shoppingcart');
                             $('#jg-topbar-title').text("Shopping Cart");
                             $('title').text("Shopping Cart");
                         }
                         else {
+                            /*
+                                set text "(Page title hasn't been set for this page.)" to jg-topbar-title element
+                            */
                             $('#jg-topbar-title').text("(Page title hasn't been set for this page.)");
                         }
 
                         /*
                             Start : 20 March 2017
                             Task  : Order in Submitted Status the Logo(to guide the shopping stages) is missing
+                            Page  : Order Page
+                            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+                            Layout : Desktop
+                            
+                            if order created set src image child from readonly_1_visualWorkflow element to 'vi_order_created_active.png'
                         */
-                        //order created
                         $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_order_created_active.png');
                         //user click customer input form
+                        /*
+                            if user click element of customersNew_t then set readonly_1_visualWorkflow to vi_customer_selected_active.png
+                        */
                         $("#customersNew_t").on("click", function(){
                             $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_customer_selected_active.png');
                         });
+                        /*
+                            if element of readonly_1_status_t hasnt text "submitted" or customersNew_t val is not null then
+                            set readonly_1_visualWorkflow to vi_customer_selected_active.png
+                        */
                         if( ($("#readonly_1_status_t").text().toLowerCase() != 'submitted') && $("#customersNew_t").val() != '' ){
                            $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_customer_selected_active.png'); 
                         }
-                        //user has added material
+                        /*
+                            if user has add material, check it from table of line-item-grid has row with id emptyRow or not
+                            set readonly_1_visualWorkflow to vi_shoppping_cart_ready_active.png
+                        */
                         if( $("#line-item-grid tbody.line-item-grid-body").children('tr').attr('id') != 'emptyRow' ){
                             $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_shoppping_cart_ready_active.png');
                         }
-                        //user has submitted order
+                        /*
+                            if element of readonly_1_status_t has text "submitted"
+                            set readonly_1_visualWorkflow to vi_order_submitted_active.png
+                        */
                         if( $("#readonly_1_status_t").text().toLowerCase() == 'submitted')
                         {
                             $('#readonly_1_visualWorkflow img').attr('src', rootFolder+'/image/images/vi_order_submitted_active.png');
@@ -110,8 +251,11 @@
                         
 
                         /*
-                            End : 20 March 2017
+                            End   : 20 March 2017
                             Task  : Order in Submitted Status the Logo(to guide the shopping stages) is missing
+                            Page  : Order Page
+                            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+                            Layout : Desktop
                         */
 
                     }
@@ -119,6 +263,11 @@
                     transform_newcopypage();
                 }
                 else if (pagetitle == 'model configuration') {
+                    /*
+                        if user access model configuration page, add class active to jg-mainmenu-orders element.
+                        remove jg-submenu-neworder and jg-submenu-copyorder element
+                        and call function transform_modelconfig
+                    */
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-neworder').parent().remove();
                     $('#jg-submenu-copyorder').parent().remove();
@@ -126,6 +275,12 @@
                     transform_modelconfig();
                 }
                 else if (pagetitle == "report manager") {
+                    /*
+                        if user access report manager page, add class jg-page-orders to body element.
+                        add class active to jg-mainmenu-orders element, add class active to jg-submenu-myreports
+                        remove jg-submenu-neworder and jg-submenu-copyorder element.
+                        and call function transfrm_reportpage.
+                    */
                     $('body').addClass('jg-page-orders');
                     $('#jg-mainmenu-orders').addClass('active');
                     $('#jg-submenu-myreports').addClass('active');
@@ -137,8 +292,20 @@
 
                 transform_newfooter();
             }else if( pagetitle == 'folders' ){
+            /*
+                if user access folders page then redirect to root url location of application.
+            */
                 window.location = 'https://'+window.location.host;
             }else if( pagetitle == 'my profile' ){
+                /*
+                    Start : 23 March 2017
+                    Task  : Hide user profile details by typeUser
+                    Page  : my profile
+                    File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+                    Layout : Desktop
+
+                    Checking if user access login page, then access function transform_loginpage()
+                */
                 var selectorRows = $("input[name='email']").closest('.bgcolor-form').next();
                 var typeUser = $(selectorRows).children('.form-input').text().replace(/\s/g,'');
                 if(typeUser.toLowerCase() != 'fullaccess'){
@@ -154,11 +321,25 @@
                         }
                     });
                 }
+                /*
+                    End : 23 March 2017
+                    Task  : Hide user profile details by typeUser.
+                    Page  : my profile
+                    File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+                    Layout : Desktop
+                */
             }
         }
 
         // remove white overlay
         $('#jg-overlay').hide();
+        /*
+            End : -
+            Task  : -
+            Page  : Global
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
+        */
     }
 
     function transform_loginpage() {
@@ -187,6 +368,11 @@
         /*
             Start : 19 March 2017
             Task  : Edit left side menu design.
+            Page  : All Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
+            
+            if user login from zuelligpharma.com then show report menu page else dont show report menu.
         */
         if(/@zuelligpharma.com\s*$/.test(_BM_USER_LOGIN)){
             var newlayout = $("<div class='jg-box-mainlayout'>")
@@ -278,13 +464,19 @@
             })
         });
 
+        /*
+            Show modal Description of left side menu.
+        */
         $("li.jg-item-mainmenu:not('.jg-separator')").mousemove(function(e){
             $('#myMenuModal').css('top', e.pageY - $(document).scrollTop() + 'px').css('left', e.pageX - $(document).scrollLeft() + 50 + 'px');
         })
 
         /*
-            Start : 19 March 2017
+            End   : 19 March 2017
             Task  : Edit left side menu design.
+            Page  : All Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
         */
 
         // mainmenu status
@@ -435,6 +627,9 @@
 
     function transform_orderspage() {
         // toolbar
+        /*
+            add menu on top commerce management.
+        */
         $('.jg-list-tool')
             .append($("<li class='jg-item-tool'>")
                 /* .append($("<input type='text' class='jg-txt-search' />")) */
@@ -479,6 +674,15 @@
             $('a.list-field')[0].click();
         });
 
+        /*
+            Start : 8 March 2017
+            Task  : Create Management Folder
+            Page  : Commerce Management
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
+
+            this function for check create name folder isn't default or trash.
+        */
         function addFolder(form)
         {
             if(form.name.value == "[Default]" || form.name.value == "[Trash]"){
@@ -486,7 +690,9 @@
             }
             bmCheckString(form.name, "Folder Name");
         }
-
+        /*
+            this function for check rename folder isn't default or trash.
+        */
         function renameFolder(form)
         {
             for(var i=0; i<form.id.length; i++)
@@ -503,7 +709,9 @@
 
             bmCheckString(form.name, "New Name");
         }
-
+        /*
+            this function for check delete folder name isnt default or trash.
+        */
         function deleteFolder(form)
         {
             for(var i=0; i<form.id.length; i++)
@@ -519,7 +727,11 @@
                 }
             }
         }
-        
+        /*
+            fetch list of folder from CPQ and give some icon.
+            when the folder isnt default / trash / favourites then add some function to manage folder
+            add button rename, remove, save and close.
+        */
         var listFolder = [];
         var list_folder = "<table style='background-color:#0C727A;' >";
         var optionsFolder = "";
@@ -529,20 +741,27 @@
             var button_folder = "<tr><td>";
             var link_folder = $(target).prev().find('a').attr('href');
             if(nama_folder.toLowerCase() == "default"){
+                /* add icon and name folder default */
                 button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-default' class='jg-linkbtn list-folder default'>"+nama_folder+"</a>";
                 $("#jg-tool-folder-default").attr("href", link_folder);
             }else if(nama_folder.toLowerCase() == "trash"){
+                /* add icon and name folder trash */
                 button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-trash' class='jg-linkbtn list-folder trash'>"+nama_folder+"</a>";
                 $("#jg-tool-folder-trash").attr("href", link_folder);
             }else if(nama_folder.toLowerCase() == "favourites"){
+                /* add icon and name favourites */
                 button_folder += "<a href='"+link_folder+"' id='jg-tool-folder-fav' class='jg-linkbtn list-folder fav'>"+nama_folder+"</a>";
                 $("#jg-tool-folder-fav").attr("href", link_folder);
             }else{
+                /* add icon and name folder other name */
                 button_folder += "<a href='"+link_folder+"' id='display_folder_"+id_folder+"' class='jg-linkbtn list-folder default'>"+nama_folder+"</a><input id='input_"+id_folder+"' name='name' class='input-folder' style='display:none;' />";
                 button_folder_toolbar = "<li class='jg-item-tool' ><a href='"+link_folder+"' class='jg-linkbtn default'>"+nama_folder+"</a></li>";
                 $(".jg-list-tool").append($(button_folder_toolbar));
                 optionsFolder += "<option value="+id_folder+" ></option>";
                 button_folder += "</td><td style='padding-top:30px;' >";
+                /*
+                    add button rename, remove, save for management folder.
+                */
                 button_folder += "<a href='#' class='tmp-folder tmp-folder-rename' id='btn_rename_"+id_folder+"' data-id='"+id_folder+"' ></a>";
                 button_folder += "<a href='#' class='tmp-folder tmp-folder-remove' id='btn_remove_"+id_folder+"' data-id='"+id_folder+"' ></a>";
                 button_folder += "<a href='#' class='tmp-folder tmp-folder-save' style='display:none;' id='btn_save_"+id_folder+"' data-id='"+id_folder+"' ></a>";
@@ -553,6 +772,7 @@
             listFolder.push(nama_folder);
         });
         list_folder += "</table>";
+        /* get folder id */
         var bm_cm_process_id_val = $("input[name='bm_cm_process_id']").val();
         var folder_id_val = $("input[name='folder_id']").val();
         $('.jg-list-tool-right')
@@ -580,13 +800,14 @@
                             "<hr/>"+list_folder+
                           "</div>"))
             );
-
+        /* listen folder remove clicked, set option id folder value, and give alert if continue to delete. */
         $(".tmp-folder-remove").on("click", function(){
             var id = $(this).data('id');
             $("#folder option[value='"+id+"']").attr("selected","");
             bmSubmitFormConfirm('Deleting this folder will send all of its contents to the trash.  Do you wish to continue?', 'admin_folder.jsp', document.templateFolder2, deleteFolder, 'deleteCmFolder');
             bmCancelBubble(event);
         });
+        /* listen folder rename show form input name folder, hide icon and folder name */
         var isAnotherRenameToo = false;
         $(".tmp-folder-rename").on("click", function(){
             if(!isAnotherRenameToo){
@@ -606,6 +827,7 @@
             }
         });
 
+        /* listen folder rename close, hide form input name folder, show icon and folder name */
 
         $(".tmp-folder-close").on("click", function(){
             isAnotherRenameToo = false;
@@ -619,6 +841,8 @@
             $("#btn_rename_"+id).show();
             $("#btn_remove_"+id).show();
         });
+
+        /* listen folder rename save, hide form input name folder, show icon and folder name and call function save folder name. */
 
         $(".tmp-folder-save").on("click", function(){
             isAnotherRenameToo = false;
@@ -638,20 +862,26 @@
 
         $(".jg-box-foldermenu").css("right","-400px");
 
-        //show menu and folder on click
+        //show or hide menu folder on click
         var hide = false;
         $("#jg-tool-folder-edit").on("click", function(){
             if(!hide){
                 hide = true;
-                // $(this).animate({marginRight: '240px'}, 1500);
                 $('.jg-box-foldermenu').animate({right: '0px'},1000);
             }else{
                 hide = false;
-                // $(this).animate({marginRight: '0px'}, 1500);
                 $('.jg-box-foldermenu').animate({right: '-400px'},1000);
             }
             
         });
+
+        /*
+            End   : 8 March 2017
+            Task  : Create Management Folder
+            Page  : Commerce Management
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
+        */
 
         // page title
         pagetitle = $('#cm-manager-content').closest('table').prev().find('td').text().trim();
@@ -670,6 +900,7 @@
 
         /* EVENTS */
         // search
+        /* custom search button */
         $('#jg-tool-search').click(function(e) {
             e.preventDefault();
 
@@ -677,6 +908,7 @@
         });
 
         // manage
+        /* custom search and refine list order. */
         $('.commerce-sidebar-item').each(function(i, sbitem) {
             if ($(sbitem).text().toLowerCase().indexOf('manage') != -1) {
                 $('#jg-tool-manage').attr('href', $(sbitem).attr('href'));
@@ -701,20 +933,21 @@
             }
         });*/
 
-        // edit
-        $('#jg-tool-folder-edit').click(function(e) {
+        // custome edit folder
+        /*$('#jg-tool-folder-edit').click(function(e) {
             e.preventDefault();
 
             // $('#edit').click();
-        });
+        });*/
 
-        // copy order
+        // custom button copy order
         $('#jg-submenu-copyorder').click(function(e) {
             e.preventDefault();
 
             $('#copy_order').click();
         });
 
+        /* custom button export */
         $('#jg-submenu-export').click(function(e) {
             e.preventDefault();
 
@@ -757,12 +990,15 @@
          .append($("<a href='#' id='jg-tool-troubleshooting' class='jg-linkbtn troubleshooting'>Troubleshooting</a>"))
          )
          */
+        /* hide class jg-box-toolbar */
         $('.jg-box-toolbar').hide();
-
+        /* move element document-form to class jg-box-maincontent */
         $('#document-form').appendTo('.jg-box-maincontent');
 
         // tweak originals
         // $('#sticky-actions').hide();
+
+        /* styling on add material */
         $('select[name=orderType_t]').css('width', 'auto');
         $('#field_wrapper_1_visualWorkflow').css('paddingLeft', '0');
         $('#add_material').closest('.column').prev().remove();
@@ -770,7 +1006,7 @@
         $('#add_material').closest('.form-element').css('paddingLeft', '6px');
         $('#add_material').closest('.form-element').prev().remove();
 
-        // cust & address area
+        // styling on cust & address area
         var newcontainer = $("<div class='column label-left' style='width:70%'>");
         var custcol = $("<div class='jg-order-box-cust'>").appendTo(newcontainer);
         var addresscol = $("<div class='jg-order-box-address'>").appendTo(newcontainer);
@@ -788,7 +1024,7 @@
         custleft.find('.attr-spacer').remove();
         custright.find('.attr-spacer').remove();
 
-        // Summary area
+        // styling on Summary area
         $('#content36594406 .form-element').css('paddingLeft', '200px');
         $('#custom_transaction_manager').closest('.form-element').css('paddingLeft', '0');
         $('#custom_transaction_manager').closest('.form-element').prev().remove();
@@ -828,11 +1064,18 @@
         /*
             Start : 22 March 2017
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
+
         */
+        /* clone class jg-order-box-cust for the result of moving element customerSearchFilter  */
         $('.jg-order-box-cust').parent().prepend( $('.jg-order-box-cust').clone().html( $("select[name='customerSearchFilter']").closest('div.column') ) );
         
+        /* remove class clearfix for stable styling */
         $("#attr_wrapper_1_owner_t").parent().parent().removeClass('clearfix');
 
+        /* hide element of class spacer-column */
         $( $("#attr_wrapper_1_customerShipToId_t").parent().siblings('.spacer-column') ).hide();
         /*var kolom_customer_sold = $("#attr_wrapper_1_customerSoldToId_t").parent();
         $( kolom_customer_sold ).css({
@@ -846,21 +1089,27 @@
         $( $("#attr_wrapper_1_customerSoldToId_t").parent().parent() ).next().removeClass('clearfix');
         $("#panel_36350863").css({ "padding-top":"150px" });*/
         /*
-            End : 22 March 2017
+            End   : 22 March 2017
             Task  : Need to Move this Field above customer field. We kept the Customer Search Field above the Customer in the design layout. Some CSS changes Pushing the field down.
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
         */
 
         /*
-            Start : 6-5-2017
+            Start : 6-4-2017
             Task  : address is not completely shown
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
         */
-
+        /* add styling wordwrap on address coloumn */
         $("div[id*='shipTo_t_address']").each(function(e, dataAddress){
             if( /attr_wrapper/i.test($(dataAddress).attr('id')) ){
                 $( "#"+$(dataAddress).attr('id') ).find('.readonly-wrapper').css({"white-space":"normal"})
             }
         });
-
+        /* add styling wordwrap on address coloumn */
         $("div[id*='customerAddressLine']").each(function(e, dataAddress){
             if( /attr_wrapper/i.test($(dataAddress).attr('id')) ){
                 $( "#"+$(dataAddress).attr('id') ).find('.readonly-wrapper').css({"white-space":"normal"})
@@ -868,13 +1117,22 @@
         });
 
         /*
-            Start : 6-5-2017
+            End   : 6-4-2017
             Task  : address is not completely shown
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop
         */
 
-
+        /*
+            Start : 11-3-2017
+            Task  : if isPriceOverride give red color
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */
         // data with color red
-        // if isPriceOverride give red color
+        // find column with id is isPriceOverride when the value is True then give red color
         $("td[id*='isPriceOverride']").each(function(i, data){
             if($(data).text() !== "False"){
                 var line = $(data).parent();
@@ -884,8 +1142,15 @@
                 object_span.css("color","red");
             }
         });
+        /*
+            Start : 13-3-2017
+            Task  : if Type Bonus Change row collor with grey #EEE
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */
 
-        // if Type Bonus Change row collor with grey #EEE;
+        // find column with id is refNo_text when the value is bonus then give background color row with #EEE
         $("td[id*='refNO_text']").each(function(i, data){
             var refNo = $(this).attr("id").split("attr_wrapper");
             var object_span = $("#readonly"+refNo[1]);
@@ -895,7 +1160,22 @@
                 $(this).parent().css("background-color","#EEE").removeClass('child-line-item');
             }
         });
+        /*
+            End   : 13-3-2017
+            Task  : if Type Bonus Change row collor with grey #EEE
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */
 
+        /*
+            Start : 8-3-2017
+            Task  : if Type Bonus Overide Flag is true then give red color
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */        
+        /* find column with id is bonusOverideFlag_l when the value is True then give red color on text  */
         $("td[id*='bonusOverideFlag_l']").each(function(i, data){
             var refNo = $(this).attr("id").split("attr_wrapper");
             var object_span = $("#readonly"+refNo[1]);
@@ -907,13 +1187,23 @@
                 qty_span.css("color", "red");
             }
         });
+        /*
+            End   : 8-3-2017
+            Task  : if Type Bonus Overide Flag is true then give red color
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */        
 
         /*
             Start : 21 March 2017
-            Task  : Highlight "In Stock" No In commerce to Red and Qty to Red for Commercial Material Line (Comm)
-            Task  : Highlight "In Stock" No In commerce to Red for Bonus Material Line (Bonus).
+            Task  : - Highlight "In Stock" No In commerce to Red and Qty to Red for Commercial Material Line (Comm)
+                    - Highlight "In Stock" No In commerce to Red for Bonus Material Line (Bonus).
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
-
+        /* find column with id is inStock when value is no then give red color text inStock, then check type of material, if comm then give text red color on qty coloumn */
         $("td[id*='inStock']").each(function(i, data){
             var refNo = $(this).attr("id").split("attr_wrapper");
             var object_span = $("#readonly"+refNo[1]);
@@ -934,17 +1224,23 @@
         });
 
         /*
-            End : 21 March 2017
-            Task  : Highlight "In Stock" No In commerce to Red and Qty to Red for Commercial Material Line (Comm)
-            Task  : Highlight "In Stock" No In commerce to Red for Bonus Material Line (Bonus).
+            End   : 21 March 2017
+            Task  : - Highlight "In Stock" No In commerce to Red and Qty to Red for Commercial Material Line (Comm)
+                    - Highlight "In Stock" No In commerce to Red for Bonus Material Line (Bonus).
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
         /*
             Start : 20 March 2017
             Task  : Bonus Override Flag Should be hidden using CSS
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
         var bonusOverride = 0;
-
+        /* find coloumn th which had bonus override then give class rule-hide and set temp id bonusOverride */
         $("th").each(function(i, data){
 
             if( $( data ).children().text().toLowerCase() == "bonus overide" ){
@@ -960,22 +1256,34 @@
             
         });
 
+        /* find coloumn which had id bonusOverride and add class rule-hide */
         $("col").each(function(i, data){
             if(this.id == bonusOverride){
                 $(this).addClass('rule-hide');
             }
         });
-
+        /* find coloumn has id bonusOverride and add class rule-hide */
         $("td[id*='"+bonusOverride+"']").each(function(i, data){
             $(this).addClass('rule-hide');
         });
 
         /*
-            Start : 29 March 2017
-            Task  : Search customer on order page
+            End : 20 March 2017
+            Task  : Bonus Override Flag Should be hidden using CSS
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
-                var version_id, document_id, action_id;
+        /*
+            Start : 29 March 2017
+            Task  : Search customer on order page
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */
+
+        var version_id, document_id, action_id;
         var searchCustomer = $("#search_customer").closest(".bm-actionstrip-horiz");
         //remove last div 
         searchCustomer.closest('.column.label-left').css({"width":"70%"});
@@ -1369,11 +1677,9 @@
         /*
             End   : 29 March 2017
             Task  : Search customer on order page
-        */
-
-        /*
-            Start : 20 March 2017
-            Task  : Bonus Override Flag Should be hidden using CSS
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
         /* EVENTS */
