@@ -2597,20 +2597,36 @@
         /*
             give image for logo, and styling for login form.
         */
-        var imglogin = $("<img src='"+rootFolder+"/image/images/ezrx.png' class='jg-login-logo'>")
+        /*
+            Start : 17 April 2017
+            Task  : Custom Login page on mobile
+            Page  : Login Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+
+            change logo for mobile, change position and styling.
+        */
+        var imglogin = $("<img src='"+rootFolder+"/image/images/logo-ezrx-mobile.png' class='jg-login-logo'>")
             .prependTo('#login-form')
-            .after("<span class='jg-login-welcome'>Welcome</span>")
-            .append($("<div class='jg-box-login-bottom'>")
+            .after("<span class='jg-login-welcome'>Hello,<br/>Please Login</span>")
+            /*.append($("<div class='jg-box-login-bottom'>")
                 .append($("<img src='"+rootFolder+"/image/images/zuellig.png' class='jg-login-logo' />"))
-            );
+            );*/
         /* add class login-mobile-box on main-content element */
         $("#main-content").addClass('login-mobile-box');
         /* hide element of label username and psword */
         $('label[for=username], label[for=psword]').hide();
         /* add element forgot password */
-        $('#forgotpassword').insertAfter($('label[for=psword]').next());
+        $('#forgotpassword').insertAfter($('label[for=psword]').next().next());
         /* hide element footer */
         $('footer').hide();
+        /*
+            End : 17 April 2017
+            Task  : Custom Login page on mobile
+            Page  : Login Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+        */
     }
 
     function mobile_adjustcontenttop() {
