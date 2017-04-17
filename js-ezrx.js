@@ -1282,7 +1282,9 @@
             File Location : $BASE_PATH$/image/javascript/js-ezrx.js
             Layout : Desktop  
         */
-
+        /*
+            styling on search customer.
+        */
         var version_id, document_id, action_id;
         var searchCustomer = $("#search_customer").closest(".bm-actionstrip-horiz");
         //remove last div 
@@ -1290,7 +1292,12 @@
         searchCustomer.closest('.column.label-left').next().remove();
         var tableSearchCustomer = $("#search_customer").closest("table");
         var getBmOpenWindow = $( tableSearchCustomer ).attr("onclick");
-
+        /*
+            each value getBmOpenWindow value on click,
+            execute javascript function except bmOpenWindow & bmCancelBubble
+            if function is setDocFormIds then get document_id and action_id value
+            if function is bmOpenWindow then get version_id value
+        */
         $(getBmOpenWindow.replace("javascript:","").split(";")).each(function(e, data){
             if(!(/bmOpenWindow/i.test(data)) && !(/bmCancelBubble/i.test(data))){
               eval( data );
@@ -1315,6 +1322,10 @@
 
           });
 
+        /*
+            Create and styling template for search customer, and create same environment with default search customer.
+            Create element for result search customer.
+        */
         var parentOfSearchCustomer = $( searchCustomer ).parent();
         //hide searchCustomer 
         $( searchCustomer ).hide();
@@ -1440,6 +1451,9 @@
                                             "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
                                             "</div>" );
         
+        /*
+            function get_detail for get detail of customer from page detail customer.
+        */
         function get_detail(url_customer){
           console.log(url_customer);
           url_customer = url_customer.replace("'","");
@@ -1454,6 +1468,12 @@
           })
         }
 
+        /*
+            function submit for get result of search customer
+            when search customer then environment get from searchCustomer
+            when search customer for pagging and sorting then environment get from bmForm
+            for all type set variable token for security
+        */
         function submit(form) {
           $("#loadingCustomer").show();
           $("#resultSearchCustomer").hide();
@@ -1475,10 +1495,11 @@
               $("#resultSearchCustomer").html( $( data ).find("form[name='bmForm']") );
               $("#loadingCustomer").hide();
               $("#resultSearchCustomer").show();
-
+              /* override function next_iter_link and previous_iter_link */
               $("#next_iter_link").attr("href", "#");
               $("#previous_iter_link").attr("href", "#");
 
+              /* custom listen next_iter_link then call function submit */
               $("#next_iter_link").on("click", function nextSearch(){
                   if(true)
                   {
@@ -1492,6 +1513,7 @@
                   }
                })
 
+              /* custom listen previous_iter_link then call function submit */
               $("#previous_iter_link").on("click", function(){
                   if(true)
                   {
@@ -1512,7 +1534,7 @@
               var bottomMenu = $("#search_again").parent().parent().parent().parent().parent().parent().parent().parent().parent();
               var contentTable = $( bottomMenu ).prev().prev().prev();
 
-              //change Accounts to Customer
+              //change text of Accounts to Customer
               $( $(".top-bar")[0] ).text("Customers");
 
               // remove header all addresses.
@@ -1521,23 +1543,27 @@
               $( $('#resultSearchCustomer').children().children('table')[1] ).attr("cellpadding","3");
               $( header ).remove();
 
+              // add styling for background color when has class bgcolor-list-even
               $(".bgcolor-list-even").each(function(e, dataEven){
                 $( dataEven ).css({"background-color":"lightgrey"});
               })
 
+              // add styling for header result table.
               $($( $('#resultSearchCustomer').children().children('table')[1] ).find('td.view-header')).each(function(e, dataHeader){
                 $( dataHeader ).css({"background-color":"#0C727A!important", "color":"#fff", "padding":"10px 0px 10px 0px"});
               });
 
+              // each content of row table
               $( contentTable ).find('tr').each(function(e, dataContent){
                 //remove all href in content
-
                 $(dataContent).find('a').each(function(i, data_href){
                   if( typeof( $( dataContent ).find("input[name='_customer_id']").val() ) != 'undefined' ){
                     
+                    // when coloumn is view remove it
                     if( $( data_href ).text().toLowerCase() == 'view' ){
                         $( data_href ).parent().remove();
                     }else{
+                    // else just remove link and display only text
                         $( data_href ).replaceWith( $( data_href ).text() );
                     }
 
@@ -1557,7 +1583,7 @@
                   }
                 });
 
-                //implementasi on klik in checklist to on select data
+                //implementation select customer on row
                 $( dataContent ).find("input[name='populate']").each(function(i, dataRadio){
                   var button = "<a href='#' >Select</a>";
                   $(dataRadio).replaceWith($(button).on("click", function(e){
@@ -1570,10 +1596,11 @@
 
               });
 
-              // remove bottom Menu
+              // remove bottom Menu for default content.
               $( bottomMenu ).remove();
             },
               error: function(){
+                /* if system can't get result of customer */
                $("#loadingCustomer").hide();
                $("#resultSearchCustomer").show();
                console.log("Cannot get data");
@@ -1581,11 +1608,14 @@
             });
         }
 
+        /* this function to set variable on SearchCustomer and call function submit */
         function doSearch(){
           document.SearchCustomer.search.value = true;
           document.SearchCustomer.curpos.value=0;
           submit('SearchCustomer');
         }
+
+        /* this function custom for save selected customer */
 
         function save(_customer_id)
         {       
@@ -1605,6 +1635,8 @@
           }
         }  //end of save(_customer_id) method
 
+
+        /* this function customer for sorting result customer search. */
         function search(form, orderField){
     
             form.curpos.value=0;
@@ -1621,6 +1653,7 @@
               submit('bmForm');
         } 
 
+        /* listen if form customer search has pressed enter by user then call function doSearch */
         $(".customer-search").keyup(function(e){
             if(e.keyCode == 13){
                 $("#form_search_customer").slideUp();
@@ -1639,11 +1672,14 @@
           }
         }*/
 
+        /* this function for show search customer and give background color and hide scroll on window */
+
         $("#show_search_customer").on("click", function(){
             $("#layer_search_customer").show();
             $("body").css({"overflow":"hidden"});
         });
 
+        /* this function give animation for form search customer slideDown for showing form, and slideup for hide form and call function doSearch */
         $("#search").on("click", function(){
             if( $("#form_search_customer").css("display") == "none" ){
                 $("#form_search_customer").slideDown();
@@ -1653,6 +1689,7 @@
             }
         });
 
+        /* custom function to reset all value, hide element and show srolling in window */
         function close_customer_search(){
           console.log("close search customer")
           $("form[name='SearchCustomer']").find('input.form-input').each(function(e, data){
@@ -1663,10 +1700,12 @@
           $("body").css({"overflow":"scroll"});
         }
 
+        /* if user click close in customer search then call function close_customer_search */
         $("#close").on("click", function(){
           close_customer_search();
         });
 
+        /* if page is formaction=create then trigger auto open search customer */
         if( window.location.href.split("?").length > 1){
             if( /formaction=create/i.test(window.location.href.split("?")[1]) ){
                 $("#layer_search_customer").show();
@@ -1683,12 +1722,14 @@
         */
 
         /* EVENTS */
+        /* custom button for add to fav */
         $('#jg-tool-addtofav, #jg-btn-addtofav').click(function(e) {
             e.preventDefault();
 
             $('#').click();
         });
 
+        /* custome button for pipeline viewer */
         $('#jg-tool-pipelineviewer, #jg-btn-pipelineviewer').click(function(e) {
             e.preventDefault();
 
@@ -1703,13 +1744,14 @@
     }
 
     function transform_modelconfig() {
+        /* add class jg-page-cartpage to body */
         $('body').addClass('jg-page-cartpage');
         /*$('#jg-topbar-title').text("Shopping Cart");
         $('title').text("Shopping Cart");*/
 
         // console.log($('.cell-promotion').html());
 
-
+        /* form has class configuration-form move to element has class jg-box-maincontent */
         $('form[class=configuration-form]').appendTo('.jg-box-maincontent');
 
         $('#config-header').hide();
@@ -1718,12 +1760,15 @@
             .insertBefore('.page-tabs');
 
         // toolbar
+        /* add button Update */
         $('.jg-list-tool')
             .append($("<li class='jg-item-tool'>")
                 .append($("<button id='btn-cart-update' class='jg-btn jg-btn-icon cart-update'></span>Update</button>"))
             )
 
         if ($('#start_over').length == 1) {
+            /* add button Start over when add material page has element start_over */
+            /* add button add to order when add material page has element start over */
             $('.jg-list-tool')
                 .append($("<li class='jg-item-tool'>")
                     .append($("<button id='btn-cart-startover' class='jg-btn jg-btn-icon cart-startover'>Start Over</button>"))
@@ -1733,37 +1778,75 @@
                 );
         }
         else if ($('#save').length == 1) {
+            /* add button Save when add material page has element save */
             $('.jg-list-tool')
                 .append($("<li class='jg-item-tool'>")
                     .append($("<button id='btn-cart-save' class='jg-btn jg-btn-icon cart-save'>Save</button>"))
                 );
         }
 
+        /* add button Cancel Shopping */
         $('.jg-list-tool').append($("<li class='jg-item-tool'>")
             .append($("<button id='btn-cart-cancelshopping' class='jg-btn jg-btn-icon cart-cancelshopping'>Cancel Shopping</button>"))
         );
 
         /* Start : 17 March 2017 */
         /* Task  : Change header of override price to 2 lines display */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+
+           This function override element of attribute-overidePrice with <br/> to make 2 line display.
+
+        */
         $("#attribute-overridePrice").children('.attribute-label').html( $("#attribute-overridePrice").children('.attribute-label').text().replace(" ","<br/>") );
         
         /* End   : 17 March 2017 */
         /* Task  : Change header of override price to 2 lines display */
+        /* 
+           Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
 
         /* Start : 18 March 2017 */
         /* Task  : Change width of material code */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+
+           this function override styling width of input element
+        */
         $('td.cell-material').children('.attribute-field-container').children('input').css("width","75px");
         /* End   : 18 March 2017 */
         /* Task  : Change width of material code */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
 
         /* Start : 17 March 2017 */
         /* Task  : Change header of Material Description to 2 lines display */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+
+           this function override element of attibute-materialDescription with <br> to make 2 line display
+        */
         $("#attribute-materialDescription").children('.attribute-label').html( $("#attribute-materialDescription").children('.attribute-label').text().replace(" ","<br/>") );
         /* Start : 17 March 2017 */
         /* Task  : Change header of override price to 2 lines display */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
 
         /* Start : 17 March 2017 */
         /* Task  : hide icon for first row on additional bonus table */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
         $("#additionalMaterialArrayset tbody tr:first").children('.array-remove-cell').children('.array-remove').hide();
         /*
             needs to hide delete button for the first row of table additional bonus.
@@ -1773,10 +1856,19 @@
         */
         /* End  : 17 March 2017 */
         /* Task : hide icon for first row on additional bonus table */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
 
         /*
             Start : 6 April 2017
             Task  : align customer information
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+
+            override styling on customer information
         */
         var parentOfCustomerInfo = $( "#attribute-duplicateMaterialsPresentMessageHTML" );
         $( parentOfCustomerInfo ).next().css({"margin-top":"20px"});
@@ -1792,13 +1884,21 @@
         });
 
         /*
-            Start : 6 April 2017
+            End   : 6 April 2017
             Task  : align customer information
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
         /*
             Start : 6 April 2017
             Task  : Auto scroll to result search material
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+
+            this function trigger auto scroll to materal result when material Search text or material desc searcg text is not null
         */
 
         var materialSearchText = $("#material_s").val();
@@ -1812,13 +1912,21 @@
         }
             
         /*
-            Start : 6 April 2017
+            End   : 6 April 2017
             Task  : Auto scroll to result search material
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
         /*
             Start : 5 April 2017
             Task  : replace style width for handle low resolution
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+
+            override styling width for every row in child of search_html
         */
 
         $("#search_html").closest('.row').children().each(function(e, dataColumn){
@@ -1828,13 +1936,19 @@
         /*
             End   : 5 April 2017
             Task  : replace style width for handle low resolution
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
-
-
 
         /*
             Start : 4 April 2017
             Task : remove button delete
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+
+            this functions earch row type of bonus then set last coloumn element of delete button.
         */
         $(".cell-type").each(function(e, dataType){
             if($(dataType).text().toLowerCase() == "bonus" ){
@@ -1844,16 +1958,27 @@
         /*
             End : 4 April 2017
             Task : remove button delete
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
         /*
             Start : 23 March 2017
             Task  : hide + button in additional bonus table.
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+
+            this function hide button array-add on additional bonus tabel.
         */
         $('#additionalMaterialArrayset thead tr th:first').children('a.array-add').hide();    
         /*
             End   : 23 March 2017
             Task  : hide + button in additional bonus table.
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
         // tweak originals
@@ -1862,12 +1987,28 @@
         /* change width override price */
         /* Start : 17 March 2017 */
         /* Task  : Change header of override price to 2 lines display */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+
+           override styling display.
+        */
         $("td.cell-overridePrice").children().children('input').each(function(){
             $(this).css("width","60px");
         });
         /* End   : 17 March 2017 */
         /* Task  : Change header of override price to 2 lines display */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
         
+        /*
+            Task  : Make material description long text without scrolling.
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */
         var MaterialSize = $("#materialArrayset").data("size");
         var oldMaterialSize = 0;
         setInterval(function(){
@@ -1915,12 +2056,18 @@
             $(this).parent().parent().append(textbox);
             /* Start : 17 March 2017 */
             /* Task  : Reduce height of material description textarea */
+            /* Page  : Add Material Page
+               File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+               Layout : Desktop  
+            */
             $("#area_"+id_input).css("height", (document.getElementById("area_"+id_input).scrollHeight)+"px");
             /* End   : 17 March 2017 */
             /* Task  : Reduce height of material description textarea */
+            /* Page  : Add Material Page
+               File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+               Layout : Desktop  
+            */
         });
-        /* Start : 17 March 2017 */
-        /* Task  : Reduce height of material description textarea */
         $(".textarea-listen").keydown(function(){
             this.style.height = "1px";
             this.style.height = (this.scrollHeight)+"px";
@@ -1929,9 +2076,19 @@
 
         $("#tab-material-content").css({"width":"98%"});
 
-        /* End   : 17 March 2017 */
-        /* Task  : Reduce height of material description textarea */
+        /* Task  : Make material description long text without scrolling. */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
 
+        /*
+            Start : 10 March 2017
+            Task  : Make content Fav Freq Req on right side, and give animation for show and hide.
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */
         var tabelMaterial = $("#tab-material-content").children('.grid.clearfix').children().children('.column-0');
         var tabelFavFreqReq = $("#tab-material-content").children('.grid.clearfix').children().children('.column-1');
 
@@ -1949,22 +2106,33 @@
         /*
             Start : 22 March 2017
             Task  : Remove all the icons in top row
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
         $("#materialArrayset").after( $(".jg-box-toolbar") ); //for bottom
         /*
             End   : 22 March 2017
             Task  : Remove all the icons in top row
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
+        /* override styling width 100% */
         $( tabelMaterial ).css({ "width": "100%" });
         // $("#grid-36397039").children('.row').children('.column-0').css({width: "100%"});
         /* Right Panel Content */
+        /* add element class column into new element class jg-inner-column */
         $( totalPriceTop ).closest('.column').wrapInner($("<div class='jg-inner-column'>"));
         // $('#grid-36595617').closest('.column').wrapInner($("<div class='jg-inner-column'>"));
+        /* override styling margin of tabel Fav Freq and Req */
         $( tabelFavFreqReq ).css({"margin-top": "8px"});
         // $('#grid-36561838').closest('.column').css('marginTop', '8px');
         //transisi right side
+        /* override min height of material table */
         $('.jg-box-maincontent').css({"overflow": "hidden", "min-height": "800px"});
 
+        /* this function give new element img to each row tabel fav freq dan req */
         var listRightSideMenu = $( tabelFavFreqReq ).children();
         listRightSideMenu.each(function(i, data){
             var iconRightSideBar = "";
@@ -1996,9 +2164,11 @@
         $('#grid-36701507').children('.group-content')
                            .css('margin','0px')
                            .children('.group-header').children('span').prepend("<img src='"+rootFolder+"/image/images/rsm-favourite.png' >");*/
+        /* set value of right position on different display */
         var mainContentWidth = $(".jg-box-maincontent").width();
         var rightValue = -(mainContentWidth/4);
 
+        /* override style of table Fav Freq and Req */
         $( tabelFavFreqReq ).css({'position': 'fixed', 'right': rightValue+'px', 'height': '800px'});
         // $(rightPanel).css({'position': 'absolute', 'right': rightValue+'px', 'height': '800px'});
 
@@ -2047,6 +2217,7 @@
             }
         );
 
+        /* this function listen if mouse leave table fav freq and req */
         $( tabelFavFreqReq ).mouseleave(
             function(e){
                 listRightSideMenu.each( function(i, data){
@@ -2059,8 +2230,22 @@
             }
         );
 
+        /*
+            End   : 10 March 2017
+            Task  : Make content Fav Freq Req on right side, and give animation for show and hide.
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+        */
+
         /*  Start : 1 April 2017
             Task  : Change style of content material search
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
+
+            this function override styling and re-position button on search material.
+            and add custom button next and previous on search material.
         */
         // allign search button
         $("#search_html").parents('.attribute-inner').css({"padding": "0px"});
@@ -2072,17 +2257,23 @@
         $("<div id='menu_bottom' width='100%' ></div>").insertAfter("#materialResults")
         //move to bottom menu
         // $("#menu_bottom").append($("<div id='area_add' style='float:left;' ></div>"));
+        /* add bottom menu area */
         $("#menu_bottom").append($("<div id='area_paging' style='float:right;width:400px;' ></div>"));
+        /* styling add material button */
         $("#attribute-addMaterials").css({"float":"left"});
+        /* styling add material button */
         $("#addMaterials").children('p').children().css("width","100px");
+        /* mobing add material button on area paging */
         $("#area_paging").append($("#attribute-addMaterials"));
+        /* create custom previous and next button and append after add material */
         $("#area_paging").append( $('<div class="attribute-inner clearfix" style="float:left;padding-left:0px;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="prev_custom"><p><button class="jg-btn">Previous</button></p></div></div></div>') )
                          .append( $('<div class="attribute-inner clearfix" style="float:left;padding-left:0px;" ><div class="attribute-label-container"></div><div class="attribute-field-container"><div class="unreset read-only-html" id="next_custom" ><p><button class="jg-btn" style="width:100px;" >Next</button></p></div></div></div>') );
-
+        /* trigger previous button to original button click */
         $("#prev_custom").on("click", function(){
             $("#previous_res_true").click();
         });
-        
+
+        /* trigger next button to original button click */
         $("#next_custom").on("click", function(){
             $("#next_res_true").click();
         });
@@ -2090,12 +2281,21 @@
 
         /*  End   : 1 April 2017
             Task  : Change style of content material search
+            Page  : Add Material Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Desktop  
         */
 
         /* Events */
 
         /* Start : 18 March 2017 */
         /* Task  : When button array-add clicked, it trigger update button too */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+
+           this function listen array-add in tabel material, triggered update function.
+        */
         $('.array-add').bind('click', function(e){
             $(".textarea-listen").remove();
             setTimeout(function(){
@@ -2104,31 +2304,40 @@
         });
         /* Start : 18 March 2017 */
         /* Task  : When button array-add clicked, it trigger update button too */
+        /* Page  : Add Material Page
+           File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+           Layout : Desktop  
+        */
 
+        /* custom update button */
         $('.cart-update').bind('click', function(e) {
             e.preventDefault();
 
             $('#update')[0].click();
         });
 
+        /* custom button add to cart */
         $('.cart-addtoorder').bind('click', function(e) {
             e.preventDefault();
 
             $('#add_to_cart')[0].click();
         });
 
+        /* custom button start over */
         $('.cart-startover').bind('click', function(e) {
             e.preventDefault();
 
             $('#start_over')[0].click();
         });
 
+        /* custom button save */
         $('.cart-save').bind('click', function(e) {
             e.preventDefault();
 
             $('#save')[0].click();
         });
 
+        /* custom button cancel shopping */
         $('.cart-cancelshopping').bind('click', function(e) {
             e.preventDefault();
 
@@ -2145,13 +2354,17 @@
     }
 
     function transform_reportpage() {
+        /* add class jg-pg-reportpage */
         $('body').addClass('jg-page-reportpage');
+        /* add text 'Report Manager' on element jg-topbar-title */
         $('#jg-topbar-title').text("Report Manager");
-
+        /* move element class extra-panes to jg-box-maincontent */
         $('.extra-panes').appendTo('.jg-box-maincontent');
+        /* move element class main-pane to jg-box-maincontent */
         $('.main-pane').appendTo('.jg-box-maincontent');
 
         // toolbar
+        /* add custom button add, update, stylsheet, refresh, default, favorite, trash, edit */
         $('.jg-list-tool')
             .append($("<li class='jg-item-tool report'>")
                 .append($("<a href='#' id='jg-tool-report-add' class='jg-linkbtn report-add'>Add</a>"))
@@ -2185,7 +2398,7 @@
                 .append($("<a href='#' class='jg-linkbtn jg-tool-refresh'></a>"))
             );
 
-        // folders
+        // get list folder and override href to default link
         $('#foders .dropTarget td[title]').each(function(i, target) {
             if ($(target).attr('title').toLowerCase().indexOf('default') != -1) {
                 $('#jg-tool-folder-default').attr('href', $(target).prev().find('a').attr('href'));
@@ -2198,26 +2411,36 @@
             }
         });
 
+        /* hide element of form-label has class .toolbar */
         $('.form-label.toolbar').hide();
+        /* hide element table in element of class .refresh-date */
         $('.refresh-date').closest('table').hide();
+        /* remove element of br in element has id reportManager */
         $('#reportManager br').eq(0).remove();
 
         /* EVENTS */
+        /* custom report add button */
         $('#jg-tool-report-add').click(function(e) {
             e.preventDefault();
 
             $('#add')[0].click();
         });
+
+        /* custom report stylesheet button */
         $('#jg-tool-report-stylesheet').click(function(e) {
             e.preventDefault();
 
             $('#stylesheet')[0].click();
         });
+
+        /* custom update button */
         $('#jg-tool-report-update').click(function(e) {
             e.preventDefault();
 
             $('#update')[0].click();
         });
+
+        /* custom refresh button */
         $('.jg-tool-refresh').click(function(e) {
             e.preventDefault();
 
@@ -2228,18 +2451,25 @@
     /* mobile */
 
     function mobile_newlayout() {
+
+        /* get url string */
         var urlarr = url.split('/');
         // console.log(urlarr);
+        /* check if url have mobile and have 4 element data then redirect to the string link */
         if ( ( urlarr[3].match("mobile") !== null ) && (urlarr.length == 4) ) {
             location.href = "/commerce/buyside/commerce_manager.jsp?bm_cm_process_id=36244034&from_hp=true&_bm_trail_refresh_=true";
             return false;
         }
 
+        /* get title text */
         pagetitle = $('title').text().toLowerCase().trim();
         console.log(pagetitle);
+
+        /*
         $('.tab-link').bind("tap", function() {
             console.log($(this));
-        });
+        });*/
+        /* if if pagetitle is empty then call functoon mobile_newlayout() */
         if (pagetitle == '') {
             setTimeout(function() {
                 mobile_newlayout();
@@ -2247,19 +2477,26 @@
 
             return;
         }
+
+        /* hide element if jg-overlay */
         $('#jg-overlay').hide();
+        /* add class jg-mobilelayout */
         $('html').addClass('jg-mobilelayout');
 
+        /* if pagetutle login then call function mobile_loginpage */
         if (pagetitle == 'login') {
             mobile_loginpage();
         }else{
-            
-            
+            /* if pagetitle commerce then call transform_mainlayout and transform_orderspage */
             if (pagetitle == 'commerce management') {
                 transform_mainlayout();
                 transform_orderspage();
             }
             else if( pagetitle == "zuellig pharma products" || pagetitle == "zuellig pharma order process" ){
+                /* 
+                    if the value is zuellig pharma producst or zuelling pharma order process then
+                    styling for view
+                 */
                 $("h1.ui-title").css({
                     "background": "#004A5B",
                     "color": "#fff",
@@ -2356,19 +2593,28 @@
     }
 
     function mobile_loginpage() {
+
+        /*
+            give image for logo, and styling for login form.
+        */
         var imglogin = $("<img src='"+rootFolder+"/image/images/ezrx.png' class='jg-login-logo'>")
             .prependTo('#login-form')
             .after("<span class='jg-login-welcome'>Welcome</span>")
             .append($("<div class='jg-box-login-bottom'>")
                 .append($("<img src='"+rootFolder+"/image/images/zuellig.png' class='jg-login-logo' />"))
             );
+        /* add class login-mobile-box on main-content element */
         $("#main-content").addClass('login-mobile-box');
+        /* hide element of label username and psword */
         $('label[for=username], label[for=psword]').hide();
+        /* add element forgot password */
         $('#forgotpassword').insertAfter($('label[for=psword]').next());
+        /* hide element footer */
         $('footer').hide();
     }
 
     function mobile_adjustcontenttop() {
+        /* give styling on mobile view, and call it after 500 milisecond */
         setTimeout(function() {
             $('#header').parent().css('paddingTop', $('#header').outerHeight()).css('margin', '0');
         }, 500);
@@ -2376,8 +2622,14 @@
 
     /* monic's script */
     function adjust_tooltip() {
+        /* create tootip for contract bonus */
         $('td.cell-contractBonus').attr('tooltip', function() {
             var button_helper;
+            /* get the text of contract bonus 
+                if value is not null then button helper is lens icon
+                if it is null then button helper is -
+                then replace html with button helper
+            */
             var valueOfBonus = $(this).text();
             if ($(this).text().trim() != '') {
                 button_helper = '<i class="material-lens" aria-hidden="true" ></i>';
@@ -2388,7 +2640,14 @@
             return valueOfBonus;
         }).mouseenter(function() {
             /* Start : 17 March 2017 */
-            /* Task  : Add header column Product Description */
+            /* Task  : Add header column Product Description 
+               Page  : Add Material Page
+               File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+               Layout : Desktop  
+
+               if mouse hover on element contractBonus (lens icon) then showing table of ordered qty, bonus material, material desc, material qty
+
+            */
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;">'+
                         '<thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;">'+
                         '<th style="border: 1px solid #999;padding:5px;">Ordered Qty</th>'+
@@ -2397,6 +2656,13 @@
                         '<th style="border: 1px solid #999;padding:5px;">Bonus Qty</th></tr></thead>';
             /* End : 17 March 2017 */
             /* Task  : Add header column Product Description */
+            /* Page  : Add Material Page
+               File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+               Layout : Desktop  
+           */
+           /*
+                Set element of row and coloumn in hover table.
+            */
             var x = $(this).attr('tooltip').trim();
             if (x != "") {
                 var col = x.trim().split(",");
@@ -2417,6 +2683,9 @@
                 }
             }
             table += '</table>';
+            /*
+                showing element if the content is not null
+            */
             if ($(this).attr('tooltip').trim() != '') {
                 $('#myModal').addClass('hover-modal-content').html(table);
                 $('#myModal').css("display", "block");
@@ -2426,9 +2695,15 @@
             });
         });
 
+        /* prepare tooltip for cell-promotion */
         $('td.cell-promotion').attr('tooltip', function() {
             var button_helper;
             var valueOfPromotion = $(this).text();
+            /* get the text of value of promotion
+                if value is not null then button helper is lens icon
+                if it is null then button helper is -
+                then replace html with button helper
+            */
             if ($(this).text().trim() != '') {
                 button_helper = '<i class="material-lens" aria-hidden="true" ></i>';
             } else {
@@ -2437,6 +2712,9 @@
             $(this).children('.attribute-field-container').children('span').html(button_helper);
             return valueOfPromotion;
         }).mouseenter(function() {
+            /*
+                if mouse hover on element promotion (lens icon) then showing table of Ordered Quantity and contract price
+            */
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Ordered Quantity</th><th style="border: 1px solid #999;padding:5px;">Contract Price</th></tr></thead>';
             var x = $(this).attr('tooltip').trim();
             if (x != "") {
@@ -2458,6 +2736,9 @@
                 }
             }
             table += '</table>';
+            /*
+                showing element if the content is not null
+            */
             if ($(this).attr('tooltip').trim() != '') {
                 $('#myModal').addClass('hover-modal-content').html(table);
                 $('#myModal').css("display", "block");
@@ -2470,18 +2751,25 @@
         //material description
         //for add material page.
         var input_val;
+        /* prepare for tooltip on material description */
         $('td.cell-materialDescription').attr("tooltip", function(){
             var input_text = $(this).children(".attribute-field-container").children("textarea");
+            /* get text of material description */
             input_val = $( input_text ).val();
             return input_val;
         }).mouseenter(function(){
+            /* get text of material desciption */
             var input_text = $(this).children(".attribute-field-container").children("textarea");
             input_val = $( input_text ).val();
+            /*
+                if mouse hover on element material description then showing table of Material Description.
+            */
             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
             table += "<tbody>";
             table += "<tr><td>"+input_val+"</td></tr>";
             table += "</tbody></table>";
             // if ($(this).attr('tooltip') != '') {
+            /* always showing table of material description */
             $('#myModal').addClass('hover-modal-content').html(table);
             $('#myModal').css("display", "block");
             // }
@@ -2491,13 +2779,25 @@
         });
 
         //for order page.
+        /* prepare tootip for material description in order page */
         $("td[id*='part_desc']").each(function(i, data){
             /* Start : 17 March 2017 */
             /* Task  : Make 2 or more line, for descripton material */
+            /* Page  : Order Page
+               File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+               Layout : Desktop
+
+               replace css for displaying material description, this need word wrap view text.
+            */
             $(data).css("white-space","normal");
             /* add css white-space then give value normal */
             /* Start : 17 March 2017 */
             /* Task  : Make 2 or more line, for descripton material */
+            /* Page  : Order Page
+               File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+               Layout : Desktop
+            */
+            /* get material description on table material in order page */
             var remove_attr = data.id.split("attr_wrapper");
             var object_span = $( "#readonly"+remove_attr[1] );
             var input_val = object_span.text();
@@ -2506,10 +2806,14 @@
                         })
                         .html('<i class="material-lens" aria-hidden="true" ></i>'+input_val)
                         .mouseenter(function(){
+                            /*
+                                if mouse hover on element material description then showing table of Material Description.
+                            */
                             var table = '<table style="text-align:center;width:100%;border-collapse: collapse;"><thead style="padding:5px;font-weight:bold"><tr style="background-color:#EEE;"><th style="border: 1px solid #999;padding:5px;">Material Description</th></thead>';
                             table += "<tbody>";
                             table += "<tr><td>"+input_val+"</td></tr>";
                             table += "</tbody></table>";
+                            /* if the content is not null then show the table. */
                             if ($(this).attr('tooltip') != '') {
                                 $('#myModal').addClass("hover-modal-content").html(table);
                                 $('#myModal').css("display", "block");
@@ -2520,6 +2824,7 @@
                         });
         });
 
+        /* listen all class in the list, for following position above all code of modal table  */
         $('td.cell-contractBonus, td.cell-promotion, td[id*="part_desc"], td.cell-materialDescription')
             .hover(function(e) {
                 e.preventDefault();
