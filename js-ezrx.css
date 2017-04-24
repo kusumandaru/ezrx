@@ -348,6 +348,14 @@ tfoot .jg-btn { margin:10px; }
 .jg-mobilelayout .ui-mobile-viewport .jg-box-login #login-form { margin:20px 30px; }
 .jg-mobilelayout .jg-box-login .ui-block-b { width:285px; height:auto; margin-top:60px; line-height:50px; text-transform:capitalize; font-weight:bold !important; color:#00555C; border:0; border-radius:30px; background:#B8C942; }
 
+.jg-mobilelayout .jg-item-mainmenu + .jg-item-mainmenu {
+	margin-top: 7px;
+}
+
+.jg-mobilelayout .jg-list-mainmenu {
+	padding: 0px;
+}
+
 .jg-mobilelayout .ui-bar-b, .jg-mobilelayout .ui-page-theme-b .ui-bar-inherit, html.jg-mobilelayout .ui-bar-b .ui-bar-inherit, html.jg-mobilelayout .ui-body-b .ui-bar-inherit, html.jg-mobilelayout body .ui-group-theme-b .ui-bar-inherit { background:#eee; border:0; }
 .jg-mobilelayout #tabs .tab-link.active, .jg-mobilelayout #tabs .all-tabs.active,
 .jg-mobilelayout .ui-page-theme-b .ui-btn, html.jg-mobilelayout .ui-bar-b .ui-btn, html.jg-mobilelayout .ui-body-b .ui-btn, html.jg-mobilelayout body .ui-group-theme-b .ui-btn, html.jg-mobilelayout head+body .ui-btn.ui-btn-b, .jg-mobilelayout .ui-page-theme-b .ui-btn:visited, html.jg-mobilelayout .ui-bar-b .ui-btn:visited, html.jg-mobilelayout .ui-body-b .ui-btn:visited, html.jg-mobilelayout body .ui-group-theme-b .ui-btn:visited, html.jg-mobilelayout head+body .ui-btn.ui-btn-b:visited,

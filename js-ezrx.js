@@ -2491,13 +2491,15 @@
             if (pagetitle == 'commerce management') {
                 transform_mainlayout();
                 transform_orderspage();
+                mobile_commerce_management();
             }
             else if( pagetitle == "zuellig pharma products" || pagetitle == "zuellig pharma order process" ){
                 /* 
                     if the value is zuellig pharma producst or zuelling pharma order process then
                     styling for view
                  */
-                $("h1.ui-title").css({
+
+                /*$("h1.ui-title").css({
                     "background": "#004A5B",
                     "color": "#fff",
                 });
@@ -2515,30 +2517,34 @@
                 $(".jg-mobilelayout #header a.ui-btn-left span").css({
                     "background": 'url("'+rootFolder+'/image/images/lsm_home_icon.png")',
                     "background-repeat": "no-repeat",
-                });
+                });*/
             }
-            else if (pagetitle == 'zuellig pharma order process') {
-                console.log("execute");
+            
+            if (pagetitle == 'zuellig pharma order process') {
+
+                /*console.log("execute");
                 try{
                     console.log("try and catch");
                     setTimeout( function(){
                         console.log("execute tap");
-                        $("a.tab-link").on("tap", function(){
-                            console.log( $(this) );
-                            if ($(this).attr('href') == '#tab-pricing') {
-                                console.log("tab tapping");
-                                setTimeout( function(){
-                                    console.log("tab pricing active");
-                                    var customerPORefParent = $("label[for='customerPORef_t']");
-                                    var customerPORef = customerPORefParent[0];
-                                    $(customerPORef).css("color","red");
-                                }, 4000 );
-                            };
+                        $( document ).ajaxStop(function() {
+                          $("a.tab-link").on("tap", function(){
+                                console.log( $(this) );
+                                if ($(this).attr('href') == '#tab-pricing') {
+                                    console.log("tab tapping");
+                                    setTimeout( function(){
+                                        console.log("tab pricing active");
+                                        var customerPORefParent = $("label[for='customerPORef_t']");
+                                        var customerPORef = customerPORefParent[0];
+                                        $(customerPORef).css("color","red");
+                                    }, 4000 );
+                                };
+                            });
                         });
                     }, 4000 );
                 }catch(err){
                     console.log(err);
-                }
+                }*/
                 /*$('.tab-link').bind("tap", function() {
                     
                 });*/
@@ -2707,6 +2713,40 @@
             Page  : Login Page
             File Location : $BASE_PATH$/image/javascript/js-ezrx.js
             Layout : Mobile
+        */
+
+    }
+
+    function mobile_commerce_management(){
+        /*
+            Start : 24 April 2017 
+            Task  : Show and hide menu side bar
+            Page  : Commerce Management
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+            
+            set default hide side nav and give style to mainarea, when user clicked bar menu, show sidenav.
+        */
+        $(".jg-box-sidenav").css("display","none");
+        $(".jg-box-mainarea").css("padding-left","0px");
+        $(".jg-box-topbar").prepend("<a href='#' id='menu_mobile' ><img src='"+rootFolder+"/image/images/bars-icon.png' style='width:40px;float:left;padding:5px;' ></a");
+        $("#menu_mobile").click(function(){
+            var timeAnimation = 1000;
+            if( $(".jg-box-sidenav").css("display") == "none" ){
+                $(".jg-box-sidenav").show(timeAnimation);
+                $(".jg-box-mainarea").animate({"padding-left": "50px"}, timeAnimation);
+            }else{
+                $(".jg-box-sidenav").hide(timeAnimation);
+                $(".jg-box-mainarea").animate({"padding-left": "0px"}, timeAnimation);
+            }
+        });
+        /*
+            End   : 24 April 2017 
+            Task  : Show and hide menu side bar
+            Page  : Commerce Management
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+            
         */
 
     }
