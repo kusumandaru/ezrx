@@ -1,6 +1,5 @@
-(function($) {
-	
-	function transform_mainlayout() {
+
+	var transform_mainlayout = function() {
         // Add new layout
         /*
             Start : 19 March 2017
@@ -224,11 +223,9 @@
         });*/
     }
 
-    function transform_newfooter() {
+    var transform_newfooter = function() {
         // new footer
         $('.jg-box-mainarea').append($("<div class='jg-box-footer'>")
             .append($("<img src='"+rootFolder+"/image/images/dk-img-footer.png' class='jg-img-footer' />"))
         );
     }
-
-})( jQuery );

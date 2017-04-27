@@ -1,5 +1,3 @@
-(function($) {
-	
 	function transform_newcopypage() {
         // toolbar
         // $('.jg-box-toolbar').addClass('invert');
@@ -787,5 +785,3 @@
             $('#save').click();
         });
     }
-	
-})( jQuery );

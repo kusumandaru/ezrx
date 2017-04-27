@@ -1,4 +1,3 @@
-(function($) {
 
 	function mobile_newlayout() {
 
@@ -154,5 +153,3 @@
             $('#header').parent().css('paddingTop', $('#header').outerHeight()).css('margin', '0');
         }, 500);
     }
-
-})( jQuery );

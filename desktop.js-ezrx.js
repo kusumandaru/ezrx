@@ -1,6 +1,5 @@
-(function($) {
 
-	function desktop_newlayout() {
+	var desktop_newlayout = function() {
         /* UI */
         /*
             Start : -
@@ -221,5 +220,3 @@
             Layout : Desktop
         */
     }
-
-})( jQuery );

@@ -1,4 +1,3 @@
-(function($) {
 	
 	/* monic's script */
     function adjust_tooltip() {
@@ -213,5 +212,3 @@
                 $('#myModal').css('top', e.pageY - $(document).scrollTop() + 10 + 'px').css('left', e.pageX - $(document).scrollLeft() + 10 + 'px');
             });
     }
-	
-})( jQuery );

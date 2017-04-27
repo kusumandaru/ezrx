@@ -1,5 +1,3 @@
-(function($) {
-	
 	function transform_reportpage() {
         /* add class jg-pg-reportpage */
         $('body').addClass('jg-page-reportpage');
@@ -95,4 +93,3 @@
         });
     }
 	
-})( jQuery );

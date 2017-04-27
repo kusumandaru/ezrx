@@ -1,5 +1,3 @@
-(function($) {
-
 	function transform_loginpage() {
         var newlayout = $("<div class='jg-box-login'>")
             .append($("<div class='jg-box-login-inner'>")
@@ -139,5 +137,3 @@
         */
 
     }
-
-})( jQuery );

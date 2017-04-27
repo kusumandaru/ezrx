@@ -1,5 +1,3 @@
-(function($) {
-	
 	function transform_modelconfig() {
         /* add class jg-page-cartpage to body */
         $('body').addClass('jg-page-cartpage');
@@ -610,4 +608,3 @@
         
     }
 	
-})( jQuery );

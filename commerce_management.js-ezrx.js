@@ -1,5 +1,3 @@
-(function($) {
-	
 	function transform_orderspage() {
         // toolbar
         /*
@@ -363,5 +361,3 @@
         */
 
     }
-
-})( jQuery );

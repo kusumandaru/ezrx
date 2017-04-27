@@ -16,11 +16,12 @@
         pagetitle, 
         rootFolder,
         listFile = [
+                    'layout.js-ezrx.js',
                     'login_page.js-ezrx.js',
                     'desktop.js-ezrx.js',
                     'mobile.js-ezrx.js',
                     'commerce_management.js-ezrx.js',
-                    'tool_top.js-ezrx.js',
+                    'tool_tip.js-ezrx.js',
                     'transaction.js-ezrx.js',
                     'model_configuration.js-ezrx.js',
                     'report_manager.js-ezrx.js',
@@ -85,7 +86,7 @@
             Call all library ezrx needed
         */
 
-        listFile.forEach( function(fileName){
+        /*listFile.forEach( function(fileName){
             var directory = rootFolder+"/image/javascript/";
             $.getScript( directory+fileName )
               .done(function( script, textStatus ) {
@@ -94,7 +95,7 @@
               .fail(function( jqxhr, settings, exception ) {
                 console.log("Error! Please check file : " + fileName + " on " + directory);
             });
-        } );
+        } );*/
 
         /*  
             End   : 27 April 2017 
