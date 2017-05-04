@@ -1275,6 +1275,31 @@
             Layout : Desktop  
         */
 
+        global_searchCustomer();
+
+        /* EVENTS */
+        /* custom button for add to fav */
+        $('#jg-tool-addtofav, #jg-btn-addtofav').click(function(e) {
+            e.preventDefault();
+
+            $('#').click();
+        });
+
+        /* custome button for pipeline viewer */
+        $('#jg-tool-pipelineviewer, #jg-btn-pipelineviewer').click(function(e) {
+            e.preventDefault();
+
+            $('#').click();
+        });
+
+        $('#btn-neworder-save').click(function(e) {
+            e.preventDefault();
+
+            $('#save').click();
+        });
+    }
+
+    function global_searchCustomer(){
         /*
             Start : 29 March 2017
             Task  : Search customer on order page
@@ -1720,27 +1745,6 @@
             File Location : $BASE_PATH$/image/javascript/js-ezrx.js
             Layout : Desktop  
         */
-
-        /* EVENTS */
-        /* custom button for add to fav */
-        $('#jg-tool-addtofav, #jg-btn-addtofav').click(function(e) {
-            e.preventDefault();
-
-            $('#').click();
-        });
-
-        /* custome button for pipeline viewer */
-        $('#jg-tool-pipelineviewer, #jg-btn-pipelineviewer').click(function(e) {
-            e.preventDefault();
-
-            $('#').click();
-        });
-
-        $('#btn-neworder-save').click(function(e) {
-            e.preventDefault();
-
-            $('#save').click();
-        });
     }
 
     function transform_modelconfig() {
@@ -2482,9 +2486,19 @@
 
         /* hide element if jg-overlay */
         $('#jg-overlay').hide();
-        /* add class jg-mobilelayout */
 
+        /*
+            Start : 4 Mei 2017 
+            Task  : Debug order page + create filter page mobile with URL.
+            Page  : Global mobile page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+            
+            if pagetile not null call default function
+        */
         if(pagetitle != ''){
+            
+            /* add class jg-mobilelayout */
             $('html').addClass('jg-mobilelayout');
             if (pagetitle == 'login') {
                 /* if pagetitle login then call function mobile_loginpage */
@@ -2508,12 +2522,15 @@
             }
 
         }else{
-
+            /* if oagetitle is null call custom filter from URL */
+            /* call abstract function jquery for checking the selector variable is exists */
             $.fn.exists = function () {
                 return this.length !== 0;
             }
 
+            /* create filterPage get last string of URL */
             var filterPage = urlarr[ urlarr.length-1 ];
+            /* if filterPage contains with commerce */
             if( filterPage.search( "commerce" ) != -1 ){
                 //[new] order & material page
                 // var checkVariable = filterPage.split("?");
@@ -2525,23 +2542,37 @@
                     // material page.
                     console.log("Material page");
                 }
+            /* if filterPage contains with copy_processing.jsp */
             }else if( filterPage.search( "copy_processing.jsp" ) != -1 ){
                 //[copy] order
                 console.log("Copy Order order");
                 mobile_orderpage();
+
+            /* if filterPage contains with document.jsp */
             }else if( filterPage.search( "document.jsp" ) != -1 ){
                 //[process] order
                 console.log("Proses Order page");
                 mobile_orderpage();
+
+            /* if filterPage contains with commerce_manager.jsp */
             }else if( filterPage.search( "commerce_manager.jsp" ) != -1 ){
                 //Commerce Management
                 console.log("Commerce page");
+
+            /* if filterPage contains with edit_profile.jsp */
             }else if( filterPage.search( "edit_profile.jsp" ) != -1 ){
                 //Profile
                 console.log("Profile page");
             }
 
         }
+        /*
+            End : 4 Mei 2017 
+            Task  : Debug order page + create filter page mobile with URL.
+            Page  : Global mobile page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+        */
     }
 
     function mobile_loginpage() {
@@ -2718,6 +2749,15 @@
     }
 
     function mobile_orderpage(){
+
+        /*
+            Start : 5 Mei 2017 
+            Task  : Create script for handle view on Order Page
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+        */
+
         var hasExecute = false;
         $( document ).ajaxComplete(function(){
             console.log("ajax complete")
@@ -2730,7 +2770,18 @@
                         if( hrefData == "#tab-draftOrder" ){
                             //draftOrder
                         }else if( hrefData == "#tab-customerSearch" ){
-
+                            var originalCustomerBtn = $(".action-type-browse").parent();
+                            var customCustomerBtn = "<div id='customButtonCustomer' class='action-strip' >"+
+                                                        "<button class='action action-type-browse ui-btn ui-btn-inline ui-shadow ui-corner-all'>"+
+                                                            "Search Customer"+
+                                                        "</button>"+
+                                                    "</div>";
+                            $(customCustomerBtn).insertBefore( originalCustomerBtn );
+                            $( originalCustomerBtn ).hide();
+                            $("#customButtonCustomer").on("click", function(e){
+                                e.preventDefault();
+                                console.log("show form");
+                            });
                         }else if( hrefData == "#tab-pricing" ){
                             console.log("tab-pricing");
                             $("label[for='customerPORef_t']").css("color","red");
@@ -2743,6 +2794,14 @@
         $( document ).ajaxStart(function() {
           hasExecute = false;
         });
+
+        /*
+            End   : 5 Mei 2017 
+            Task  : Create script for handle view on Order Page
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+        */
     }
 
     function mobile_adjustcontenttop() {
