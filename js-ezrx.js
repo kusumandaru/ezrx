@@ -2619,6 +2619,26 @@
                 .append($("<img src='"+rootFolder+"/image/images/zuellig.png' class='jg-login-logo' />"))
             );*/
         /* add class login-mobile-box on main-content element */
+        /*
+            Start : 3 Mei 2017
+            Task  : Repair login animation and view.
+            Page  : Login Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+
+            Hide header from new style.
+
+        */
+            $("#header").css("display","none");
+        /*
+            End   : 3 Mei 2017
+            Task  : Repair login animation and view.
+            Page  : Login Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+
+        */
+
         $("#main-content").addClass('login-mobile-box');
         /* hide element of label username and psword */
         $('label[for=username], label[for=psword]').hide();
@@ -2654,7 +2674,7 @@
                             "<span class='ui-btn-inner'>"+
                             "<span class='ui-btn-text'>Log In</span>"+
                             "</span>"+
-                            "<button class='ui-block-b ui-btn-hidden' id='login_mobile_animation' data-disabled='false'>Log In</button>"+
+                            "<button class='ui-block-b ui-btn-hidden' style='display:none;' id='login_mobile_animation' data-disabled='false'>Log In</button>"+
                             "</div>"+
                             "<div id='forgotpassword' style='position:relative;right:0px;bottom:45px;' >"+
                               "<a href='/mobile/reset-password' data-transition='slide' class='ui-link'>Forgot password?</a>"+
@@ -2694,17 +2714,17 @@
           }
 
           console.log( _originalSize );
-          $("input.ui-input-text").on("click", function(){
+          $(".ui-input-text > input").on("click", function(){
             console.log( "on tap" );
             keyboardShow();
           });
 
-          $("#login_mobile_animation").on("click", function(){
+          $( $("#login_mobile_animation").siblings() ).on("click", function(){
             $("#username").val( $("#id_focus_username").val() );
             $("#password").val( $("#id_focus_password").val() );
             console.log( $("#username").val() );
             console.log( $("#password").val() );
-            $("#login-form").children('.ui-submit').children('button').click();
+            $("#login-form").children('button[type="submit"]').click();
           });
         
         /*
@@ -2749,6 +2769,10 @@
             
         */
 
+    }
+
+    function mobile_orderpage(){
+        
     }
 
     function mobile_adjustcontenttop() {
