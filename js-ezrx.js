@@ -1275,7 +1275,7 @@
             Layout : Desktop  
         */
 
-        global_searchCustomer();
+        global_searchCustomer('desktop');
 
         /* EVENTS */
         /* custom button for add to fav */
@@ -1299,7 +1299,7 @@
         });
     }
 
-    function global_searchCustomer(){
+    function global_searchCustomer(device){
         /*
             Start : 29 March 2017
             Task  : Search customer on order page
@@ -1311,67 +1311,69 @@
             styling on search customer.
         */
         var version_id, document_id, action_id;
-        var searchCustomer = $("#search_customer").closest(".bm-actionstrip-horiz");
-        //remove last div 
-        searchCustomer.closest('.column.label-left').css({"width":"70%"});
-        searchCustomer.closest('.column.label-left').next().remove();
-        var tableSearchCustomer = $("#search_customer").closest("table");
-        var getBmOpenWindow = $( tableSearchCustomer ).attr("onclick");
-        /*
-            each value getBmOpenWindow value on click,
-            execute javascript function except bmOpenWindow & bmCancelBubble
-            if function is setDocFormIds then get document_id and action_id value
-            if function is bmOpenWindow then get version_id value
-        */
-        $(getBmOpenWindow.replace("javascript:","").split(";")).each(function(e, data){
-            if(!(/bmOpenWindow/i.test(data)) && !(/bmCancelBubble/i.test(data))){
-              eval( data );
-            }
-            if( /setDocFormIds/i.test(data) ){
-              var valueDocForm = data.replace("setDocFormIds(","");
-              var valueDocForm = valueDocForm.replace(")","");
-              var valueDocForm = valueDocForm.split(",");
-              console.log(valueDocForm);
-              document_id = parseInt(valueDocForm[0]);
-              action_id = parseInt(valueDocForm[2]);
-            }
-            if( /bmOpenWindow/i.test(data) ){
-              var urlData = data.split(',');
-              urlData = urlData[0].replace("bmOpenWindow(").split("&");
-              $(urlData).each(function(e, dataGet){
-                if( /version_id/i.test(dataGet) ){
-                  version_id = parseInt( dataGet.replace("version_id=", "") );
-                }
-              });
-            }
-
-          });
-
+        console.log("Search Customer");
         /*
             Create and styling template for search customer, and create same environment with default search customer.
             Create element for result search customer.
         */
-        var parentOfSearchCustomer = $( searchCustomer ).parent();
-        //hide searchCustomer 
-        $( searchCustomer ).hide();
-        //create element
+
         $("body").append( $("<div id='layer_search_customer' ></div>") );
         $("#layer_search_customer").css({ "position":"fixed", "top":"0", "right":"0", "bottom":"0", "left":"0", "z-index":"99999", "background":"white", "display":"none"});
-        $( parentOfSearchCustomer ).append( "<div class='bm-actionstrip-horiz' >"+
-                                            "<table>"+
-                                            "<body>"+
-                                            "<tr>"+
-                                            "<td class='button-middle' >"+
-                                            "<div style='margin: 0px 0px 1px;' >"+
-                                            "<a class='button-text' id='show_search_customer' style='cursor:pointer;' >Search Customer</a>"+
-                                            "</div>"+
-                                            "</td>"+
-                                            "</tr>"+
-                                            "</tbody>"+
-                                            "</table>"+
-                                            "</div>"
-                                            );
-        $( "#layer_search_customer" ).append( "<form name='SearchCustomer' method='post' action='/commerce/buyside/crm_browse_dialog.jsp' id='templateSearchCustomer' >"+
+        
+        if(device == 'desktop'){
+            var searchCustomer = $("#search_customer").closest(".bm-actionstrip-horiz");
+            //remove last div 
+            searchCustomer.closest('.column.label-left').css({"width":"70%"});
+            searchCustomer.closest('.column.label-left').next().remove();
+            var tableSearchCustomer = $("#search_customer").closest("table");
+            var getBmOpenWindow = $( tableSearchCustomer ).attr("onclick");
+            /*
+                each value getBmOpenWindow value on click,
+                execute javascript function except bmOpenWindow & bmCancelBubble
+                if function is setDocFormIds then get document_id and action_id value
+                if function is bmOpenWindow then get version_id value
+            */
+            $(getBmOpenWindow.replace("javascript:","").split(";")).each(function(e, data){
+                if(!(/bmOpenWindow/i.test(data)) && !(/bmCancelBubble/i.test(data))){
+                  eval( data );
+                }
+                if( /setDocFormIds/i.test(data) ){
+                  var valueDocForm = data.replace("setDocFormIds(","");
+                  var valueDocForm = valueDocForm.replace(")","");
+                  var valueDocForm = valueDocForm.split(",");
+                  console.log(valueDocForm);
+                  document_id = parseInt(valueDocForm[0]);
+                  action_id = parseInt(valueDocForm[2]);
+                }
+                if( /bmOpenWindow/i.test(data) ){
+                  var urlData = data.split(',');
+                  urlData = urlData[0].replace("bmOpenWindow(").split("&");
+                  $(urlData).each(function(e, dataGet){
+                    if( /version_id/i.test(dataGet) ){
+                      version_id = parseInt( dataGet.replace("version_id=", "") );
+                    }
+                  });
+                }
+            });
+            var parentOfSearchCustomer = $( searchCustomer ).parent();
+            //hide searchCustomer 
+            $( searchCustomer ).hide();
+            //create element
+            $( parentOfSearchCustomer ).append( "<div class='bm-actionstrip-horiz' >"+
+                                                "<table>"+
+                                                "<body>"+
+                                                "<tr>"+
+                                                "<td class='button-middle' >"+
+                                                "<div style='margin: 0px 0px 1px;' >"+
+                                                "<a class='button-text' id='show_search_customer' style='cursor:pointer;' >Search Customer</a>"+
+                                                "</div>"+
+                                                "</td>"+
+                                                "</tr>"+
+                                                "</tbody>"+
+                                                "</table>"+
+                                                "</div>"
+                                                );
+            $( "#layer_search_customer" ).append( "<form name='SearchCustomer' method='post' action='/commerce/buyside/crm_browse_dialog.jsp' id='templateSearchCustomer' >"+
                                             "<input type='hidden' name='from' value='1' >"+
                                             "<input type='hidden' name='version_id' value='"+version_id+"' >"+
                                             "<input type='hidden' name='document_id' value='"+document_id+"' >"+
@@ -1475,6 +1477,31 @@
                                             "<div id='loadingCustomer' style='width:10%;margin:0px auto;display:none;' >"+
                                             "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
                                             "</div>" );
+        
+        }else if(device == 'mobile'){
+            version_id = parseInt( $("#version_id").val() );
+            document_id = parseInt( $("#document_id").val() );
+            var originalCustomerBtn = $(".action-type-browse").parent();
+            var customCustomerBtn = "<div class='action-strip' >"+
+                                        "<button id='show_search_customer' class='action action-type-browse ui-btn ui-btn-inline ui-shadow ui-corner-all'>"+
+                                            "Search Customer"+
+                                        "</button>"+
+                                    "</div>";
+            $(customCustomerBtn).insertBefore( originalCustomerBtn );
+            $( originalCustomerBtn ).hide();
+            $( "#layer_search_customer" ).css("background-color","#0C727A");
+            $( "#layer_search_customer" ).append( 
+                                            "<div id='formSearchCustomer'  >"+
+                                                "<div id='headerSearchCustomer' style='background-color:#00575D;color:#fff;width:100%;height:60px;' >"+
+                                                "Search - Customer"+
+                                                "</div>"+
+                                            "</div>"+
+                                            "<div id='resultSearchCustomer'></div>"+
+                                            "<div id='loadingCustomer' style='width:10%;margin:0px auto;display:none;' >"+
+                                            "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
+                                            "</div>" 
+                                            );
+        }
         
         /*
             function get_detail for get detail of customer from page detail customer.
@@ -2757,31 +2784,62 @@
             File Location : $BASE_PATH$/image/javascript/js-ezrx.js
             Layout : Mobile
         */
+        console.log("Order Page Controller");
+        // var hasExecute = false;
 
-        var hasExecute = false;
-        $( document ).ajaxComplete(function(){
+        var $div         = $("html").addClass('ui-loading');
+        var hasExecute   = false;
+        var firstExecute = true;
+        var countChange = 1;
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === "class") {
+                    var attributeValue = $(mutation.target).prop(mutation.attributeName);
+                    countChange++;
+                    if( (attributeValue.search("ui-loading") != -1)||(countChange==4) )
+                    {
+                        hasExecute = true;
+                    }
+                    if( attributeValue.search("ui-loading") == -1 ){
+                        if(hasExecute){
+                            hasExecute = false;
+                            global_searchCustomer('mobile');
+                            $(".tab-link").each(function(i, data){
+                                if( $(data).hasClass("active") == true ){
+                                    var hrefData = $(data).attr("href");
+                                    if( hrefData == "#tab-draftOrder" ){
+                                        //draftOrder
+                                    }else if( hrefData == "#tab-customerSearch" ){
+                                        
+                                    }else if( hrefData == "#tab-pricing" ){
+                                        console.log("tab-pricing");
+                                        $("label[for='customerPORef_t']").css("color","red");
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        });    
+
+        observer.observe($div[0],  {
+            attributes: true
+        });
+
+        /*$( document ).ajaxComplete(function(){
             console.log("ajax complete")
             if(hasExecute == false){
                 hasExecute = true;
                 console.log("do each");
+                global_searchCustomer('mobile');
                 $(".tab-link").each(function(i, data){
                     if( $(data).hasClass("active") == true ){
                         var hrefData = $(data).attr("href");
                         if( hrefData == "#tab-draftOrder" ){
                             //draftOrder
                         }else if( hrefData == "#tab-customerSearch" ){
-                            var originalCustomerBtn = $(".action-type-browse").parent();
-                            var customCustomerBtn = "<div id='customButtonCustomer' class='action-strip' >"+
-                                                        "<button class='action action-type-browse ui-btn ui-btn-inline ui-shadow ui-corner-all'>"+
-                                                            "Search Customer"+
-                                                        "</button>"+
-                                                    "</div>";
-                            $(customCustomerBtn).insertBefore( originalCustomerBtn );
-                            $( originalCustomerBtn ).hide();
-                            $("#customButtonCustomer").on("click", function(e){
-                                e.preventDefault();
-                                console.log("show form");
-                            });
+                            
                         }else if( hrefData == "#tab-pricing" ){
                             console.log("tab-pricing");
                             $("label[for='customerPORef_t']").css("color","red");
@@ -2792,8 +2850,9 @@
         });
 
         $( document ).ajaxStart(function() {
+          console.log("Listen Ajax Start");
           hasExecute = false;
-        });
+        });*/
 
         /*
             End   : 5 Mei 2017 
