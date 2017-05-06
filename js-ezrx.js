@@ -1481,14 +1481,14 @@
         }else if(device == 'mobile'){
             version_id = parseInt( $("#version_id").val() );
             document_id = parseInt( $("#document_id").val() );
-            var originalCustomerBtn = $(".action-type-browse").parent();
+            /*var originalCustomerBtn = $(".action-type-browse").parent();
             var customCustomerBtn = "<div class='action-strip' >"+
                                         "<button id='show_search_customer' class='action action-type-browse ui-btn ui-btn-inline ui-shadow ui-corner-all'>"+
                                             "Search Customer"+
                                         "</button>"+
                                     "</div>";
             $(customCustomerBtn).insertBefore( originalCustomerBtn );
-            $( originalCustomerBtn ).hide();
+            $( originalCustomerBtn ).hide();*/
             $( "#layer_search_customer" ).css("background-color","#0C727A");
             $( "#layer_search_customer" ).append( 
                                             "<div id='formSearchCustomer'  >"+
@@ -2568,9 +2568,16 @@
                 }else{
                     // material page.
                     console.log("Material page");
+                    mobile_materialpage();
                 }
+            }
+            else if( filterPage.search( "config" ) != -1 ){
+                // material page.
+                console.log("Material page");
+                mobile_materialpage();
+            }
             /* if filterPage contains with copy_processing.jsp */
-            }else if( filterPage.search( "copy_processing.jsp" ) != -1 ){
+            else if( filterPage.search( "copy_processing.jsp" ) != -1 ){
                 //[copy] order
                 console.log("Copy Order order");
                 mobile_orderpage();
@@ -2786,6 +2793,7 @@
         */
         console.log("Order Page Controller");
         // var hasExecute = false;
+        //re-align struktur
 
         var $div         = $("html").addClass('ui-loading');
         var hasExecute   = false;
@@ -2801,9 +2809,12 @@
                         hasExecute = true;
                     }
                     if( attributeValue.search("ui-loading") == -1 ){
+                        $(".ui-controlgroup-controls").parent().css("width","100%");
+                        $(".ui-controlgroup-label").css("width","auto");
+                        $(".ui-controlgroup-label").next().css({"width":"auto", "margin-top":"5px"});
                         if(hasExecute){
                             hasExecute = false;
-                            global_searchCustomer('mobile');
+                            // global_searchCustomer('mobile');
                             $(".tab-link").each(function(i, data){
                                 if( $(data).hasClass("active") == true ){
                                     var hrefData = $(data).attr("href");
@@ -2858,6 +2869,66 @@
             End   : 5 Mei 2017 
             Task  : Create script for handle view on Order Page
             Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+        */
+    }
+
+    function mobile_materialpage(){
+        /*
+            End   : 6 Mei 2017 
+            Task  : Hide testing fields from the layout
+            Page  : Material page / product page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+        */
+        /* hide testing fields */
+        $("#attribute-applicableProducts").hide();
+        $("#attribute-materialResultsString").hide();
+        /* align all component on material page */
+        $(".ui-controlgroup-controls").parent().css("width","100%");
+        $(".ui-controlgroup-label").css("width","auto");
+        $(".ui-controlgroup-label").next().css({"width":"auto", "margin-top":"15px"});
+
+        /* align material search*/
+        setTimeout(function(){
+            $("#attribute-addMaterials").children('.ui-controlgroup').children().children('.ui-controlgroup-label').css("display","none", "important");
+            $("#attribute-addMaterials").children('.ui-controlgroup').children().children('.ui-controlgroup-controls').css("width","130px", "important");
+            $( $( $("#tab-content").children()[1] ).children('.ui-body-inherit').children()[0] ).css("padding-bottom","100px", "important");
+            $("<div id='form_controlsearchmaterial' ></div>").insertBefore("#attribute-addMaterials");
+            $("#form_controlsearchmaterial").css({"width":"400px", "min-height":"90px", "float":"right"});
+            $("#attribute-addMaterials").css({"padding":"0px","margin":"0px", "float":"left"});
+            $("#attribute-addMaterials").appendTo("#form_controlsearchmaterial");
+
+            if( $("#attribute-previous_res").hasClass("hidden") == false ){
+                $("#attribute-previous_res").hide();
+                $("#form_controlsearchmaterial").append("<div class='ui-controlgroup-controls ' style='width: 100px; float:left; margin-top: 15px;'>"+
+                                                            "<div class='html-attr form-field'>"+
+                                                                "<p><button id='cust_prevResult' class='ui-btn ui-shadow ui-corner-all ui-first-child ui-last-child'>Previous</button></p>"+
+                                                            "</div>"+
+                                                        "</div>");
+                $("#cust_prevResult").on("click", function(){
+                    $( $("#attribute-previous_res").children()[1] ).click();
+                });
+            }
+
+            if( $("#attribute-next_res").hasClass("hidden") == false ){
+                $("#attribute-next_res").hide();
+                $("#form_controlsearchmaterial").append("<div class='ui-controlgroup-controls ' style='width: 100px; float:left; margin-top: 15px;margin-left:30px;'>"+
+                                                            "<div class='html-attr form-field'>"+
+                                                                "<p><button id='cust_nextResult' class='ui-btn ui-shadow ui-corner-all ui-first-child ui-last-child'>Next</button></p>"+
+                                                            "</div>"+
+                                                        "</div>");
+                $("#cust_nextResult").on("click", function(){
+                    $( $("#attribute-next_res").children()[1] ).click();
+                });
+            }
+        }, 2000);
+
+        /*
+            End   : 6 Mei 2017 
+            Task  : Hide testing fields from the layout
+            Page  : Material page / product page
             File Location : $BASE_PATH$/image/javascript/js-ezrx.js
             Layout : Mobile
         */
