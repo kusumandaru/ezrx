@@ -49,6 +49,11 @@
 
             get full url split it to get subdomain, and generate url of assets.
         */
+        /* call abstract function jquery for checking the selector variable is exists */
+        $.fn.exists = function () {
+            return this.length !== 0;
+        }
+
         var fullUrl = window.location.host;
         var parts = fullUrl.split('.');
         var sub = parts[0];
@@ -1321,163 +1326,167 @@
         $("#layer_search_customer").css({ "position":"fixed", "top":"0", "right":"0", "bottom":"0", "left":"0", "z-index":"99999", "background":"white", "display":"none"});
         
         if(device == 'desktop'){
-            var searchCustomer = $("#search_customer").closest(".bm-actionstrip-horiz");
-            //remove last div 
-            searchCustomer.closest('.column.label-left').css({"width":"70%"});
-            searchCustomer.closest('.column.label-left').next().remove();
-            var tableSearchCustomer = $("#search_customer").closest("table");
-            var getBmOpenWindow = $( tableSearchCustomer ).attr("onclick");
-            /*
-                each value getBmOpenWindow value on click,
-                execute javascript function except bmOpenWindow & bmCancelBubble
-                if function is setDocFormIds then get document_id and action_id value
-                if function is bmOpenWindow then get version_id value
-            */
-            $(getBmOpenWindow.replace("javascript:","").split(";")).each(function(e, data){
-                if(!(/bmOpenWindow/i.test(data)) && !(/bmCancelBubble/i.test(data))){
-                  eval( data );
-                }
-                if( /setDocFormIds/i.test(data) ){
-                  var valueDocForm = data.replace("setDocFormIds(","");
-                  var valueDocForm = valueDocForm.replace(")","");
-                  var valueDocForm = valueDocForm.split(",");
-                  console.log(valueDocForm);
-                  document_id = parseInt(valueDocForm[0]);
-                  action_id = parseInt(valueDocForm[2]);
-                }
-                if( /bmOpenWindow/i.test(data) ){
-                  var urlData = data.split(',');
-                  urlData = urlData[0].replace("bmOpenWindow(").split("&");
-                  $(urlData).each(function(e, dataGet){
-                    if( /version_id/i.test(dataGet) ){
-                      version_id = parseInt( dataGet.replace("version_id=", "") );
+
+            if( $("#search_customer").exists() ){
+                var searchCustomer = $("#search_customer").closest(".bm-actionstrip-horiz");
+                //remove last div 
+                searchCustomer.closest('.column.label-left').css({"width":"70%"});
+                searchCustomer.closest('.column.label-left').next().remove();
+                var tableSearchCustomer = $("#search_customer").closest("table");
+                var getBmOpenWindow = $( tableSearchCustomer ).attr("onclick");
+                /*
+                    each value getBmOpenWindow value on click,
+                    execute javascript function except bmOpenWindow & bmCancelBubble
+                    if function is setDocFormIds then get document_id and action_id value
+                    if function is bmOpenWindow then get version_id value
+                */
+                $(getBmOpenWindow.replace("javascript:","").split(";")).each(function(e, data){
+                    if(!(/bmOpenWindow/i.test(data)) && !(/bmCancelBubble/i.test(data))){
+                      eval( data );
                     }
-                  });
-                }
-            });
-            var parentOfSearchCustomer = $( searchCustomer ).parent();
-            //hide searchCustomer 
-            $( searchCustomer ).hide();
-            //create element
-            $( parentOfSearchCustomer ).append( "<div class='bm-actionstrip-horiz' >"+
-                                                "<table>"+
+                    if( /setDocFormIds/i.test(data) ){
+                      var valueDocForm = data.replace("setDocFormIds(","");
+                      var valueDocForm = valueDocForm.replace(")","");
+                      var valueDocForm = valueDocForm.split(",");
+                      console.log(valueDocForm);
+                      document_id = parseInt(valueDocForm[0]);
+                      action_id = parseInt(valueDocForm[2]);
+                    }
+                    if( /bmOpenWindow/i.test(data) ){
+                      var urlData = data.split(',');
+                      urlData = urlData[0].replace("bmOpenWindow(").split("&");
+                      $(urlData).each(function(e, dataGet){
+                        if( /version_id/i.test(dataGet) ){
+                          version_id = parseInt( dataGet.replace("version_id=", "") );
+                        }
+                      });
+                    }
+                });
+                var parentOfSearchCustomer = $( searchCustomer ).parent();
+                //hide searchCustomer 
+                $( searchCustomer ).hide();
+                //create element
+                $( parentOfSearchCustomer ).append( "<div class='bm-actionstrip-horiz' >"+
+                                                    "<table>"+
+                                                    "<body>"+
+                                                    "<tr>"+
+                                                    "<td class='button-middle' >"+
+                                                    "<div style='margin: 0px 0px 1px;' >"+
+                                                    "<a class='button-text' id='show_search_customer' style='cursor:pointer;' >Search Customer</a>"+
+                                                    "</div>"+
+                                                    "</td>"+
+                                                    "</tr>"+
+                                                    "</tbody>"+
+                                                    "</table>"+
+                                                    "</div>"
+                                                    );
+                $( "#layer_search_customer" ).append( "<form name='SearchCustomer' method='post' action='/commerce/buyside/crm_browse_dialog.jsp' id='templateSearchCustomer' >"+
+                                                "<input type='hidden' name='from' value='1' >"+
+                                                "<input type='hidden' name='version_id' value='"+version_id+"' >"+
+                                                "<input type='hidden' name='document_id' value='"+document_id+"' >"+
+                                                "<input type='hidden' name='curpos' value='0' >"+
+                                                "<input type='hidden' name='next_cursor' >"+
+                                                "<input type='hidden' name='current_cursor' >"+
+                                                "<input type='hidden' name='prev_cursor' >"+
+                                                "<input type='hidden' name='order_dir' value='ASC' >"+
+                                                "<input type='hidden' name='order_by' >"+
+                                                "<input type='hidden' name='search' value='false' >"+
+                                                "<table id='form_search_customer' style='width:100%;border-spacing: 0px!important;' >"+
+                                                "<thead>"+
+                                                "<tr class='bgcolor-form' >"+
+                                                    "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Customer</td>"+
+                                                "</tr>"+
+                                                "</thead>"+
+                                                "<tbody style='background-color:#0C727A;' >"+
+                                                "<tr>"+
+                                                "<td>"+
+                                                "<table style='width:100%;margin-top:10px' >"+
+                                                "<tbody style='background-color:#0C727A;' >"+
+                                                "<tr>"+
+                                                "<td>"+
+                                                "<table style='margin-left:200px; border-spacing: 5px;' >"+
+                                                "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
+                                                  "<td class='form-label' style='color:#fff;' >"+
+                                                    "Company Name:"+
+                                                  "</td>"+
+                                                  "<td class='form-input'>"+
+                                                    "<input style='width:300px;border-radius: 5px;' type='text' name='_company_name~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
+                                                "</tr>"+
+                                                "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
+                                                  "<td class='form-label' style='color:#fff;' >"+
+                                                    "Customer Ship To Id:"+
+                                                  "</td>"+
+                                                  "<td class='form-input'>"+
+                                                    "<input style='width:300px;border-radius: 5px;' type='text' name='_customer_id~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
+                                                "</tr>"+
+                                                "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
+                                                  "<td class='form-label' style='color:#fff;' >"+
+                                                    "Customer Sold To Id:"+
+                                                  "</td>"+
+                                                  "<td class='form-input'>"+
+                                                    "<input style='width:300px;border-radius: 5px;' type='text' name='_Customer Sold To Id~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
+                                                "</tr>"+
+                                                "</table>"+
+                                                "</td>"+
+                                                "<td style='vertical-align:top;' >"+
+                                                "<table style='margin-right:200px; border-spacing: 5px;' >"+
+                                                "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
+                                                  "<td class='form-label' style='color:#fff;' >"+
+                                                    "Ship To Postal Code:"+
+                                                  "</td>"+
+                                                  "<td class='form-input' >"+
+                                                    "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Postal Code~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
+                                                "</tr>"+
+                                                "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
+                                                  "<td class='form-label' style='color:#fff;' >"+
+                                                    "Ship To Phone:"+
+                                                  "</td>"+
+                                                  "<td class='form-input'>"+
+                                                    "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Phone~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
+                                                "</tr>"+
+                                                "</table>"+
+                                                "</td>"+
+                                                "</tr>"+
+                                                "</tbody>"+
+                                                "</table>"+
+                                                "</td>"+
+                                                "</tr>"+
+                                                "</tbody>"+
+                                                "</table>"+
+                                                "<div style='background-color:#0C727A!important;width:100%;' >"+
+                                                "<div class='bm-actionstrip-horiz' style='padding:10px;margin:0px auto!important;width:240px;'  >"+
+                                                "<table style='margin-right: 15px!important;' >"+
                                                 "<body>"+
                                                 "<tr>"+
-                                                "<td class='button-middle' >"+
+                                                "<td class='button-middle' style='background-color: #B8CA41!important;background-image: none!important;border-radius:20px!important;width:90px;color:#0C727A!important;' >"+
                                                 "<div style='margin: 0px 0px 1px;' >"+
-                                                "<a class='button-text' id='show_search_customer' style='cursor:pointer;' >Search Customer</a>"+
+                                                "<a class='button-text' id='search' style='cursor:pointer;' >Search</a>"+
                                                 "</div>"+
                                                 "</td>"+
                                                 "</tr>"+
                                                 "</tbody>"+
                                                 "</table>"+
-                                                "</div>"
-                                                );
-            $( "#layer_search_customer" ).append( "<form name='SearchCustomer' method='post' action='/commerce/buyside/crm_browse_dialog.jsp' id='templateSearchCustomer' >"+
-                                            "<input type='hidden' name='from' value='1' >"+
-                                            "<input type='hidden' name='version_id' value='"+version_id+"' >"+
-                                            "<input type='hidden' name='document_id' value='"+document_id+"' >"+
-                                            "<input type='hidden' name='curpos' value='0' >"+
-                                            "<input type='hidden' name='next_cursor' >"+
-                                            "<input type='hidden' name='current_cursor' >"+
-                                            "<input type='hidden' name='prev_cursor' >"+
-                                            "<input type='hidden' name='order_dir' value='ASC' >"+
-                                            "<input type='hidden' name='order_by' >"+
-                                            "<input type='hidden' name='search' value='false' >"+
-                                            "<table id='form_search_customer' style='width:100%;border-spacing: 0px!important;' >"+
-                                            "<thead>"+
-                                            "<tr class='bgcolor-form' >"+
-                                                "<td class='view-header' colspan='5' style='text-align:center;padding:15px;background-color:#00575d;color:#fff;border-bottom: 0px!important;' >Search for Customer</td>"+
-                                            "</tr>"+
-                                            "</thead>"+
-                                            "<tbody style='background-color:#0C727A;' >"+
-                                            "<tr>"+
-                                            "<td>"+
-                                            "<table style='width:100%;margin-top:10px' >"+
-                                            "<tbody style='background-color:#0C727A;' >"+
-                                            "<tr>"+
-                                            "<td>"+
-                                            "<table style='margin-left:200px; border-spacing: 5px;' >"+
-                                            "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
-                                              "<td class='form-label' style='color:#fff;' >"+
-                                                "Company Name:"+
-                                              "</td>"+
-                                              "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_company_name~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
-                                            "</tr>"+
-                                            "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
-                                              "<td class='form-label' style='color:#fff;' >"+
-                                                "Customer Ship To Id:"+
-                                              "</td>"+
-                                              "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_customer_id~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
-                                            "</tr>"+
-                                            "<tr class='bgcolor-form' style='background-color:#0C727A;'> "+
-                                              "<td class='form-label' style='color:#fff;' >"+
-                                                "Customer Sold To Id:"+
-                                              "</td>"+
-                                              "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Customer Sold To Id~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
-                                            "</tr>"+
-                                            "</table>"+
-                                            "</td>"+
-                                            "<td style='vertical-align:top;' >"+
-                                            "<table style='margin-right:200px; border-spacing: 5px;' >"+
-                                            "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
-                                              "<td class='form-label' style='color:#fff;' >"+
-                                                "Ship To Postal Code:"+
-                                              "</td>"+
-                                              "<td class='form-input' >"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Postal Code~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
-                                            "</tr>"+
-                                            "<tr class='bgcolor-form' style='background-color:#0C727A;' > "+
-                                              "<td class='form-label' style='color:#fff;' >"+
-                                                "Ship To Phone:"+
-                                              "</td>"+
-                                              "<td class='form-input'>"+
-                                                "<input style='width:300px;border-radius: 5px;' type='text' name='_Ship To Phone~0' class='form-input customer-search' size='20' maxlength='128' value='' ></td>"+
-                                            "</tr>"+
-                                            "</table>"+
-                                            "</td>"+
-                                            "</tr>"+
-                                            "</tbody>"+
-                                            "</table>"+
-                                            "</td>"+
-                                            "</tr>"+
-                                            "</tbody>"+
-                                            "</table>"+
-                                            "<div style='background-color:#0C727A!important;width:100%;' >"+
-                                            "<div class='bm-actionstrip-horiz' style='padding:10px;margin:0px auto!important;width:240px;'  >"+
-                                            "<table style='margin-right: 15px!important;' >"+
-                                            "<body>"+
-                                            "<tr>"+
-                                            "<td class='button-middle' style='background-color: #B8CA41!important;background-image: none!important;border-radius:20px!important;width:90px;color:#0C727A!important;' >"+
-                                            "<div style='margin: 0px 0px 1px;' >"+
-                                            "<a class='button-text' id='search' style='cursor:pointer;' >Search</a>"+
-                                            "</div>"+
-                                            "</td>"+
-                                            "</tr>"+
-                                            "</tbody>"+
-                                            "</table>"+
-                                            "<table>"+
-                                            "<body>"+
-                                            "<tr>"+
-                                            "<td class='button-middle' style='background-color: #0C727A!important;background-image: none!important;border-radius: 20px!important;border: 1px solid #fff;width:90px;' >"+
-                                            "<div style='margin: 0px 0px 1px;' >"+
-                                            "<a class='button-text' id='close' style='cursor:pointer;color:#fff!important;' >Close</a>"+
-                                            "</div>"+
-                                            "</td>"+
-                                            "</tr>"+
-                                            "</tbody>"+
-                                            "</table>"+
-                                            "</div>"+
-                                            "</div>"+
-                                            "</form>"+
-                                            "<div id='resultSearchCustomer'></div>"+
-                                            "<div id='loadingCustomer' style='width:10%;margin:0px auto;display:none;' >"+
-                                            "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
-                                            "</div>" );
-        
+                                                "<table>"+
+                                                "<body>"+
+                                                "<tr>"+
+                                                "<td class='button-middle' style='background-color: #0C727A!important;background-image: none!important;border-radius: 20px!important;border: 1px solid #fff;width:90px;' >"+
+                                                "<div style='margin: 0px 0px 1px;' >"+
+                                                "<a class='button-text' id='close' style='cursor:pointer;color:#fff!important;' >Close</a>"+
+                                                "</div>"+
+                                                "</td>"+
+                                                "</tr>"+
+                                                "</tbody>"+
+                                                "</table>"+
+                                                "</div>"+
+                                                "</div>"+
+                                                "</form>"+
+                                                "<div id='resultSearchCustomer'></div>"+
+                                                "<div id='loadingCustomer' style='width:10%;margin:0px auto;display:none;' >"+
+                                                "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
+                                                "</div>" );
+            
+            }
+
         }else if(device == 'mobile'){
             version_id = parseInt( $("#version_id").val() );
             document_id = parseInt( $("#document_id").val() );
@@ -1489,18 +1498,53 @@
                                     "</div>";
             $(customCustomerBtn).insertBefore( originalCustomerBtn );
             $( originalCustomerBtn ).hide();*/
-            $( "#layer_search_customer" ).css("background-color","#0C727A");
-            $( "#layer_search_customer" ).append( 
-                                            "<div id='formSearchCustomer'  >"+
-                                                "<div id='headerSearchCustomer' style='background-color:#00575D;color:#fff;width:100%;height:60px;' >"+
-                                                "Search - Customer"+
+            if( $("#layer_search_customer").children().length == 0 ){
+                $( "#layer_search_customer" ).css("background-color","#0C727A");
+                $( "#layer_search_customer" ).append( 
+                                                "<div id='formSearchCustomer'  >"+
+                                                    "<div id='headerSearchCustomer' style='background-color:#00575D;color:#fff;width:100%;height:25px;font-size:15px;text-align:center;padding-top:5px;' >"+
+                                                    "Search - Customer"+
+                                                    "</div>"+
                                                 "</div>"+
-                                            "</div>"+
-                                            "<div id='resultSearchCustomer'></div>"+
-                                            "<div id='loadingCustomer' style='width:10%;margin:0px auto;display:none;' >"+
-                                            "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
-                                            "</div>" 
-                                            );
+                                                "<div id='body_form_cust' >"+
+                                                "<p style='color:#AFC008;margin:0px 0px 0px 20px;' >Search For Customers</p><hr style='width:96%;' />"+
+                                                "<div id='form_search_customer' style='height: 51px;overflow: scroll;padding: 0px 0px 0px 10px;' >"+
+                                                "<form name='SearchCustomer' style='width:6000px;' >"+
+                                                "<input type='hidden' name='from' value='1' >"+
+                                                "<input type='hidden' name='version_id' value='"+version_id+"' >"+
+                                                "<input type='hidden' name='document_id' value='"+document_id+"' >"+
+                                                "<input type='hidden' name='curpos' value='0' >"+
+                                                "<input type='hidden' name='next_cursor' >"+
+                                                "<input type='hidden' name='current_cursor' >"+
+                                                "<input type='hidden' name='prev_cursor' >"+
+                                                "<input type='hidden' name='order_dir' value='ASC' >"+
+                                                "<input type='hidden' name='order_by' >"+
+                                                "<input type='hidden' name='search' value='false' >"+
+                                                "<input class='form-search-cust' placeholder='Customer Name' />"+
+                                                "<input class='form-search-cust' placeholder='Customer Ship To Id' />"+
+                                                "<input class='form-search-cust' placeholder='Customer Sold To Id' />"+
+                                                "<input class='form-search-cust' placeholder='Address Line 1' />"+
+                                                "<input class='form-search-cust' placeholder='Address Line 2' />"+
+                                                "<input class='form-search-cust' placeholder='Address Line 3' />"+
+                                                "<input class='form-search-cust' placeholder='Address Line 4' />"+
+                                                "<input class='form-search-cust' placeholder='Postal Code' />"+
+                                                "<input class='form-search-cust' placeholder='Phone' />"+
+                                                "</form>"+
+                                                "</div>"+
+                                                "<div style='width:100%;margin-left:20px;margin-top:5px;' >"+
+                                                "<button id='prev_mobile' style='float:left;width:90px;padding:5px;' >Previous</button>"+
+                                                "<button id='search' style='float:none;margin-left:280px;width:90px;padding:5px;' >Search</button>"+
+                                                "<button id='close' style='margin-left:50px;width:90px;padding:5px;' >Close</button>"+
+                                                "<button id='next_mobile' style='float:right;width:90px;padding:5px;margin-right:30px;' >Next</button>"+
+                                                "</div>"+
+                                                "</div>"+
+                                                "<div id='resultSearchCustomer' style='overflow:scroll;height:370px;' ></div>"+
+                                                "<div id='loadingCustomer' style='width:10%;margin:0px auto;display:none;' >"+
+                                                "<img src='"+rootFolder+"/image/images/loading-icon.gif' >"+
+                                                "</div>" 
+                                                );
+            }
+
         }
         
         /*
@@ -1662,6 +1706,8 @@
 
         /* this function to set variable on SearchCustomer and call function submit */
         function doSearch(){
+          $("#prev_mobile").hide();
+          $("#next_mobile").hide();
           document.SearchCustomer.search.value = true;
           document.SearchCustomer.curpos.value=0;
           submit('SearchCustomer');
@@ -1706,7 +1752,7 @@
         } 
 
         /* listen if form customer search has pressed enter by user then call function doSearch */
-        $(".customer-search").keyup(function(e){
+        $(".customer-search, .form-search-cust").keyup(function(e){
             if(e.keyCode == 13){
                 $("#form_search_customer").slideUp();
                 doSearch();
@@ -1729,12 +1775,17 @@
         $("#show_search_customer").on("click", function(){
             $("#layer_search_customer").show();
             $("body").css({"overflow":"hidden"});
+            if( device == 'mobile' ){
+                $("#form_search_customer :first").focus();
+            }
         });
 
         /* this function give animation for form search customer slideDown for showing form, and slideup for hide form and call function doSearch */
         $("#search").on("click", function(){
             if( $("#form_search_customer").css("display") == "none" ){
                 $("#form_search_customer").slideDown();
+                $("#prev_mobile").show();
+                $("#next_mobile").show();
             }else{
                 $("#form_search_customer").slideUp();
                 doSearch();
@@ -1762,6 +1813,9 @@
             if( /formaction=create/i.test(window.location.href.split("?")[1]) ){
                 $("#layer_search_customer").show();
                 $("body").css({"overflow":"hidden"});
+                if( device == 'mobile' ){
+                    $("#form_search_customer :first").focus();
+                }
             }
         }
 
@@ -1772,6 +1826,51 @@
             File Location : $BASE_PATH$/image/javascript/js-ezrx.js
             Layout : Desktop  
         */
+
+        /*  Start   : 14 May 2017
+            Task  : Search customer on mobile page
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+         */
+
+         /* this function for moving next elemet focus input on mobile device */
+         var current_position = 0;
+         $("#next_mobile").on("click", function(){
+            current_position += 1;
+            console.log( current_position );
+            $($("#form_search_customer").parent()).animate({
+             scrollLeft: current_position*640
+            }, 500);
+            $( $("#form_search_customer").children()[ current_position ] ).focus();
+         });
+
+         /* this function for moving previous elemet focus input on mobile device */
+         $("#prev_mobile").on("click", function(){
+            if( current_position >= 0 ){
+                current_position -= 1;
+            }
+            console.log( current_position );
+            $($("#form_search_customer").parent()).animate({
+             scrollLeft: current_position*640
+            }, 500);
+            $( $("#form_search_customer").children()[ current_position ] ).focus();
+         });
+         //if user click input
+         $(".form-search-cust").on("click", function(){
+            current_position = $(this).index();
+            $($("#form_search_customer").parent()).animate({
+             scrollLeft: current_position*640
+            }, 500);
+         });
+
+         /* End   : 14 May 2017
+            Task  : Search customer on mobile page
+            Page  : Order Page
+            File Location : $BASE_PATH$/image/javascript/js-ezrx.js
+            Layout : Mobile
+         */
+
     }
 
     function transform_modelconfig() {
@@ -2523,10 +2622,11 @@
             
             if pagetile not null call default function
         */
+
+        $('html').addClass('jg-mobilelayout');
         if(pagetitle != ''){
             
             /* add class jg-mobilelayout */
-            $('html').addClass('jg-mobilelayout');
             if (pagetitle == 'login') {
                 /* if pagetitle login then call function mobile_loginpage */
                 mobile_loginpage();
@@ -2550,11 +2650,6 @@
 
         }else{
             /* if oagetitle is null call custom filter from URL */
-            /* call abstract function jquery for checking the selector variable is exists */
-            $.fn.exists = function () {
-                return this.length !== 0;
-            }
-
             /* create filterPage get last string of URL */
             var filterPage = urlarr[ urlarr.length-1 ];
             /* if filterPage contains with commerce */
@@ -2810,11 +2905,16 @@
                     }
                     if( attributeValue.search("ui-loading") == -1 ){
                         $(".ui-controlgroup-controls").parent().css("width","100%");
-                        $(".ui-controlgroup-label").css("width","auto");
+                        $(".ui-controlgroup-label").css("width","17%");
                         $(".ui-controlgroup-label").next().css({"width":"auto", "margin-top":"5px"});
+                        $("label[for='orderType_t']").css({ "padding-left":"15px", "width":"19%" });
+                        $("label[for='orderType_t']").next().css("width","75%");
                         if(hasExecute){
                             hasExecute = false;
-                            // global_searchCustomer('mobile');
+                            if( $("#swipe-sidebar").hasClass("sidebar-state-1") == false ){
+                                global_searchCustomer('mobile');
+                            }
+
                             $(".tab-link").each(function(i, data){
                                 if( $(data).hasClass("active") == true ){
                                     var hrefData = $(data).attr("href");
@@ -2883,6 +2983,9 @@
             Layout : Mobile
         */
         /* hide testing fields */
+        $("#attribute-firstLoad").hide();
+        $("#attribute-typeHeadScriptTagHolder").hide();
+        $("#attribute-masterString").hide();
         $("#attribute-applicableProducts").hide();
         $("#attribute-materialResultsString").hide();
         /* align all component on material page */
@@ -2951,13 +3054,15 @@
                 if it is null then button helper is -
                 then replace html with button helper
             */
-            var valueOfBonus = $(this).text();
-            if ($(this).text().trim() != '') {
+            var valueOfBonus = $( $(this).children().children() ).val();
+            if ( valueOfBonus != '') {
                 button_helper = '<i class="material-lens" aria-hidden="true" ></i>';
             } else {
                 button_helper = '-';
             }
-            $(this).children('.attribute-field-container').children('span').html(button_helper);
+            // $(this).children('.attribute-field-container').children('span').html(button_helper);
+            $( $(this).children().children() ).hide();
+            $( $(this).children().children() ).parent().append( button_helper );
             return valueOfBonus;
         }).mouseenter(function() {
             /* Start : 17 March 2017 */
@@ -3019,18 +3124,20 @@
         /* prepare tooltip for cell-promotion */
         $('td.cell-promotion').attr('tooltip', function() {
             var button_helper;
-            var valueOfPromotion = $(this).text();
+            var valueOfPromotion = $( $(this).children().children() ).val();
             /* get the text of value of promotion
                 if value is not null then button helper is lens icon
                 if it is null then button helper is -
                 then replace html with button helper
             */
-            if ($(this).text().trim() != '') {
+            if ( valueOfPromotion != '') {
                 button_helper = '<i class="material-lens" aria-hidden="true" ></i>';
             } else {
                 button_helper = '-';
             }
-            $(this).children('.attribute-field-container').children('span').html(button_helper);
+            // $(this).children('.attribute-field-container').children('span').html(button_helper);
+            $( $(this).children().children() ).hide();
+            $( $(this).children().children() ).parent().append( button_helper );
             return valueOfPromotion;
         }).mouseenter(function() {
             /*

@@ -356,6 +356,87 @@ tfoot .jg-btn { margin:10px; }
 	padding: 0px;
 }
 
+/* Order Page & Material Page */
+.jg-mobilelayout .ui-bar-a {
+	background-color: #00667D;
+}
+
+.jg-mobilelayout #header .ui-btn-left {
+	background-color: #006D86 !important;
+	padding-left: 9px;
+}
+
+.jg-mobilelayout #header .ui-btn-left span {
+	background-image:url('../images/lsm_home_icon.png');
+}
+
+.jg-mobilelayout #tabs .tab-link.active {
+	border-bottom: none !important;
+	background-color: #00575D !important;
+}
+
+.jg-mobilelayout #tabs a {
+	background-color: #00667D !important;
+	color: #fff !important;
+}
+
+/* button */
+.jg-mobilelayout .action-strip button.ui-btn {
+	background-color: #0C727A !important;
+	background-image: none!important;
+}
+
+.jg-mobilelayout #goto-next-tab {
+	background-color: #0C727A !important;
+	background-image: none!important;
+}
+
+.jg-mobilelayout #config button.ui-btn{
+	background-color: #0C727A !important;
+	background-image: none!important;
+}
+
+.jg-mobilelayout footer.ui-footer .ui-btn {
+	background-color: #0C727A !important;
+	background-image: none!important;
+    color: #fff;
+}
+
+.jg-mobilelayout .sidebar-container .sidebar-handle {
+	border-right: 40px solid #0C727A!important;
+}
+
+/* swipe-sidebar */
+.jg-mobilelayout .sidebar-container #swipe-sidebar-header {
+	background-color: #AFC008;
+    padding: 0.5em;
+    margin: 0px!important;
+}
+
+.jg-mobilelayout .line-item-grid th {
+	background-color: #0C727A !important;
+	border-left: none;
+	color: #fff;
+}
+
+.jg-mobilelayout .lig-group-headers {
+	display: none;
+}
+
+.jg-mobilelayout .line-item-grid .lig-select .ui-checkbox {
+	margin: 0px!important;
+}
+
+/* searching form styling */
+
+.jg-mobilelayout .form-search-cust{
+	height: 30px;
+    padding: 5px;
+    width: 600px;
+    margin: 12px;
+}
+
+/*
 .jg-mobilelayout .ui-bar-b, .jg-mobilelayout .ui-page-theme-b .ui-bar-inherit, html.jg-mobilelayout .ui-bar-b .ui-bar-inherit, html.jg-mobilelayout .ui-body-b .ui-bar-inherit, html.jg-mobilelayout body .ui-group-theme-b .ui-bar-inherit { background:#eee; border:0; }
 .jg-mobilelayout #tabs .tab-link.active, .jg-mobilelayout #tabs .all-tabs.active,
 .jg-mobilelayout .ui-page-theme-b .ui-btn, html.jg-mobilelayout .ui-bar-b .ui-btn, html.jg-mobilelayout .ui-body-b .ui-btn, html.jg-mobilelayout body .ui-group-theme-b .ui-btn, html.jg-mobilelayout head+body .ui-btn.ui-btn-b, .jg-mobilelayout .ui-page-theme-b .ui-btn:visited, html.jg-mobilelayout .ui-bar-b .ui-btn:visited, html.jg-mobilelayout .ui-body-b .ui-btn:visited, html.jg-mobilelayout body .ui-group-theme-b .ui-btn:visited, html.jg-mobilelayout head+body .ui-btn.ui-btn-b:visited,
@@ -390,7 +471,7 @@ tfoot .jg-btn { margin:10px; }
 .jg-box-table table th { color:#fff; background:#B8CA42; }
 
 .jg-mobilelayout .jg-box-workflow { padding:50px 25px 40px; background:#fff; text-align:center; }
-.jg-mobilelayout .jg-box-workflow img { width:80%; margin:0 auto; }
+.jg-mobilelayout .jg-box-workflow img { width:80%; margin:0 auto; }*/
 
 /* Header Table Material */
 .config-array th.array-attribute {
