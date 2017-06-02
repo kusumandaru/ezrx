@@ -2906,13 +2906,13 @@
                     if( attributeValue.search("ui-loading") == -1 ){
                         $(".ui-controlgroup-controls").parent().css("width","100%");
                         $(".ui-controlgroup-label").css("width","17%");
-                        $(".ui-controlgroup-label").next().css({"width":"auto", "margin-top":"5px"});
+                        $(".ui-controlgroup-label").next().css({"width":"auto", "margin-top":"0px"});
                         $("label[for='orderType_t']").css({ "padding-left":"15px", "width":"19%" });
                         $("label[for='orderType_t']").next().css("width","75%");
                         if(hasExecute){
                             hasExecute = false;
                             if( $("#swipe-sidebar").hasClass("sidebar-state-1") == false ){
-                                global_searchCustomer('mobile');
+                                // global_searchCustomer('mobile');
                                 // $("#tab-customerSearch").children("a").click();
                                 // $("button.action.action-type-browse").click();
                                 
@@ -2991,16 +2991,16 @@
         $("#attribute-masterString").hide();
         $("#attribute-applicableProducts").hide();
         $("#attribute-materialResultsString").hide();
-        /* align all component on material page */
-        $(".ui-controlgroup-controls").parent().css("width","100%");
-        $(".ui-controlgroup-label").css("width","auto");
-        $(".ui-controlgroup-label").next().css({"width":"auto", "margin-top":"15px"});
 
-        /* align material search*/
         setTimeout(function(){
+            /* align all component on material page */
+            $(".ui-controlgroup-controls").parent().css("width","100%");
+            $(".ui-controlgroup-label").css("width","auto");
+            $(".ui-controlgroup-label").next().css({"width":"auto", "margin-top":"9px"});
+            /* align material search*/
             $("#attribute-addMaterials").children('.ui-controlgroup').children().children('.ui-controlgroup-label').css("display","none", "important");
             $("#attribute-addMaterials").children('.ui-controlgroup').children().children('.ui-controlgroup-controls').css("width","130px", "important");
-            $( $( $("#tab-content").children()[1] ).children('.ui-body-inherit').children()[0] ).css("padding-bottom","100px", "important");
+            $( $( $("#tab-content").children()[1] ).children('.ui-body-inherit').children()[0] ).parent().css("padding-bottom","100px", "important");
             $("<div id='form_controlsearchmaterial' ></div>").insertBefore("#attribute-addMaterials");
             $("#form_controlsearchmaterial").css({"width":"400px", "min-height":"90px", "float":"right"});
             $("#attribute-addMaterials").css({"padding":"0px","margin":"0px", "float":"left"});
